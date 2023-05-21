@@ -35,10 +35,10 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvMarca = new System.Windows.Forms.DataGridView();
-            this.txtMarca = new System.Windows.Forms.TextBox();
-            this.lblMarca = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtMarca = new System.Windows.Forms.TextBox();
+            this.lblMarca = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarca)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,7 +59,6 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Visible = false;
             // 
             // btnGuardar
             // 
@@ -77,7 +76,6 @@
             this.btnGuardar.Text = "Guardar";
             this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Visible = false;
             // 
             // btnEliminar
             // 
@@ -144,25 +142,6 @@
             this.dgvMarca.Size = new System.Drawing.Size(216, 161);
             this.dgvMarca.TabIndex = 20;
             // 
-            // txtMarca
-            // 
-            this.txtMarca.Location = new System.Drawing.Point(83, 10);
-            this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(139, 20);
-            this.txtMarca.TabIndex = 19;
-            this.txtMarca.Visible = false;
-            // 
-            // lblMarca
-            // 
-            this.lblMarca.AutoSize = true;
-            this.lblMarca.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMarca.Location = new System.Drawing.Point(12, 9);
-            this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(65, 18);
-            this.lblMarca.TabIndex = 18;
-            this.lblMarca.Text = "Marca: ";
-            this.lblMarca.Visible = false;
-            // 
             // ID
             // 
             this.ID.HeaderText = "ID";
@@ -173,6 +152,23 @@
             // 
             this.Marca.HeaderText = "Marca";
             this.Marca.Name = "Marca";
+            // 
+            // txtMarca
+            // 
+            this.txtMarca.Location = new System.Drawing.Point(83, 10);
+            this.txtMarca.Name = "txtMarca";
+            this.txtMarca.Size = new System.Drawing.Size(139, 20);
+            this.txtMarca.TabIndex = 19;
+            // 
+            // lblMarca
+            // 
+            this.lblMarca.AutoSize = true;
+            this.lblMarca.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMarca.Location = new System.Drawing.Point(12, 9);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(65, 18);
+            this.lblMarca.TabIndex = 18;
+            this.lblMarca.Text = "Marca: ";
             // 
             // FrmMarca
             // 

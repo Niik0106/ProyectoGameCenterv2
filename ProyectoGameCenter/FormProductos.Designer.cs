@@ -30,15 +30,15 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductos));
             this.dgv_Productos = new System.Windows.Forms.DataGridView();
-            this.btnNuevo = new System.Windows.Forms.Button();
-            this.btnEditar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CATEGORIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DESCRIPCION = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PRECIO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.STOCK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnEditar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblCat = new System.Windows.Forms.Label();
             this.cboCategoria = new System.Windows.Forms.ComboBox();
             this.lblDescrip = new System.Windows.Forms.Label();
@@ -67,6 +67,34 @@
             this.dgv_Productos.Name = "dgv_Productos";
             this.dgv_Productos.Size = new System.Drawing.Size(517, 198);
             this.dgv_Productos.TabIndex = 0;
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.Width = 60;
+            // 
+            // CATEGORIA
+            // 
+            this.CATEGORIA.HeaderText = "CATEGORIA";
+            this.CATEGORIA.Name = "CATEGORIA";
+            // 
+            // DESCRIPCION
+            // 
+            this.DESCRIPCION.HeaderText = "DESCRIPCION";
+            this.DESCRIPCION.Name = "DESCRIPCION";
+            this.DESCRIPCION.Width = 150;
+            // 
+            // PRECIO
+            // 
+            this.PRECIO.HeaderText = "PRECIO";
+            this.PRECIO.Name = "PRECIO";
+            // 
+            // STOCK
+            // 
+            this.STOCK.HeaderText = "STOCK";
+            this.STOCK.Name = "STOCK";
+            this.STOCK.Width = 60;
             // 
             // btnNuevo
             // 
@@ -133,34 +161,6 @@
             this.label1.Size = new System.Drawing.Size(140, 18);
             this.label1.TabIndex = 4;
             this.label1.Text = "Lista De Productos";
-            // 
-            // ID
-            // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.Width = 60;
-            // 
-            // CATEGORIA
-            // 
-            this.CATEGORIA.HeaderText = "CATEGORIA";
-            this.CATEGORIA.Name = "CATEGORIA";
-            // 
-            // DESCRIPCION
-            // 
-            this.DESCRIPCION.HeaderText = "DESCRIPCION";
-            this.DESCRIPCION.Name = "DESCRIPCION";
-            this.DESCRIPCION.Width = 150;
-            // 
-            // PRECIO
-            // 
-            this.PRECIO.HeaderText = "PRECIO";
-            this.PRECIO.Name = "PRECIO";
-            // 
-            // STOCK
-            // 
-            this.STOCK.HeaderText = "STOCK";
-            this.STOCK.Name = "STOCK";
-            this.STOCK.Width = 60;
             // 
             // lblCat
             // 
@@ -282,10 +282,10 @@
             // 
             this.imgProd.BackColor = System.Drawing.Color.Transparent;
             this.imgProd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgProd.BackgroundImage")));
-            this.imgProd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.imgProd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.imgProd.Location = new System.Drawing.Point(51, 284);
             this.imgProd.Name = "imgProd";
-            this.imgProd.Size = new System.Drawing.Size(130, 131);
+            this.imgProd.Size = new System.Drawing.Size(145, 134);
             this.imgProd.TabIndex = 16;
             this.imgProd.TabStop = false;
             this.imgProd.Visible = false;
