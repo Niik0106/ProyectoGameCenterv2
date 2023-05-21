@@ -17,5 +17,29 @@ namespace ProyectoGameCenter
         {
             InitializeComponent();
         }
+        private void MostrarBtn()
+        {
+            btnGuardar.Visible = true; btnCancelar.Visible = true;
+        }
+
+        private void OcultarBtn()
+        {
+            btnGuardar.Visible = false; btnCancelar.Visible = false;
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            MostrarBtn();
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            MostrarBtn();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            OcultarBtn();
+        }
     }
 }
