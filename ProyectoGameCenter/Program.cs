@@ -15,9 +15,13 @@ namespace ProyectoGameCenter
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 <<<<<<< HEAD
+<<<<<<< HEAD
             Application.Run(new FormProductos());
 =======
             Application.Run(new FrmLogin());
+=======
+            Application.Run(new FrmMenu());
+>>>>>>> master
             
 >>>>>>> master
         }
