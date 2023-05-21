@@ -49,6 +49,12 @@
     <Compile Include="Botones\Boton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FrmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCliente.Designer.cs">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCliente.resx">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
