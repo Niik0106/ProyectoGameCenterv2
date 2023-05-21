@@ -15,7 +15,6 @@ namespace ProyectoGameCenter.Principal
         public FrmLogin()
         {
             InitializeComponent();
-            lblLogin.ForeColor = Color.FromArgb(208, 40, 163);
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
