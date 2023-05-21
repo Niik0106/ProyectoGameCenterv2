@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCategoria));
             this.txtCategoria = new System.Windows.Forms.TextBox();
             this.lblCateg = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvCategoria = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnEliminar = new System.Windows.Forms.Button();
@@ -39,7 +39,7 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
             this.SuspendLayout();
             // 
             // txtCategoria
@@ -61,16 +61,16 @@
             this.lblCateg.Text = "Categoria: ";
             this.lblCateg.Visible = false;
             // 
-            // dataGridView1
+            // dgvCategoria
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategoria.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
             this.Categoria});
-            this.dataGridView1.Location = new System.Drawing.Point(15, 45);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(224, 161);
-            this.dataGridView1.TabIndex = 12;
+            this.dgvCategoria.Location = new System.Drawing.Point(15, 45);
+            this.dgvCategoria.Name = "dgvCategoria";
+            this.dgvCategoria.Size = new System.Drawing.Size(224, 161);
+            this.dgvCategoria.TabIndex = 12;
             // 
             // ID
             // 
@@ -179,18 +179,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(396, 255);
+            this.ClientSize = new System.Drawing.Size(396, 239);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dgvCategoria);
             this.Controls.Add(this.txtCategoria);
             this.Controls.Add(this.lblCateg);
             this.Name = "FrmCategoria";
             this.Text = "FrmCategoria";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -200,7 +200,7 @@
 
         private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.Label lblCateg;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn Categoria;
         private System.Windows.Forms.Button btnEliminar;
