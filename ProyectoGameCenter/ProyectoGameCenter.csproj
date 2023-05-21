@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="FormProductos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +64,10 @@
     </Compile>
     <Compile Include="FrmMarca.Designer.cs">
       <DependentUpon>FrmMarca.cs</DependentUpon>
+=======
+    <Compile Include="Botones\Boton.cs">
+      <SubType>Component</SubType>
+>>>>>>> master
     </Compile>
     <Compile Include="Principal\FrmLogin.cs">
       <SubType>Form</SubType>
@@ -92,6 +97,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -118,6 +124,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Formularios\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

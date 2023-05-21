@@ -14,7 +14,12 @@ namespace ProyectoGameCenter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
             Application.Run(new FormProductos());
+=======
+            Application.Run(new FrmLogin());
+            
+>>>>>>> master
         }
     }
 }
