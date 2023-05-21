@@ -30,6 +30,7 @@ namespace ProyectoGameCenter
             txtStock.Visible = true;
             btnGuardar.Visible = true;
             btnCancelar.Visible = true;
+            lblMarca.Visible = true:
         }
         private void OcultarCampos()
         {

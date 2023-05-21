@@ -50,6 +50,8 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.imgProd = new System.Windows.Forms.PictureBox();
+            this.cboMarca = new System.Windows.Forms.ComboBox();
+            this.lblMarca = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Productos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgProd)).BeginInit();
             this.SuspendLayout();
@@ -65,34 +67,42 @@
             this.STOCK});
             this.dgv_Productos.Location = new System.Drawing.Point(16, 33);
             this.dgv_Productos.Name = "dgv_Productos";
+            this.dgv_Productos.RowHeadersWidth = 51;
             this.dgv_Productos.Size = new System.Drawing.Size(517, 198);
             this.dgv_Productos.TabIndex = 0;
             // 
             // ID
             // 
             this.ID.HeaderText = "ID";
+            this.ID.MinimumWidth = 6;
             this.ID.Name = "ID";
             this.ID.Width = 60;
             // 
             // CATEGORIA
             // 
             this.CATEGORIA.HeaderText = "CATEGORIA";
+            this.CATEGORIA.MinimumWidth = 6;
             this.CATEGORIA.Name = "CATEGORIA";
+            this.CATEGORIA.Width = 125;
             // 
             // DESCRIPCION
             // 
             this.DESCRIPCION.HeaderText = "DESCRIPCION";
+            this.DESCRIPCION.MinimumWidth = 6;
             this.DESCRIPCION.Name = "DESCRIPCION";
             this.DESCRIPCION.Width = 150;
             // 
             // PRECIO
             // 
             this.PRECIO.HeaderText = "PRECIO";
+            this.PRECIO.MinimumWidth = 6;
             this.PRECIO.Name = "PRECIO";
+            this.PRECIO.Width = 125;
             // 
             // STOCK
             // 
             this.STOCK.HeaderText = "STOCK";
+            this.STOCK.MinimumWidth = 6;
             this.STOCK.Name = "STOCK";
             this.STOCK.Width = 60;
             // 
@@ -158,7 +168,7 @@
             this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(13, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 18);
+            this.label1.Size = new System.Drawing.Size(176, 23);
             this.label1.TabIndex = 4;
             this.label1.Text = "Lista De Productos";
             // 
@@ -166,9 +176,9 @@
             // 
             this.lblCat.AutoSize = true;
             this.lblCat.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCat.Location = new System.Drawing.Point(202, 284);
+            this.lblCat.Location = new System.Drawing.Point(195, 255);
             this.lblCat.Name = "lblCat";
-            this.lblCat.Size = new System.Drawing.Size(91, 18);
+            this.lblCat.Size = new System.Drawing.Size(115, 23);
             this.lblCat.TabIndex = 6;
             this.lblCat.Text = "Categoria: ";
             this.lblCat.Visible = false;
@@ -176,7 +186,7 @@
             // cboCategoria
             // 
             this.cboCategoria.FormattingEnabled = true;
-            this.cboCategoria.Location = new System.Drawing.Point(313, 285);
+            this.cboCategoria.Location = new System.Drawing.Point(306, 256);
             this.cboCategoria.Name = "cboCategoria";
             this.cboCategoria.Size = new System.Drawing.Size(139, 21);
             this.cboCategoria.TabIndex = 7;
@@ -186,16 +196,16 @@
             // 
             this.lblDescrip.AutoSize = true;
             this.lblDescrip.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDescrip.Location = new System.Drawing.Point(202, 322);
+            this.lblDescrip.Location = new System.Drawing.Point(195, 330);
             this.lblDescrip.Name = "lblDescrip";
-            this.lblDescrip.Size = new System.Drawing.Size(105, 18);
+            this.lblDescrip.Size = new System.Drawing.Size(129, 23);
             this.lblDescrip.TabIndex = 8;
             this.lblDescrip.Text = "Descripcion: ";
             this.lblDescrip.Visible = false;
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.Location = new System.Drawing.Point(313, 323);
+            this.txtDescripcion.Location = new System.Drawing.Point(306, 331);
             this.txtDescripcion.Name = "txtDescripcion";
             this.txtDescripcion.Size = new System.Drawing.Size(139, 20);
             this.txtDescripcion.TabIndex = 9;
@@ -203,7 +213,7 @@
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(313, 362);
+            this.txtPrecio.Location = new System.Drawing.Point(306, 370);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.Size = new System.Drawing.Size(139, 20);
             this.txtPrecio.TabIndex = 11;
@@ -213,9 +223,9 @@
             // 
             this.lblPrecio.AutoSize = true;
             this.lblPrecio.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPrecio.Location = new System.Drawing.Point(202, 362);
+            this.lblPrecio.Location = new System.Drawing.Point(195, 370);
             this.lblPrecio.Name = "lblPrecio";
-            this.lblPrecio.Size = new System.Drawing.Size(63, 18);
+            this.lblPrecio.Size = new System.Drawing.Size(78, 23);
             this.lblPrecio.TabIndex = 10;
             this.lblPrecio.Text = "Precio: ";
             this.lblPrecio.Visible = false;
@@ -223,7 +233,7 @@
             // 
             // txtStock
             // 
-            this.txtStock.Location = new System.Drawing.Point(313, 401);
+            this.txtStock.Location = new System.Drawing.Point(306, 409);
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(139, 20);
             this.txtStock.TabIndex = 13;
@@ -233,9 +243,9 @@
             // 
             this.lblStock.AutoSize = true;
             this.lblStock.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStock.Location = new System.Drawing.Point(202, 400);
+            this.lblStock.Location = new System.Drawing.Point(195, 408);
             this.lblStock.Name = "lblStock";
-            this.lblStock.Size = new System.Drawing.Size(57, 18);
+            this.lblStock.Size = new System.Drawing.Size(71, 23);
             this.lblStock.TabIndex = 12;
             this.lblStock.Text = "Stock: ";
             this.lblStock.Visible = false;
@@ -249,7 +259,7 @@
             this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Image = ((System.Drawing.Image)(resources.GetObject("btnGuardar.Image")));
-            this.btnGuardar.Location = new System.Drawing.Point(491, 294);
+            this.btnGuardar.Location = new System.Drawing.Point(484, 265);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(106, 34);
             this.btnGuardar.TabIndex = 14;
@@ -268,7 +278,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(491, 346);
+            this.btnCancelar.Location = new System.Drawing.Point(484, 317);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(106, 36);
             this.btnCancelar.TabIndex = 15;
@@ -283,12 +293,32 @@
             this.imgProd.BackColor = System.Drawing.Color.Transparent;
             this.imgProd.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("imgProd.BackgroundImage")));
             this.imgProd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.imgProd.Location = new System.Drawing.Point(51, 284);
+            this.imgProd.Location = new System.Drawing.Point(44, 255);
             this.imgProd.Name = "imgProd";
             this.imgProd.Size = new System.Drawing.Size(145, 134);
             this.imgProd.TabIndex = 16;
             this.imgProd.TabStop = false;
             this.imgProd.Visible = false;
+            // 
+            // cboMarca
+            // 
+            this.cboMarca.FormattingEnabled = true;
+            this.cboMarca.Location = new System.Drawing.Point(306, 290);
+            this.cboMarca.Name = "cboMarca";
+            this.cboMarca.Size = new System.Drawing.Size(139, 21);
+            this.cboMarca.TabIndex = 18;
+            this.cboMarca.Visible = false;
+            // 
+            // lblMarca
+            // 
+            this.lblMarca.AutoSize = true;
+            this.lblMarca.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMarca.Location = new System.Drawing.Point(195, 290);
+            this.lblMarca.Name = "lblMarca";
+            this.lblMarca.Size = new System.Drawing.Size(81, 23);
+            this.lblMarca.TabIndex = 17;
+            this.lblMarca.Text = "Marca: ";
+            this.lblMarca.Visible = false;
             // 
             // FormProductos
             // 
@@ -296,6 +326,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(179)))), ((int)(((byte)(229)))));
             this.ClientSize = new System.Drawing.Size(694, 473);
+            this.Controls.Add(this.cboMarca);
+            this.Controls.Add(this.lblMarca);
             this.Controls.Add(this.imgProd);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
@@ -344,5 +376,7 @@
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.PictureBox imgProd;
+        private System.Windows.Forms.ComboBox cboMarca;
+        private System.Windows.Forms.Label lblMarca;
     }
 }
