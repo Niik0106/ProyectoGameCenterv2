@@ -49,6 +49,12 @@
     <Compile Include="Botones\Boton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="FrmClienteJuridico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmClienteJuridico.Designer.cs">
+      <DependentUpon>FrmClienteJuridico.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmClienteNatural.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmClienteJuridico.resx">
+      <DependentUpon>FrmClienteJuridico.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmClienteNatural.resx">
       <DependentUpon>FrmClienteNatural.cs</DependentUpon>
     </EmbeddedResource>

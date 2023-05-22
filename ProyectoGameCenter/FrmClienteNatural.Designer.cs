@@ -39,7 +39,7 @@
             this.btnEliminarCN = new System.Windows.Forms.Button();
             this.btnEditarCN = new System.Windows.Forms.Button();
             this.btnNuevoCN = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvClienteNatural = new System.Windows.Forms.DataGridView();
             this.DNI = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NombresCN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ApellidosCN = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -71,7 +71,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.BarraTituloCN.SuspendLayout();
             this.PanelContenedorCN.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClienteNatural)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -162,7 +162,7 @@
             this.PanelContenedorCN.Controls.Add(this.btnEliminarCN);
             this.PanelContenedorCN.Controls.Add(this.btnEditarCN);
             this.PanelContenedorCN.Controls.Add(this.btnNuevoCN);
-            this.PanelContenedorCN.Controls.Add(this.dataGridView1);
+            this.PanelContenedorCN.Controls.Add(this.dgvClienteNatural);
             this.PanelContenedorCN.Controls.Add(this.btnCancelar);
             this.PanelContenedorCN.Controls.Add(this.btnModificarCN);
             this.PanelContenedorCN.Controls.Add(this.cboDistritoCN);
@@ -271,10 +271,10 @@
             this.btnNuevoCN.MouseEnter += new System.EventHandler(this.btnNuevoCN_MouseEnter);
             this.btnNuevoCN.MouseLeave += new System.EventHandler(this.btnNuevoCN_MouseLeave);
             // 
-            // dataGridView1
+            // dgvClienteNatural
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvClienteNatural.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClienteNatural.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DNI,
             this.NombresCN,
             this.ApellidosCN,
@@ -283,10 +283,10 @@
             this.ProvinciaCN,
             this.DistritoCN,
             this.DireccionCN});
-            this.dataGridView1.Location = new System.Drawing.Point(35, 18);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(921, 291);
-            this.dataGridView1.TabIndex = 26;
+            this.dgvClienteNatural.Location = new System.Drawing.Point(35, 18);
+            this.dgvClienteNatural.Name = "dgvClienteNatural";
+            this.dgvClienteNatural.Size = new System.Drawing.Size(921, 291);
+            this.dgvClienteNatural.TabIndex = 26;
             // 
             // DNI
             // 
@@ -592,7 +592,7 @@
             this.BarraTituloCN.ResumeLayout(false);
             this.PanelContenedorCN.ResumeLayout(false);
             this.PanelContenedorCN.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClienteNatural)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -628,7 +628,7 @@
         private System.Windows.Forms.Button btnEliminarCN;
         private System.Windows.Forms.Button btnEditarCN;
         private System.Windows.Forms.Button btnNuevoCN;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dgvClienteNatural;
         private System.Windows.Forms.DataGridViewTextBoxColumn DNI;
         private System.Windows.Forms.DataGridViewTextBoxColumn NombresCN;
         private System.Windows.Forms.DataGridViewTextBoxColumn ApellidosCN;
