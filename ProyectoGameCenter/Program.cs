@@ -14,7 +14,7 @@ namespace ProyectoGameCenter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmClienteJuridico());
+            Application.Run(new FrmProveedor());
             
         }
     }

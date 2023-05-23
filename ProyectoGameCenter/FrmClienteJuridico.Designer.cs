@@ -42,13 +42,13 @@
             this.dgvClienteJuridico = new System.Windows.Forms.DataGridView();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnModificarCJ = new System.Windows.Forms.Button();
-            this.cboDistritoCN = new System.Windows.Forms.ComboBox();
-            this.cboProvinciaCN = new System.Windows.Forms.ComboBox();
-            this.cboDepartamentoCN = new System.Windows.Forms.ComboBox();
-            this.txtDireccionCN = new System.Windows.Forms.TextBox();
-            this.txtTelefonoCN = new System.Windows.Forms.TextBox();
-            this.txtNombresCN = new System.Windows.Forms.TextBox();
-            this.txtDNICN = new System.Windows.Forms.TextBox();
+            this.cboDistritoCJ = new System.Windows.Forms.ComboBox();
+            this.cboProvinciaCJ = new System.Windows.Forms.ComboBox();
+            this.cboDepartamentoCJ = new System.Windows.Forms.ComboBox();
+            this.txtDireccionCJ = new System.Windows.Forms.TextBox();
+            this.txtTelefonoCJ = new System.Windows.Forms.TextBox();
+            this.txtRazonSocialCJ = new System.Windows.Forms.TextBox();
+            this.txtRUCCJ = new System.Windows.Forms.TextBox();
             this.btnAgregarCJ = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -59,8 +59,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.RUC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.RazonSocial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RUCCJ = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RazonSocialCJ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TelefonoCJ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DepartamentoCJ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ProvinciaCJ = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -163,13 +163,13 @@
             this.PanelContenedorCN.Controls.Add(this.dgvClienteJuridico);
             this.PanelContenedorCN.Controls.Add(this.btnCancelar);
             this.PanelContenedorCN.Controls.Add(this.btnModificarCJ);
-            this.PanelContenedorCN.Controls.Add(this.cboDistritoCN);
-            this.PanelContenedorCN.Controls.Add(this.cboProvinciaCN);
-            this.PanelContenedorCN.Controls.Add(this.cboDepartamentoCN);
-            this.PanelContenedorCN.Controls.Add(this.txtDireccionCN);
-            this.PanelContenedorCN.Controls.Add(this.txtTelefonoCN);
-            this.PanelContenedorCN.Controls.Add(this.txtNombresCN);
-            this.PanelContenedorCN.Controls.Add(this.txtDNICN);
+            this.PanelContenedorCN.Controls.Add(this.cboDistritoCJ);
+            this.PanelContenedorCN.Controls.Add(this.cboProvinciaCJ);
+            this.PanelContenedorCN.Controls.Add(this.cboDepartamentoCJ);
+            this.PanelContenedorCN.Controls.Add(this.txtDireccionCJ);
+            this.PanelContenedorCN.Controls.Add(this.txtTelefonoCJ);
+            this.PanelContenedorCN.Controls.Add(this.txtRazonSocialCJ);
+            this.PanelContenedorCN.Controls.Add(this.txtRUCCJ);
             this.PanelContenedorCN.Controls.Add(this.btnAgregarCJ);
             this.PanelContenedorCN.Controls.Add(this.label9);
             this.PanelContenedorCN.Controls.Add(this.label8);
@@ -270,8 +270,8 @@
             // 
             this.dgvClienteJuridico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClienteJuridico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.RUC,
-            this.RazonSocial,
+            this.RUCCJ,
+            this.RazonSocialCJ,
             this.TelefonoCJ,
             this.DepartamentoCJ,
             this.ProvinciaCJ,
@@ -322,74 +322,74 @@
             this.btnModificarCJ.MouseEnter += new System.EventHandler(this.btnModificarCJ_MouseEnter);
             this.btnModificarCJ.MouseLeave += new System.EventHandler(this.btnModificarCJ_MouseLeave);
             // 
-            // cboDistritoCN
+            // cboDistritoCJ
             // 
-            this.cboDistritoCN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDistritoCN.Enabled = false;
-            this.cboDistritoCN.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboDistritoCN.FormattingEnabled = true;
-            this.cboDistritoCN.Location = new System.Drawing.Point(643, 490);
-            this.cboDistritoCN.Name = "cboDistritoCN";
-            this.cboDistritoCN.Size = new System.Drawing.Size(272, 29);
-            this.cboDistritoCN.TabIndex = 23;
+            this.cboDistritoCJ.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDistritoCJ.Enabled = false;
+            this.cboDistritoCJ.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboDistritoCJ.FormattingEnabled = true;
+            this.cboDistritoCJ.Location = new System.Drawing.Point(643, 490);
+            this.cboDistritoCJ.Name = "cboDistritoCJ";
+            this.cboDistritoCJ.Size = new System.Drawing.Size(272, 29);
+            this.cboDistritoCJ.TabIndex = 23;
             // 
-            // cboProvinciaCN
+            // cboProvinciaCJ
             // 
-            this.cboProvinciaCN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboProvinciaCN.Enabled = false;
-            this.cboProvinciaCN.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboProvinciaCN.FormattingEnabled = true;
-            this.cboProvinciaCN.Location = new System.Drawing.Point(643, 444);
-            this.cboProvinciaCN.Name = "cboProvinciaCN";
-            this.cboProvinciaCN.Size = new System.Drawing.Size(272, 29);
-            this.cboProvinciaCN.TabIndex = 22;
+            this.cboProvinciaCJ.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboProvinciaCJ.Enabled = false;
+            this.cboProvinciaCJ.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboProvinciaCJ.FormattingEnabled = true;
+            this.cboProvinciaCJ.Location = new System.Drawing.Point(643, 444);
+            this.cboProvinciaCJ.Name = "cboProvinciaCJ";
+            this.cboProvinciaCJ.Size = new System.Drawing.Size(272, 29);
+            this.cboProvinciaCJ.TabIndex = 22;
             // 
-            // cboDepartamentoCN
+            // cboDepartamentoCJ
             // 
-            this.cboDepartamentoCN.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDepartamentoCN.Enabled = false;
-            this.cboDepartamentoCN.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboDepartamentoCN.FormattingEnabled = true;
-            this.cboDepartamentoCN.Location = new System.Drawing.Point(643, 404);
-            this.cboDepartamentoCN.Name = "cboDepartamentoCN";
-            this.cboDepartamentoCN.Size = new System.Drawing.Size(272, 29);
-            this.cboDepartamentoCN.TabIndex = 21;
+            this.cboDepartamentoCJ.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDepartamentoCJ.Enabled = false;
+            this.cboDepartamentoCJ.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboDepartamentoCJ.FormattingEnabled = true;
+            this.cboDepartamentoCJ.Location = new System.Drawing.Point(643, 404);
+            this.cboDepartamentoCJ.Name = "cboDepartamentoCJ";
+            this.cboDepartamentoCJ.Size = new System.Drawing.Size(272, 29);
+            this.cboDepartamentoCJ.TabIndex = 21;
             // 
-            // txtDireccionCN
+            // txtDireccionCJ
             // 
-            this.txtDireccionCN.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccionCN.Location = new System.Drawing.Point(197, 540);
-            this.txtDireccionCN.Name = "txtDireccionCN";
-            this.txtDireccionCN.ReadOnly = true;
-            this.txtDireccionCN.Size = new System.Drawing.Size(271, 23);
-            this.txtDireccionCN.TabIndex = 20;
+            this.txtDireccionCJ.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccionCJ.Location = new System.Drawing.Point(197, 540);
+            this.txtDireccionCJ.Name = "txtDireccionCJ";
+            this.txtDireccionCJ.ReadOnly = true;
+            this.txtDireccionCJ.Size = new System.Drawing.Size(271, 23);
+            this.txtDireccionCJ.TabIndex = 20;
             // 
-            // txtTelefonoCN
+            // txtTelefonoCJ
             // 
-            this.txtTelefonoCN.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTelefonoCN.Location = new System.Drawing.Point(197, 487);
-            this.txtTelefonoCN.Name = "txtTelefonoCN";
-            this.txtTelefonoCN.ReadOnly = true;
-            this.txtTelefonoCN.Size = new System.Drawing.Size(271, 27);
-            this.txtTelefonoCN.TabIndex = 19;
+            this.txtTelefonoCJ.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTelefonoCJ.Location = new System.Drawing.Point(197, 487);
+            this.txtTelefonoCJ.Name = "txtTelefonoCJ";
+            this.txtTelefonoCJ.ReadOnly = true;
+            this.txtTelefonoCJ.Size = new System.Drawing.Size(271, 27);
+            this.txtTelefonoCJ.TabIndex = 19;
             // 
-            // txtNombresCN
+            // txtRazonSocialCJ
             // 
-            this.txtNombresCN.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNombresCN.Location = new System.Drawing.Point(197, 442);
-            this.txtNombresCN.Name = "txtNombresCN";
-            this.txtNombresCN.ReadOnly = true;
-            this.txtNombresCN.Size = new System.Drawing.Size(271, 27);
-            this.txtNombresCN.TabIndex = 17;
+            this.txtRazonSocialCJ.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRazonSocialCJ.Location = new System.Drawing.Point(197, 442);
+            this.txtRazonSocialCJ.Name = "txtRazonSocialCJ";
+            this.txtRazonSocialCJ.ReadOnly = true;
+            this.txtRazonSocialCJ.Size = new System.Drawing.Size(271, 27);
+            this.txtRazonSocialCJ.TabIndex = 17;
             // 
-            // txtDNICN
+            // txtRUCCJ
             // 
-            this.txtDNICN.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDNICN.Location = new System.Drawing.Point(197, 401);
-            this.txtDNICN.Name = "txtDNICN";
-            this.txtDNICN.ReadOnly = true;
-            this.txtDNICN.Size = new System.Drawing.Size(271, 27);
-            this.txtDNICN.TabIndex = 16;
+            this.txtRUCCJ.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRUCCJ.Location = new System.Drawing.Point(197, 401);
+            this.txtRUCCJ.Name = "txtRUCCJ";
+            this.txtRUCCJ.ReadOnly = true;
+            this.txtRUCCJ.Size = new System.Drawing.Size(271, 27);
+            this.txtRUCCJ.TabIndex = 16;
             // 
             // btnAgregarCJ
             // 
@@ -509,15 +509,15 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
-            // RUC
+            // RUCCJ
             // 
-            this.RUC.HeaderText = "RUC";
-            this.RUC.Name = "RUC";
+            this.RUCCJ.HeaderText = "RUC";
+            this.RUCCJ.Name = "RUCCJ";
             // 
-            // RazonSocial
+            // RazonSocialCJ
             // 
-            this.RazonSocial.HeaderText = "Razon Social";
-            this.RazonSocial.Name = "RazonSocial";
+            this.RazonSocialCJ.HeaderText = "Razon Social";
+            this.RazonSocialCJ.Name = "RazonSocialCJ";
             // 
             // TelefonoCJ
             // 
@@ -578,13 +578,13 @@
         private System.Windows.Forms.DataGridView dgvClienteJuridico;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnModificarCJ;
-        private System.Windows.Forms.ComboBox cboDistritoCN;
-        private System.Windows.Forms.ComboBox cboProvinciaCN;
-        private System.Windows.Forms.ComboBox cboDepartamentoCN;
-        private System.Windows.Forms.TextBox txtDireccionCN;
-        private System.Windows.Forms.TextBox txtTelefonoCN;
-        private System.Windows.Forms.TextBox txtNombresCN;
-        private System.Windows.Forms.TextBox txtDNICN;
+        private System.Windows.Forms.ComboBox cboDistritoCJ;
+        private System.Windows.Forms.ComboBox cboProvinciaCJ;
+        private System.Windows.Forms.ComboBox cboDepartamentoCJ;
+        private System.Windows.Forms.TextBox txtDireccionCJ;
+        private System.Windows.Forms.TextBox txtTelefonoCJ;
+        private System.Windows.Forms.TextBox txtRazonSocialCJ;
+        private System.Windows.Forms.TextBox txtRUCCJ;
         private System.Windows.Forms.Button btnAgregarCJ;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -595,8 +595,8 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RUC;
-        private System.Windows.Forms.DataGridViewTextBoxColumn RazonSocial;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RUCCJ;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RazonSocialCJ;
         private System.Windows.Forms.DataGridViewTextBoxColumn TelefonoCJ;
         private System.Windows.Forms.DataGridViewTextBoxColumn DepartamentoCJ;
         private System.Windows.Forms.DataGridViewTextBoxColumn ProvinciaCJ;
