@@ -1,6 +1,6 @@
 ﻿namespace ProyectoGameCenter
 {
-    partial class FormProductos
+    partial class FrmProductos
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormProductos));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProductos));
             this.dgv_Productos = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CATEGORIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
