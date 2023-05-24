@@ -14,7 +14,12 @@ namespace ProyectoGameCenter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+<<<<<<< HEAD
             Application.Run(new FrmMenu());
+=======
+            Application.Run(new FrmProveedor());
+            
+>>>>>>> Malleck
         }
     }
 }
