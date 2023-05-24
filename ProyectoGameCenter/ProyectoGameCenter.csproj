@@ -99,16 +99,15 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
     <EmbeddedResource Include="FormProductos.resx">
       <DependentUpon>FormProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCategoria.resx">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMarca.resx">
-      <DependentUpon>FrmMarca.cs</DependentUpon>
-=======
+	  <EmbeddedResource Include="FrmMarca.resx">
+		  <DependentUpon>FrmMarca.cs</DependentUpon>
+	  </EmbeddedResource>
     <EmbeddedResource Include="FrmClienteJuridico.resx">
       <DependentUpon>FrmClienteJuridico.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,7 +116,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProveedor.resx">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
->>>>>>> Malleck
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
