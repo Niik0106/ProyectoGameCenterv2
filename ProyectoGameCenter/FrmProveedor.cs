@@ -29,24 +29,9 @@ namespace ProyectoGameCenter
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void btnPCompletaProv_Click(object sender, EventArgs e)
-        {
-            LX = this.Location.X;
-            LY = this.Location.Y;
-            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
-            this.Location = Screen.PrimaryScreen.WorkingArea.Location;
-            btnPCompletaProv.Visible = false;
-            btnRestaurarProv.Visible = true;
-        }
 
-        private void btnRestaurarProv_Click(object sender, EventArgs e)
-        {
-            this.Size = new Size(1200, 700);
-            this.Location = new Point(LX, LY);
-            btnPCompletaProv.Visible = true;
-            btnRestaurarProv.Visible = false;
-        }
 
+ 
         private void btnCerrarProv_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -98,36 +83,6 @@ namespace ProyectoGameCenter
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void btnNuevoProv_MouseEnter(object sender, EventArgs e)
-        {
-            btnNuevoProv.ForeColor = Color.White;
-        }
-
-        private void btnNuevoProv_MouseLeave(object sender, EventArgs e)
-        {
-            btnNuevoProv.ForeColor = Color.DarkViolet;
-        }
-
-        private void btnEditarProv_MouseEnter(object sender, EventArgs e)
-        {
-            btnEditarProv.ForeColor = Color.White;
-        }
-
-        private void btnEditarProv_MouseLeave(object sender, EventArgs e)
-        {
-            btnEditarProv.ForeColor = Color.DarkViolet;
-        }
-
-        private void btnEliminarProv_MouseEnter(object sender, EventArgs e)
-        {
-            btnEliminarProv.ForeColor = Color.White;
-        }
-
-        private void btnEliminarProv_MouseLeave(object sender, EventArgs e)
-        {
-            btnEliminarProv.ForeColor = Color.DarkViolet;
-        }
-
         private void btnSalir_MouseEnter(object sender, EventArgs e)
         {
             btnSalir.ForeColor = Color.White;
@@ -138,25 +93,6 @@ namespace ProyectoGameCenter
             btnSalir.ForeColor = Color.DarkViolet;
         }
 
-        private void btnAgregarProv_MouseEnter(object sender, EventArgs e)
-        {
-            btnAgregarProv.ForeColor = Color.White;
-        }
-
-        private void btnAgregarProv_MouseLeave(object sender, EventArgs e)
-        {
-            btnAgregarProv.ForeColor = Color.DarkViolet;
-        }
-
-        private void btnModificarProv_MouseEnter(object sender, EventArgs e)
-        {
-            btnModificarProv.ForeColor = Color.White;
-        }
-
-        private void btnModificarProv_MouseLeave(object sender, EventArgs e)
-        {
-            btnModificarProv.ForeColor = Color.DarkViolet;
-        }
 
         private void btnCancelar_MouseEnter(object sender, EventArgs e)
         {

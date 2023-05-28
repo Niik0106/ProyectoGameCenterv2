@@ -59,6 +59,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RUCCJ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.RazonSocialCJ = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TelefonoCJ = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -270,6 +271,7 @@
             // 
             this.dgvClienteJuridico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClienteJuridico.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
             this.RUCCJ,
             this.RazonSocialCJ,
             this.TelefonoCJ,
@@ -509,6 +511,11 @@
             this.pictureBox1.TabIndex = 7;
             this.pictureBox1.TabStop = false;
             // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID_CLI_JUR";
+            this.ID.Name = "ID";
+            // 
             // RUCCJ
             // 
             this.RUCCJ.HeaderText = "RUC";
@@ -595,6 +602,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
         private System.Windows.Forms.DataGridViewTextBoxColumn RUCCJ;
         private System.Windows.Forms.DataGridViewTextBoxColumn RazonSocialCJ;
         private System.Windows.Forms.DataGridViewTextBoxColumn TelefonoCJ;

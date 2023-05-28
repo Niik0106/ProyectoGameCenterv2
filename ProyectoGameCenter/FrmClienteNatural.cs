@@ -13,7 +13,7 @@ namespace ProyectoGameCenter
 {
     public partial class FrmClienteNatural : Form
     {
-        int LX, LY;
+       
         public FrmClienteNatural()
         {
             InitializeComponent();
@@ -24,23 +24,6 @@ namespace ProyectoGameCenter
         [DllImport("User32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
 
-        private void btnMinimizarCN_Click(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void btnMinimizarCN_Click_1(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
-
-        private void btnRestaurarCN_Click(object sender, EventArgs e)
-        {
-            this.Size = new Size(1200, 700);
-            this.Location = new Point(LX, LY);
-            btnPCompletaCN.Visible = true;
-            btnRestaurarCN.Visible = false;
-        }
 
         private void btnCerrarCN_Click(object sender, EventArgs e)
         {
@@ -53,25 +36,6 @@ namespace ProyectoGameCenter
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void PanelContenedorCN_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         private void btnAgregarCN_MouseHover(object sender, EventArgs e)
         {
@@ -80,22 +44,22 @@ namespace ProyectoGameCenter
 
         private void btnAgregarCN_MouseEnter(object sender, EventArgs e)
         {
-            btnAgregarCN.ForeColor = Color.White;
+            btnAgregar.ForeColor = Color.White;
         }
 
         private void btnAgregarCN_MouseLeave(object sender, EventArgs e)
         {
-            btnAgregarCN.ForeColor = Color.DarkViolet;
+            btnAgregar.ForeColor = Color.DarkViolet;
         }
 
         private void btnModificarCN_MouseEnter(object sender, EventArgs e)
         {
-            btnModificarCN.ForeColor = Color.White;
+            btnModificar.ForeColor = Color.White;
         }
 
         private void btnModificarCN_MouseLeave(object sender, EventArgs e)
         {
-            btnModificarCN.ForeColor = Color.DarkViolet;
+            btnModificar.ForeColor = Color.DarkViolet;
         }
 
         private void btnCancelar_MouseEnter(object sender, EventArgs e)
@@ -110,32 +74,32 @@ namespace ProyectoGameCenter
 
         private void btnNuevoCN_MouseEnter(object sender, EventArgs e)
         {
-            btnNuevoCN.ForeColor = Color.White;
+            btnNuevo.ForeColor = Color.White;
         }
 
         private void btnNuevoCN_MouseLeave(object sender, EventArgs e)
         {
-            btnNuevoCN.ForeColor = Color.DarkViolet;
+            btnNuevo.ForeColor = Color.DarkViolet;
         }
 
         private void btnEditarCN_MouseEnter(object sender, EventArgs e)
         {
-            btnEditarCN.ForeColor = Color.White;
+            btnEditar.ForeColor = Color.White;
         }
 
         private void btnEditarCN_MouseLeave(object sender, EventArgs e)
         {
-            btnEditarCN.ForeColor = Color.DarkViolet;
+            btnEditar.ForeColor = Color.DarkViolet;
         }
 
         private void btnEliminarCN_MouseEnter(object sender, EventArgs e)
         {
-            btnEliminarCN.ForeColor = Color.White;
+            btnEliminar.ForeColor = Color.White;
         }
 
         private void btnEliminarCN_MouseLeave(object sender, EventArgs e)
         {
-            btnEliminarCN.ForeColor = Color.DarkViolet;
+            btnEliminar.ForeColor = Color.DarkViolet;
         }
 
         private void btnSalir_MouseEnter(object sender, EventArgs e)
@@ -148,14 +112,6 @@ namespace ProyectoGameCenter
             btnSalir.ForeColor = Color.DarkViolet;
         }
 
-        private void btnPCompletaCN_Click(object sender, EventArgs e)
-        {
-            LX = this.Location.X;
-            LY = this.Location.Y;
-            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
-            this.Location = Screen.PrimaryScreen.WorkingArea.Location;
-            btnPCompletaCN.Visible = false;
-            btnRestaurarCN.Visible = true;
-        }
+
     }
 }
