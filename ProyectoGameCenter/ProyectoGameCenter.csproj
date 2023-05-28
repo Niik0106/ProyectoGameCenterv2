@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormProductos.cs">
+    <Compile Include="FrmMantenedorPago.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormProductos.Designer.cs">
-      <DependentUpon>FormProductos.cs</DependentUpon>
+    <Compile Include="FrmMantenedorPago.Designer.cs">
+      <DependentUpon>FrmMantenedorPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmProductos.Designer.cs">
+      <DependentUpon>FrmProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmCategoria.cs">
       <SubType>Form</SubType>
@@ -61,9 +67,9 @@
     <Compile Include="FrmMarca.cs">
       <SubType>Form</SubType>
     </Compile>
-	  <Compile Include="FrmMarca.Designer.cs">
-		  <DependentUpon>FrmMarca.cs</DependentUpon>
-	  </Compile>
+    <Compile Include="FrmMarca.Designer.cs">
+      <DependentUpon>FrmMarca.cs</DependentUpon>
+    </Compile>
     <Compile Include="Botones\Boton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -78,6 +84,12 @@
     </Compile>
     <Compile Include="FrmClienteNatural.Designer.cs">
       <DependentUpon>FrmClienteNatural.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmTipoPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmTipoPago.Designer.cs">
+      <DependentUpon>FrmTipoPago.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProveedor.cs">
       <SubType>Form</SubType>
@@ -99,15 +111,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormProductos.resx">
-      <DependentUpon>FormProductos.cs</DependentUpon>
+    <EmbeddedResource Include="FrmMantenedorPago.resx">
+      <DependentUpon>FrmMantenedorPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmTipoPago.resx">
+      <DependentUpon>FrmTipoPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmProductos.resx">
+      <DependentUpon>FrmProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmCategoria.resx">
       <DependentUpon>FrmCategoria.cs</DependentUpon>
     </EmbeddedResource>
-	  <EmbeddedResource Include="FrmMarca.resx">
-		  <DependentUpon>FrmMarca.cs</DependentUpon>
-	  </EmbeddedResource>
+    <EmbeddedResource Include="FrmMarca.resx">
+      <DependentUpon>FrmMarca.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmClienteJuridico.resx">
       <DependentUpon>FrmClienteJuridico.cs</DependentUpon>
     </EmbeddedResource>

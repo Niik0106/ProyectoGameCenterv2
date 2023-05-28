@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProyectoGameCenter
 {
-    public partial class FormProductos : Form
+    public partial class FrmProductos : Form
     {
-        public FormProductos()
+        public FrmProductos()
         {
             InitializeComponent();
         }
