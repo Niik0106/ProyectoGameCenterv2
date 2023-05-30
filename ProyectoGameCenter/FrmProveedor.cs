@@ -13,7 +13,6 @@ namespace ProyectoGameCenter
 {
     public partial class FrmProveedor : Form
     {
-        int LX, LY;
         public FrmProveedor()
         {
             InitializeComponent();

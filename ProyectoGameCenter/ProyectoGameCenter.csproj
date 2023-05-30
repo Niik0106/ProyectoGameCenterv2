@@ -46,11 +46,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmMantenedorPago.cs">
+    <Compile Include="FrmEmpleados.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMantenedorPago.Designer.cs">
-      <DependentUpon>FrmMantenedorPago.cs</DependentUpon>
+    <Compile Include="FrmEmpleados.Designer.cs">
+      <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMetodoPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMetodoPago.Designer.cs">
+      <DependentUpon>FrmMetodoPago.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProductos.cs">
       <SubType>Form</SubType>
@@ -111,8 +117,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmMantenedorPago.resx">
-      <DependentUpon>FrmMantenedorPago.cs</DependentUpon>
+    <EmbeddedResource Include="FrmEmpleados.resx">
+      <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMetodoPago.resx">
+      <DependentUpon>FrmMetodoPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTipoPago.resx">
       <DependentUpon>FrmTipoPago.cs</DependentUpon>
