@@ -14,8 +14,8 @@ namespace ProyectoGameCenter
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMenu());
-            
+            Application.Run(new FrmProductos());
+
         }
     }
 }
