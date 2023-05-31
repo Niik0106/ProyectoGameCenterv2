@@ -56,9 +56,10 @@
             this.imgCategoriaProd.BackColor = System.Drawing.Color.Transparent;
             this.imgCategoriaProd.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.imgCategoriaProd.Image = ((System.Drawing.Image)(resources.GetObject("imgCategoriaProd.Image")));
-            this.imgCategoriaProd.Location = new System.Drawing.Point(109, 358);
+            this.imgCategoriaProd.Location = new System.Drawing.Point(145, 441);
+            this.imgCategoriaProd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.imgCategoriaProd.Name = "imgCategoriaProd";
-            this.imgCategoriaProd.Size = new System.Drawing.Size(183, 180);
+            this.imgCategoriaProd.Size = new System.Drawing.Size(244, 222);
             this.imgCategoriaProd.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.imgCategoriaProd.TabIndex = 31;
             this.imgCategoriaProd.TabStop = false;
@@ -69,8 +70,9 @@
             this.BarraTituloCN.Controls.Add(this.label1);
             this.BarraTituloCN.Dock = System.Windows.Forms.DockStyle.Top;
             this.BarraTituloCN.Location = new System.Drawing.Point(0, 0);
+            this.BarraTituloCN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.BarraTituloCN.Name = "BarraTituloCN";
-            this.BarraTituloCN.Size = new System.Drawing.Size(1050, 60);
+            this.BarraTituloCN.Size = new System.Drawing.Size(1400, 74);
             this.BarraTituloCN.TabIndex = 37;
             // 
             // label1
@@ -80,9 +82,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.Font = new System.Drawing.Font("Century Gothic", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(0, 6);
+            this.label1.Location = new System.Drawing.Point(0, 7);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1050, 43);
+            this.label1.Size = new System.Drawing.Size(1400, 53);
             this.label1.TabIndex = 13;
             this.label1.Text = "CATEGORIAS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -97,9 +100,10 @@
             this.btnEliminar.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
             this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(825, 479);
+            this.btnEliminar.Location = new System.Drawing.Point(1100, 590);
+            this.btnEliminar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(130, 50);
+            this.btnEliminar.Size = new System.Drawing.Size(173, 62);
             this.btnEliminar.TabIndex = 48;
             this.btnEliminar.Text = "Eliminar";
             this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -115,9 +119,10 @@
             this.btnEditar.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(825, 390);
+            this.btnEditar.Location = new System.Drawing.Point(1100, 480);
+            this.btnEditar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnEditar.Name = "btnEditar";
-            this.btnEditar.Size = new System.Drawing.Size(130, 50);
+            this.btnEditar.Size = new System.Drawing.Size(173, 62);
             this.btnEditar.TabIndex = 47;
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -133,9 +138,10 @@
             this.btnNuevo.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(825, 299);
+            this.btnNuevo.Location = new System.Drawing.Point(1100, 368);
+            this.btnNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(130, 50);
+            this.btnNuevo.Size = new System.Drawing.Size(173, 62);
             this.btnNuevo.TabIndex = 46;
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -151,9 +157,10 @@
             this.btnSalir.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(825, 565);
+            this.btnSalir.Location = new System.Drawing.Point(1100, 695);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(130, 50);
+            this.btnSalir.Size = new System.Drawing.Size(173, 62);
             this.btnSalir.TabIndex = 45;
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -162,9 +169,11 @@
             // dgvCategoria
             // 
             this.dgvCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCategoria.Location = new System.Drawing.Point(356, 299);
+            this.dgvCategoria.Location = new System.Drawing.Point(475, 368);
+            this.dgvCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvCategoria.Name = "dgvCategoria";
-            this.dgvCategoria.Size = new System.Drawing.Size(372, 316);
+            this.dgvCategoria.RowHeadersWidth = 51;
+            this.dgvCategoria.Size = new System.Drawing.Size(496, 389);
             this.dgvCategoria.TabIndex = 43;
             // 
             // gbCategoria
@@ -179,9 +188,11 @@
             this.gbCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbCategoria.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCategoria.ForeColor = System.Drawing.Color.DarkViolet;
-            this.gbCategoria.Location = new System.Drawing.Point(24, 81);
+            this.gbCategoria.Location = new System.Drawing.Point(32, 100);
+            this.gbCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gbCategoria.Name = "gbCategoria";
-            this.gbCategoria.Size = new System.Drawing.Size(1004, 191);
+            this.gbCategoria.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbCategoria.Size = new System.Drawing.Size(1339, 235);
             this.gbCategoria.TabIndex = 56;
             this.gbCategoria.TabStop = false;
             this.gbCategoria.Text = "CATEGORIA";
@@ -196,9 +207,10 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(644, 114);
+            this.btnCancelar.Location = new System.Drawing.Point(859, 140);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(130, 50);
+            this.btnCancelar.Size = new System.Drawing.Size(173, 62);
             this.btnCancelar.TabIndex = 29;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -209,9 +221,10 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label2.Location = new System.Drawing.Point(193, 51);
+            this.label2.Location = new System.Drawing.Point(257, 63);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(133, 23);
+            this.label2.Size = new System.Drawing.Size(168, 28);
             this.label2.TabIndex = 44;
             this.label2.Text = "ID Categoria:";
             // 
@@ -225,9 +238,10 @@
             this.btnModificar.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(462, 114);
+            this.btnModificar.Location = new System.Drawing.Point(616, 140);
+            this.btnModificar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(130, 50);
+            this.btnModificar.Size = new System.Drawing.Size(173, 62);
             this.btnModificar.TabIndex = 24;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -237,10 +251,11 @@
             // 
             this.txtIDCategoria.Enabled = false;
             this.txtIDCategoria.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDCategoria.Location = new System.Drawing.Point(332, 50);
+            this.txtIDCategoria.Location = new System.Drawing.Point(443, 62);
+            this.txtIDCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtIDCategoria.Name = "txtIDCategoria";
             this.txtIDCategoria.ReadOnly = true;
-            this.txtIDCategoria.Size = new System.Drawing.Size(95, 27);
+            this.txtIDCategoria.Size = new System.Drawing.Size(125, 32);
             this.txtIDCategoria.TabIndex = 43;
             // 
             // btnAgregar
@@ -253,9 +268,10 @@
             this.btnAgregar.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(275, 114);
+            this.btnAgregar.Location = new System.Drawing.Point(367, 140);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(130, 50);
+            this.btnAgregar.Size = new System.Drawing.Size(173, 62);
             this.btnAgregar.TabIndex = 3;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -264,10 +280,11 @@
             // txtDescripcionCategoria
             // 
             this.txtDescripcionCategoria.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcionCategoria.Location = new System.Drawing.Point(584, 49);
+            this.txtDescripcionCategoria.Location = new System.Drawing.Point(779, 60);
+            this.txtDescripcionCategoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtDescripcionCategoria.Name = "txtDescripcionCategoria";
             this.txtDescripcionCategoria.ReadOnly = true;
-            this.txtDescripcionCategoria.Size = new System.Drawing.Size(208, 27);
+            this.txtDescripcionCategoria.Size = new System.Drawing.Size(276, 32);
             this.txtDescripcionCategoria.TabIndex = 34;
             // 
             // lblMarca
@@ -275,18 +292,19 @@
             this.lblMarca.AutoSize = true;
             this.lblMarca.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMarca.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lblMarca.Location = new System.Drawing.Point(468, 50);
+            this.lblMarca.Location = new System.Drawing.Point(624, 62);
+            this.lblMarca.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMarca.Name = "lblMarca";
-            this.lblMarca.Size = new System.Drawing.Size(110, 23);
+            this.lblMarca.Size = new System.Drawing.Size(137, 28);
             this.lblMarca.TabIndex = 33;
             this.lblMarca.Text = "Categoria:";
             // 
             // FrmCategoria
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1050, 650);
+            this.ClientSize = new System.Drawing.Size(1400, 800);
             this.Controls.Add(this.gbCategoria);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnEditar);
@@ -296,6 +314,7 @@
             this.Controls.Add(this.BarraTituloCN);
             this.Controls.Add(this.imgCategoriaProd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "FrmCategoria";
             this.Text = "FrmCategoria";
             ((System.ComponentModel.ISupportInitialize)(this.imgCategoriaProd)).EndInit();
