@@ -52,6 +52,12 @@
     <Compile Include="FrmCronogramaPago.Designer.cs">
       <DependentUpon>FrmCronogramaPago.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmOrdenCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrdenCompra.designer.cs">
+      <DependentUpon>FrmOrdenCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="NotaSalida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +149,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMetodoPago.resx">
       <DependentUpon>FrmMetodoPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrdenCompra.resx">
+      <DependentUpon>FrmOrdenCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOrdenVenta.resx">
       <DependentUpon>FrmOrdenVenta.cs</DependentUpon>
