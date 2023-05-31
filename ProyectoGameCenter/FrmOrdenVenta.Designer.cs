@@ -387,11 +387,11 @@
             this.btnNuevo.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(740, 569);
+            this.btnNuevo.Location = new System.Drawing.Point(738, 569);
             this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(130, 50);
+            this.btnNuevo.Size = new System.Drawing.Size(132, 50);
             this.btnNuevo.TabIndex = 46;
-            this.btnNuevo.Text = "Nuevo";
+            this.btnNuevo.Text = "Nuevos";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = false;
             // 
