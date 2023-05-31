@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace ProyectoGameCenter
 {
-    public partial class frmCronogramaPago : Form
+    public partial class FrmCronogramaPago : Form
     {
-        public frmCronogramaPago()
+        public FrmCronogramaPago()
         {
             InitializeComponent();
         }

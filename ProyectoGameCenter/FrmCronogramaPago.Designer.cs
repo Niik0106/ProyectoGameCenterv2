@@ -1,6 +1,6 @@
 ﻿namespace ProyectoGameCenter
 {
-    partial class frmCronogramaPago
+    partial class FrmCronogramaPago
     {
         /// <summary>
         /// Required designer variable.
@@ -28,13 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmCronogramaPago));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCronogramaPago));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.gbCronogramaPago = new System.Windows.Forms.GroupBox();
+            this.txtNumeroCuotas = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtObservaciones = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.cboEstadoPago = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.dtimePlazoPago = new System.Windows.Forms.DateTimePicker();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtIDOrdenVenta = new System.Windows.Forms.TextBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
+            this.cboMetodoPago = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dtimeFechaVenta = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,22 +54,12 @@
             this.txtIDCliente = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.cboMetodoPago = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvCronogramaPago = new System.Windows.Forms.DataGridView();
-            this.txtIDOrdenVenta = new System.Windows.Forms.TextBox();
-            this.dtimePlazoPago = new System.Windows.Forms.DateTimePicker();
-            this.label8 = new System.Windows.Forms.Label();
-            this.cboEstadoPago = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.txtObservaciones = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.txtNumeroCuotas = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.BarraTitulo.SuspendLayout();
             this.gbCronogramaPago.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCronogramaPago)).BeginInit();
@@ -123,6 +123,97 @@
             this.gbCronogramaPago.TabStop = false;
             this.gbCronogramaPago.Text = "CRONOGRAMA PAGO";
             // 
+            // txtNumeroCuotas
+            // 
+            this.txtNumeroCuotas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNumeroCuotas.Location = new System.Drawing.Point(602, 41);
+            this.txtNumeroCuotas.Name = "txtNumeroCuotas";
+            this.txtNumeroCuotas.ReadOnly = true;
+            this.txtNumeroCuotas.Size = new System.Drawing.Size(183, 27);
+            this.txtNumeroCuotas.TabIndex = 47;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label11.Location = new System.Drawing.Point(489, 42);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(107, 23);
+            this.label11.TabIndex = 46;
+            this.label11.Text = "N° Cuotas:";
+            // 
+            // txtObservaciones
+            // 
+            this.txtObservaciones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtObservaciones.Location = new System.Drawing.Point(602, 188);
+            this.txtObservaciones.Name = "txtObservaciones";
+            this.txtObservaciones.ReadOnly = true;
+            this.txtObservaciones.Size = new System.Drawing.Size(183, 27);
+            this.txtObservaciones.TabIndex = 45;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label7.Location = new System.Drawing.Point(442, 192);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(154, 23);
+            this.label7.TabIndex = 44;
+            this.label7.Text = "Observaciones:";
+            // 
+            // cboEstadoPago
+            // 
+            this.cboEstadoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboEstadoPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboEstadoPago.FormattingEnabled = true;
+            this.cboEstadoPago.Location = new System.Drawing.Point(602, 153);
+            this.cboEstadoPago.Name = "cboEstadoPago";
+            this.cboEstadoPago.Size = new System.Drawing.Size(183, 29);
+            this.cboEstadoPago.TabIndex = 42;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label6.Location = new System.Drawing.Point(465, 155);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(131, 23);
+            this.label6.TabIndex = 43;
+            this.label6.Text = "Estado Pago:";
+            // 
+            // dtimePlazoPago
+            // 
+            this.dtimePlazoPago.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtimePlazoPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtimePlazoPago.Location = new System.Drawing.Point(602, 115);
+            this.dtimePlazoPago.Name = "dtimePlazoPago";
+            this.dtimePlazoPago.Size = new System.Drawing.Size(183, 31);
+            this.dtimePlazoPago.TabIndex = 41;
+            this.dtimePlazoPago.Value = new System.DateTime(2023, 5, 30, 0, 0, 0, 0);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label8.Location = new System.Drawing.Point(477, 119);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(119, 23);
+            this.label8.TabIndex = 40;
+            this.label8.Text = "Plazo Pago:";
+            // 
+            // txtIDOrdenVenta
+            // 
+            this.txtIDOrdenVenta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDOrdenVenta.Location = new System.Drawing.Point(182, 156);
+            this.txtIDOrdenVenta.Name = "txtIDOrdenVenta";
+            this.txtIDOrdenVenta.ReadOnly = true;
+            this.txtIDOrdenVenta.Size = new System.Drawing.Size(183, 27);
+            this.txtIDOrdenVenta.TabIndex = 39;
+            // 
             // txtTotal
             // 
             this.txtTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -131,6 +222,16 @@
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(183, 27);
             this.txtTotal.TabIndex = 37;
+            // 
+            // cboMetodoPago
+            // 
+            this.cboMetodoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMetodoPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboMetodoPago.FormattingEnabled = true;
+            this.cboMetodoPago.Location = new System.Drawing.Point(602, 78);
+            this.cboMetodoPago.Name = "cboMetodoPago";
+            this.cboMetodoPago.Size = new System.Drawing.Size(183, 29);
+            this.cboMetodoPago.TabIndex = 22;
             // 
             // label5
             // 
@@ -240,16 +341,6 @@
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
             // 
-            // cboMetodoPago
-            // 
-            this.cboMetodoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboMetodoPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboMetodoPago.FormattingEnabled = true;
-            this.cboMetodoPago.Location = new System.Drawing.Point(602, 78);
-            this.cboMetodoPago.Name = "cboMetodoPago";
-            this.cboMetodoPago.Size = new System.Drawing.Size(183, 29);
-            this.cboMetodoPago.TabIndex = 22;
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -354,98 +445,7 @@
             this.dgvCronogramaPago.Size = new System.Drawing.Size(1003, 206);
             this.dgvCronogramaPago.TabIndex = 50;
             // 
-            // txtIDOrdenVenta
-            // 
-            this.txtIDOrdenVenta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDOrdenVenta.Location = new System.Drawing.Point(182, 156);
-            this.txtIDOrdenVenta.Name = "txtIDOrdenVenta";
-            this.txtIDOrdenVenta.ReadOnly = true;
-            this.txtIDOrdenVenta.Size = new System.Drawing.Size(183, 27);
-            this.txtIDOrdenVenta.TabIndex = 39;
-            // 
-            // dtimePlazoPago
-            // 
-            this.dtimePlazoPago.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtimePlazoPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtimePlazoPago.Location = new System.Drawing.Point(602, 115);
-            this.dtimePlazoPago.Name = "dtimePlazoPago";
-            this.dtimePlazoPago.Size = new System.Drawing.Size(183, 31);
-            this.dtimePlazoPago.TabIndex = 41;
-            this.dtimePlazoPago.Value = new System.DateTime(2023, 5, 30, 0, 0, 0, 0);
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label8.Location = new System.Drawing.Point(477, 119);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(119, 23);
-            this.label8.TabIndex = 40;
-            this.label8.Text = "Plazo Pago:";
-            // 
-            // cboEstadoPago
-            // 
-            this.cboEstadoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboEstadoPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboEstadoPago.FormattingEnabled = true;
-            this.cboEstadoPago.Location = new System.Drawing.Point(602, 153);
-            this.cboEstadoPago.Name = "cboEstadoPago";
-            this.cboEstadoPago.Size = new System.Drawing.Size(183, 29);
-            this.cboEstadoPago.TabIndex = 42;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label6.Location = new System.Drawing.Point(465, 155);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(131, 23);
-            this.label6.TabIndex = 43;
-            this.label6.Text = "Estado Pago:";
-            // 
-            // txtObservaciones
-            // 
-            this.txtObservaciones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObservaciones.Location = new System.Drawing.Point(602, 188);
-            this.txtObservaciones.Name = "txtObservaciones";
-            this.txtObservaciones.ReadOnly = true;
-            this.txtObservaciones.Size = new System.Drawing.Size(183, 27);
-            this.txtObservaciones.TabIndex = 45;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label7.Location = new System.Drawing.Point(442, 192);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(154, 23);
-            this.label7.TabIndex = 44;
-            this.label7.Text = "Observaciones:";
-            // 
-            // txtNumeroCuotas
-            // 
-            this.txtNumeroCuotas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroCuotas.Location = new System.Drawing.Point(602, 41);
-            this.txtNumeroCuotas.Name = "txtNumeroCuotas";
-            this.txtNumeroCuotas.ReadOnly = true;
-            this.txtNumeroCuotas.Size = new System.Drawing.Size(183, 27);
-            this.txtNumeroCuotas.TabIndex = 47;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label11.Location = new System.Drawing.Point(489, 42);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(107, 23);
-            this.label11.TabIndex = 46;
-            this.label11.Text = "N° Cuotas:";
-            // 
-            // frmCronogramaPago
+            // FrmCronogramaPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -457,7 +457,7 @@
             this.Controls.Add(this.gbCronogramaPago);
             this.Controls.Add(this.BarraTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "frmCronogramaPago";
+            this.Name = "FrmCronogramaPago";
             this.Text = "frmCronogramaPago";
             this.BarraTitulo.ResumeLayout(false);
             this.gbCronogramaPago.ResumeLayout(false);
