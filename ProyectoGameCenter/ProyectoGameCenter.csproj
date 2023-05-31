@@ -46,11 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FmrOrdenCompra.cs">
+    <Compile Include="FrmOrdenCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FmrOrdenCompra.Designer.cs">
-      <DependentUpon>FmrOrdenCompra.cs</DependentUpon>
+    <Compile Include="FrmOrdenCompra.Designer.cs">
+      <DependentUpon>FrmOrdenCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEmpleados.cs">
       <SubType>Form</SubType>
@@ -123,8 +123,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FmrOrdenCompra.resx">
-      <DependentUpon>FmrOrdenCompra.cs</DependentUpon>
+    <EmbeddedResource Include="FrmOrdenCompra.resx">
+      <DependentUpon>FrmOrdenCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEmpleados.resx">
       <DependentUpon>FrmEmpleados.cs</DependentUpon>
