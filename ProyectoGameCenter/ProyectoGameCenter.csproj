@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCronogramaPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCronogramaPago.Designer.cs">
+      <DependentUpon>FrmCronogramaPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="NotaSalida.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,6 +69,12 @@
     </Compile>
     <Compile Include="FrmMetodoPago.Designer.cs">
       <DependentUpon>FrmMetodoPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrdenVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrdenVenta.Designer.cs">
+      <DependentUpon>FrmOrdenVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProductos.cs">
       <SubType>Form</SubType>
@@ -123,11 +135,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FrmCronogramaPago.resx">
+      <DependentUpon>FrmCronogramaPago.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmEmpleados.resx">
       <DependentUpon>FrmEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMetodoPago.resx">
       <DependentUpon>FrmMetodoPago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrdenVenta.resx">
+      <DependentUpon>FrmOrdenVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTipoPago.resx">
       <DependentUpon>FrmTipoPago.cs</DependentUpon>
