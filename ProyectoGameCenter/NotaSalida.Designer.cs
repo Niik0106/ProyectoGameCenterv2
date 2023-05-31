@@ -117,7 +117,6 @@
             this.panel1.Size = new System.Drawing.Size(1176, 295);
             this.panel1.TabIndex = 15;
             // 
-<<<<<<< HEAD
             // textBox2
             // 
             this.textBox2.Enabled = false;
@@ -182,7 +181,6 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = false;
-=======
             // label2
             // 
             this.label2.AutoSize = true;
@@ -281,7 +279,6 @@
             this.ListaPro.Size = new System.Drawing.Size(1155, 117);
             this.ListaPro.TabIndex = 51;
             this.ListaPro.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategoria_CellContentClick);
->>>>>>> Royce
             // 
             // btnAgregar
             // 
@@ -302,8 +299,6 @@
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
             // 
-<<<<<<< HEAD
-            // NOrdenV
             // 
             this.NOrdenV.Enabled = false;
             this.NOrdenV.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -420,7 +415,6 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = false;
->>>>>>> Royce
             // 
             // btnNuevo
             // 
@@ -480,8 +474,6 @@
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = false;
             // 
-<<<<<<< HEAD
-=======
             // label6
             // 
             this.label6.AutoSize = true;
@@ -528,7 +520,6 @@
             this.textBox2.Size = new System.Drawing.Size(181, 32);
             this.textBox2.TabIndex = 58;
             // 
->>>>>>> Royce
             // NotaSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -542,11 +533,8 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "NotaSalida";
-<<<<<<< HEAD
             this.Text = "z";
-=======
             this.Text = "Form1";
->>>>>>> Royce
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ListaPro)).EndInit();
