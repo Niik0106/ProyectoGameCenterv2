@@ -34,25 +34,20 @@
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.gbMetodoPago = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtIDMetodoPago = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtTitularCuenta = new System.Windows.Forms.TextBox();
-            this.txtNumeroCuenta = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtDescripcionMetodoPago = new System.Windows.Forms.TextBox();
             this.imgMetodoPago = new System.Windows.Forms.PictureBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.cboTipoPago = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
             this.dgvMetodoPago = new System.Windows.Forms.DataGridView();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnDeshabilitarMetdPag = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtIDMetodoPago = new System.Windows.Forms.TextBox();
+            this.cbxEstadoMetdPago = new System.Windows.Forms.CheckBox();
             this.BarraTitulo.SuspendLayout();
             this.gbMetodoPago.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgMetodoPago)).BeginInit();
@@ -85,20 +80,15 @@
             // 
             // gbMetodoPago
             // 
+            this.gbMetodoPago.Controls.Add(this.cbxEstadoMetdPago);
             this.gbMetodoPago.Controls.Add(this.label1);
             this.gbMetodoPago.Controls.Add(this.txtIDMetodoPago);
             this.gbMetodoPago.Controls.Add(this.btnCancelar);
-            this.gbMetodoPago.Controls.Add(this.label4);
-            this.gbMetodoPago.Controls.Add(this.txtTitularCuenta);
-            this.gbMetodoPago.Controls.Add(this.txtNumeroCuenta);
             this.gbMetodoPago.Controls.Add(this.label3);
             this.gbMetodoPago.Controls.Add(this.txtDescripcionMetodoPago);
             this.gbMetodoPago.Controls.Add(this.imgMetodoPago);
             this.gbMetodoPago.Controls.Add(this.btnModificar);
             this.gbMetodoPago.Controls.Add(this.btnAgregar);
-            this.gbMetodoPago.Controls.Add(this.cboTipoPago);
-            this.gbMetodoPago.Controls.Add(this.label9);
-            this.gbMetodoPago.Controls.Add(this.label10);
             this.gbMetodoPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbMetodoPago.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbMetodoPago.ForeColor = System.Drawing.Color.DarkViolet;
@@ -108,6 +98,26 @@
             this.gbMetodoPago.TabIndex = 39;
             this.gbMetodoPago.TabStop = false;
             this.gbMetodoPago.Text = "METODO DE PAGO";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label1.Location = new System.Drawing.Point(215, 72);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(164, 23);
+            this.label1.TabIndex = 30;
+            this.label1.Text = "ID Metodo Pago:";
+            // 
+            // txtIDMetodoPago
+            // 
+            this.txtIDMetodoPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDMetodoPago.Location = new System.Drawing.Point(385, 72);
+            this.txtIDMetodoPago.Name = "txtIDMetodoPago";
+            this.txtIDMetodoPago.ReadOnly = true;
+            this.txtIDMetodoPago.Size = new System.Drawing.Size(183, 27);
+            this.txtIDMetodoPago.TabIndex = 31;
             // 
             // btnCancelar
             // 
@@ -127,41 +137,12 @@
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = false;
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label4.Location = new System.Drawing.Point(459, 49);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(137, 23);
-            this.label4.TabIndex = 28;
-            this.label4.Text = "Tipo de Pago:";
-            // 
-            // txtTitularCuenta
-            // 
-            this.txtTitularCuenta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTitularCuenta.Location = new System.Drawing.Point(605, 99);
-            this.txtTitularCuenta.Name = "txtTitularCuenta";
-            this.txtTitularCuenta.ReadOnly = true;
-            this.txtTitularCuenta.Size = new System.Drawing.Size(208, 27);
-            this.txtTitularCuenta.TabIndex = 27;
-            // 
-            // txtNumeroCuenta
-            // 
-            this.txtNumeroCuenta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroCuenta.Location = new System.Drawing.Point(605, 155);
-            this.txtNumeroCuenta.Name = "txtNumeroCuenta";
-            this.txtNumeroCuenta.ReadOnly = true;
-            this.txtNumeroCuenta.Size = new System.Drawing.Size(208, 27);
-            this.txtNumeroCuenta.TabIndex = 26;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label3.Location = new System.Drawing.Point(205, 131);
+            this.label3.Location = new System.Drawing.Point(215, 130);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 23);
             this.label3.TabIndex = 8;
@@ -170,7 +151,7 @@
             // txtDescripcionMetodoPago
             // 
             this.txtDescripcionMetodoPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcionMetodoPago.Location = new System.Drawing.Point(209, 157);
+            this.txtDescripcionMetodoPago.Location = new System.Drawing.Point(345, 132);
             this.txtDescripcionMetodoPago.Name = "txtDescripcionMetodoPago";
             this.txtDescripcionMetodoPago.ReadOnly = true;
             this.txtDescripcionMetodoPago.Size = new System.Drawing.Size(183, 27);
@@ -224,38 +205,6 @@
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
             // 
-            // cboTipoPago
-            // 
-            this.cboTipoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboTipoPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboTipoPago.FormattingEnabled = true;
-            this.cboTipoPago.Location = new System.Drawing.Point(605, 46);
-            this.cboTipoPago.Name = "cboTipoPago";
-            this.cboTipoPago.Size = new System.Drawing.Size(208, 29);
-            this.cboTipoPago.TabIndex = 22;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label9.Location = new System.Drawing.Point(454, 103);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(142, 23);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Titular Cuenta:";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label10.Location = new System.Drawing.Point(435, 157);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(161, 23);
-            this.label10.TabIndex = 15;
-            this.label10.Text = "Numero Cuenta:";
-            // 
             // dgvMetodoPago
             // 
             this.dgvMetodoPago.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
@@ -302,23 +251,23 @@
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = false;
             // 
-            // btnEliminar
+            // btnDeshabilitarMetdPag
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.White;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(895, 588);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(130, 50);
-            this.btnEliminar.TabIndex = 43;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnDeshabilitarMetdPag.BackColor = System.Drawing.Color.White;
+            this.btnDeshabilitarMetdPag.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeshabilitarMetdPag.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnDeshabilitarMetdPag.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeshabilitarMetdPag.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeshabilitarMetdPag.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnDeshabilitarMetdPag.Image = ((System.Drawing.Image)(resources.GetObject("btnDeshabilitarMetdPag.Image")));
+            this.btnDeshabilitarMetdPag.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeshabilitarMetdPag.Location = new System.Drawing.Point(877, 588);
+            this.btnDeshabilitarMetdPag.Name = "btnDeshabilitarMetdPag";
+            this.btnDeshabilitarMetdPag.Size = new System.Drawing.Size(148, 50);
+            this.btnDeshabilitarMetdPag.TabIndex = 43;
+            this.btnDeshabilitarMetdPag.Text = "Deshabilitar";
+            this.btnDeshabilitarMetdPag.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeshabilitarMetdPag.UseVisualStyleBackColor = false;
             // 
             // btnEditar
             // 
@@ -330,7 +279,7 @@
             this.btnEditar.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(742, 589);
+            this.btnEditar.Location = new System.Drawing.Point(715, 589);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(130, 50);
             this.btnEditar.TabIndex = 42;
@@ -348,7 +297,7 @@
             this.btnNuevo.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(587, 589);
+            this.btnNuevo.Location = new System.Drawing.Point(554, 588);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(130, 50);
             this.btnNuevo.TabIndex = 41;
@@ -356,25 +305,17 @@
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // cbxEstadoMetdPago
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label1.Location = new System.Drawing.Point(205, 73);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 23);
-            this.label1.TabIndex = 30;
-            this.label1.Text = "ID Metodo Pago:";
-            // 
-            // txtIDMetodoPago
-            // 
-            this.txtIDMetodoPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDMetodoPago.Location = new System.Drawing.Point(209, 99);
-            this.txtIDMetodoPago.Name = "txtIDMetodoPago";
-            this.txtIDMetodoPago.ReadOnly = true;
-            this.txtIDMetodoPago.Size = new System.Drawing.Size(183, 27);
-            this.txtIDMetodoPago.TabIndex = 31;
+            this.cbxEstadoMetdPago.AutoSize = true;
+            this.cbxEstadoMetdPago.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbxEstadoMetdPago.Font = new System.Drawing.Font("Century Gothic", 14.5F, System.Drawing.FontStyle.Bold);
+            this.cbxEstadoMetdPago.Location = new System.Drawing.Point(623, 72);
+            this.cbxEstadoMetdPago.Name = "cbxEstadoMetdPago";
+            this.cbxEstadoMetdPago.Size = new System.Drawing.Size(93, 27);
+            this.cbxEstadoMetdPago.TabIndex = 58;
+            this.cbxEstadoMetdPago.Text = "Estado";
+            this.cbxEstadoMetdPago.UseVisualStyleBackColor = true;
             // 
             // FrmMetodoPago
             // 
@@ -382,7 +323,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 650);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnDeshabilitarMetdPag);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dgvMetodoPago);
@@ -404,24 +345,19 @@
         private System.Windows.Forms.Panel BarraTitulo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox gbMetodoPago;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtTitularCuenta;
-        private System.Windows.Forms.TextBox txtNumeroCuenta;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtDescripcionMetodoPago;
         private System.Windows.Forms.PictureBox imgMetodoPago;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
-        private System.Windows.Forms.ComboBox cboTipoPago;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.DataGridView dgvMetodoPago;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnDeshabilitarMetdPag;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtIDMetodoPago;
+        private System.Windows.Forms.CheckBox cbxEstadoMetdPago;
     }
 }

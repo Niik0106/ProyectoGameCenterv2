@@ -38,13 +38,14 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnDeshabilitarMarca = new System.Windows.Forms.Button();
             this.txtIDMarca = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gbMarca = new System.Windows.Forms.GroupBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.cbxEstadoMarca = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarca)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgMarca)).BeginInit();
             this.BarraTituloCN.SuspendLayout();
@@ -76,7 +77,7 @@
             this.lblMarca.AutoSize = true;
             this.lblMarca.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMarca.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lblMarca.Location = new System.Drawing.Point(502, 50);
+            this.lblMarca.Location = new System.Drawing.Point(415, 53);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(76, 23);
             this.lblMarca.TabIndex = 33;
@@ -85,7 +86,7 @@
             // txtDescripcionMarca
             // 
             this.txtDescripcionMarca.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcionMarca.Location = new System.Drawing.Point(584, 49);
+            this.txtDescripcionMarca.Location = new System.Drawing.Point(497, 52);
             this.txtDescripcionMarca.Name = "txtDescripcionMarca";
             this.txtDescripcionMarca.ReadOnly = true;
             this.txtDescripcionMarca.Size = new System.Drawing.Size(208, 27);
@@ -169,29 +170,29 @@
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.UseVisualStyleBackColor = false;
             // 
-            // btnEliminar
+            // btnDeshabilitarMarca
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.White;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(824, 479);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(130, 50);
-            this.btnEliminar.TabIndex = 40;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnDeshabilitarMarca.BackColor = System.Drawing.Color.White;
+            this.btnDeshabilitarMarca.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeshabilitarMarca.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnDeshabilitarMarca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeshabilitarMarca.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeshabilitarMarca.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnDeshabilitarMarca.Image = ((System.Drawing.Image)(resources.GetObject("btnDeshabilitarMarca.Image")));
+            this.btnDeshabilitarMarca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeshabilitarMarca.Location = new System.Drawing.Point(824, 479);
+            this.btnDeshabilitarMarca.Name = "btnDeshabilitarMarca";
+            this.btnDeshabilitarMarca.Size = new System.Drawing.Size(147, 50);
+            this.btnDeshabilitarMarca.TabIndex = 40;
+            this.btnDeshabilitarMarca.Text = "Deshabilitar";
+            this.btnDeshabilitarMarca.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeshabilitarMarca.UseVisualStyleBackColor = false;
             // 
             // txtIDMarca
             // 
             this.txtIDMarca.Enabled = false;
             this.txtIDMarca.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDMarca.Location = new System.Drawing.Point(332, 50);
+            this.txtIDMarca.Location = new System.Drawing.Point(245, 53);
             this.txtIDMarca.Name = "txtIDMarca";
             this.txtIDMarca.ReadOnly = true;
             this.txtIDMarca.Size = new System.Drawing.Size(95, 27);
@@ -202,7 +203,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label2.Location = new System.Drawing.Point(227, 51);
+            this.label2.Location = new System.Drawing.Point(140, 54);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 23);
             this.label2.TabIndex = 44;
@@ -210,6 +211,7 @@
             // 
             // gbMarca
             // 
+            this.gbMarca.Controls.Add(this.cbxEstadoMarca);
             this.gbMarca.Controls.Add(this.btnCancelar);
             this.gbMarca.Controls.Add(this.label2);
             this.gbMarca.Controls.Add(this.btnModificar);
@@ -281,6 +283,18 @@
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
             // 
+            // cbxEstadoMarca
+            // 
+            this.cbxEstadoMarca.AutoSize = true;
+            this.cbxEstadoMarca.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbxEstadoMarca.Font = new System.Drawing.Font("Century Gothic", 14.5F, System.Drawing.FontStyle.Bold);
+            this.cbxEstadoMarca.Location = new System.Drawing.Point(738, 54);
+            this.cbxEstadoMarca.Name = "cbxEstadoMarca";
+            this.cbxEstadoMarca.Size = new System.Drawing.Size(93, 27);
+            this.cbxEstadoMarca.TabIndex = 56;
+            this.cbxEstadoMarca.Text = "Estado";
+            this.cbxEstadoMarca.UseVisualStyleBackColor = true;
+            // 
             // FrmMarca
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -288,7 +302,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1050, 650);
             this.Controls.Add(this.gbMarca);
-            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnDeshabilitarMarca);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnSalir);
@@ -317,12 +331,13 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnEditar;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnDeshabilitarMarca;
         private System.Windows.Forms.TextBox txtIDMarca;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox gbMarca;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.CheckBox cbxEstadoMarca;
     }
 }

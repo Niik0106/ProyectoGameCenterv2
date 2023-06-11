@@ -55,10 +55,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnDeshabilitarCliJur = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvClienteJuridico = new System.Windows.Forms.DataGridView();
+            this.cbxEstadoCliJur = new System.Windows.Forms.CheckBox();
             this.BarraTituloCN.SuspendLayout();
             this.PanelContenedorCN.SuspendLayout();
             this.gbClientesJuridico.SuspendLayout();
@@ -94,7 +95,7 @@
             this.PanelContenedorCN.BackColor = System.Drawing.Color.White;
             this.PanelContenedorCN.Controls.Add(this.gbClientesJuridico);
             this.PanelContenedorCN.Controls.Add(this.btnSalir);
-            this.PanelContenedorCN.Controls.Add(this.btnEliminar);
+            this.PanelContenedorCN.Controls.Add(this.btnDeshabilitarCliJur);
             this.PanelContenedorCN.Controls.Add(this.btnEditar);
             this.PanelContenedorCN.Controls.Add(this.btnNuevo);
             this.PanelContenedorCN.Controls.Add(this.dgvClienteJuridico);
@@ -106,6 +107,7 @@
             // 
             // gbClientesJuridico
             // 
+            this.gbClientesJuridico.Controls.Add(this.cbxEstadoCliJur);
             this.gbClientesJuridico.Controls.Add(this.label10);
             this.gbClientesJuridico.Controls.Add(this.txtIDCliente);
             this.gbClientesJuridico.Controls.Add(this.txtRUC);
@@ -130,7 +132,7 @@
             this.gbClientesJuridico.ForeColor = System.Drawing.Color.DarkViolet;
             this.gbClientesJuridico.Location = new System.Drawing.Point(19, 15);
             this.gbClientesJuridico.Name = "gbClientesJuridico";
-            this.gbClientesJuridico.Size = new System.Drawing.Size(1003, 251);
+            this.gbClientesJuridico.Size = new System.Drawing.Size(1003, 265);
             this.gbClientesJuridico.TabIndex = 31;
             this.gbClientesJuridico.TabStop = false;
             this.gbClientesJuridico.Text = "DATOS DEL CLIENTE";
@@ -371,23 +373,23 @@
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = false;
             // 
-            // btnEliminar
+            // btnDeshabilitarCliJur
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.White;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(894, 527);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(130, 50);
-            this.btnEliminar.TabIndex = 29;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnDeshabilitarCliJur.BackColor = System.Drawing.Color.White;
+            this.btnDeshabilitarCliJur.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeshabilitarCliJur.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnDeshabilitarCliJur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeshabilitarCliJur.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeshabilitarCliJur.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnDeshabilitarCliJur.Image = ((System.Drawing.Image)(resources.GetObject("btnDeshabilitarCliJur.Image")));
+            this.btnDeshabilitarCliJur.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeshabilitarCliJur.Location = new System.Drawing.Point(880, 527);
+            this.btnDeshabilitarCliJur.Name = "btnDeshabilitarCliJur";
+            this.btnDeshabilitarCliJur.Size = new System.Drawing.Size(144, 50);
+            this.btnDeshabilitarCliJur.TabIndex = 29;
+            this.btnDeshabilitarCliJur.Text = "Deshabilitar";
+            this.btnDeshabilitarCliJur.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeshabilitarCliJur.UseVisualStyleBackColor = false;
             // 
             // btnEditar
             // 
@@ -399,7 +401,7 @@
             this.btnEditar.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(741, 528);
+            this.btnEditar.Location = new System.Drawing.Point(720, 528);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(130, 50);
             this.btnEditar.TabIndex = 28;
@@ -417,7 +419,7 @@
             this.btnNuevo.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(586, 528);
+            this.btnNuevo.Location = new System.Drawing.Point(564, 528);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(130, 50);
             this.btnNuevo.TabIndex = 27;
@@ -452,6 +454,18 @@
             this.dgvClienteJuridico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClienteJuridico.Size = new System.Drawing.Size(1003, 229);
             this.dgvClienteJuridico.TabIndex = 26;
+            // 
+            // cbxEstadoCliJur
+            // 
+            this.cbxEstadoCliJur.AutoSize = true;
+            this.cbxEstadoCliJur.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbxEstadoCliJur.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.cbxEstadoCliJur.Location = new System.Drawing.Point(446, 222);
+            this.cbxEstadoCliJur.Name = "cbxEstadoCliJur";
+            this.cbxEstadoCliJur.Size = new System.Drawing.Size(91, 27);
+            this.cbxEstadoCliJur.TabIndex = 58;
+            this.cbxEstadoCliJur.Text = "Estado";
+            this.cbxEstadoCliJur.UseVisualStyleBackColor = true;
             // 
             // FrmClienteJuridico
             // 
@@ -498,9 +512,10 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnDeshabilitarCliJur;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DataGridView dgvClienteJuridico;
+        private System.Windows.Forms.CheckBox cbxEstadoCliJur;
     }
 }

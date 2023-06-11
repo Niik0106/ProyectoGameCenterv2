@@ -39,6 +39,8 @@
             this.imgProd = new System.Windows.Forms.PictureBox();
             this.BarraTituloCN = new System.Windows.Forms.Panel();
             this.gbProductos = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtIDProducto = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -49,12 +51,11 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnDeshabilitarProd = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtIDProducto = new System.Windows.Forms.TextBox();
+            this.cbxEstadoProd = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgProd)).BeginInit();
             this.BarraTituloCN.SuspendLayout();
             this.gbProductos.SuspendLayout();
@@ -137,6 +138,7 @@
             // 
             // gbProductos
             // 
+            this.gbProductos.Controls.Add(this.cbxEstadoProd);
             this.gbProductos.Controls.Add(this.label2);
             this.gbProductos.Controls.Add(this.txtIDProducto);
             this.gbProductos.Controls.Add(this.btnCancelar);
@@ -158,10 +160,30 @@
             this.gbProductos.ForeColor = System.Drawing.Color.DarkViolet;
             this.gbProductos.Location = new System.Drawing.Point(22, 75);
             this.gbProductos.Name = "gbProductos";
-            this.gbProductos.Size = new System.Drawing.Size(1003, 251);
+            this.gbProductos.Size = new System.Drawing.Size(1003, 254);
             this.gbProductos.TabIndex = 38;
             this.gbProductos.TabStop = false;
             this.gbProductos.Text = "DATOS DEL PRODUCTO";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label2.Location = new System.Drawing.Point(177, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(121, 23);
+            this.label2.TabIndex = 43;
+            this.label2.Text = "ID Producto:";
+            // 
+            // txtIDProducto
+            // 
+            this.txtIDProducto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDProducto.Location = new System.Drawing.Point(181, 75);
+            this.txtIDProducto.Name = "txtIDProducto";
+            this.txtIDProducto.ReadOnly = true;
+            this.txtIDProducto.Size = new System.Drawing.Size(258, 27);
+            this.txtIDProducto.TabIndex = 44;
             // 
             // btnCancelar
             // 
@@ -299,23 +321,23 @@
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = false;
             // 
-            // btnEliminar
+            // btnDeshabilitarProd
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.White;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(895, 585);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(130, 50);
-            this.btnEliminar.TabIndex = 47;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnDeshabilitarProd.BackColor = System.Drawing.Color.White;
+            this.btnDeshabilitarProd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeshabilitarProd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnDeshabilitarProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeshabilitarProd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeshabilitarProd.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnDeshabilitarProd.Image = ((System.Drawing.Image)(resources.GetObject("btnDeshabilitarProd.Image")));
+            this.btnDeshabilitarProd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeshabilitarProd.Location = new System.Drawing.Point(880, 585);
+            this.btnDeshabilitarProd.Name = "btnDeshabilitarProd";
+            this.btnDeshabilitarProd.Size = new System.Drawing.Size(145, 50);
+            this.btnDeshabilitarProd.TabIndex = 47;
+            this.btnDeshabilitarProd.Text = "Deshabilitar";
+            this.btnDeshabilitarProd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeshabilitarProd.UseVisualStyleBackColor = false;
             // 
             // btnEditar
             // 
@@ -327,7 +349,7 @@
             this.btnEditar.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(742, 586);
+            this.btnEditar.Location = new System.Drawing.Point(723, 586);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(130, 50);
             this.btnEditar.TabIndex = 46;
@@ -345,7 +367,7 @@
             this.btnNuevo.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(587, 586);
+            this.btnNuevo.Location = new System.Drawing.Point(569, 586);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(130, 50);
             this.btnNuevo.TabIndex = 45;
@@ -381,25 +403,17 @@
             this.dgvProductos.Size = new System.Drawing.Size(1003, 229);
             this.dgvProductos.TabIndex = 44;
             // 
-            // label2
+            // cbxEstadoProd
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label2.Location = new System.Drawing.Point(177, 49);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 23);
-            this.label2.TabIndex = 43;
-            this.label2.Text = "ID Producto:";
-            // 
-            // txtIDProducto
-            // 
-            this.txtIDProducto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDProducto.Location = new System.Drawing.Point(181, 75);
-            this.txtIDProducto.Name = "txtIDProducto";
-            this.txtIDProducto.ReadOnly = true;
-            this.txtIDProducto.Size = new System.Drawing.Size(258, 27);
-            this.txtIDProducto.TabIndex = 44;
+            this.cbxEstadoProd.AutoSize = true;
+            this.cbxEstadoProd.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbxEstadoProd.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.cbxEstadoProd.Location = new System.Drawing.Point(503, 218);
+            this.cbxEstadoProd.Name = "cbxEstadoProd";
+            this.cbxEstadoProd.Size = new System.Drawing.Size(91, 27);
+            this.cbxEstadoProd.TabIndex = 45;
+            this.cbxEstadoProd.Text = "Estado";
+            this.cbxEstadoProd.UseVisualStyleBackColor = true;
             // 
             // FrmProductos
             // 
@@ -407,7 +421,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1050, 650);
-            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnDeshabilitarProd);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.dgvProductos);
@@ -444,12 +458,13 @@
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.TextBox txtStock;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnDeshabilitarProd;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DataGridView dgvProductos;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtIDProducto;
+        private System.Windows.Forms.CheckBox cbxEstadoProd;
     }
 }
