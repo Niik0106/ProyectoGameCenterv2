@@ -94,12 +94,12 @@ namespace ProyectoGameCenter
 
         private void btnEliminarCN_MouseEnter(object sender, EventArgs e)
         {
-            btnEliminar.ForeColor = Color.White;
+            btnDeshabilitarCliNat.ForeColor = Color.White;
         }
 
         private void btnEliminarCN_MouseLeave(object sender, EventArgs e)
         {
-            btnEliminar.ForeColor = Color.DarkViolet;
+            btnDeshabilitarCliNat.ForeColor = Color.DarkViolet;
         }
 
         private void btnSalir_MouseEnter(object sender, EventArgs e)
