@@ -39,6 +39,7 @@
             this.imgProd = new System.Windows.Forms.PictureBox();
             this.BarraTituloCN = new System.Windows.Forms.Panel();
             this.gbProductos = new System.Windows.Forms.GroupBox();
+            this.cbxEstadoProd = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIDProducto = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -55,7 +56,7 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
-            this.cbxEstadoProd = new System.Windows.Forms.CheckBox();
+            this.btnBuscarProd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.imgProd)).BeginInit();
             this.BarraTituloCN.SuspendLayout();
             this.gbProductos.SuspendLayout();
@@ -164,6 +165,18 @@
             this.gbProductos.TabIndex = 38;
             this.gbProductos.TabStop = false;
             this.gbProductos.Text = "DATOS DEL PRODUCTO";
+            // 
+            // cbxEstadoProd
+            // 
+            this.cbxEstadoProd.AutoSize = true;
+            this.cbxEstadoProd.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbxEstadoProd.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.cbxEstadoProd.Location = new System.Drawing.Point(503, 218);
+            this.cbxEstadoProd.Name = "cbxEstadoProd";
+            this.cbxEstadoProd.Size = new System.Drawing.Size(91, 27);
+            this.cbxEstadoProd.TabIndex = 45;
+            this.cbxEstadoProd.Text = "Estado";
+            this.cbxEstadoProd.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -403,17 +416,23 @@
             this.dgvProductos.Size = new System.Drawing.Size(1003, 229);
             this.dgvProductos.TabIndex = 44;
             // 
-            // cbxEstadoProd
+            // btnBuscarProd
             // 
-            this.cbxEstadoProd.AutoSize = true;
-            this.cbxEstadoProd.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbxEstadoProd.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
-            this.cbxEstadoProd.Location = new System.Drawing.Point(503, 218);
-            this.cbxEstadoProd.Name = "cbxEstadoProd";
-            this.cbxEstadoProd.Size = new System.Drawing.Size(91, 27);
-            this.cbxEstadoProd.TabIndex = 45;
-            this.cbxEstadoProd.Text = "Estado";
-            this.cbxEstadoProd.UseVisualStyleBackColor = true;
+            this.btnBuscarProd.BackColor = System.Drawing.Color.White;
+            this.btnBuscarProd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarProd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnBuscarProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarProd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarProd.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnBuscarProd.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProd.Image")));
+            this.btnBuscarProd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarProd.Location = new System.Drawing.Point(417, 588);
+            this.btnBuscarProd.Name = "btnBuscarProd";
+            this.btnBuscarProd.Size = new System.Drawing.Size(130, 50);
+            this.btnBuscarProd.TabIndex = 60;
+            this.btnBuscarProd.Text = "Buscar";
+            this.btnBuscarProd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarProd.UseVisualStyleBackColor = false;
             // 
             // FrmProductos
             // 
@@ -421,6 +440,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1050, 650);
+            this.Controls.Add(this.btnBuscarProd);
             this.Controls.Add(this.btnDeshabilitarProd);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
@@ -466,5 +486,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtIDProducto;
         private System.Windows.Forms.CheckBox cbxEstadoProd;
+        private System.Windows.Forms.Button btnBuscarProd;
     }
 }

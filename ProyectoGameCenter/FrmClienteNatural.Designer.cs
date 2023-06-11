@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClienteNatural));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClienteNatural));
             this.BarraTituloCN = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.PanelContenedorCN = new System.Windows.Forms.Panel();
             this.gbClientesNatural = new System.Windows.Forms.GroupBox();
+            this.cbxEstadoCliNat = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtIDCliente = new System.Windows.Forms.TextBox();
             this.txtDNI = new System.Windows.Forms.TextBox();
@@ -61,7 +62,7 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvClienteNatural = new System.Windows.Forms.DataGridView();
-            this.cbxEstadoCliNat = new System.Windows.Forms.CheckBox();
+            this.btnBuscarCliNat = new System.Windows.Forms.Button();
             this.BarraTituloCN.SuspendLayout();
             this.PanelContenedorCN.SuspendLayout();
             this.gbClientesNatural.SuspendLayout();
@@ -96,6 +97,7 @@
             // PanelContenedorCN
             // 
             this.PanelContenedorCN.BackColor = System.Drawing.Color.White;
+            this.PanelContenedorCN.Controls.Add(this.btnBuscarCliNat);
             this.PanelContenedorCN.Controls.Add(this.gbClientesNatural);
             this.PanelContenedorCN.Controls.Add(this.btnSalir);
             this.PanelContenedorCN.Controls.Add(this.btnDeshabilitarCliNat);
@@ -141,6 +143,18 @@
             this.gbClientesNatural.TabIndex = 31;
             this.gbClientesNatural.TabStop = false;
             this.gbClientesNatural.Text = "DATOS DEL CLIENTE";
+            // 
+            // cbxEstadoCliNat
+            // 
+            this.cbxEstadoCliNat.AutoSize = true;
+            this.cbxEstadoCliNat.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbxEstadoCliNat.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.cbxEstadoCliNat.Location = new System.Drawing.Point(401, 204);
+            this.cbxEstadoCliNat.Name = "cbxEstadoCliNat";
+            this.cbxEstadoCliNat.Size = new System.Drawing.Size(91, 27);
+            this.cbxEstadoCliNat.TabIndex = 59;
+            this.cbxEstadoCliNat.Text = "Estado";
+            this.cbxEstadoCliNat.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -495,17 +509,23 @@
             this.dgvClienteNatural.Size = new System.Drawing.Size(1003, 229);
             this.dgvClienteNatural.TabIndex = 26;
             // 
-            // cbxEstadoCliNat
+            // btnBuscarCliNat
             // 
-            this.cbxEstadoCliNat.AutoSize = true;
-            this.cbxEstadoCliNat.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbxEstadoCliNat.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
-            this.cbxEstadoCliNat.Location = new System.Drawing.Point(401, 204);
-            this.cbxEstadoCliNat.Name = "cbxEstadoCliNat";
-            this.cbxEstadoCliNat.Size = new System.Drawing.Size(91, 27);
-            this.cbxEstadoCliNat.TabIndex = 59;
-            this.cbxEstadoCliNat.Text = "Estado";
-            this.cbxEstadoCliNat.UseVisualStyleBackColor = true;
+            this.btnBuscarCliNat.BackColor = System.Drawing.Color.White;
+            this.btnBuscarCliNat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarCliNat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnBuscarCliNat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCliNat.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCliNat.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnBuscarCliNat.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarCliNat.Image")));
+            this.btnBuscarCliNat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarCliNat.Location = new System.Drawing.Point(398, 528);
+            this.btnBuscarCliNat.Name = "btnBuscarCliNat";
+            this.btnBuscarCliNat.Size = new System.Drawing.Size(130, 50);
+            this.btnBuscarCliNat.TabIndex = 60;
+            this.btnBuscarCliNat.Text = "Buscar";
+            this.btnBuscarCliNat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarCliNat.UseVisualStyleBackColor = false;
             // 
             // FrmClienteNatural
             // 
@@ -558,5 +578,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtIDCliente;
         private System.Windows.Forms.CheckBox cbxEstadoCliNat;
+        private System.Windows.Forms.Button btnBuscarCliNat;
     }
 }

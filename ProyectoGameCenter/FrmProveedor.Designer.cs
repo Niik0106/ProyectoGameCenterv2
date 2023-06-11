@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProveedor));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProveedor));
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -41,6 +41,7 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvProveedores = new System.Windows.Forms.DataGridView();
             this.gbProveedor = new System.Windows.Forms.GroupBox();
+            this.cbxEstadoProv = new System.Windows.Forms.CheckBox();
             this.txtNumeroCuenta = new System.Windows.Forms.TextBox();
             this.txtIDProveedor = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -61,7 +62,7 @@
             this.label16 = new System.Windows.Forms.Label();
             this.BarraTituloCN = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.cbxEstadoProv = new System.Windows.Forms.CheckBox();
+            this.btnBuscarProv = new System.Windows.Forms.Button();
             this.PanelContenedorCN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
             this.gbProveedor.SuspendLayout();
@@ -104,6 +105,7 @@
             // PanelContenedorCN
             // 
             this.PanelContenedorCN.BackColor = System.Drawing.Color.White;
+            this.PanelContenedorCN.Controls.Add(this.btnBuscarProv);
             this.PanelContenedorCN.Controls.Add(this.btnSalir);
             this.PanelContenedorCN.Controls.Add(this.btnDeshabilitarProv);
             this.PanelContenedorCN.Controls.Add(this.btnEditar);
@@ -249,6 +251,18 @@
             this.gbProveedor.TabIndex = 33;
             this.gbProveedor.TabStop = false;
             this.gbProveedor.Text = "DATOS DEL PROVEEDOR";
+            // 
+            // cbxEstadoProv
+            // 
+            this.cbxEstadoProv.AutoSize = true;
+            this.cbxEstadoProv.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbxEstadoProv.Font = new System.Drawing.Font("Century Gothic", 14.5F, System.Drawing.FontStyle.Bold);
+            this.cbxEstadoProv.Location = new System.Drawing.Point(424, 213);
+            this.cbxEstadoProv.Name = "cbxEstadoProv";
+            this.cbxEstadoProv.Size = new System.Drawing.Size(93, 27);
+            this.cbxEstadoProv.TabIndex = 36;
+            this.cbxEstadoProv.Text = "Estado";
+            this.cbxEstadoProv.UseVisualStyleBackColor = true;
             // 
             // txtNumeroCuenta
             // 
@@ -478,17 +492,23 @@
             this.label1.Text = "PROVEEDORES";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cbxEstadoProv
+            // btnBuscarProv
             // 
-            this.cbxEstadoProv.AutoSize = true;
-            this.cbxEstadoProv.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbxEstadoProv.Font = new System.Drawing.Font("Century Gothic", 14.5F, System.Drawing.FontStyle.Bold);
-            this.cbxEstadoProv.Location = new System.Drawing.Point(424, 213);
-            this.cbxEstadoProv.Name = "cbxEstadoProv";
-            this.cbxEstadoProv.Size = new System.Drawing.Size(93, 27);
-            this.cbxEstadoProv.TabIndex = 36;
-            this.cbxEstadoProv.Text = "Estado";
-            this.cbxEstadoProv.UseVisualStyleBackColor = true;
+            this.btnBuscarProv.BackColor = System.Drawing.Color.White;
+            this.btnBuscarProv.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarProv.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnBuscarProv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarProv.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarProv.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnBuscarProv.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProv.Image")));
+            this.btnBuscarProv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarProv.Location = new System.Drawing.Point(424, 581);
+            this.btnBuscarProv.Name = "btnBuscarProv";
+            this.btnBuscarProv.Size = new System.Drawing.Size(130, 50);
+            this.btnBuscarProv.TabIndex = 60;
+            this.btnBuscarProv.Text = "Buscar";
+            this.btnBuscarProv.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarProv.UseVisualStyleBackColor = false;
             // 
             // FrmProveedor
             // 
@@ -542,5 +562,6 @@
         private System.Windows.Forms.TextBox txtIDProveedor;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox cbxEstadoProv;
+        private System.Windows.Forms.Button btnBuscarProv;
     }
 }
