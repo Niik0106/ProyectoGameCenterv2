@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCronogramaPago));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.gbCronogramaPago = new System.Windows.Forms.GroupBox();
@@ -57,7 +57,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnAnular = new System.Windows.Forms.Button();
+            this.btnPagado = new System.Windows.Forms.Button();
             this.dgvCronogramaPago = new System.Windows.Forms.DataGridView();
             this.BarraTitulo.SuspendLayout();
             this.gbCronogramaPago.SuspendLayout();
@@ -380,48 +380,48 @@
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = false;
             // 
-            // btnAnular
+            // btnPagado
             // 
-            this.btnAnular.BackColor = System.Drawing.Color.White;
-            this.btnAnular.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnular.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnAnular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnular.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnular.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnAnular.Image = ((System.Drawing.Image)(resources.GetObject("btnAnular.Image")));
-            this.btnAnular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnular.Location = new System.Drawing.Point(895, 573);
-            this.btnAnular.Name = "btnAnular";
-            this.btnAnular.Size = new System.Drawing.Size(130, 50);
-            this.btnAnular.TabIndex = 52;
-            this.btnAnular.Text = "Pagado";
-            this.btnAnular.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAnular.UseVisualStyleBackColor = false;
+            this.btnPagado.BackColor = System.Drawing.Color.White;
+            this.btnPagado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPagado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnPagado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagado.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnPagado.Image = ((System.Drawing.Image)(resources.GetObject("btnPagado.Image")));
+            this.btnPagado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPagado.Location = new System.Drawing.Point(895, 573);
+            this.btnPagado.Name = "btnPagado";
+            this.btnPagado.Size = new System.Drawing.Size(130, 50);
+            this.btnPagado.TabIndex = 52;
+            this.btnPagado.Text = "Pagado";
+            this.btnPagado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPagado.UseVisualStyleBackColor = false;
             // 
             // dgvCronogramaPago
             // 
             this.dgvCronogramaPago.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvCronogramaPago.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvCronogramaPago.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.DarkViolet;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkViolet;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCronogramaPago.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCronogramaPago.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCronogramaPago.ColumnHeadersHeight = 30;
             this.dgvCronogramaPago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvCronogramaPago.ColumnHeadersVisible = false;
             this.dgvCronogramaPago.Location = new System.Drawing.Point(22, 347);
             this.dgvCronogramaPago.Name = "dgvCronogramaPago";
             this.dgvCronogramaPago.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.BlueViolet;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvCronogramaPago.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.BlueViolet;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvCronogramaPago.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCronogramaPago.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCronogramaPago.Size = new System.Drawing.Size(1003, 206);
             this.dgvCronogramaPago.TabIndex = 50;
@@ -432,7 +432,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 650);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btnAnular);
+            this.Controls.Add(this.btnPagado);
             this.Controls.Add(this.dgvCronogramaPago);
             this.Controls.Add(this.gbCronogramaPago);
             this.Controls.Add(this.BarraTitulo);
@@ -466,7 +466,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnAnular;
+        private System.Windows.Forms.Button btnPagado;
         private System.Windows.Forms.DataGridView dgvCronogramaPago;
         private System.Windows.Forms.TextBox txtObservaciones;
         private System.Windows.Forms.Label label7;

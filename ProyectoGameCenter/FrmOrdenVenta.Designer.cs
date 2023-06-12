@@ -59,7 +59,7 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnBuscarOV = new System.Windows.Forms.Button();
             this.btnBuscarCliente = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnGenerarCPago = new System.Windows.Forms.Button();
             this.BarraTitulo.SuspendLayout();
             this.gbMetodoPago.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenVenta)).BeginInit();
@@ -456,30 +456,30 @@
             this.btnBuscarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnBuscarCliente.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btnGenerarCPago
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.DarkViolet;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(365, 569);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(210, 50);
-            this.button1.TabIndex = 61;
-            this.button1.Text = "Generar Cron. Pago";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnGenerarCPago.BackColor = System.Drawing.Color.White;
+            this.btnGenerarCPago.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnGenerarCPago.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnGenerarCPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerarCPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGenerarCPago.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnGenerarCPago.Image = ((System.Drawing.Image)(resources.GetObject("btnGenerarCPago.Image")));
+            this.btnGenerarCPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGenerarCPago.Location = new System.Drawing.Point(365, 569);
+            this.btnGenerarCPago.Name = "btnGenerarCPago";
+            this.btnGenerarCPago.Size = new System.Drawing.Size(210, 50);
+            this.btnGenerarCPago.TabIndex = 61;
+            this.btnGenerarCPago.Text = "Generar Cron. Pago";
+            this.btnGenerarCPago.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGenerarCPago.UseVisualStyleBackColor = false;
             // 
             // FrmOrdenVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 650);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnGenerarCPago);
             this.Controls.Add(this.btnBuscarOV);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAnular);
@@ -528,6 +528,6 @@
         private System.Windows.Forms.Button btnBuscarOV;
         private System.Windows.Forms.Button btnBuscarProd;
         private System.Windows.Forms.Button btnBuscarCliente;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnGenerarCPago;
     }
 }
