@@ -34,6 +34,8 @@
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.gbMetodoPago = new System.Windows.Forms.GroupBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnBuscarProd = new System.Windows.Forms.Button();
             this.txtIDEmpleado = new System.Windows.Forms.TextBox();
             this.txtIDProducto = new System.Windows.Forms.TextBox();
             this.txtCantidadVendida = new System.Windows.Forms.TextBox();
@@ -43,7 +45,6 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIDOrdenVenta = new System.Windows.Forms.TextBox();
-            this.btnCancelar = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.txtIDCliente = new System.Windows.Forms.TextBox();
             this.txtPrecio = new System.Windows.Forms.TextBox();
@@ -57,8 +58,8 @@
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnBuscarOV = new System.Windows.Forms.Button();
-            this.btnBuscarVende = new System.Windows.Forms.Button();
-            this.btnBuscarProd = new System.Windows.Forms.Button();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.BarraTitulo.SuspendLayout();
             this.gbMetodoPago.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenVenta)).BeginInit();
@@ -90,7 +91,7 @@
             // 
             // gbMetodoPago
             // 
-            this.gbMetodoPago.Controls.Add(this.btnBuscarVende);
+            this.gbMetodoPago.Controls.Add(this.btnBuscarCliente);
             this.gbMetodoPago.Controls.Add(this.btnCancelar);
             this.gbMetodoPago.Controls.Add(this.btnBuscarProd);
             this.gbMetodoPago.Controls.Add(this.txtIDEmpleado);
@@ -120,19 +121,56 @@
             this.gbMetodoPago.TabStop = false;
             this.gbMetodoPago.Text = "ORDEN DE VENTA";
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.White;
+            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(848, 194);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(130, 50);
+            this.btnCancelar.TabIndex = 29;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            // 
+            // btnBuscarProd
+            // 
+            this.btnBuscarProd.BackColor = System.Drawing.Color.White;
+            this.btnBuscarProd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarProd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnBuscarProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarProd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarProd.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnBuscarProd.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProd.Image")));
+            this.btnBuscarProd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarProd.Location = new System.Drawing.Point(848, 55);
+            this.btnBuscarProd.Name = "btnBuscarProd";
+            this.btnBuscarProd.Size = new System.Drawing.Size(139, 50);
+            this.btnBuscarProd.TabIndex = 59;
+            this.btnBuscarProd.Text = "Buscar Producto";
+            this.btnBuscarProd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarProd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnBuscarProd.UseVisualStyleBackColor = false;
+            // 
             // txtIDEmpleado
             // 
             this.txtIDEmpleado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDEmpleado.Location = new System.Drawing.Point(177, 206);
             this.txtIDEmpleado.Name = "txtIDEmpleado";
             this.txtIDEmpleado.ReadOnly = true;
-            this.txtIDEmpleado.Size = new System.Drawing.Size(208, 27);
+            this.txtIDEmpleado.Size = new System.Drawing.Size(188, 27);
             this.txtIDEmpleado.TabIndex = 38;
             // 
             // txtIDProducto
             // 
             this.txtIDProducto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDProducto.Location = new System.Drawing.Point(611, 36);
+            this.txtIDProducto.Location = new System.Drawing.Point(634, 67);
             this.txtIDProducto.Name = "txtIDProducto";
             this.txtIDProducto.ReadOnly = true;
             this.txtIDProducto.Size = new System.Drawing.Size(208, 27);
@@ -141,7 +179,7 @@
             // txtCantidadVendida
             // 
             this.txtCantidadVendida.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidadVendida.Location = new System.Drawing.Point(611, 87);
+            this.txtCantidadVendida.Location = new System.Drawing.Point(634, 24);
             this.txtCantidadVendida.Name = "txtCantidadVendida";
             this.txtCantidadVendida.ReadOnly = true;
             this.txtCantidadVendida.Size = new System.Drawing.Size(208, 27);
@@ -152,7 +190,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label7.Location = new System.Drawing.Point(475, 132);
+            this.label7.Location = new System.Drawing.Point(555, 111);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(73, 23);
             this.label7.TabIndex = 35;
@@ -163,7 +201,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label6.Location = new System.Drawing.Point(416, 91);
+            this.label6.Location = new System.Drawing.Point(439, 28);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(189, 23);
             this.label6.TabIndex = 34;
@@ -174,7 +212,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label5.Location = new System.Drawing.Point(475, 36);
+            this.label5.Location = new System.Drawing.Point(498, 67);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(121, 23);
             this.label5.TabIndex = 33;
@@ -210,24 +248,6 @@
             this.txtIDOrdenVenta.Size = new System.Drawing.Size(183, 27);
             this.txtIDOrdenVenta.TabIndex = 31;
             // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.White;
-            this.btnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelar.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(848, 194);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(130, 50);
-            this.btnCancelar.TabIndex = 29;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -251,7 +271,7 @@
             // txtPrecio
             // 
             this.txtPrecio.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPrecio.Location = new System.Drawing.Point(611, 128);
+            this.txtPrecio.Location = new System.Drawing.Point(634, 107);
             this.txtPrecio.Name = "txtPrecio";
             this.txtPrecio.ReadOnly = true;
             this.txtPrecio.Size = new System.Drawing.Size(208, 27);
@@ -392,7 +412,7 @@
             this.btnNuevo.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(738, 569);
+            this.btnNuevo.Location = new System.Drawing.Point(745, 569);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(132, 50);
             this.btnNuevo.TabIndex = 46;
@@ -410,7 +430,7 @@
             this.btnBuscarOV.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnBuscarOV.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarOV.Image")));
             this.btnBuscarOV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarOV.Location = new System.Drawing.Point(576, 570);
+            this.btnBuscarOV.Location = new System.Drawing.Point(596, 570);
             this.btnBuscarOV.Name = "btnBuscarOV";
             this.btnBuscarOV.Size = new System.Drawing.Size(130, 50);
             this.btnBuscarOV.TabIndex = 60;
@@ -418,49 +438,48 @@
             this.btnBuscarOV.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscarOV.UseVisualStyleBackColor = false;
             // 
-            // btnBuscarVende
+            // btnBuscarCliente
             // 
-            this.btnBuscarVende.BackColor = System.Drawing.Color.White;
-            this.btnBuscarVende.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarVende.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnBuscarVende.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarVende.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarVende.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnBuscarVende.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarVende.Image")));
-            this.btnBuscarVende.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarVende.Location = new System.Drawing.Point(420, 194);
-            this.btnBuscarVende.Name = "btnBuscarVende";
-            this.btnBuscarVende.Size = new System.Drawing.Size(139, 50);
-            this.btnBuscarVende.TabIndex = 60;
-            this.btnBuscarVende.Text = "Buscar Vendedor";
-            this.btnBuscarVende.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarVende.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnBuscarVende.UseVisualStyleBackColor = false;
+            this.btnBuscarCliente.BackColor = System.Drawing.Color.White;
+            this.btnBuscarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCliente.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCliente.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnBuscarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarCliente.Image")));
+            this.btnBuscarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(386, 104);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(120, 52);
+            this.btnBuscarCliente.TabIndex = 60;
+            this.btnBuscarCliente.Text = "Buscar Cliente";
+            this.btnBuscarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnBuscarCliente.UseVisualStyleBackColor = false;
             // 
-            // btnBuscarProd
+            // button1
             // 
-            this.btnBuscarProd.BackColor = System.Drawing.Color.White;
-            this.btnBuscarProd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarProd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnBuscarProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarProd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarProd.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnBuscarProd.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProd.Image")));
-            this.btnBuscarProd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarProd.Location = new System.Drawing.Point(848, 33);
-            this.btnBuscarProd.Name = "btnBuscarProd";
-            this.btnBuscarProd.Size = new System.Drawing.Size(139, 50);
-            this.btnBuscarProd.TabIndex = 59;
-            this.btnBuscarProd.Text = "Buscar Producto";
-            this.btnBuscarProd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarProd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnBuscarProd.UseVisualStyleBackColor = false;
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.DarkViolet;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(365, 569);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(210, 50);
+            this.button1.TabIndex = 61;
+            this.button1.Text = "Generar Cron. Pago";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // FrmOrdenVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 650);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnBuscarOV);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAnular);
@@ -507,7 +526,8 @@
         private System.Windows.Forms.Button btnAnular;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnBuscarOV;
-        private System.Windows.Forms.Button btnBuscarVende;
         private System.Windows.Forms.Button btnBuscarProd;
+        private System.Windows.Forms.Button btnBuscarCliente;
+        private System.Windows.Forms.Button button1;
     }
 }

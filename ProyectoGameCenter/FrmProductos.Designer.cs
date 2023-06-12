@@ -57,6 +57,8 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvProductos = new System.Windows.Forms.DataGridView();
             this.btnBuscarProd = new System.Windows.Forms.Button();
+            this.txtBuscarProducto = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.imgProd)).BeginInit();
             this.BarraTituloCN.SuspendLayout();
             this.gbProductos.SuspendLayout();
@@ -434,12 +436,34 @@
             this.btnBuscarProd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscarProd.UseVisualStyleBackColor = false;
             // 
+            // txtBuscarProducto
+            // 
+            this.txtBuscarProducto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarProducto.Location = new System.Drawing.Point(203, 611);
+            this.txtBuscarProducto.Name = "txtBuscarProducto";
+            this.txtBuscarProducto.ReadOnly = true;
+            this.txtBuscarProducto.Size = new System.Drawing.Size(208, 27);
+            this.txtBuscarProducto.TabIndex = 61;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label5.Location = new System.Drawing.Point(199, 585);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(124, 23);
+            this.label5.TabIndex = 62;
+            this.label5.Text = "Descripcion:";
+            // 
             // FrmProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1050, 650);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtBuscarProducto);
             this.Controls.Add(this.btnBuscarProd);
             this.Controls.Add(this.btnDeshabilitarProd);
             this.Controls.Add(this.btnEditar);
@@ -457,6 +481,7 @@
             this.gbProductos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProductos)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -487,5 +512,7 @@
         private System.Windows.Forms.TextBox txtIDProducto;
         private System.Windows.Forms.CheckBox cbxEstadoProd;
         private System.Windows.Forms.Button btnBuscarProd;
+        private System.Windows.Forms.TextBox txtBuscarProducto;
+        private System.Windows.Forms.Label label5;
     }
 }

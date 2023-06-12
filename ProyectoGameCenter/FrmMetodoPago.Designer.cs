@@ -34,6 +34,7 @@
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.gbMetodoPago = new System.Windows.Forms.GroupBox();
+            this.cbxEstadoMetdPago = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.txtIDMetodoPago = new System.Windows.Forms.TextBox();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@
             this.btnDeshabilitarMetdPag = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.cbxEstadoMetdPago = new System.Windows.Forms.CheckBox();
             this.BarraTitulo.SuspendLayout();
             this.gbMetodoPago.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgMetodoPago)).BeginInit();
@@ -99,6 +99,18 @@
             this.gbMetodoPago.TabStop = false;
             this.gbMetodoPago.Text = "METODO DE PAGO";
             // 
+            // cbxEstadoMetdPago
+            // 
+            this.cbxEstadoMetdPago.AutoSize = true;
+            this.cbxEstadoMetdPago.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbxEstadoMetdPago.Font = new System.Drawing.Font("Century Gothic", 14.5F, System.Drawing.FontStyle.Bold);
+            this.cbxEstadoMetdPago.Location = new System.Drawing.Point(302, 181);
+            this.cbxEstadoMetdPago.Name = "cbxEstadoMetdPago";
+            this.cbxEstadoMetdPago.Size = new System.Drawing.Size(93, 27);
+            this.cbxEstadoMetdPago.TabIndex = 58;
+            this.cbxEstadoMetdPago.Text = "Estado";
+            this.cbxEstadoMetdPago.UseVisualStyleBackColor = true;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -142,7 +154,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label3.Location = new System.Drawing.Point(215, 130);
+            this.label3.Location = new System.Drawing.Point(255, 130);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(124, 23);
             this.label3.TabIndex = 8;
@@ -151,7 +163,7 @@
             // txtDescripcionMetodoPago
             // 
             this.txtDescripcionMetodoPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcionMetodoPago.Location = new System.Drawing.Point(345, 132);
+            this.txtDescripcionMetodoPago.Location = new System.Drawing.Point(385, 130);
             this.txtDescripcionMetodoPago.Name = "txtDescripcionMetodoPago";
             this.txtDescripcionMetodoPago.ReadOnly = true;
             this.txtDescripcionMetodoPago.Size = new System.Drawing.Size(183, 27);
@@ -304,18 +316,6 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = false;
-            // 
-            // cbxEstadoMetdPago
-            // 
-            this.cbxEstadoMetdPago.AutoSize = true;
-            this.cbxEstadoMetdPago.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbxEstadoMetdPago.Font = new System.Drawing.Font("Century Gothic", 14.5F, System.Drawing.FontStyle.Bold);
-            this.cbxEstadoMetdPago.Location = new System.Drawing.Point(623, 72);
-            this.cbxEstadoMetdPago.Name = "cbxEstadoMetdPago";
-            this.cbxEstadoMetdPago.Size = new System.Drawing.Size(93, 27);
-            this.cbxEstadoMetdPago.TabIndex = 58;
-            this.cbxEstadoMetdPago.Text = "Estado";
-            this.cbxEstadoMetdPago.UseVisualStyleBackColor = true;
             // 
             // FrmMetodoPago
             // 
