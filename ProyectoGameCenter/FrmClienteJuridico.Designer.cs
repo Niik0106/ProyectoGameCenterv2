@@ -34,6 +34,8 @@
             this.BarraTituloCN = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.PanelContenedorCN = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtRucBuscar = new System.Windows.Forms.TextBox();
             this.btnBuscarCliJur = new System.Windows.Forms.Button();
             this.gbClientesJuridico = new System.Windows.Forms.GroupBox();
             this.cbxEstadoCliJur = new System.Windows.Forms.CheckBox();
@@ -61,8 +63,6 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvClienteJuridico = new System.Windows.Forms.DataGridView();
-            this.txtRucBuscar = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.BarraTituloCN.SuspendLayout();
             this.PanelContenedorCN.SuspendLayout();
             this.gbClientesJuridico.SuspendLayout();
@@ -110,6 +110,26 @@
             this.PanelContenedorCN.Name = "PanelContenedorCN";
             this.PanelContenedorCN.Size = new System.Drawing.Size(1050, 590);
             this.PanelContenedorCN.TabIndex = 3;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label3.Location = new System.Drawing.Point(169, 524);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 23);
+            this.label3.TabIndex = 59;
+            this.label3.Text = "Buscar RUC:";
+            // 
+            // txtRucBuscar
+            // 
+            this.txtRucBuscar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRucBuscar.Location = new System.Drawing.Point(173, 550);
+            this.txtRucBuscar.Name = "txtRucBuscar";
+            this.txtRucBuscar.ReadOnly = true;
+            this.txtRucBuscar.Size = new System.Drawing.Size(208, 27);
+            this.txtRucBuscar.TabIndex = 61;
             // 
             // btnBuscarCliJur
             // 
@@ -490,26 +510,6 @@
             this.dgvClienteJuridico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClienteJuridico.Size = new System.Drawing.Size(1003, 229);
             this.dgvClienteJuridico.TabIndex = 26;
-            // 
-            // txtRucBuscar
-            // 
-            this.txtRucBuscar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRucBuscar.Location = new System.Drawing.Point(198, 550);
-            this.txtRucBuscar.Name = "txtRucBuscar";
-            this.txtRucBuscar.ReadOnly = true;
-            this.txtRucBuscar.Size = new System.Drawing.Size(208, 27);
-            this.txtRucBuscar.TabIndex = 61;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label3.Location = new System.Drawing.Point(194, 524);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(120, 23);
-            this.label3.TabIndex = 59;
-            this.label3.Text = "Buscar RUC:";
             // 
             // FrmClienteJuridico
             // 

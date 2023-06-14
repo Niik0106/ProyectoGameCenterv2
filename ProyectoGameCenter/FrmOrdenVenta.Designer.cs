@@ -28,12 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOrdenVenta));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOrdenVenta));
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.gbMetodoPago = new System.Windows.Forms.GroupBox();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnBuscarProd = new System.Windows.Forms.Button();
             this.txtIDEmpleado = new System.Windows.Forms.TextBox();
@@ -58,7 +59,6 @@
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnBuscarOV = new System.Windows.Forms.Button();
-            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.btnGenerarCPago = new System.Windows.Forms.Button();
             this.BarraTitulo.SuspendLayout();
             this.gbMetodoPago.SuspendLayout();
@@ -120,6 +120,24 @@
             this.gbMetodoPago.TabIndex = 40;
             this.gbMetodoPago.TabStop = false;
             this.gbMetodoPago.Text = "ORDEN DE VENTA";
+            // 
+            // btnBuscarCliente
+            // 
+            this.btnBuscarCliente.BackColor = System.Drawing.Color.White;
+            this.btnBuscarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCliente.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCliente.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnBuscarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarCliente.Image")));
+            this.btnBuscarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(386, 104);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(120, 52);
+            this.btnBuscarCliente.TabIndex = 60;
+            this.btnBuscarCliente.Text = "Buscar Cliente";
+            this.btnBuscarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnBuscarCliente.UseVisualStyleBackColor = false;
             // 
             // btnCancelar
             // 
@@ -437,24 +455,6 @@
             this.btnBuscarOV.Text = "Buscar";
             this.btnBuscarOV.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscarOV.UseVisualStyleBackColor = false;
-            // 
-            // btnBuscarCliente
-            // 
-            this.btnBuscarCliente.BackColor = System.Drawing.Color.White;
-            this.btnBuscarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnBuscarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarCliente.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarCliente.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnBuscarCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarCliente.Image")));
-            this.btnBuscarCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarCliente.Location = new System.Drawing.Point(386, 104);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(120, 52);
-            this.btnBuscarCliente.TabIndex = 60;
-            this.btnBuscarCliente.Text = "Buscar Cliente";
-            this.btnBuscarCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnBuscarCliente.UseVisualStyleBackColor = false;
             // 
             // btnGenerarCPago
             // 

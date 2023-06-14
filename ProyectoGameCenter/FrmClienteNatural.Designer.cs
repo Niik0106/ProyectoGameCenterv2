@@ -34,6 +34,8 @@
             this.BarraTituloCN = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.PanelContenedorCN = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtBuscarDNI = new System.Windows.Forms.TextBox();
             this.btnBuscarCliNat = new System.Windows.Forms.Button();
             this.gbClientesNatural = new System.Windows.Forms.GroupBox();
             this.cbxEstadoCliNat = new System.Windows.Forms.CheckBox();
@@ -63,8 +65,6 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvClienteNatural = new System.Windows.Forms.DataGridView();
-            this.txtBuscarDNI = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.BarraTituloCN.SuspendLayout();
             this.PanelContenedorCN.SuspendLayout();
             this.gbClientesNatural.SuspendLayout();
@@ -113,6 +113,26 @@
             this.PanelContenedorCN.Name = "PanelContenedorCN";
             this.PanelContenedorCN.Size = new System.Drawing.Size(1050, 590);
             this.PanelContenedorCN.TabIndex = 2;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label11.Location = new System.Drawing.Point(174, 524);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(126, 23);
+            this.label11.TabIndex = 62;
+            this.label11.Text = "BUSCAR DNI:";
+            // 
+            // txtBuscarDNI
+            // 
+            this.txtBuscarDNI.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarDNI.Location = new System.Drawing.Point(178, 550);
+            this.txtBuscarDNI.Name = "txtBuscarDNI";
+            this.txtBuscarDNI.ReadOnly = true;
+            this.txtBuscarDNI.Size = new System.Drawing.Size(208, 27);
+            this.txtBuscarDNI.TabIndex = 61;
             // 
             // btnBuscarCliNat
             // 
@@ -530,26 +550,6 @@
             this.dgvClienteNatural.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClienteNatural.Size = new System.Drawing.Size(1003, 229);
             this.dgvClienteNatural.TabIndex = 26;
-            // 
-            // txtBuscarDNI
-            // 
-            this.txtBuscarDNI.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarDNI.Location = new System.Drawing.Point(207, 551);
-            this.txtBuscarDNI.Name = "txtBuscarDNI";
-            this.txtBuscarDNI.ReadOnly = true;
-            this.txtBuscarDNI.Size = new System.Drawing.Size(208, 27);
-            this.txtBuscarDNI.TabIndex = 61;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label11.Location = new System.Drawing.Point(203, 525);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(126, 23);
-            this.label11.TabIndex = 62;
-            this.label11.Text = "BUSCAR DNI:";
             // 
             // FrmClienteNatural
             // 

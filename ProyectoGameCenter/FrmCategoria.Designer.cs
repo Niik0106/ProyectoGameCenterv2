@@ -38,6 +38,7 @@
             this.btnSalir = new System.Windows.Forms.Button();
             this.dgvCategoria = new System.Windows.Forms.DataGridView();
             this.gbCategoria = new System.Windows.Forms.GroupBox();
+            this.cbxEstadoCate = new System.Windows.Forms.CheckBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -45,7 +46,6 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtDescripcionCategoria = new System.Windows.Forms.TextBox();
             this.lblMarca = new System.Windows.Forms.Label();
-            this.cbxEstadoCate = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.imgCategoriaProd)).BeginInit();
             this.BarraTituloCN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
@@ -189,6 +189,18 @@
             this.gbCategoria.TabStop = false;
             this.gbCategoria.Text = "CATEGORIA";
             // 
+            // cbxEstadoCate
+            // 
+            this.cbxEstadoCate.AutoSize = true;
+            this.cbxEstadoCate.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbxEstadoCate.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.cbxEstadoCate.Location = new System.Drawing.Point(787, 51);
+            this.cbxEstadoCate.Name = "cbxEstadoCate";
+            this.cbxEstadoCate.Size = new System.Drawing.Size(91, 27);
+            this.cbxEstadoCate.TabIndex = 57;
+            this.cbxEstadoCate.Text = "Estado";
+            this.cbxEstadoCate.UseVisualStyleBackColor = true;
+            // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.White;
@@ -283,18 +295,6 @@
             this.lblMarca.Size = new System.Drawing.Size(110, 23);
             this.lblMarca.TabIndex = 33;
             this.lblMarca.Text = "Categoria:";
-            // 
-            // cbxEstadoCate
-            // 
-            this.cbxEstadoCate.AutoSize = true;
-            this.cbxEstadoCate.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbxEstadoCate.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
-            this.cbxEstadoCate.Location = new System.Drawing.Point(787, 51);
-            this.cbxEstadoCate.Name = "cbxEstadoCate";
-            this.cbxEstadoCate.Size = new System.Drawing.Size(91, 27);
-            this.cbxEstadoCate.TabIndex = 57;
-            this.cbxEstadoCate.Text = "Estado";
-            this.cbxEstadoCate.UseVisualStyleBackColor = true;
             // 
             // FrmCategoria
             // 

@@ -73,7 +73,7 @@
             this.panel1.Controls.Add(this.Nsalida);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(22, 78);
-            this.panel1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panel1.Margin = new System.Windows.Forms.Padding(2);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1003, 257);
             this.panel1.TabIndex = 15;
@@ -180,7 +180,7 @@
             // 
             this.dateTimePicker1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
             this.dateTimePicker1.Location = new System.Drawing.Point(223, 95);
-            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(188, 27);
             this.dateTimePicker1.TabIndex = 50;
@@ -340,7 +340,7 @@
             this.Controls.Add(this.ListaPro);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NotaSalida";
             this.Text = "Form1";
             this.panel1.ResumeLayout(false);

@@ -34,6 +34,14 @@
             this.BarraTituloCN = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.gbEmpleados = new System.Windows.Forms.GroupBox();
+            this.txtIDEmpleado = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.txtContraseña = new System.Windows.Forms.TextBox();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.cbxRol = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
@@ -58,14 +66,6 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvEmpleado = new System.Windows.Forms.DataGridView();
-            this.label11 = new System.Windows.Forms.Label();
-            this.cbxRol = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtUsuario = new System.Windows.Forms.TextBox();
-            this.txtContraseña = new System.Windows.Forms.TextBox();
-            this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.txtIDEmpleado = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.BarraTituloCN.SuspendLayout();
             this.gbEmpleados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleado)).BeginInit();
@@ -133,6 +133,85 @@
             this.gbEmpleados.TabIndex = 32;
             this.gbEmpleados.TabStop = false;
             this.gbEmpleados.Text = "DATOS DEL EMPLEADO";
+            // 
+            // txtIDEmpleado
+            // 
+            this.txtIDEmpleado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDEmpleado.Location = new System.Drawing.Point(160, 42);
+            this.txtIDEmpleado.Name = "txtIDEmpleado";
+            this.txtIDEmpleado.ReadOnly = true;
+            this.txtIDEmpleado.Size = new System.Drawing.Size(166, 27);
+            this.txtIDEmpleado.TabIndex = 36;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label13.Location = new System.Drawing.Point(20, 46);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(134, 23);
+            this.label13.TabIndex = 35;
+            this.label13.Text = "ID Empleado:";
+            // 
+            // txtDireccion
+            // 
+            this.txtDireccion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDireccion.Location = new System.Drawing.Point(501, 45);
+            this.txtDireccion.Name = "txtDireccion";
+            this.txtDireccion.ReadOnly = true;
+            this.txtDireccion.Size = new System.Drawing.Size(185, 27);
+            this.txtDireccion.TabIndex = 34;
+            // 
+            // txtContraseña
+            // 
+            this.txtContraseña.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContraseña.Location = new System.Drawing.Point(820, 86);
+            this.txtContraseña.Name = "txtContraseña";
+            this.txtContraseña.ReadOnly = true;
+            this.txtContraseña.Size = new System.Drawing.Size(163, 27);
+            this.txtContraseña.TabIndex = 33;
+            // 
+            // txtUsuario
+            // 
+            this.txtUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUsuario.Location = new System.Drawing.Point(820, 42);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.ReadOnly = true;
+            this.txtUsuario.Size = new System.Drawing.Size(163, 27);
+            this.txtUsuario.TabIndex = 32;
+            // 
+            // cbxRol
+            // 
+            this.cbxRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxRol.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxRol.FormattingEnabled = true;
+            this.cbxRol.Location = new System.Drawing.Point(820, 132);
+            this.cbxRol.Name = "cbxRol";
+            this.cbxRol.Size = new System.Drawing.Size(163, 29);
+            this.cbxRol.TabIndex = 31;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label12.Location = new System.Drawing.Point(771, 134);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(43, 23);
+            this.label12.TabIndex = 30;
+            this.label12.Text = "Rol:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label11.Location = new System.Drawing.Point(693, 87);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(122, 23);
+            this.label11.TabIndex = 28;
+            this.label11.Text = "Contraseña:";
             // 
             // label10
             // 
@@ -215,7 +294,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(853, 219);
+            this.btnCancelar.Location = new System.Drawing.Point(853, 218);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(130, 50);
             this.btnCancelar.TabIndex = 25;
@@ -452,85 +531,6 @@
             this.dgvEmpleado.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEmpleado.Size = new System.Drawing.Size(1003, 199);
             this.dgvEmpleado.TabIndex = 33;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label11.Location = new System.Drawing.Point(693, 87);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(122, 23);
-            this.label11.TabIndex = 28;
-            this.label11.Text = "Contraseña:";
-            // 
-            // cbxRol
-            // 
-            this.cbxRol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxRol.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxRol.FormattingEnabled = true;
-            this.cbxRol.Location = new System.Drawing.Point(820, 132);
-            this.cbxRol.Name = "cbxRol";
-            this.cbxRol.Size = new System.Drawing.Size(163, 29);
-            this.cbxRol.TabIndex = 31;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label12.Location = new System.Drawing.Point(771, 134);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(43, 23);
-            this.label12.TabIndex = 30;
-            this.label12.Text = "Rol:";
-            // 
-            // txtUsuario
-            // 
-            this.txtUsuario.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(820, 42);
-            this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.ReadOnly = true;
-            this.txtUsuario.Size = new System.Drawing.Size(163, 27);
-            this.txtUsuario.TabIndex = 32;
-            // 
-            // txtContraseña
-            // 
-            this.txtContraseña.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContraseña.Location = new System.Drawing.Point(820, 86);
-            this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.ReadOnly = true;
-            this.txtContraseña.Size = new System.Drawing.Size(163, 27);
-            this.txtContraseña.TabIndex = 33;
-            // 
-            // txtDireccion
-            // 
-            this.txtDireccion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDireccion.Location = new System.Drawing.Point(501, 45);
-            this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.ReadOnly = true;
-            this.txtDireccion.Size = new System.Drawing.Size(185, 27);
-            this.txtDireccion.TabIndex = 34;
-            // 
-            // txtIDEmpleado
-            // 
-            this.txtIDEmpleado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDEmpleado.Location = new System.Drawing.Point(160, 42);
-            this.txtIDEmpleado.Name = "txtIDEmpleado";
-            this.txtIDEmpleado.ReadOnly = true;
-            this.txtIDEmpleado.Size = new System.Drawing.Size(166, 27);
-            this.txtIDEmpleado.TabIndex = 36;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label13.Location = new System.Drawing.Point(20, 46);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(134, 23);
-            this.label13.TabIndex = 35;
-            this.label13.Text = "ID Empleado:";
             // 
             // FrmEmpleados
             // 

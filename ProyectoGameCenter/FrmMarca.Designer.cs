@@ -42,10 +42,10 @@
             this.txtIDMarca = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.gbMarca = new System.Windows.Forms.GroupBox();
+            this.cbxEstadoMarca = new System.Windows.Forms.CheckBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
-            this.cbxEstadoMarca = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMarca)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.imgMarca)).BeginInit();
             this.BarraTituloCN.SuspendLayout();
@@ -229,6 +229,18 @@
             this.gbMarca.TabStop = false;
             this.gbMarca.Text = "MARCA";
             // 
+            // cbxEstadoMarca
+            // 
+            this.cbxEstadoMarca.AutoSize = true;
+            this.cbxEstadoMarca.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbxEstadoMarca.Font = new System.Drawing.Font("Century Gothic", 14.5F, System.Drawing.FontStyle.Bold);
+            this.cbxEstadoMarca.Location = new System.Drawing.Point(738, 54);
+            this.cbxEstadoMarca.Name = "cbxEstadoMarca";
+            this.cbxEstadoMarca.Size = new System.Drawing.Size(93, 27);
+            this.cbxEstadoMarca.TabIndex = 56;
+            this.cbxEstadoMarca.Text = "Estado";
+            this.cbxEstadoMarca.UseVisualStyleBackColor = true;
+            // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.White;
@@ -282,18 +294,6 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
-            // 
-            // cbxEstadoMarca
-            // 
-            this.cbxEstadoMarca.AutoSize = true;
-            this.cbxEstadoMarca.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbxEstadoMarca.Font = new System.Drawing.Font("Century Gothic", 14.5F, System.Drawing.FontStyle.Bold);
-            this.cbxEstadoMarca.Location = new System.Drawing.Point(738, 54);
-            this.cbxEstadoMarca.Name = "cbxEstadoMarca";
-            this.cbxEstadoMarca.Size = new System.Drawing.Size(93, 27);
-            this.cbxEstadoMarca.TabIndex = 56;
-            this.cbxEstadoMarca.Text = "Estado";
-            this.cbxEstadoMarca.UseVisualStyleBackColor = true;
             // 
             // FrmMarca
             // 

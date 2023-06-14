@@ -35,6 +35,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.PanelContenedorCN = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtBuscarRUC = new System.Windows.Forms.TextBox();
             this.btnBuscarProv = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnInhabilitarProv = new System.Windows.Forms.Button();
@@ -63,8 +65,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.BarraTituloCN = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtBuscarRUC = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.PanelContenedorCN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
             this.gbProveedor.SuspendLayout();
@@ -121,6 +121,26 @@
             this.PanelContenedorCN.Name = "PanelContenedorCN";
             this.PanelContenedorCN.Size = new System.Drawing.Size(1050, 650);
             this.PanelContenedorCN.TabIndex = 4;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label4.Location = new System.Drawing.Point(196, 581);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(133, 23);
+            this.label4.TabIndex = 62;
+            this.label4.Text = "BUSCAR RUC:";
+            // 
+            // txtBuscarRUC
+            // 
+            this.txtBuscarRUC.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarRUC.Location = new System.Drawing.Point(200, 604);
+            this.txtBuscarRUC.Name = "txtBuscarRUC";
+            this.txtBuscarRUC.ReadOnly = true;
+            this.txtBuscarRUC.Size = new System.Drawing.Size(208, 27);
+            this.txtBuscarRUC.TabIndex = 61;
             // 
             // btnBuscarProv
             // 
@@ -513,26 +533,6 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "PROVEEDORES";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txtBuscarRUC
-            // 
-            this.txtBuscarRUC.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarRUC.Location = new System.Drawing.Point(200, 604);
-            this.txtBuscarRUC.Name = "txtBuscarRUC";
-            this.txtBuscarRUC.ReadOnly = true;
-            this.txtBuscarRUC.Size = new System.Drawing.Size(208, 27);
-            this.txtBuscarRUC.TabIndex = 61;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label4.Location = new System.Drawing.Point(196, 581);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(133, 23);
-            this.label4.TabIndex = 62;
-            this.label4.Text = "BUSCAR RUC:";
             // 
             // FrmProveedor
             // 

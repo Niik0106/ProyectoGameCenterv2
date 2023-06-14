@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOrdenCompra));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.BarraTituloCN = new System.Windows.Forms.Panel();
             this.gboOrdenCompra = new System.Windows.Forms.GroupBox();
+            this.btnBuscarProv = new System.Windows.Forms.Button();
+            this.btnBuscarProd = new System.Windows.Forms.Button();
             this.txtIDProducto = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.dtpFAtendida = new System.Windows.Forms.DateTimePicker();
@@ -54,8 +56,6 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvOrdenCompra = new System.Windows.Forms.DataGridView();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnBuscarProd = new System.Windows.Forms.Button();
-            this.btnBuscarProv = new System.Windows.Forms.Button();
             this.btnBuscarOC = new System.Windows.Forms.Button();
             this.BarraTituloCN.SuspendLayout();
             this.gboOrdenCompra.SuspendLayout();
@@ -115,6 +115,44 @@
             this.gboOrdenCompra.TabIndex = 57;
             this.gboOrdenCompra.TabStop = false;
             this.gboOrdenCompra.Text = "ORDEN DE COMPRA";
+            // 
+            // btnBuscarProv
+            // 
+            this.btnBuscarProv.BackColor = System.Drawing.Color.White;
+            this.btnBuscarProv.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarProv.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnBuscarProv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarProv.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarProv.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnBuscarProv.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProv.Image")));
+            this.btnBuscarProv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarProv.Location = new System.Drawing.Point(336, 127);
+            this.btnBuscarProv.Name = "btnBuscarProv";
+            this.btnBuscarProv.Size = new System.Drawing.Size(139, 50);
+            this.btnBuscarProv.TabIndex = 58;
+            this.btnBuscarProv.Text = "Buscar Proveedor";
+            this.btnBuscarProv.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarProv.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnBuscarProv.UseVisualStyleBackColor = false;
+            // 
+            // btnBuscarProd
+            // 
+            this.btnBuscarProd.BackColor = System.Drawing.Color.White;
+            this.btnBuscarProd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarProd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnBuscarProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarProd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarProd.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnBuscarProd.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProd.Image")));
+            this.btnBuscarProd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarProd.Location = new System.Drawing.Point(336, 199);
+            this.btnBuscarProd.Name = "btnBuscarProd";
+            this.btnBuscarProd.Size = new System.Drawing.Size(139, 50);
+            this.btnBuscarProd.TabIndex = 57;
+            this.btnBuscarProd.Text = "Buscar Producto";
+            this.btnBuscarProd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarProd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnBuscarProd.UseVisualStyleBackColor = false;
             // 
             // txtIDProducto
             // 
@@ -337,25 +375,25 @@
             this.dgvOrdenCompra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvOrdenCompra.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvOrdenCompra.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.DarkViolet;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkViolet;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrdenCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrdenCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvOrdenCompra.ColumnHeadersHeight = 30;
             this.dgvOrdenCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvOrdenCompra.ColumnHeadersVisible = false;
             this.dgvOrdenCompra.Location = new System.Drawing.Point(19, 372);
             this.dgvOrdenCompra.Name = "dgvOrdenCompra";
             this.dgvOrdenCompra.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.BlueViolet;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvOrdenCompra.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.BlueViolet;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvOrdenCompra.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvOrdenCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrdenCompra.Size = new System.Drawing.Size(1003, 197);
             this.dgvOrdenCompra.TabIndex = 59;
@@ -377,44 +415,6 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = false;
-            // 
-            // btnBuscarProd
-            // 
-            this.btnBuscarProd.BackColor = System.Drawing.Color.White;
-            this.btnBuscarProd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarProd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnBuscarProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarProd.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarProd.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnBuscarProd.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProd.Image")));
-            this.btnBuscarProd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarProd.Location = new System.Drawing.Point(336, 199);
-            this.btnBuscarProd.Name = "btnBuscarProd";
-            this.btnBuscarProd.Size = new System.Drawing.Size(139, 50);
-            this.btnBuscarProd.TabIndex = 57;
-            this.btnBuscarProd.Text = "Buscar Producto";
-            this.btnBuscarProd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarProd.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnBuscarProd.UseVisualStyleBackColor = false;
-            // 
-            // btnBuscarProv
-            // 
-            this.btnBuscarProv.BackColor = System.Drawing.Color.White;
-            this.btnBuscarProv.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarProv.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnBuscarProv.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarProv.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarProv.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnBuscarProv.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProv.Image")));
-            this.btnBuscarProv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarProv.Location = new System.Drawing.Point(336, 127);
-            this.btnBuscarProv.Name = "btnBuscarProv";
-            this.btnBuscarProv.Size = new System.Drawing.Size(139, 50);
-            this.btnBuscarProv.TabIndex = 58;
-            this.btnBuscarProv.Text = "Buscar Proveedor";
-            this.btnBuscarProv.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarProv.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnBuscarProv.UseVisualStyleBackColor = false;
             // 
             // btnBuscarOC
             // 
