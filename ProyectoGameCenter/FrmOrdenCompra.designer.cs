@@ -145,7 +145,7 @@
             this.btnBuscarProd.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnBuscarProd.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProd.Image")));
             this.btnBuscarProd.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarProd.Location = new System.Drawing.Point(336, 199);
+            this.btnBuscarProd.Location = new System.Drawing.Point(336, 211);
             this.btnBuscarProd.Name = "btnBuscarProd";
             this.btnBuscarProd.Size = new System.Drawing.Size(139, 50);
             this.btnBuscarProd.TabIndex = 57;
@@ -157,7 +157,7 @@
             // txtIDProducto
             // 
             this.txtIDProducto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.txtIDProducto.Location = new System.Drawing.Point(29, 212);
+            this.txtIDProducto.Location = new System.Drawing.Point(33, 234);
             this.txtIDProducto.Name = "txtIDProducto";
             this.txtIDProducto.ReadOnly = true;
             this.txtIDProducto.Size = new System.Drawing.Size(200, 27);
@@ -168,7 +168,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label7.Location = new System.Drawing.Point(29, 186);
+            this.label7.Location = new System.Drawing.Point(29, 199);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(121, 23);
             this.label7.TabIndex = 54;
