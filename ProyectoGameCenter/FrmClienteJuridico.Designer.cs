@@ -51,11 +51,8 @@
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.cboDistrito = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.cboProvincia = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cboDepartamento = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -63,6 +60,12 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvClienteJuridico = new System.Windows.Forms.DataGridView();
+            this.txtDistrito = new System.Windows.Forms.TextBox();
+            this.txtProvincia = new System.Windows.Forms.TextBox();
+            this.txtDepartamento = new System.Windows.Forms.TextBox();
+            this.txtCodigoUbigeo = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btnBuscarUbigeo = new System.Windows.Forms.Button();
             this.BarraTituloCN.SuspendLayout();
             this.PanelContenedorCN.SuspendLayout();
             this.gbClientesJuridico.SuspendLayout();
@@ -151,6 +154,12 @@
             // 
             // gbClientesJuridico
             // 
+            this.gbClientesJuridico.Controls.Add(this.btnBuscarUbigeo);
+            this.gbClientesJuridico.Controls.Add(this.label11);
+            this.gbClientesJuridico.Controls.Add(this.txtCodigoUbigeo);
+            this.gbClientesJuridico.Controls.Add(this.txtDepartamento);
+            this.gbClientesJuridico.Controls.Add(this.txtProvincia);
+            this.gbClientesJuridico.Controls.Add(this.txtDistrito);
             this.gbClientesJuridico.Controls.Add(this.cbxEstadoCliJur);
             this.gbClientesJuridico.Controls.Add(this.label10);
             this.gbClientesJuridico.Controls.Add(this.txtIDCliente);
@@ -164,11 +173,8 @@
             this.gbClientesJuridico.Controls.Add(this.txtTelefono);
             this.gbClientesJuridico.Controls.Add(this.btnAgregar);
             this.gbClientesJuridico.Controls.Add(this.txtDireccion);
-            this.gbClientesJuridico.Controls.Add(this.cboDistrito);
             this.gbClientesJuridico.Controls.Add(this.label6);
-            this.gbClientesJuridico.Controls.Add(this.cboProvincia);
             this.gbClientesJuridico.Controls.Add(this.label7);
-            this.gbClientesJuridico.Controls.Add(this.cboDepartamento);
             this.gbClientesJuridico.Controls.Add(this.label8);
             this.gbClientesJuridico.Controls.Add(this.label9);
             this.gbClientesJuridico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -186,7 +192,7 @@
             this.cbxEstadoCliJur.AutoSize = true;
             this.cbxEstadoCliJur.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cbxEstadoCliJur.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
-            this.cbxEstadoCliJur.Location = new System.Drawing.Point(467, 211);
+            this.cbxEstadoCliJur.Location = new System.Drawing.Point(448, 208);
             this.cbxEstadoCliJur.Name = "cbxEstadoCliJur";
             this.cbxEstadoCliJur.Size = new System.Drawing.Size(91, 27);
             this.cbxEstadoCliJur.TabIndex = 58;
@@ -337,64 +343,34 @@
             this.txtDireccion.Size = new System.Drawing.Size(246, 23);
             this.txtDireccion.TabIndex = 20;
             // 
-            // cboDistrito
-            // 
-            this.cboDistrito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDistrito.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboDistrito.FormattingEnabled = true;
-            this.cboDistrito.Location = new System.Drawing.Point(545, 136);
-            this.cboDistrito.Name = "cboDistrito";
-            this.cboDistrito.Size = new System.Drawing.Size(246, 29);
-            this.cboDistrito.TabIndex = 23;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label6.Location = new System.Drawing.Point(389, 60);
+            this.label6.Location = new System.Drawing.Point(389, 88);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(150, 23);
             this.label6.TabIndex = 12;
             this.label6.Text = "Departamento:";
-            // 
-            // cboProvincia
-            // 
-            this.cboProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboProvincia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboProvincia.FormattingEnabled = true;
-            this.cboProvincia.Location = new System.Drawing.Point(545, 92);
-            this.cboProvincia.Name = "cboProvincia";
-            this.cboProvincia.Size = new System.Drawing.Size(244, 29);
-            this.cboProvincia.TabIndex = 22;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label7.Location = new System.Drawing.Point(438, 96);
+            this.label7.Location = new System.Drawing.Point(438, 121);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(101, 23);
             this.label7.TabIndex = 13;
             this.label7.Text = "Provincia:";
-            // 
-            // cboDepartamento
-            // 
-            this.cboDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDepartamento.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboDepartamento.FormattingEnabled = true;
-            this.cboDepartamento.Location = new System.Drawing.Point(545, 54);
-            this.cboDepartamento.Name = "cboDepartamento";
-            this.cboDepartamento.Size = new System.Drawing.Size(246, 29);
-            this.cboDepartamento.TabIndex = 21;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label8.Location = new System.Drawing.Point(463, 139);
+            this.label8.Location = new System.Drawing.Point(463, 150);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(76, 23);
             this.label8.TabIndex = 14;
@@ -511,6 +487,74 @@
             this.dgvClienteJuridico.Size = new System.Drawing.Size(1003, 229);
             this.dgvClienteJuridico.TabIndex = 26;
             // 
+            // txtDistrito
+            // 
+            this.txtDistrito.Enabled = false;
+            this.txtDistrito.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDistrito.Location = new System.Drawing.Point(545, 150);
+            this.txtDistrito.Name = "txtDistrito";
+            this.txtDistrito.ReadOnly = true;
+            this.txtDistrito.Size = new System.Drawing.Size(208, 27);
+            this.txtDistrito.TabIndex = 59;
+            // 
+            // txtProvincia
+            // 
+            this.txtProvincia.Enabled = false;
+            this.txtProvincia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProvincia.Location = new System.Drawing.Point(545, 120);
+            this.txtProvincia.Name = "txtProvincia";
+            this.txtProvincia.ReadOnly = true;
+            this.txtProvincia.Size = new System.Drawing.Size(208, 27);
+            this.txtProvincia.TabIndex = 60;
+            // 
+            // txtDepartamento
+            // 
+            this.txtDepartamento.Enabled = false;
+            this.txtDepartamento.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDepartamento.Location = new System.Drawing.Point(545, 87);
+            this.txtDepartamento.Name = "txtDepartamento";
+            this.txtDepartamento.ReadOnly = true;
+            this.txtDepartamento.Size = new System.Drawing.Size(208, 27);
+            this.txtDepartamento.TabIndex = 61;
+            // 
+            // txtCodigoUbigeo
+            // 
+            this.txtCodigoUbigeo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoUbigeo.Location = new System.Drawing.Point(545, 54);
+            this.txtCodigoUbigeo.Name = "txtCodigoUbigeo";
+            this.txtCodigoUbigeo.ReadOnly = true;
+            this.txtCodigoUbigeo.Size = new System.Drawing.Size(208, 27);
+            this.txtCodigoUbigeo.TabIndex = 62;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label11.Location = new System.Drawing.Point(381, 56);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(158, 23);
+            this.label11.TabIndex = 63;
+            this.label11.Text = "Codigo Ubigeo:";
+            // 
+            // btnBuscarUbigeo
+            // 
+            this.btnBuscarUbigeo.BackColor = System.Drawing.Color.White;
+            this.btnBuscarUbigeo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarUbigeo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnBuscarUbigeo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarUbigeo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarUbigeo.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnBuscarUbigeo.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarUbigeo.Image")));
+            this.btnBuscarUbigeo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarUbigeo.Location = new System.Drawing.Point(760, 54);
+            this.btnBuscarUbigeo.Name = "btnBuscarUbigeo";
+            this.btnBuscarUbigeo.Size = new System.Drawing.Size(71, 29);
+            this.btnBuscarUbigeo.TabIndex = 64;
+            this.btnBuscarUbigeo.Text = "buscar";
+            this.btnBuscarUbigeo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarUbigeo.UseVisualStyleBackColor = false;
+            // 
             // FrmClienteJuridico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -549,11 +593,8 @@
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TextBox txtDireccion;
-        private System.Windows.Forms.ComboBox cboDistrito;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cboProvincia;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cboDepartamento;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnSalir;
@@ -565,5 +606,11 @@
         private System.Windows.Forms.Button btnBuscarCliJur;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtRucBuscar;
+        private System.Windows.Forms.Button btnBuscarUbigeo;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtCodigoUbigeo;
+        private System.Windows.Forms.TextBox txtDepartamento;
+        private System.Windows.Forms.TextBox txtProvincia;
+        private System.Windows.Forms.TextBox txtDistrito;
     }
 }
