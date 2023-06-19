@@ -34,7 +34,11 @@
             this.BarraTituloCN = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.PanelContenedorCN = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtRucBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscarCliJur = new System.Windows.Forms.Button();
             this.gbClientesJuridico = new System.Windows.Forms.GroupBox();
+            this.cbxEstadoCliJur = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtIDCliente = new System.Windows.Forms.TextBox();
             this.txtRUC = new System.Windows.Forms.TextBox();
@@ -47,18 +51,21 @@
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.cboDistrito = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.cboProvincia = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cboDepartamento = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnInhabilitarCliJur = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvClienteJuridico = new System.Windows.Forms.DataGridView();
+            this.txtDistrito = new System.Windows.Forms.TextBox();
+            this.txtProvincia = new System.Windows.Forms.TextBox();
+            this.txtDepartamento = new System.Windows.Forms.TextBox();
+            this.txtCodigoUbigeo = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.btnBuscarUbigeo = new System.Windows.Forms.Button();
             this.BarraTituloCN.SuspendLayout();
             this.PanelContenedorCN.SuspendLayout();
             this.gbClientesJuridico.SuspendLayout();
@@ -92,9 +99,12 @@
             // PanelContenedorCN
             // 
             this.PanelContenedorCN.BackColor = System.Drawing.Color.White;
+            this.PanelContenedorCN.Controls.Add(this.label3);
+            this.PanelContenedorCN.Controls.Add(this.txtRucBuscar);
+            this.PanelContenedorCN.Controls.Add(this.btnBuscarCliJur);
             this.PanelContenedorCN.Controls.Add(this.gbClientesJuridico);
             this.PanelContenedorCN.Controls.Add(this.btnSalir);
-            this.PanelContenedorCN.Controls.Add(this.btnEliminar);
+            this.PanelContenedorCN.Controls.Add(this.btnInhabilitarCliJur);
             this.PanelContenedorCN.Controls.Add(this.btnEditar);
             this.PanelContenedorCN.Controls.Add(this.btnNuevo);
             this.PanelContenedorCN.Controls.Add(this.dgvClienteJuridico);
@@ -104,8 +114,53 @@
             this.PanelContenedorCN.Size = new System.Drawing.Size(1050, 590);
             this.PanelContenedorCN.TabIndex = 3;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label3.Location = new System.Drawing.Point(169, 524);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 23);
+            this.label3.TabIndex = 59;
+            this.label3.Text = "Buscar RUC:";
+            // 
+            // txtRucBuscar
+            // 
+            this.txtRucBuscar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRucBuscar.Location = new System.Drawing.Point(173, 550);
+            this.txtRucBuscar.Name = "txtRucBuscar";
+            this.txtRucBuscar.ReadOnly = true;
+            this.txtRucBuscar.Size = new System.Drawing.Size(208, 27);
+            this.txtRucBuscar.TabIndex = 61;
+            // 
+            // btnBuscarCliJur
+            // 
+            this.btnBuscarCliJur.BackColor = System.Drawing.Color.White;
+            this.btnBuscarCliJur.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarCliJur.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnBuscarCliJur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCliJur.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCliJur.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnBuscarCliJur.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarCliJur.Image")));
+            this.btnBuscarCliJur.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarCliJur.Location = new System.Drawing.Point(412, 527);
+            this.btnBuscarCliJur.Name = "btnBuscarCliJur";
+            this.btnBuscarCliJur.Size = new System.Drawing.Size(130, 50);
+            this.btnBuscarCliJur.TabIndex = 60;
+            this.btnBuscarCliJur.Text = "Buscar";
+            this.btnBuscarCliJur.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarCliJur.UseVisualStyleBackColor = false;
+            // 
             // gbClientesJuridico
             // 
+            this.gbClientesJuridico.Controls.Add(this.btnBuscarUbigeo);
+            this.gbClientesJuridico.Controls.Add(this.label11);
+            this.gbClientesJuridico.Controls.Add(this.txtCodigoUbigeo);
+            this.gbClientesJuridico.Controls.Add(this.txtDepartamento);
+            this.gbClientesJuridico.Controls.Add(this.txtProvincia);
+            this.gbClientesJuridico.Controls.Add(this.txtDistrito);
+            this.gbClientesJuridico.Controls.Add(this.cbxEstadoCliJur);
             this.gbClientesJuridico.Controls.Add(this.label10);
             this.gbClientesJuridico.Controls.Add(this.txtIDCliente);
             this.gbClientesJuridico.Controls.Add(this.txtRUC);
@@ -118,11 +173,8 @@
             this.gbClientesJuridico.Controls.Add(this.txtTelefono);
             this.gbClientesJuridico.Controls.Add(this.btnAgregar);
             this.gbClientesJuridico.Controls.Add(this.txtDireccion);
-            this.gbClientesJuridico.Controls.Add(this.cboDistrito);
             this.gbClientesJuridico.Controls.Add(this.label6);
-            this.gbClientesJuridico.Controls.Add(this.cboProvincia);
             this.gbClientesJuridico.Controls.Add(this.label7);
-            this.gbClientesJuridico.Controls.Add(this.cboDepartamento);
             this.gbClientesJuridico.Controls.Add(this.label8);
             this.gbClientesJuridico.Controls.Add(this.label9);
             this.gbClientesJuridico.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -130,10 +182,22 @@
             this.gbClientesJuridico.ForeColor = System.Drawing.Color.DarkViolet;
             this.gbClientesJuridico.Location = new System.Drawing.Point(19, 15);
             this.gbClientesJuridico.Name = "gbClientesJuridico";
-            this.gbClientesJuridico.Size = new System.Drawing.Size(1003, 251);
+            this.gbClientesJuridico.Size = new System.Drawing.Size(1003, 265);
             this.gbClientesJuridico.TabIndex = 31;
             this.gbClientesJuridico.TabStop = false;
             this.gbClientesJuridico.Text = "DATOS DEL CLIENTE";
+            // 
+            // cbxEstadoCliJur
+            // 
+            this.cbxEstadoCliJur.AutoSize = true;
+            this.cbxEstadoCliJur.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbxEstadoCliJur.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.cbxEstadoCliJur.Location = new System.Drawing.Point(448, 208);
+            this.cbxEstadoCliJur.Name = "cbxEstadoCliJur";
+            this.cbxEstadoCliJur.Size = new System.Drawing.Size(91, 27);
+            this.cbxEstadoCliJur.TabIndex = 58;
+            this.cbxEstadoCliJur.Text = "Estado";
+            this.cbxEstadoCliJur.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -279,64 +343,34 @@
             this.txtDireccion.Size = new System.Drawing.Size(246, 23);
             this.txtDireccion.TabIndex = 20;
             // 
-            // cboDistrito
-            // 
-            this.cboDistrito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDistrito.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboDistrito.FormattingEnabled = true;
-            this.cboDistrito.Location = new System.Drawing.Point(545, 136);
-            this.cboDistrito.Name = "cboDistrito";
-            this.cboDistrito.Size = new System.Drawing.Size(246, 29);
-            this.cboDistrito.TabIndex = 23;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label6.Location = new System.Drawing.Point(389, 60);
+            this.label6.Location = new System.Drawing.Point(389, 88);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(150, 23);
             this.label6.TabIndex = 12;
             this.label6.Text = "Departamento:";
-            // 
-            // cboProvincia
-            // 
-            this.cboProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboProvincia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboProvincia.FormattingEnabled = true;
-            this.cboProvincia.Location = new System.Drawing.Point(545, 92);
-            this.cboProvincia.Name = "cboProvincia";
-            this.cboProvincia.Size = new System.Drawing.Size(244, 29);
-            this.cboProvincia.TabIndex = 22;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label7.Location = new System.Drawing.Point(438, 96);
+            this.label7.Location = new System.Drawing.Point(438, 121);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(101, 23);
             this.label7.TabIndex = 13;
             this.label7.Text = "Provincia:";
-            // 
-            // cboDepartamento
-            // 
-            this.cboDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDepartamento.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboDepartamento.FormattingEnabled = true;
-            this.cboDepartamento.Location = new System.Drawing.Point(545, 54);
-            this.cboDepartamento.Name = "cboDepartamento";
-            this.cboDepartamento.Size = new System.Drawing.Size(246, 29);
-            this.cboDepartamento.TabIndex = 21;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label8.Location = new System.Drawing.Point(463, 139);
+            this.label8.Location = new System.Drawing.Point(463, 150);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(76, 23);
             this.label8.TabIndex = 14;
@@ -371,23 +405,23 @@
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = false;
             // 
-            // btnEliminar
+            // btnInhabilitarCliJur
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.White;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(894, 527);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(130, 50);
-            this.btnEliminar.TabIndex = 29;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnInhabilitarCliJur.BackColor = System.Drawing.Color.White;
+            this.btnInhabilitarCliJur.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInhabilitarCliJur.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnInhabilitarCliJur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInhabilitarCliJur.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInhabilitarCliJur.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnInhabilitarCliJur.Image = ((System.Drawing.Image)(resources.GetObject("btnInhabilitarCliJur.Image")));
+            this.btnInhabilitarCliJur.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInhabilitarCliJur.Location = new System.Drawing.Point(880, 527);
+            this.btnInhabilitarCliJur.Name = "btnInhabilitarCliJur";
+            this.btnInhabilitarCliJur.Size = new System.Drawing.Size(144, 50);
+            this.btnInhabilitarCliJur.TabIndex = 29;
+            this.btnInhabilitarCliJur.Text = "Inhabilitar";
+            this.btnInhabilitarCliJur.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnInhabilitarCliJur.UseVisualStyleBackColor = false;
             // 
             // btnEditar
             // 
@@ -399,7 +433,7 @@
             this.btnEditar.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(741, 528);
+            this.btnEditar.Location = new System.Drawing.Point(720, 528);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(130, 50);
             this.btnEditar.TabIndex = 28;
@@ -417,7 +451,7 @@
             this.btnNuevo.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(586, 528);
+            this.btnNuevo.Location = new System.Drawing.Point(564, 528);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(130, 50);
             this.btnNuevo.TabIndex = 27;
@@ -453,6 +487,74 @@
             this.dgvClienteJuridico.Size = new System.Drawing.Size(1003, 229);
             this.dgvClienteJuridico.TabIndex = 26;
             // 
+            // txtDistrito
+            // 
+            this.txtDistrito.Enabled = false;
+            this.txtDistrito.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDistrito.Location = new System.Drawing.Point(545, 150);
+            this.txtDistrito.Name = "txtDistrito";
+            this.txtDistrito.ReadOnly = true;
+            this.txtDistrito.Size = new System.Drawing.Size(208, 27);
+            this.txtDistrito.TabIndex = 59;
+            // 
+            // txtProvincia
+            // 
+            this.txtProvincia.Enabled = false;
+            this.txtProvincia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProvincia.Location = new System.Drawing.Point(545, 120);
+            this.txtProvincia.Name = "txtProvincia";
+            this.txtProvincia.ReadOnly = true;
+            this.txtProvincia.Size = new System.Drawing.Size(208, 27);
+            this.txtProvincia.TabIndex = 60;
+            // 
+            // txtDepartamento
+            // 
+            this.txtDepartamento.Enabled = false;
+            this.txtDepartamento.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDepartamento.Location = new System.Drawing.Point(545, 87);
+            this.txtDepartamento.Name = "txtDepartamento";
+            this.txtDepartamento.ReadOnly = true;
+            this.txtDepartamento.Size = new System.Drawing.Size(208, 27);
+            this.txtDepartamento.TabIndex = 61;
+            // 
+            // txtCodigoUbigeo
+            // 
+            this.txtCodigoUbigeo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoUbigeo.Location = new System.Drawing.Point(545, 54);
+            this.txtCodigoUbigeo.Name = "txtCodigoUbigeo";
+            this.txtCodigoUbigeo.ReadOnly = true;
+            this.txtCodigoUbigeo.Size = new System.Drawing.Size(208, 27);
+            this.txtCodigoUbigeo.TabIndex = 62;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label11.Location = new System.Drawing.Point(381, 56);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(158, 23);
+            this.label11.TabIndex = 63;
+            this.label11.Text = "Codigo Ubigeo:";
+            // 
+            // btnBuscarUbigeo
+            // 
+            this.btnBuscarUbigeo.BackColor = System.Drawing.Color.White;
+            this.btnBuscarUbigeo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarUbigeo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnBuscarUbigeo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarUbigeo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarUbigeo.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnBuscarUbigeo.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarUbigeo.Image")));
+            this.btnBuscarUbigeo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarUbigeo.Location = new System.Drawing.Point(760, 54);
+            this.btnBuscarUbigeo.Name = "btnBuscarUbigeo";
+            this.btnBuscarUbigeo.Size = new System.Drawing.Size(71, 29);
+            this.btnBuscarUbigeo.TabIndex = 64;
+            this.btnBuscarUbigeo.Text = "buscar";
+            this.btnBuscarUbigeo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarUbigeo.UseVisualStyleBackColor = false;
+            // 
             // FrmClienteJuridico
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -465,6 +567,7 @@
             this.Text = "FrmClienteJuridico";
             this.BarraTituloCN.ResumeLayout(false);
             this.PanelContenedorCN.ResumeLayout(false);
+            this.PanelContenedorCN.PerformLayout();
             this.gbClientesJuridico.ResumeLayout(false);
             this.gbClientesJuridico.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClienteJuridico)).EndInit();
@@ -490,17 +593,24 @@
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TextBox txtDireccion;
-        private System.Windows.Forms.ComboBox cboDistrito;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox cboProvincia;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox cboDepartamento;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnInhabilitarCliJur;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DataGridView dgvClienteJuridico;
+        private System.Windows.Forms.CheckBox cbxEstadoCliJur;
+        private System.Windows.Forms.Button btnBuscarCliJur;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtRucBuscar;
+        private System.Windows.Forms.Button btnBuscarUbigeo;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtCodigoUbigeo;
+        private System.Windows.Forms.TextBox txtDepartamento;
+        private System.Windows.Forms.TextBox txtProvincia;
+        private System.Windows.Forms.TextBox txtDistrito;
     }
 }

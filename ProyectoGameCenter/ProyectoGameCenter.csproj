@@ -46,23 +46,35 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FrmCronogramaPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCronogramaPago.Designer.cs">
+      <DependentUpon>FrmCronogramaPago.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmOrdenCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmOrdenCompra.Designer.cs">
+    <Compile Include="FrmOrdenCompra.designer.cs">
       <DependentUpon>FrmOrdenCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEmpleados.cs">
+    <Compile Include="NotaSalida.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEmpleados.Designer.cs">
-      <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    <Compile Include="NotaSalida.Designer.cs">
+      <DependentUpon>NotaSalida.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMetodoPago.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmMetodoPago.Designer.cs">
       <DependentUpon>FrmMetodoPago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmOrdenVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmOrdenVenta.Designer.cs">
+      <DependentUpon>FrmOrdenVenta.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmProductos.cs">
       <SubType>Form</SubType>
@@ -97,12 +109,6 @@
     <Compile Include="FrmClienteNatural.Designer.cs">
       <DependentUpon>FrmClienteNatural.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmTipoPago.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmTipoPago.Designer.cs">
-      <DependentUpon>FrmTipoPago.cs</DependentUpon>
-    </Compile>
     <Compile Include="FrmProveedor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -123,17 +129,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmOrdenCompra.resx">
-      <DependentUpon>FrmOrdenCompra.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmEmpleados.resx">
-      <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCronogramaPago.resx">
+      <DependentUpon>FrmCronogramaPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMetodoPago.resx">
       <DependentUpon>FrmMetodoPago.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmTipoPago.resx">
-      <DependentUpon>FrmTipoPago.cs</DependentUpon>
+    <EmbeddedResource Include="FrmOrdenCompra.resx">
+      <DependentUpon>FrmOrdenCompra.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmOrdenVenta.resx">
+      <DependentUpon>FrmOrdenVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProductos.resx">
       <DependentUpon>FrmProductos.cs</DependentUpon>
@@ -153,8 +159,14 @@
     <EmbeddedResource Include="FrmProveedor.resx">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NotaSalida.resx">
+      <DependentUpon>NotaSalida.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Principal\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FrmLogin1.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
@@ -193,7 +205,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Formularios\" />
     <Folder Include="Resources\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

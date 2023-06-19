@@ -32,12 +32,13 @@
             this.imgCategoriaProd = new System.Windows.Forms.PictureBox();
             this.BarraTituloCN = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnDeshabilitarCate = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
             this.dgvCategoria = new System.Windows.Forms.DataGridView();
             this.gbCategoria = new System.Windows.Forms.GroupBox();
+            this.cbxEstadoCate = new System.Windows.Forms.CheckBox();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -87,23 +88,24 @@
             this.label1.Text = "CATEGORIAS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnEliminar
+            // btnDeshabilitarCate
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.White;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(825, 479);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(130, 50);
-            this.btnEliminar.TabIndex = 48;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnDeshabilitarCate.BackColor = System.Drawing.Color.White;
+            this.btnDeshabilitarCate.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDeshabilitarCate.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnDeshabilitarCate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDeshabilitarCate.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeshabilitarCate.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnDeshabilitarCate.Image = ((System.Drawing.Image)(resources.GetObject("btnDeshabilitarCate.Image")));
+            this.btnDeshabilitarCate.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnDeshabilitarCate.Location = new System.Drawing.Point(825, 479);
+            this.btnDeshabilitarCate.Name = "btnDeshabilitarCate";
+            this.btnDeshabilitarCate.Size = new System.Drawing.Size(149, 50);
+            this.btnDeshabilitarCate.TabIndex = 48;
+            this.btnDeshabilitarCate.Text = "Deshabilitar";
+            this.btnDeshabilitarCate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnDeshabilitarCate.UseVisualStyleBackColor = false;
+            this.btnDeshabilitarCate.Click += new System.EventHandler(this.btnDeshabilitarCate_Click);
             // 
             // btnEditar
             // 
@@ -122,6 +124,7 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNuevo
             // 
@@ -140,6 +143,7 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnSalir
             // 
@@ -158,17 +162,22 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // dgvCategoria
             // 
             this.dgvCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCategoria.Location = new System.Drawing.Point(356, 299);
             this.dgvCategoria.Name = "dgvCategoria";
+            this.dgvCategoria.ReadOnly = true;
+            this.dgvCategoria.RowHeadersWidth = 51;
             this.dgvCategoria.Size = new System.Drawing.Size(372, 316);
             this.dgvCategoria.TabIndex = 43;
+            this.dgvCategoria.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategoria_CellClick);
             // 
             // gbCategoria
             // 
+            this.gbCategoria.Controls.Add(this.cbxEstadoCate);
             this.gbCategoria.Controls.Add(this.btnCancelar);
             this.gbCategoria.Controls.Add(this.label2);
             this.gbCategoria.Controls.Add(this.btnModificar);
@@ -176,6 +185,7 @@
             this.gbCategoria.Controls.Add(this.btnAgregar);
             this.gbCategoria.Controls.Add(this.txtDescripcionCategoria);
             this.gbCategoria.Controls.Add(this.lblMarca);
+            this.gbCategoria.Enabled = false;
             this.gbCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbCategoria.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCategoria.ForeColor = System.Drawing.Color.DarkViolet;
@@ -185,6 +195,18 @@
             this.gbCategoria.TabIndex = 56;
             this.gbCategoria.TabStop = false;
             this.gbCategoria.Text = "CATEGORIA";
+            // 
+            // cbxEstadoCate
+            // 
+            this.cbxEstadoCate.AutoSize = true;
+            this.cbxEstadoCate.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbxEstadoCate.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.cbxEstadoCate.Location = new System.Drawing.Point(787, 51);
+            this.cbxEstadoCate.Name = "cbxEstadoCate";
+            this.cbxEstadoCate.Size = new System.Drawing.Size(91, 27);
+            this.cbxEstadoCate.TabIndex = 57;
+            this.cbxEstadoCate.Text = "Estado";
+            this.cbxEstadoCate.UseVisualStyleBackColor = true;
             // 
             // btnCancelar
             // 
@@ -203,13 +225,14 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label2.Location = new System.Drawing.Point(193, 51);
+            this.label2.Location = new System.Drawing.Point(160, 51);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(133, 23);
             this.label2.TabIndex = 44;
@@ -232,12 +255,13 @@
             this.btnModificar.Text = "Modificar";
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // txtIDCategoria
             // 
             this.txtIDCategoria.Enabled = false;
             this.txtIDCategoria.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDCategoria.Location = new System.Drawing.Point(332, 50);
+            this.txtIDCategoria.Location = new System.Drawing.Point(299, 50);
             this.txtIDCategoria.Name = "txtIDCategoria";
             this.txtIDCategoria.ReadOnly = true;
             this.txtIDCategoria.Size = new System.Drawing.Size(95, 27);
@@ -260,13 +284,13 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtDescripcionCategoria
             // 
             this.txtDescripcionCategoria.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDescripcionCategoria.Location = new System.Drawing.Point(584, 49);
+            this.txtDescripcionCategoria.Location = new System.Drawing.Point(551, 49);
             this.txtDescripcionCategoria.Name = "txtDescripcionCategoria";
-            this.txtDescripcionCategoria.ReadOnly = true;
             this.txtDescripcionCategoria.Size = new System.Drawing.Size(208, 27);
             this.txtDescripcionCategoria.TabIndex = 34;
             // 
@@ -275,7 +299,7 @@
             this.lblMarca.AutoSize = true;
             this.lblMarca.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMarca.ForeColor = System.Drawing.Color.DarkViolet;
-            this.lblMarca.Location = new System.Drawing.Point(468, 50);
+            this.lblMarca.Location = new System.Drawing.Point(435, 50);
             this.lblMarca.Name = "lblMarca";
             this.lblMarca.Size = new System.Drawing.Size(110, 23);
             this.lblMarca.TabIndex = 33;
@@ -288,7 +312,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1050, 650);
             this.Controls.Add(this.gbCategoria);
-            this.Controls.Add(this.btnEliminar);
+            this.Controls.Add(this.btnDeshabilitarCate);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnSalir);
@@ -297,6 +321,7 @@
             this.Controls.Add(this.imgCategoriaProd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCategoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCategoria";
             ((System.ComponentModel.ISupportInitialize)(this.imgCategoriaProd)).EndInit();
             this.BarraTituloCN.ResumeLayout(false);
@@ -311,7 +336,7 @@
         private System.Windows.Forms.PictureBox imgCategoriaProd;
         private System.Windows.Forms.Panel BarraTituloCN;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnDeshabilitarCate;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnSalir;
@@ -324,5 +349,6 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.TextBox txtDescripcionCategoria;
         private System.Windows.Forms.Label lblMarca;
+        private System.Windows.Forms.CheckBox cbxEstadoCate;
     }
 }

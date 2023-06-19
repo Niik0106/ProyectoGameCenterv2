@@ -10,11 +10,21 @@ using System.Windows.Forms;
 
 namespace ProyectoGameCenter
 {
-    public partial class FrmTipoPago : Form
+    public partial class NotaSalida : Form
     {
-        public FrmTipoPago()
+        public NotaSalida()
         {
             InitializeComponent();
+        }
+
+        private void dgvCategoria_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
