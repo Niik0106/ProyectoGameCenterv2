@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades;
+using LogicaNegocio;
 
 namespace ProyectoGameCenter
 {
@@ -15,6 +17,13 @@ namespace ProyectoGameCenter
         public FrmMarca()
         {
             InitializeComponent();
+            gbMarca.Enabled = false;
+            txtIDMarca.Enabled = false;
+        }
+
+        public void ListarMarcas()
+        {
+            dgvMarca.DataSource = logMarca.Instancia.ListarMarca();
         }
     }
 }

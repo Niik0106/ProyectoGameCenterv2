@@ -20,7 +20,7 @@ namespace LogicaNegocio
         ///listado
         public List<entMarca> ListarMarca()
         {
-            return logMarca.Instancia.ListarMarca();
+            return datMarca.Instancia.ListarMarca();
         }
     }
 }

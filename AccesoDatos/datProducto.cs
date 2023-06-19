@@ -80,8 +80,8 @@ namespace AccesoDatos
                 cmd = new SqlCommand("spEditarProducto", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@idProd", Prod.idProducto);
-                cmd.Parameters.AddWithValue("@desProd ", Prod.desProducto);
-                cmd.Parameters.AddWithValue("@idCat ", Prod.idCategoria);
+                cmd.Parameters.AddWithValue("@desProd", Prod.desProducto);
+                cmd.Parameters.AddWithValue("@idCat", Prod.idCategoria);
                 cmd.Parameters.AddWithValue("@idMarca", Prod.idMarca);
                 cmd.Parameters.AddWithValue("@precio", Prod.precioProd);
                 cmd.Parameters.AddWithValue("@stock", Prod.stockProd);
@@ -113,9 +113,33 @@ namespace AccesoDatos
             return delete;
         }
 
-        public string BuscarProducto(entProducto Prod)
+        public entProducto BuscarProducto(string Prod)
         {
-            return "";
+            SqlCommand cmd = null;
+            entProducto producto = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spBuscarProducto", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@desProd", Prod);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    entProducto prod = new entProducto();
+                    prod.idProducto = Convert.ToInt32(dr["ID_PRODUCTO"]);
+                    prod.desProducto = dr["DES_PRODUCTO"].ToString();
+                    prod.idCategoria = Convert.ToInt32(dr["ID_CATEGORIA"]);
+                    prod.idMarca = Convert.ToInt32(dr["ID_MARCA"]);
+                    prod.precioProd = Convert.ToDecimal(dr["PRECIO_PRODUCTO"]);
+                    prod.stockProd = Convert.ToInt32(dr["STOCK"]);
+                    prod.estProducto = Convert.ToBoolean(dr["ESTADO_PRODUCTO"]);
+                }
+            }
+            catch (Exception e) { throw e; }
+            finally { cmd.Connection.Close(); }
+            return producto;
         }
 
     }
