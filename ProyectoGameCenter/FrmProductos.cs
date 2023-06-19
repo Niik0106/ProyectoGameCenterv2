@@ -29,6 +29,14 @@ namespace ProyectoGameCenter
             cboCategoria.DisplayMember = "desCategoria";
             cboCategoria.ValueMember = "idCategoria";
         }
+
+        public void LlenarDatosMarca()
+        {
+            cboMarca.DataSource = logMarca.Instancia.ListarMarca();
+            cboMarca.DisplayMember = "desMarca";
+            cboMarca.ValueMember = "idMarca";
+        }
+
         private void LimpiarVariables()
         {
             txtBuscarProducto.Clear();
