@@ -16,6 +16,7 @@ namespace ProyectoGameCenter.Principal
         public FrmMenu()
         {
             InitializeComponent();
+            PersonalizarDisenio();
         }
 
         //REGION DEL PANEL DE CABECERA
@@ -67,7 +68,171 @@ namespace ProyectoGameCenter.Principal
             lblFecha.Text = DateTime.Now.ToShortDateString();
         }
 
+        private void PersonalizarDisenio()
+        {
+            panelClienteSubMenu.Visible = false;
+            panelProductoSubMenu.Visible = false;
+            panelVentaSubMenu.Visible = false;
+            panelConsultasSubMenu.Visible = false;
+        }
 
+        private void OcultarSubMenu()
+        {
+            if (panelClienteSubMenu.Visible == true)
+                panelClienteSubMenu.Visible=false;
+            if(panelProductoSubMenu.Visible ==true)
+                panelProductoSubMenu.Visible=false;
+            if(panelVentaSubMenu.Visible == true)
+                panelVentaSubMenu.Visible=false;
+            if(panelConsultasSubMenu.Visible == true)
+                panelConsultasSubMenu.Visible=false;              
+        }
+
+        private void MostrarSubMenu(Panel SubMenu)
+        {
+            if (SubMenu.Visible == false)
+            {
+                OcultarSubMenu();
+                SubMenu.Visible = true;
+            }
+            else
+                SubMenu.Visible = false;
+        }
+
+        private Form FormularioActivo = null;
+
+        private void AbrirFormularioHijo(Form FormularioHijo)
+        {
+            if(FormularioActivo != null)
+                FormularioActivo.Close();
+            FormularioActivo = FormularioHijo;
+            FormularioHijo.TopLevel = false;
+            FormularioHijo.Dock = DockStyle.Fill;
+            panelContenedor.Controls.Add(FormularioHijo);
+            panelContenedor.Tag = FormularioHijo;
+            FormularioHijo.BringToFront();
+            FormularioHijo.Show();
+        }
+
+        #region REGION CLIENTE
+
+        private void btnCliente_Click(object sender, EventArgs e)
+        {
+            MostrarSubMenu(panelClienteSubMenu);
+        }
+
+        private void btnClienteNatural_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmClienteNatural());
+            OcultarSubMenu();
+        }
+
+        private void btnClienteJuridico_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmClienteJuridico());
+            OcultarSubMenu();
+        }
+        #endregion
+
+        #region REGION PRODUCTO
+        private void btnProductos_Click(object sender, EventArgs e)
+        {
+            MostrarSubMenu(panelProductoSubMenu);
+        }
+
+        private void btnCategoria_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmCategoria());
+            OcultarSubMenu();
+        }
+
+        private void btnMarca_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmMarca());
+            OcultarSubMenu();
+        }
+
+        private void btnProductosSubMenu_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmProductos());
+            OcultarSubMenu();
+        }
+
+        #endregion
+
+        #region REGION VENTAS
+        private void btnVentas_Click(object sender, EventArgs e)
+        {
+            MostrarSubMenu(panelVentaSubMenu);
+        }
+        private void btnOrdenVenta_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmOrdenVenta());
+            OcultarSubMenu();
+        }
+
+        private void btnCronogramaPago_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmCronogramaPago());
+            OcultarSubMenu();
+        }
+
+        #endregion
+
+        private void btnProveedores_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmProveedor());
+            OcultarSubMenu();
+        }
+
+        private void btnMetodoPago_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmMetodoPago());
+            OcultarSubMenu();
+        }
+
+        private void btnNotaSalida_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new NotaSalida());
+            OcultarSubMenu();
+        }
+
+        private void btnOrdenCompra_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmOrdenCompra());
+            OcultarSubMenu();
+        }
+
+        private void btnCerrarSesion_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Esta Seguro que quiere Cerrar Sesion","Alerta",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                this.Close();
+                FrmLogin login = new FrmLogin();
+                login.Show();
+            }
+           
+        }
+
+        private void btnConsultas_Click(object sender, EventArgs e)
+        {
+            MostrarSubMenu(panelConsultasSubMenu);
+        }
+
+
+
+
+
+ 
+
+
+
+
+
+ 
+
+        
 
     }
 }

@@ -146,6 +146,7 @@
             this.btnIniciarSesion.Text = "INICIAR SESION";
             this.btnIniciarSesion.TextColor = System.Drawing.Color.White;
             this.btnIniciarSesion.UseVisualStyleBackColor = false;
+            this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
             // 
             // FrmLogin
             // 
