@@ -44,6 +44,12 @@
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvProveedores = new System.Windows.Forms.DataGridView();
             this.gbProveedor = new System.Windows.Forms.GroupBox();
+            this.btnBuscarUbigeo = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtCodigoUbigeo = new System.Windows.Forms.TextBox();
+            this.txtDepartamento = new System.Windows.Forms.TextBox();
+            this.txtProvincia = new System.Windows.Forms.TextBox();
+            this.txtDistrito = new System.Windows.Forms.TextBox();
             this.cbxEstadoProv = new System.Windows.Forms.CheckBox();
             this.txtNumeroCuenta = new System.Windows.Forms.TextBox();
             this.txtIDProveedor = new System.Windows.Forms.TextBox();
@@ -62,12 +68,6 @@
             this.label16 = new System.Windows.Forms.Label();
             this.BarraTituloCN = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnBuscarUbigeo = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.txtCodigoUbigeo = new System.Windows.Forms.TextBox();
-            this.txtDepartamento = new System.Windows.Forms.TextBox();
-            this.txtProvincia = new System.Windows.Forms.TextBox();
-            this.txtDistrito = new System.Windows.Forms.TextBox();
             this.PanelContenedorCN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
             this.gbProveedor.SuspendLayout();
@@ -162,6 +162,7 @@
             this.btnBuscarProv.Text = "Buscar";
             this.btnBuscarProv.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscarProv.UseVisualStyleBackColor = false;
+            this.btnBuscarProv.Click += new System.EventHandler(this.btnBuscarProv_Click);
             // 
             // btnSalir
             // 
@@ -180,6 +181,7 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnInhabilitarProv
             // 
@@ -198,6 +200,7 @@
             this.btnInhabilitarProv.Text = "Inhabilitar";
             this.btnInhabilitarProv.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInhabilitarProv.UseVisualStyleBackColor = false;
+            this.btnInhabilitarProv.Click += new System.EventHandler(this.btnInhabilitarProv_Click);
             // 
             // btnEditar
             // 
@@ -216,6 +219,7 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNuevo
             // 
@@ -234,37 +238,46 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // dgvProveedores
             // 
+            this.dgvProveedores.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvProveedores.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dgvProveedores.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProveedores.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkViolet;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkViolet;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvProveedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvProveedores.ColumnHeadersHeight = 30;
+            this.dgvProveedores.ColumnHeadersHeight = 20;
             this.dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvProveedores.ColumnHeadersVisible = false;
-            this.dgvProveedores.Location = new System.Drawing.Point(22, 337);
+            this.dgvProveedores.EnableHeadersVisualStyles = false;
+            this.dgvProveedores.GridColor = System.Drawing.SystemColors.ActiveCaption;
+            this.dgvProveedores.Location = new System.Drawing.Point(7, 337);
+            this.dgvProveedores.MaximumSize = new System.Drawing.Size(1066, 260);
             this.dgvProveedores.Name = "dgvProveedores";
             this.dgvProveedores.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.BlueViolet;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
             this.dgvProveedores.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProveedores.Size = new System.Drawing.Size(1003, 229);
+            this.dgvProveedores.Size = new System.Drawing.Size(1035, 229);
             this.dgvProveedores.TabIndex = 44;
+            this.dgvProveedores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellClick);
             // 
             // gbProveedor
             // 
+            this.gbProveedor.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbProveedor.Controls.Add(this.btnBuscarUbigeo);
             this.gbProveedor.Controls.Add(this.label11);
             this.gbProveedor.Controls.Add(this.txtCodigoUbigeo);
@@ -300,12 +313,79 @@
             this.gbProveedor.TabStop = false;
             this.gbProveedor.Text = "DATOS DEL PROVEEDOR";
             // 
+            // btnBuscarUbigeo
+            // 
+            this.btnBuscarUbigeo.BackColor = System.Drawing.Color.White;
+            this.btnBuscarUbigeo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarUbigeo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnBuscarUbigeo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarUbigeo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarUbigeo.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnBuscarUbigeo.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarUbigeo.Image")));
+            this.btnBuscarUbigeo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarUbigeo.Location = new System.Drawing.Point(743, 49);
+            this.btnBuscarUbigeo.Name = "btnBuscarUbigeo";
+            this.btnBuscarUbigeo.Size = new System.Drawing.Size(71, 29);
+            this.btnBuscarUbigeo.TabIndex = 70;
+            this.btnBuscarUbigeo.Text = "buscar";
+            this.btnBuscarUbigeo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarUbigeo.UseVisualStyleBackColor = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label11.Location = new System.Drawing.Point(364, 51);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(158, 23);
+            this.label11.TabIndex = 69;
+            this.label11.Text = "Codigo Ubigeo:";
+            // 
+            // txtCodigoUbigeo
+            // 
+            this.txtCodigoUbigeo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoUbigeo.Location = new System.Drawing.Point(528, 49);
+            this.txtCodigoUbigeo.Name = "txtCodigoUbigeo";
+            this.txtCodigoUbigeo.Size = new System.Drawing.Size(208, 27);
+            this.txtCodigoUbigeo.TabIndex = 68;
+            // 
+            // txtDepartamento
+            // 
+            this.txtDepartamento.Enabled = false;
+            this.txtDepartamento.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDepartamento.Location = new System.Drawing.Point(528, 82);
+            this.txtDepartamento.Name = "txtDepartamento";
+            this.txtDepartamento.ReadOnly = true;
+            this.txtDepartamento.Size = new System.Drawing.Size(208, 27);
+            this.txtDepartamento.TabIndex = 67;
+            // 
+            // txtProvincia
+            // 
+            this.txtProvincia.Enabled = false;
+            this.txtProvincia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProvincia.Location = new System.Drawing.Point(528, 115);
+            this.txtProvincia.Name = "txtProvincia";
+            this.txtProvincia.ReadOnly = true;
+            this.txtProvincia.Size = new System.Drawing.Size(208, 27);
+            this.txtProvincia.TabIndex = 66;
+            // 
+            // txtDistrito
+            // 
+            this.txtDistrito.Enabled = false;
+            this.txtDistrito.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDistrito.Location = new System.Drawing.Point(528, 145);
+            this.txtDistrito.Name = "txtDistrito";
+            this.txtDistrito.ReadOnly = true;
+            this.txtDistrito.Size = new System.Drawing.Size(208, 27);
+            this.txtDistrito.TabIndex = 65;
+            // 
             // cbxEstadoProv
             // 
             this.cbxEstadoProv.AutoSize = true;
             this.cbxEstadoProv.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.cbxEstadoProv.Font = new System.Drawing.Font("Century Gothic", 14.5F, System.Drawing.FontStyle.Bold);
-            this.cbxEstadoProv.Location = new System.Drawing.Point(449, 213);
+            this.cbxEstadoProv.Location = new System.Drawing.Point(449, 209);
             this.cbxEstadoProv.Name = "cbxEstadoProv";
             this.cbxEstadoProv.Size = new System.Drawing.Size(93, 27);
             this.cbxEstadoProv.TabIndex = 36;
@@ -317,16 +397,15 @@
             this.txtNumeroCuenta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumeroCuenta.Location = new System.Drawing.Point(528, 176);
             this.txtNumeroCuenta.Name = "txtNumeroCuenta";
-            this.txtNumeroCuenta.ReadOnly = true;
             this.txtNumeroCuenta.Size = new System.Drawing.Size(313, 27);
             this.txtNumeroCuenta.TabIndex = 35;
             // 
             // txtIDProveedor
             // 
+            this.txtIDProveedor.Enabled = false;
             this.txtIDProveedor.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDProveedor.Location = new System.Drawing.Point(145, 48);
             this.txtIDProveedor.Name = "txtIDProveedor";
-            this.txtIDProveedor.ReadOnly = true;
             this.txtIDProveedor.Size = new System.Drawing.Size(208, 27);
             this.txtIDProveedor.TabIndex = 34;
             // 
@@ -357,7 +436,6 @@
             this.txtRuc.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRuc.Location = new System.Drawing.Point(145, 87);
             this.txtRuc.Name = "txtRuc";
-            this.txtRuc.ReadOnly = true;
             this.txtRuc.Size = new System.Drawing.Size(208, 27);
             this.txtRuc.TabIndex = 16;
             // 
@@ -366,7 +444,6 @@
             this.txtRazonSocial.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtRazonSocial.Location = new System.Drawing.Point(145, 129);
             this.txtRazonSocial.Name = "txtRazonSocial";
-            this.txtRazonSocial.ReadOnly = true;
             this.txtRazonSocial.Size = new System.Drawing.Size(208, 27);
             this.txtRazonSocial.TabIndex = 17;
             // 
@@ -375,7 +452,6 @@
             this.txtTelefono.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono.Location = new System.Drawing.Point(145, 173);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.ReadOnly = true;
             this.txtTelefono.Size = new System.Drawing.Size(208, 27);
             this.txtTelefono.TabIndex = 18;
             // 
@@ -396,6 +472,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label13
             // 
@@ -425,13 +502,13 @@
             this.btnModificar.Text = "Modificar";
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // txtDireccion
             // 
             this.txtDireccion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(145, 212);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.ReadOnly = true;
             this.txtDireccion.Size = new System.Drawing.Size(208, 27);
             this.txtDireccion.TabIndex = 19;
             // 
@@ -452,6 +529,7 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // label14
             // 
@@ -488,7 +566,7 @@
             // 
             // BarraTituloCN
             // 
-            this.BarraTituloCN.BackColor = System.Drawing.Color.DarkViolet;
+            this.BarraTituloCN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
             this.BarraTituloCN.Controls.Add(this.label1);
             this.BarraTituloCN.Dock = System.Windows.Forms.DockStyle.Top;
             this.BarraTituloCN.Location = new System.Drawing.Point(0, 0);
@@ -509,74 +587,6 @@
             this.label1.TabIndex = 13;
             this.label1.Text = "PROVEEDORES";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // btnBuscarUbigeo
-            // 
-            this.btnBuscarUbigeo.BackColor = System.Drawing.Color.White;
-            this.btnBuscarUbigeo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarUbigeo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnBuscarUbigeo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarUbigeo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarUbigeo.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnBuscarUbigeo.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarUbigeo.Image")));
-            this.btnBuscarUbigeo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarUbigeo.Location = new System.Drawing.Point(743, 49);
-            this.btnBuscarUbigeo.Name = "btnBuscarUbigeo";
-            this.btnBuscarUbigeo.Size = new System.Drawing.Size(71, 29);
-            this.btnBuscarUbigeo.TabIndex = 70;
-            this.btnBuscarUbigeo.Text = "buscar";
-            this.btnBuscarUbigeo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarUbigeo.UseVisualStyleBackColor = false;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label11.Location = new System.Drawing.Point(364, 51);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(158, 23);
-            this.label11.TabIndex = 69;
-            this.label11.Text = "Codigo Ubigeo:";
-            // 
-            // txtCodigoUbigeo
-            // 
-            this.txtCodigoUbigeo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoUbigeo.Location = new System.Drawing.Point(528, 49);
-            this.txtCodigoUbigeo.Name = "txtCodigoUbigeo";
-            this.txtCodigoUbigeo.ReadOnly = true;
-            this.txtCodigoUbigeo.Size = new System.Drawing.Size(208, 27);
-            this.txtCodigoUbigeo.TabIndex = 68;
-            // 
-            // txtDepartamento
-            // 
-            this.txtDepartamento.Enabled = false;
-            this.txtDepartamento.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDepartamento.Location = new System.Drawing.Point(528, 82);
-            this.txtDepartamento.Name = "txtDepartamento";
-            this.txtDepartamento.ReadOnly = true;
-            this.txtDepartamento.Size = new System.Drawing.Size(208, 27);
-            this.txtDepartamento.TabIndex = 67;
-            // 
-            // txtProvincia
-            // 
-            this.txtProvincia.Enabled = false;
-            this.txtProvincia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProvincia.Location = new System.Drawing.Point(528, 115);
-            this.txtProvincia.Name = "txtProvincia";
-            this.txtProvincia.ReadOnly = true;
-            this.txtProvincia.Size = new System.Drawing.Size(208, 27);
-            this.txtProvincia.TabIndex = 66;
-            // 
-            // txtDistrito
-            // 
-            this.txtDistrito.Enabled = false;
-            this.txtDistrito.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDistrito.Location = new System.Drawing.Point(528, 145);
-            this.txtDistrito.Name = "txtDistrito";
-            this.txtDistrito.ReadOnly = true;
-            this.txtDistrito.Size = new System.Drawing.Size(208, 27);
-            this.txtDistrito.TabIndex = 65;
             // 
             // FrmProveedor
             // 
