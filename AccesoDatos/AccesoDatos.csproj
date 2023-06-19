@@ -42,13 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Conexion.cs" />
-<<<<<<< HEAD
+
     <Compile Include="datCategoria.cs" />
     <Compile Include="datMarca.cs" />
     <Compile Include="datProducto.cs" />
-=======
     <Compile Include="datProveedor.cs" />
->>>>>>> master
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

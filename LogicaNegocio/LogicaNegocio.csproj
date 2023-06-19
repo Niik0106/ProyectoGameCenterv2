@@ -41,13 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< HEAD
     <Compile Include="logCategoria.cs" />
     <Compile Include="logMarca.cs" />
     <Compile Include="logProducto.cs" />
-=======
     <Compile Include="logProveedor.cs" />
->>>>>>> master
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
