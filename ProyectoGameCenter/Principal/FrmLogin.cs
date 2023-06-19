@@ -26,5 +26,12 @@ namespace ProyectoGameCenter.Principal
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void btnIniciarSesion_Click(object sender, EventArgs e)
+        {
+            FrmMenu menu = new FrmMenu();
+            menu.Show();
+            this.Hide();
+        }
     }
 }
