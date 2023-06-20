@@ -28,9 +28,9 @@ namespace LogicaNegocio
             return datClienteJuridico.Instancia.InsertarClienteJuridico(ClienteJ);
         }
         //edita
-        public void EditaClienteJuridico(entClienteJuridico ClienteJ)
+        public Boolean EditaClienteJuridico(entClienteJuridico ClienteJ)
         {
-            datClienteJuridico.Instancia.EditarClienteJuridico(ClienteJ);
+            return datClienteJuridico.Instancia.EditarClienteJuridico(ClienteJ);
         }
         //inhabilitar
         public void DeshabilitarClienteJuridico(entClienteJuridico ClienteJ)
