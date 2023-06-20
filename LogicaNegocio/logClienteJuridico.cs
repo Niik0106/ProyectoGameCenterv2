@@ -23,14 +23,14 @@ namespace LogicaNegocio
             return datClienteJuridico.Instancia.ListarClienteJuridico();
         }
         ///inserta
-        public Boolean InsertaClienteJuridico(entClienteJuridico ClienteJ)
+        public void InsertaClienteJuridico(entClienteJuridico ClienteJ)
         {
-            return datClienteJuridico.Instancia.InsertarClienteJuridico(ClienteJ);
+            datClienteJuridico.Instancia.InsertarClienteJuridico(ClienteJ);
         }
         //edita
-        public Boolean EditaClienteJuridico(entClienteJuridico ClienteJ)
+        public void EditaClienteJuridico(entClienteJuridico ClienteJ)
         {
-            return datClienteJuridico.Instancia.EditarClienteJuridico(ClienteJ);
+            datClienteJuridico.Instancia.EditarClienteJuridico(ClienteJ);
         }
         //inhabilitar
         public void DeshabilitarClienteJuridico(entClienteJuridico ClienteJ)

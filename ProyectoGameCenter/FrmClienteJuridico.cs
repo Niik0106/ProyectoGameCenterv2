@@ -22,6 +22,7 @@ namespace ProyectoGameCenter
             ListarClienteJuridico();
             gbClienteJuridico.Enabled = false;
         }
+
         public void ListarClienteJuridico()
         {
             dgvClienteJuridico.DataSource = logClienteJuridico.Instancia.ListaClienteJuridico();
@@ -77,22 +78,21 @@ namespace ProyectoGameCenter
         }
 
         private void btnInhabilitarCliJur_Click(object sender, EventArgs e)
-        {
-            try
+        {//DESHABILITAR CLIENTE NATURAL
+            if (txtIDCliente.Text.Equals(""))
             {
-                entClienteJuridico cj = new entClienteJuridico();
-                cj.ID_CLIENTE = int.Parse(txtIDCliente.Text.Trim());
-                cbxEstadoCliJur.Checked = false;
-                cj.ESTADO_CLIENTE_J = cbxEstadoCliJur.Checked;
-                logClienteJuridico.Instancia.DeshabilitarClienteJuridico(cj);
+                MessageBox.Show("Debe seleccionar un cliente", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Error.." + ex);
+                entClienteJuridico cliente = new entClienteJuridico();
+                cliente.ID_CLIENTE = Convert.ToInt32(txtIDCliente.Text);
+                logClienteJuridico.Instancia.DeshabilitarClienteJuridico(cliente);
+                MessageBox.Show("Cliente inhabilitado correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ListarClienteJuridico();
+                LimpiarVariables();
+                gbClienteJuridico.Enabled = false;
             }
-            LimpiarVariables();
-            gbClienteJuridico.Enabled = false;
-            ListarClienteJuridico();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -100,23 +100,15 @@ namespace ProyectoGameCenter
             try
             {
                 entClienteJuridico cj = new entClienteJuridico();
-                cj.RUC_CLIENTE_J = txtRUC.Text.Trim();
-                cj.RAZON_SOCIAL_CLIENTE_J = txtRazonSocial.Text.Trim();
-                cj.TEL_CLIENTE_J = txtTelefono.Text.Trim();
+                cj.RUC_CLIENTE = txtRUC.Text.Trim();
+                cj.RAZON_SOCIAL = txtRazonSocial.Text.Trim();
+                cj.TEL_CLIENTE = txtTelefono.Text.Trim();
                 cj.COD_UBIGEO = int.Parse(txtCodigoUbigeo.Text.Trim());
-                cj.DIR_CLIENTE_J = txtDireccion.Text.Trim();
-                cj.ESTADO_CLIENTE_J = cbxEstadoCliJur.Checked;
+                cj.DIR_CLIENTE = txtDireccion.Text.Trim();
+                cj.ESTADO_CLIENTE = cbxEstadoCliJur.Checked;
                 // Llamar a la función InsertarCliente
-                Boolean insertado = logClienteJuridico.Instancia.InsertaClienteJuridico(cj);
+                logClienteJuridico.Instancia.InsertaClienteJuridico(cj);
 
-                if (insertado)
-                {
-                    MessageBox.Show("El Cliente se agregó exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Ya existe un registro con el mismo RUC.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
 
 
             }
@@ -131,37 +123,27 @@ namespace ProyectoGameCenter
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            try
+            //MODIFICAR CLIENTE NATURAL
+            if (txtRUC.Text.Equals("") || txtRazonSocial.Text.Equals("") || txtTelefono.Text.Equals("") || txtCodigoUbigeo.Text.Equals("") || txtDireccion.Text.Equals(""))
             {
-                entClienteJuridico cj = new entClienteJuridico();
-                cj.ID_CLIENTE = int.Parse(txtIDCliente.Text.Trim());
-                cj.RUC_CLIENTE_J = txtRUC.Text.Trim();
-                cj.RAZON_SOCIAL_CLIENTE_J = txtRazonSocial.Text.Trim();
-                cj.TEL_CLIENTE_J = txtTelefono.Text.Trim();
-                cj.COD_UBIGEO = int.Parse(txtCodigoUbigeo.Text.Trim());
-                cj.DIR_CLIENTE_J = txtDireccion.Text.Trim();
-                cj.ESTADO_CLIENTE_J = cbxEstadoCliJur.Checked;
-                // Llamar a la función InsertarCliente
-                Boolean editado = logClienteJuridico.Instancia.EditaClienteJuridico(cj);
-
-                if (editado)
-                {
-                    MessageBox.Show("El Cliente se Modifico exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Ya existe un registro con el mismo RUC.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-
-
+                MessageBox.Show("Debe llenar todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Error.." + ex);
+                entClienteJuridico cliente = new entClienteJuridico();
+                cliente.ID_CLIENTE = Convert.ToInt32(txtIDCliente.Text);
+                cliente.RUC_CLIENTE = txtRUC.Text;
+                cliente.RAZON_SOCIAL = txtRazonSocial.Text;
+                cliente.TEL_CLIENTE = txtTelefono.Text;
+                cliente.COD_UBIGEO = Convert.ToInt32(txtCodigoUbigeo.Text);
+                cliente.DIR_CLIENTE = txtDireccion.Text;
+                cliente.ESTADO_CLIENTE = cbxEstadoCliJur.Checked;
+                logClienteJuridico.Instancia.EditaClienteJuridico(cliente);
+                MessageBox.Show("Cliente modificado correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ListarClienteJuridico();
+                LimpiarVariables();
+                gbClienteJuridico.Enabled = false;
             }
-            LimpiarVariables();
-            gbClienteJuridico.Enabled = false;
-            ListarClienteJuridico();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -175,13 +157,13 @@ namespace ProyectoGameCenter
         private void dgvClienteJuridico_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow filaActual = dgvClienteJuridico.Rows[e.RowIndex];
-            txtIDCliente.Text = filaActual.Cells[0].Value.ToString();
-            txtRUC.Text = filaActual.Cells[1].Value.ToString();
-            txtRazonSocial.Text = filaActual.Cells[2].Value.ToString();
+            txtIDCliente.Text = filaActual.Cells[2].Value.ToString();
+            txtRUC.Text = filaActual.Cells[0].Value.ToString();
+            txtRazonSocial.Text = filaActual.Cells[1].Value.ToString();
             txtTelefono.Text = filaActual.Cells[3].Value.ToString();
             txtCodigoUbigeo.Text = filaActual.Cells[4].Value.ToString();
             txtDireccion.Text = filaActual.Cells[5].Value.ToString();
-            cbxEstadoCliJur.Checked = Convert.ToBoolean(filaActual.Cells[7].Value);
+            cbxEstadoCliJur.Checked = Convert.ToBoolean(filaActual.Cells[6].Value);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

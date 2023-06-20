@@ -34,7 +34,7 @@ namespace AccesoDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar(); //singleton
-                cmd = new SqlCommand("spListarClienteJuridico", cn);
+                cmd = new SqlCommand("SP_LISTAR_CLIENTE_JURIDICO", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -42,12 +42,12 @@ namespace AccesoDatos
                 {
                     entClienteJuridico CliJ = new entClienteJuridico();
                     CliJ.ID_CLIENTE = Convert.ToInt32(dr["ID_CLIENTE"]);
-                    CliJ.RUC_CLIENTE_J = dr["RUC_CLIENTE"].ToString();
-                    CliJ.RAZON_SOCIAL_CLIENTE_J = dr["RAZON_SOCIAL_CLIENTE_J"].ToString();
-                    CliJ.TEL_CLIENTE_J = dr["TEL_CLIENTE"].ToString();
+                    CliJ.RUC_CLIENTE = dr["RUC_CLIENTE"].ToString();
+                    CliJ.RAZON_SOCIAL = dr["RAZON_SOCIAL"].ToString();
+                    CliJ.TEL_CLIENTE = dr["TEL_CLIENTE"].ToString();
                     CliJ.COD_UBIGEO = Convert.ToInt32(dr["COD_UBIGEO"]);
-                    CliJ.DIR_CLIENTE_J = dr["DIR_CLIENTE"].ToString();
-                    CliJ.ESTADO_CLIENTE_J = Convert.ToBoolean(dr["ESTADO_CLIENTE"]);
+                    CliJ.DIR_CLIENTE = dr["DIR_CLIENTE"].ToString();
+                    CliJ.ESTADO_CLIENTE = Convert.ToBoolean(dr["ESTADO_CLIENTE"]);
                     lista.Add(CliJ);
                 }
 
@@ -63,7 +63,7 @@ namespace AccesoDatos
             return lista;
         }
 
-        /////////////////////////InsertaProveedor
+        /////////////////////////Inserta
         public Boolean InsertarClienteJuridico(entClienteJuridico CliJ)
         {
             SqlCommand cmd = null;
@@ -71,26 +71,18 @@ namespace AccesoDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spInsertarClienteJuridico", cn);
+                cmd = new SqlCommand("SP_INSERTAR_CLIENTE_JURIDICO", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@RUC", CliJ.RUC_CLIENTE_J);
-                cmd.Parameters.AddWithValue("@RAZON_SOCIAL", CliJ.RAZON_SOCIAL_CLIENTE_J);
-                cmd.Parameters.AddWithValue("@TEL_CLIENTE", CliJ.TEL_CLIENTE_J);
+                cmd.Parameters.AddWithValue("@RUC", CliJ.RUC_CLIENTE);
+                cmd.Parameters.AddWithValue("@RAZON_SOCIAL", CliJ.RAZON_SOCIAL);
+                cmd.Parameters.AddWithValue("@TEL_CLIENTE", CliJ.TEL_CLIENTE);
                 cmd.Parameters.AddWithValue("@COD_UBIGEO", CliJ.COD_UBIGEO);
-                cmd.Parameters.AddWithValue("@DIR_CLIENTE", CliJ.DIR_CLIENTE_J);
-                cmd.Parameters.AddWithValue("@ESTADO_CLIENTE", CliJ.ESTADO_CLIENTE_J);
-
-                // Parámetro de salida @resultado
-                SqlParameter resultadoParam = new SqlParameter("@RESULTADO", SqlDbType.Bit);
-                resultadoParam.Direction = ParameterDirection.Output;
-                cmd.Parameters.Add(resultadoParam);
+                cmd.Parameters.AddWithValue("@DIR_CLIENTE", CliJ.DIR_CLIENTE);
+                cmd.Parameters.AddWithValue("@ESTADO_CLIENTE", CliJ.ESTADO_CLIENTE);
 
                 cn.Open();
-                cmd.ExecuteNonQuery();
-
-                // Obtener el valor de @resultado
-                int resultado = Convert.ToInt32(resultadoParam.Value);
-                if (resultado == 0)
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
                 {
                     inserta = true;
                 }
@@ -101,10 +93,7 @@ namespace AccesoDatos
             }
             finally
             {
-                if (cmd != null)
-                {
-                    cmd.Connection.Close();
-                }
+                cmd.Connection.Close();
             }
             return inserta;
         }
@@ -118,27 +107,20 @@ namespace AccesoDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spEditarClienteJuridico", cn);
+                cmd = new SqlCommand("SP_EDITAR_CLIENTE_JURIDICO", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ID_CLIENTE", CliJ.ID_CLIENTE);
-                cmd.Parameters.AddWithValue("@RUC_CLIENTE", CliJ.RUC_CLIENTE_J);
-                cmd.Parameters.AddWithValue("@RAZON_SOCIAL", CliJ.RAZON_SOCIAL_CLIENTE_J);
-                cmd.Parameters.AddWithValue("@TEL_SOCIAL", CliJ.TEL_CLIENTE_J);
+                cmd.Parameters.AddWithValue("@RUC", CliJ.RUC_CLIENTE);
+                cmd.Parameters.AddWithValue("@RAZON_SOCIAL", CliJ.RAZON_SOCIAL);
+                cmd.Parameters.AddWithValue("@TEL_CLIENTE", CliJ.TEL_CLIENTE);
                 cmd.Parameters.AddWithValue("@COD_UBIGEO", CliJ.COD_UBIGEO);
-                cmd.Parameters.AddWithValue("@DIR_CLIENTE", CliJ.DIR_CLIENTE_J);
-                cmd.Parameters.AddWithValue("@ESTADO_CLIENTE", CliJ.ESTADO_CLIENTE_J);
+                cmd.Parameters.AddWithValue("@DIR_CLIENTE", CliJ.DIR_CLIENTE);
+                cmd.Parameters.AddWithValue("@ESTADO_CLIENTE", CliJ.ESTADO_CLIENTE);
 
-                // Parámetro de salida @resultado
-                SqlParameter resultadoParam = new SqlParameter("@RESULTADO", SqlDbType.Bit);
-                resultadoParam.Direction = ParameterDirection.Output;
-                cmd.Parameters.Add(resultadoParam);
 
                 cn.Open();
-                cmd.ExecuteNonQuery();
-
-                // Obtener el valor de @resultado
-                int resultado = Convert.ToInt32(resultadoParam.Value);
-                if (resultado == 0)
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
                 {
                     edita = true;
                 }
@@ -149,10 +131,7 @@ namespace AccesoDatos
             }
             finally
             {
-                if (cmd != null)
-                {
-                    cmd.Connection.Close();
-                }
+                cmd.Connection.Close();
             }
             return edita;
         }
@@ -166,10 +145,9 @@ namespace AccesoDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spDeshabilitarClienteJuridico", cn);
+                cmd = new SqlCommand("SP_DESHABILITAR_CLIENTE_JURIDICO", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@ID_CLIENTE", CliJ.ID_CLIENTE);
-                cmd.Parameters.AddWithValue("@ESTADO_PROVEEDOR", CliJ.ESTADO_CLIENTE_J);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
