@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Entidades;
+using LogicaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -17,25 +19,8 @@ namespace ProyectoGameCenter
         public FrmClienteNatural()
         {
             InitializeComponent();
+            ListarClientesNaturales();
         }
-
-        [DllImport("User32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("User32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
-
-        private void btnCerrarCN_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void BarraTituloCN_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
 
         private void btnAgregarCN_MouseHover(object sender, EventArgs e)
         {
@@ -112,6 +97,139 @@ namespace ProyectoGameCenter
             btnSalir.ForeColor = Color.DarkViolet;
         }
 
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtDNI.Text.Equals("") || txtNombres.Text.Equals("") || txtApellidos.Text.Equals("") || txtTelefono.Text.Equals("") || txtCodigoUbigeo.Text.Equals("") || txtDireccion.Text.Equals(""))
+                {
+                    MessageBox.Show("Debe llenar todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    entClienteNatural cliente = new entClienteNatural();
+                    cliente.DNI = txtDNI.Text;
+                    cliente.NOMBRE_CLI = txtNombres.Text;
+                    cliente.APELLIDO_CLI = txtApellidos.Text;
+                    cliente.TEL_CLIENTE = txtTelefono.Text;
+                    cliente.COD_UBIGEO = Convert.ToInt32(txtCodigoUbigeo.Text);
+                    cliente.DIR_CLIENTE = txtDireccion.Text;
+                    cliente.ESTADO_CLIENTE = cbxEstadoCliNat.Checked;
+                    logClienteNatural.Instancia.InsertarClienteNatural(cliente);
+                    MessageBox.Show("Cliente Natural registrado correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error.." + ex);
+            }
+            ListarClientesNaturales();
+            LimpiarVariables();
+            gbClientesNatural.Enabled = false;
+        }
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            //MODIFICAR CLIENTE NATURAL
+            if (txtDNI.Text.Equals("") || txtNombres.Text.Equals("") || txtApellidos.Text.Equals("") || txtTelefono.Text.Equals("") || txtCodigoUbigeo.Text.Equals("") || txtDireccion.Text.Equals(""))
+            {
+                MessageBox.Show("Debe llenar todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                entClienteNatural cliente = new entClienteNatural();
+                cliente.ID_CLIENTE = Convert.ToInt32(txtIDCliente.Text);
+                cliente.DNI = txtDNI.Text;
+                cliente.NOMBRE_CLI = txtNombres.Text;
+                cliente.APELLIDO_CLI = txtApellidos.Text;
+                cliente.TEL_CLIENTE = txtTelefono.Text;
+                cliente.COD_UBIGEO = Convert.ToInt32(txtCodigoUbigeo.Text);
+                cliente.DIR_CLIENTE = txtDireccion.Text;
+                cliente.ESTADO_CLIENTE = cbxEstadoCliNat.Checked;
+                logClienteNatural.Instancia.EditarClienteNatural(cliente);
+                MessageBox.Show("Cliente Natural modificado correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ListarClientesNaturales();
+                LimpiarVariables();
+                gbClientesNatural.Enabled = false;
+            }           
+        }
+        public void ListarClientesNaturales()
+        {
+            dgvClienteNatural.DataSource = logClienteNatural.Instancia.ListarClienteNatural();       
+        }
 
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            gbClientesNatural.Enabled = true;
+            txtIDCliente.Enabled = false;
+            btnModificar.Visible =false;
+            LimpiarVariables();
+        }
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            gbClientesNatural.Enabled = true;
+            txtIDCliente.Enabled = false;
+            btnAgregar.Visible = false;
+            btnModificar.Visible=true;
+        }
+        private void LimpiarVariables()
+        {
+            txtIDCliente.Clear();
+            txtDNI.Clear();
+            txtNombres.Clear();
+            txtApellidos.Clear();
+            txtTelefono.Clear();
+            txtCodigoUbigeo.Clear();
+            txtDepartamento.Clear();
+            txtProvincia.Clear();
+            txtDistrito.Clear();
+            txtDireccion.Clear();
+            txtBuscarDNI.Clear();
+            cbxEstadoCliNat.Checked = false;
+        }
+
+        private void dgvClienteNatural_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow filaActual = dgvClienteNatural.Rows[e.RowIndex];
+            txtIDCliente.Text = filaActual.Cells[3].Value.ToString();
+            txtDNI.Text = filaActual.Cells[0].Value.ToString();
+            txtNombres.Text = filaActual.Cells[1].Value.ToString();
+            txtApellidos.Text = filaActual.Cells[2].Value.ToString();
+            txtTelefono.Text = filaActual.Cells[4].Value.ToString();
+            txtCodigoUbigeo.Text = filaActual.Cells[5].Value.ToString();
+            txtDireccion.Text = filaActual.Cells[6].Value.ToString();
+            cbxEstadoCliNat.Checked = Convert.ToBoolean(filaActual.Cells[7].Value);
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            gbClientesNatural.Enabled = false;
+            btnAgregar.Visible = true;
+            btnModificar.Visible = true;
+            LimpiarVariables();
+        }
+
+        private void btnInhabilitarCliNat_Click(object sender, EventArgs e)
+        {
+            //DESHABILITAR CLIENTE NATURAL
+            if (txtIDCliente.Text.Equals(""))
+            {
+                MessageBox.Show("Debe seleccionar un cliente", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                entClienteNatural cliente = new entClienteNatural();
+                cliente.ID_CLIENTE = Convert.ToInt32(txtIDCliente.Text);
+                logClienteNatural.Instancia.DeshabilitarClienteNatural(cliente);
+                MessageBox.Show("Cliente Natural inhabilitado correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ListarClientesNaturales();
+                LimpiarVariables();
+                gbClientesNatural.Enabled = false;
+            }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();    
+        }
     }
 }

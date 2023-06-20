@@ -207,6 +207,17 @@
         SUVORK5CYII=
 </value>
   </data>
+  <data name="btnBuscarUbigeo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1
+        MAAA6mAAADqYAAAXcJy6UTwAAAAHdElNRQfnBhISGx7+XmrJAAABGUlEQVQ4T52SsUoDQRRFNwpqOitB
+        KyGNZUBsJT8gWEdrq4BJG7FJ53+ksMoXxCIfoDbWlklhEwJaSFDPmUxgXdbdxQMH9g3MvNm5L8lwgkOc
+        4jcu8AEvcBP/ZAPv8AufsY9t7OAIlzjBPczFzZ94hTUXMjTxFR+x7kIar21nNxfRwDkOQpXCf/baeZ2z
+        3OIbboUqMsOb1WcpR+jjHocq4vUvV5+l7KAHnIUqYlS+dhX20QNaoYqM0aiq4E1NazdUEYfEnI2qiG18
+        wftQpXDCHBJzNqo83OzGdzx0IYsT5pCYs1H52kZ1gF7bzh/og/cwFyfMITFnH2qt/2x3O7u58BCxszmf
+        4yn+ejCodEgZ60O6ofon10mSPP0Arzw6W4mPjTsAAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="btnCancelar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACEAAAAhCAYAAABX5MJvAAAAIGNIUk0AAHomAACAhAAA+gAAAIDoAAB1

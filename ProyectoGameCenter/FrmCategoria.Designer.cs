@@ -105,6 +105,7 @@
             this.btnDeshabilitarCate.Text = "Deshabilitar";
             this.btnDeshabilitarCate.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDeshabilitarCate.UseVisualStyleBackColor = false;
+            this.btnDeshabilitarCate.Click += new System.EventHandler(this.btnDeshabilitarCate_Click);
             // 
             // btnEditar
             // 
@@ -123,6 +124,7 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnNuevo
             // 
@@ -141,6 +143,7 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnSalir
             // 
@@ -159,15 +162,18 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // dgvCategoria
             // 
             this.dgvCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCategoria.Location = new System.Drawing.Point(356, 299);
             this.dgvCategoria.Name = "dgvCategoria";
+            this.dgvCategoria.ReadOnly = true;
             this.dgvCategoria.RowHeadersWidth = 51;
             this.dgvCategoria.Size = new System.Drawing.Size(372, 316);
             this.dgvCategoria.TabIndex = 43;
+            this.dgvCategoria.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategoria_CellClick);
             // 
             // gbCategoria
             // 
@@ -179,6 +185,7 @@
             this.gbCategoria.Controls.Add(this.btnAgregar);
             this.gbCategoria.Controls.Add(this.txtDescripcionCategoria);
             this.gbCategoria.Controls.Add(this.lblMarca);
+            this.gbCategoria.Enabled = false;
             this.gbCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbCategoria.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCategoria.ForeColor = System.Drawing.Color.DarkViolet;
@@ -218,6 +225,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // label2
             // 
@@ -247,6 +255,7 @@
             this.btnModificar.Text = "Modificar";
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // txtIDCategoria
             // 
@@ -275,13 +284,13 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // txtDescripcionCategoria
             // 
             this.txtDescripcionCategoria.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcionCategoria.Location = new System.Drawing.Point(551, 49);
             this.txtDescripcionCategoria.Name = "txtDescripcionCategoria";
-            this.txtDescripcionCategoria.ReadOnly = true;
             this.txtDescripcionCategoria.Size = new System.Drawing.Size(208, 27);
             this.txtDescripcionCategoria.TabIndex = 34;
             // 
@@ -312,6 +321,7 @@
             this.Controls.Add(this.imgCategoriaProd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmCategoria";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmCategoria";
             ((System.ComponentModel.ISupportInitialize)(this.imgCategoriaProd)).EndInit();
             this.BarraTituloCN.ResumeLayout(false);

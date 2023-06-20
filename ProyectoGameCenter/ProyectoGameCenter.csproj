@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmOrdenCompra.cs">
+    <Compile Include="FrmCronogramaPago.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmCronogramaPago.Designer.cs">
@@ -61,11 +61,8 @@
     <Compile Include="NotaSalida.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEmpleados.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmEmpleados.Designer.cs">
-      <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    <Compile Include="NotaSalida.Designer.cs">
+      <DependentUpon>NotaSalida.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmMetodoPago.cs">
       <SubType>Form</SubType>
@@ -132,11 +129,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmOrdenCompra.resx">
-      <DependentUpon>FrmOrdenCompra.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmEmpleados.resx">
-      <DependentUpon>FrmEmpleados.cs</DependentUpon>
+    <EmbeddedResource Include="FrmCronogramaPago.resx">
+      <DependentUpon>FrmCronogramaPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMetodoPago.resx">
       <DependentUpon>FrmMetodoPago.cs</DependentUpon>
@@ -170,6 +164,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>FrmLogin1.Designer.cs</LastGenOutput>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\FrmMenu.resx">
       <DependentUpon>FrmMenu.cs</DependentUpon>
