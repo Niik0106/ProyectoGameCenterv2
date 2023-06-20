@@ -7,23 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Entidades;
-using LogicaNegocio;
 
 namespace ProyectoGameCenter
 {
-    public partial class FrmMarca : Form
+    public partial class FrmOrdenCompra : Form
     {
-        public FrmMarca()
+        public FrmOrdenCompra()
         {
             InitializeComponent();
-            gbMarca.Enabled = false;
-            txtIDMarca.Enabled = false;
-        }
 
-        public void ListarMarcas()
-        {
-            dgvMarca.DataSource = logMarca.Instancia.ListarMarca();
         }
     }
 }

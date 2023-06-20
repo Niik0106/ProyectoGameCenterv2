@@ -34,7 +34,13 @@
             this.BarraTituloCN = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.PanelContenedorCN = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtBuscarDNI = new System.Windows.Forms.TextBox();
+            this.btnBuscarCliNat = new System.Windows.Forms.Button();
             this.gbClientesNatural = new System.Windows.Forms.GroupBox();
+            this.cbxEstadoCliNat = new System.Windows.Forms.CheckBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtIDCliente = new System.Windows.Forms.TextBox();
             this.txtDNI = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,20 +53,21 @@
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtDireccion = new System.Windows.Forms.TextBox();
-            this.cboDistrito = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.cboProvincia = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.cboDepartamento = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnInhabilitarCliNat = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvClienteNatural = new System.Windows.Forms.DataGridView();
-            this.txtIDCliente = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.btnBuscarUbigeo = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtCodigoUbigeo = new System.Windows.Forms.TextBox();
+            this.txtDepartamento = new System.Windows.Forms.TextBox();
+            this.txtProvincia = new System.Windows.Forms.TextBox();
+            this.txtDistrito = new System.Windows.Forms.TextBox();
             this.BarraTituloCN.SuspendLayout();
             this.PanelContenedorCN.SuspendLayout();
             this.gbClientesNatural.SuspendLayout();
@@ -95,9 +102,12 @@
             // PanelContenedorCN
             // 
             this.PanelContenedorCN.BackColor = System.Drawing.Color.White;
+            this.PanelContenedorCN.Controls.Add(this.label11);
+            this.PanelContenedorCN.Controls.Add(this.txtBuscarDNI);
+            this.PanelContenedorCN.Controls.Add(this.btnBuscarCliNat);
             this.PanelContenedorCN.Controls.Add(this.gbClientesNatural);
             this.PanelContenedorCN.Controls.Add(this.btnSalir);
-            this.PanelContenedorCN.Controls.Add(this.btnEliminar);
+            this.PanelContenedorCN.Controls.Add(this.btnInhabilitarCliNat);
             this.PanelContenedorCN.Controls.Add(this.btnEditar);
             this.PanelContenedorCN.Controls.Add(this.btnNuevo);
             this.PanelContenedorCN.Controls.Add(this.dgvClienteNatural);
@@ -107,8 +117,53 @@
             this.PanelContenedorCN.Size = new System.Drawing.Size(1050, 590);
             this.PanelContenedorCN.TabIndex = 2;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label11.Location = new System.Drawing.Point(174, 524);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(126, 23);
+            this.label11.TabIndex = 62;
+            this.label11.Text = "BUSCAR DNI:";
+            // 
+            // txtBuscarDNI
+            // 
+            this.txtBuscarDNI.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarDNI.Location = new System.Drawing.Point(178, 550);
+            this.txtBuscarDNI.Name = "txtBuscarDNI";
+            this.txtBuscarDNI.ReadOnly = true;
+            this.txtBuscarDNI.Size = new System.Drawing.Size(208, 27);
+            this.txtBuscarDNI.TabIndex = 61;
+            // 
+            // btnBuscarCliNat
+            // 
+            this.btnBuscarCliNat.BackColor = System.Drawing.Color.White;
+            this.btnBuscarCliNat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarCliNat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnBuscarCliNat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCliNat.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCliNat.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnBuscarCliNat.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarCliNat.Image")));
+            this.btnBuscarCliNat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarCliNat.Location = new System.Drawing.Point(431, 527);
+            this.btnBuscarCliNat.Name = "btnBuscarCliNat";
+            this.btnBuscarCliNat.Size = new System.Drawing.Size(130, 50);
+            this.btnBuscarCliNat.TabIndex = 60;
+            this.btnBuscarCliNat.Text = "Buscar";
+            this.btnBuscarCliNat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarCliNat.UseVisualStyleBackColor = false;
+            // 
             // gbClientesNatural
             // 
+            this.gbClientesNatural.Controls.Add(this.btnBuscarUbigeo);
+            this.gbClientesNatural.Controls.Add(this.label12);
+            this.gbClientesNatural.Controls.Add(this.txtCodigoUbigeo);
+            this.gbClientesNatural.Controls.Add(this.txtDepartamento);
+            this.gbClientesNatural.Controls.Add(this.txtProvincia);
+            this.gbClientesNatural.Controls.Add(this.txtDistrito);
+            this.gbClientesNatural.Controls.Add(this.cbxEstadoCliNat);
             this.gbClientesNatural.Controls.Add(this.label10);
             this.gbClientesNatural.Controls.Add(this.txtIDCliente);
             this.gbClientesNatural.Controls.Add(this.txtDNI);
@@ -123,11 +178,8 @@
             this.gbClientesNatural.Controls.Add(this.txtTelefono);
             this.gbClientesNatural.Controls.Add(this.btnAgregar);
             this.gbClientesNatural.Controls.Add(this.txtDireccion);
-            this.gbClientesNatural.Controls.Add(this.cboDistrito);
             this.gbClientesNatural.Controls.Add(this.label6);
-            this.gbClientesNatural.Controls.Add(this.cboProvincia);
             this.gbClientesNatural.Controls.Add(this.label7);
-            this.gbClientesNatural.Controls.Add(this.cboDepartamento);
             this.gbClientesNatural.Controls.Add(this.label8);
             this.gbClientesNatural.Controls.Add(this.label9);
             this.gbClientesNatural.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -139,6 +191,39 @@
             this.gbClientesNatural.TabIndex = 31;
             this.gbClientesNatural.TabStop = false;
             this.gbClientesNatural.Text = "DATOS DEL CLIENTE";
+            // 
+            // cbxEstadoCliNat
+            // 
+            this.cbxEstadoCliNat.AutoSize = true;
+            this.cbxEstadoCliNat.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbxEstadoCliNat.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.cbxEstadoCliNat.Location = new System.Drawing.Point(422, 200);
+            this.cbxEstadoCliNat.Name = "cbxEstadoCliNat";
+            this.cbxEstadoCliNat.Size = new System.Drawing.Size(91, 27);
+            this.cbxEstadoCliNat.TabIndex = 59;
+            this.cbxEstadoCliNat.Text = "Estado";
+            this.cbxEstadoCliNat.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label10.Location = new System.Drawing.Point(9, 37);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(104, 23);
+            this.label10.TabIndex = 27;
+            this.label10.Text = "ID Cliente:";
+            // 
+            // txtIDCliente
+            // 
+            this.txtIDCliente.Enabled = false;
+            this.txtIDCliente.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDCliente.Location = new System.Drawing.Point(119, 33);
+            this.txtIDCliente.Name = "txtIDCliente";
+            this.txtIDCliente.ReadOnly = true;
+            this.txtIDCliente.Size = new System.Drawing.Size(208, 27);
+            this.txtIDCliente.TabIndex = 26;
             // 
             // txtDNI
             // 
@@ -290,64 +375,34 @@
             this.txtDireccion.Size = new System.Drawing.Size(314, 23);
             this.txtDireccion.TabIndex = 20;
             // 
-            // cboDistrito
-            // 
-            this.cboDistrito.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDistrito.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboDistrito.FormattingEnabled = true;
-            this.cboDistrito.Location = new System.Drawing.Point(500, 115);
-            this.cboDistrito.Name = "cboDistrito";
-            this.cboDistrito.Size = new System.Drawing.Size(313, 29);
-            this.cboDistrito.TabIndex = 23;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label6.Location = new System.Drawing.Point(342, 37);
+            this.label6.Location = new System.Drawing.Point(344, 70);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(150, 23);
             this.label6.TabIndex = 12;
             this.label6.Text = "Departamento:";
-            // 
-            // cboProvincia
-            // 
-            this.cboProvincia.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboProvincia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboProvincia.FormattingEnabled = true;
-            this.cboProvincia.Location = new System.Drawing.Point(498, 72);
-            this.cboProvincia.Name = "cboProvincia";
-            this.cboProvincia.Size = new System.Drawing.Size(313, 29);
-            this.cboProvincia.TabIndex = 22;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label7.Location = new System.Drawing.Point(391, 76);
+            this.label7.Location = new System.Drawing.Point(393, 102);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(101, 23);
             this.label7.TabIndex = 13;
             this.label7.Text = "Provincia:";
-            // 
-            // cboDepartamento
-            // 
-            this.cboDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDepartamento.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboDepartamento.FormattingEnabled = true;
-            this.cboDepartamento.Location = new System.Drawing.Point(500, 33);
-            this.cboDepartamento.Name = "cboDepartamento";
-            this.cboDepartamento.Size = new System.Drawing.Size(313, 29);
-            this.cboDepartamento.TabIndex = 21;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label8.Location = new System.Drawing.Point(418, 116);
+            this.label8.Location = new System.Drawing.Point(418, 132);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(76, 23);
             this.label8.TabIndex = 14;
@@ -384,25 +439,25 @@
             this.btnSalir.MouseEnter += new System.EventHandler(this.btnSalir_MouseEnter);
             this.btnSalir.MouseLeave += new System.EventHandler(this.btnSalir_MouseLeave);
             // 
-            // btnEliminar
+            // btnInhabilitarCliNat
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.White;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(894, 527);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(130, 50);
-            this.btnEliminar.TabIndex = 29;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            this.btnEliminar.MouseEnter += new System.EventHandler(this.btnEliminarCN_MouseEnter);
-            this.btnEliminar.MouseLeave += new System.EventHandler(this.btnEliminarCN_MouseLeave);
+            this.btnInhabilitarCliNat.BackColor = System.Drawing.Color.White;
+            this.btnInhabilitarCliNat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInhabilitarCliNat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnInhabilitarCliNat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInhabilitarCliNat.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInhabilitarCliNat.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnInhabilitarCliNat.Image = ((System.Drawing.Image)(resources.GetObject("btnInhabilitarCliNat.Image")));
+            this.btnInhabilitarCliNat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInhabilitarCliNat.Location = new System.Drawing.Point(879, 527);
+            this.btnInhabilitarCliNat.Name = "btnInhabilitarCliNat";
+            this.btnInhabilitarCliNat.Size = new System.Drawing.Size(145, 50);
+            this.btnInhabilitarCliNat.TabIndex = 29;
+            this.btnInhabilitarCliNat.Text = "Inhabilitar";
+            this.btnInhabilitarCliNat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnInhabilitarCliNat.UseVisualStyleBackColor = false;
+            this.btnInhabilitarCliNat.MouseEnter += new System.EventHandler(this.btnEliminarCN_MouseEnter);
+            this.btnInhabilitarCliNat.MouseLeave += new System.EventHandler(this.btnEliminarCN_MouseLeave);
             // 
             // btnEditar
             // 
@@ -414,7 +469,7 @@
             this.btnEditar.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(741, 528);
+            this.btnEditar.Location = new System.Drawing.Point(731, 527);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(130, 50);
             this.btnEditar.TabIndex = 28;
@@ -434,7 +489,7 @@
             this.btnNuevo.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(586, 528);
+            this.btnNuevo.Location = new System.Drawing.Point(581, 527);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(130, 50);
             this.btnNuevo.TabIndex = 27;
@@ -472,26 +527,73 @@
             this.dgvClienteNatural.Size = new System.Drawing.Size(1003, 229);
             this.dgvClienteNatural.TabIndex = 26;
             // 
-            // txtIDCliente
+            // btnBuscarUbigeo
             // 
-            this.txtIDCliente.Enabled = false;
-            this.txtIDCliente.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDCliente.Location = new System.Drawing.Point(119, 33);
-            this.txtIDCliente.Name = "txtIDCliente";
-            this.txtIDCliente.ReadOnly = true;
-            this.txtIDCliente.Size = new System.Drawing.Size(208, 27);
-            this.txtIDCliente.TabIndex = 26;
+            this.btnBuscarUbigeo.BackColor = System.Drawing.Color.White;
+            this.btnBuscarUbigeo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarUbigeo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnBuscarUbigeo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarUbigeo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarUbigeo.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnBuscarUbigeo.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarUbigeo.Image")));
+            this.btnBuscarUbigeo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarUbigeo.Location = new System.Drawing.Point(713, 36);
+            this.btnBuscarUbigeo.Name = "btnBuscarUbigeo";
+            this.btnBuscarUbigeo.Size = new System.Drawing.Size(71, 29);
+            this.btnBuscarUbigeo.TabIndex = 70;
+            this.btnBuscarUbigeo.Text = "buscar";
+            this.btnBuscarUbigeo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarUbigeo.UseVisualStyleBackColor = false;
             // 
-            // label10
+            // label12
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label10.Location = new System.Drawing.Point(9, 37);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(104, 23);
-            this.label10.TabIndex = 27;
-            this.label10.Text = "ID Cliente:";
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label12.Location = new System.Drawing.Point(334, 38);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(158, 23);
+            this.label12.TabIndex = 69;
+            this.label12.Text = "Codigo Ubigeo:";
+            // 
+            // txtCodigoUbigeo
+            // 
+            this.txtCodigoUbigeo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoUbigeo.Location = new System.Drawing.Point(498, 36);
+            this.txtCodigoUbigeo.Name = "txtCodigoUbigeo";
+            this.txtCodigoUbigeo.ReadOnly = true;
+            this.txtCodigoUbigeo.Size = new System.Drawing.Size(208, 27);
+            this.txtCodigoUbigeo.TabIndex = 68;
+            // 
+            // txtDepartamento
+            // 
+            this.txtDepartamento.Enabled = false;
+            this.txtDepartamento.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDepartamento.Location = new System.Drawing.Point(498, 69);
+            this.txtDepartamento.Name = "txtDepartamento";
+            this.txtDepartamento.ReadOnly = true;
+            this.txtDepartamento.Size = new System.Drawing.Size(208, 27);
+            this.txtDepartamento.TabIndex = 67;
+            // 
+            // txtProvincia
+            // 
+            this.txtProvincia.Enabled = false;
+            this.txtProvincia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProvincia.Location = new System.Drawing.Point(498, 102);
+            this.txtProvincia.Name = "txtProvincia";
+            this.txtProvincia.ReadOnly = true;
+            this.txtProvincia.Size = new System.Drawing.Size(208, 27);
+            this.txtProvincia.TabIndex = 66;
+            // 
+            // txtDistrito
+            // 
+            this.txtDistrito.Enabled = false;
+            this.txtDistrito.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDistrito.Location = new System.Drawing.Point(498, 132);
+            this.txtDistrito.Name = "txtDistrito";
+            this.txtDistrito.ReadOnly = true;
+            this.txtDistrito.Size = new System.Drawing.Size(208, 27);
+            this.txtDistrito.TabIndex = 65;
             // 
             // FrmClienteNatural
             // 
@@ -505,6 +607,7 @@
             this.Text = "FrmCliente";
             this.BarraTituloCN.ResumeLayout(false);
             this.PanelContenedorCN.ResumeLayout(false);
+            this.PanelContenedorCN.PerformLayout();
             this.gbClientesNatural.ResumeLayout(false);
             this.gbClientesNatural.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClienteNatural)).EndInit();
@@ -529,11 +632,8 @@
         private System.Windows.Forms.TextBox txtApellidos;
         private System.Windows.Forms.TextBox txtNombres;
         private System.Windows.Forms.TextBox txtDNI;
-        private System.Windows.Forms.ComboBox cboDistrito;
-        private System.Windows.Forms.ComboBox cboProvincia;
-        private System.Windows.Forms.ComboBox cboDepartamento;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnInhabilitarCliNat;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DataGridView dgvClienteNatural;
@@ -543,5 +643,15 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtIDCliente;
+        private System.Windows.Forms.CheckBox cbxEstadoCliNat;
+        private System.Windows.Forms.Button btnBuscarCliNat;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox txtBuscarDNI;
+        private System.Windows.Forms.Button btnBuscarUbigeo;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtCodigoUbigeo;
+        private System.Windows.Forms.TextBox txtDepartamento;
+        private System.Windows.Forms.TextBox txtProvincia;
+        private System.Windows.Forms.TextBox txtDistrito;
     }
 }

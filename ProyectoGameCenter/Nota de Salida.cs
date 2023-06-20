@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace ProyectoGameCenter
 {
-    public partial class FrmEmpleados : Form
+    public partial class Form1 : Form
     {
-        public FrmEmpleados()
+        public Form1()
         {
             InitializeComponent();
         }
-
     }
 }
