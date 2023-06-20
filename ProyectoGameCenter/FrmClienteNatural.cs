@@ -22,24 +22,6 @@ namespace ProyectoGameCenter
             ListarClientesNaturales();
         }
 
-        [DllImport("User32.DLL", EntryPoint = "ReleaseCapture")]
-        private extern static void ReleaseCapture();
-        [DllImport("User32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-
-
-        private void btnCerrarCN_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void BarraTituloCN_MouseDown(object sender, MouseEventArgs e)
-        {
-            ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-
         private void btnAgregarCN_MouseHover(object sender, EventArgs e)
         {
 
@@ -117,26 +99,33 @@ namespace ProyectoGameCenter
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            //INSERTAR CLIENTE NATURAL
-            if (txtDNI.Text.Equals("") || txtNombres.Text.Equals("") || txtApellidos.Text.Equals("") || txtTelefono.Text.Equals("") || txtCodigoUbigeo.Text.Equals("") || txtDireccion.Text.Equals(""))
+            try
             {
-                MessageBox.Show("Debe llenar todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (txtDNI.Text.Equals("") || txtNombres.Text.Equals("") || txtApellidos.Text.Equals("") || txtTelefono.Text.Equals("") || txtCodigoUbigeo.Text.Equals("") || txtDireccion.Text.Equals(""))
+                {
+                    MessageBox.Show("Debe llenar todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    entClienteNatural cliente = new entClienteNatural();
+                    cliente.DNI = txtDNI.Text;
+                    cliente.NOMBRE_CLI = txtNombres.Text;
+                    cliente.APELLIDO_CLI = txtApellidos.Text;
+                    cliente.TEL_CLIENTE = txtTelefono.Text;
+                    cliente.COD_UBIGEO = Convert.ToInt32(txtCodigoUbigeo.Text);
+                    cliente.DIR_CLIENTE = txtDireccion.Text;
+                    cliente.ESTADO_CLIENTE = cbxEstadoCliNat.Checked;
+                    logClienteNatural.Instancia.InsertarClienteNatural(cliente);
+                    MessageBox.Show("Cliente Natural registrado correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                entClienteNatural cliente = new entClienteNatural();
-                cliente.DNI = txtDNI.Text;
-                cliente.NOMBRE_CLI = txtNombres.Text;
-                cliente.APELLIDO_CLI = txtApellidos.Text;
-                cliente.TEL_CLIENTE = txtTelefono.Text;
-                cliente.COD_UBIGEO = Convert.ToInt32(txtCodigoUbigeo.Text);
-                cliente.DIR_CLIENTE = txtDireccion.Text;
-                cliente.ESTADO_CLIENTE = cbxEstadoCliNat.Checked;
-                logClienteNatural.Instancia.InsertarClienteNatural(cliente);
-                MessageBox.Show("Cliente Natural registrado correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ListarClientesNaturales();
-                LimpiarVariables();
+                MessageBox.Show("Error.." + ex);
             }
+            ListarClientesNaturales();
+            LimpiarVariables();
+            gbClientesNatural.Enabled = false;
         }
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -172,13 +161,15 @@ namespace ProyectoGameCenter
         {
             gbClientesNatural.Enabled = true;
             txtIDCliente.Enabled = false;
+            btnModificar.Visible =false;
             LimpiarVariables();
         }
         private void btnEditar_Click(object sender, EventArgs e)
         {
             gbClientesNatural.Enabled = true;
             txtIDCliente.Enabled = false;
-            btnAgregar.Enabled = false;
+            btnAgregar.Visible = false;
+            btnModificar.Visible=true;
         }
         private void LimpiarVariables()
         {
@@ -212,6 +203,8 @@ namespace ProyectoGameCenter
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             gbClientesNatural.Enabled = false;
+            btnAgregar.Visible = true;
+            btnModificar.Visible = true;
             LimpiarVariables();
         }
 
@@ -232,6 +225,11 @@ namespace ProyectoGameCenter
                 LimpiarVariables();
                 gbClientesNatural.Enabled = false;
             }
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();    
         }
     }
 }

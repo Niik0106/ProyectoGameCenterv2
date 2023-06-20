@@ -531,9 +531,7 @@
             // 
             // dgvClienteJuridico
             // 
-            this.dgvClienteJuridico.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvClienteJuridico.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvClienteJuridico.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvClienteJuridico.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkViolet;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -542,14 +540,13 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvClienteJuridico.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvClienteJuridico.ColumnHeadersHeight = 30;
-            this.dgvClienteJuridico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvClienteJuridico.ColumnHeadersVisible = false;
+            this.dgvClienteJuridico.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClienteJuridico.Location = new System.Drawing.Point(21, 286);
             this.dgvClienteJuridico.Name = "dgvClienteJuridico";
-            this.dgvClienteJuridico.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.BlueViolet;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             this.dgvClienteJuridico.RowsDefaultCellStyle = dataGridViewCellStyle2;
@@ -604,7 +601,6 @@
         private System.Windows.Forms.Button btnInhabilitarCliJur;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.DataGridView dgvClienteJuridico;
         private System.Windows.Forms.CheckBox cbxEstadoCliJur;
         private System.Windows.Forms.Button btnBuscarCliJur;
         private System.Windows.Forms.Label label3;
@@ -615,5 +611,6 @@
         private System.Windows.Forms.TextBox txtDepartamento;
         private System.Windows.Forms.TextBox txtProvincia;
         private System.Windows.Forms.TextBox txtDistrito;
+        private System.Windows.Forms.DataGridView dgvClienteJuridico;
     }
 }
