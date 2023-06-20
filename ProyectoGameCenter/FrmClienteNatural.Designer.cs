@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClienteNatural));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BarraTituloCN = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.PanelContenedorCN = new System.Windows.Forms.Panel();
@@ -38,6 +36,12 @@
             this.txtBuscarDNI = new System.Windows.Forms.TextBox();
             this.btnBuscarCliNat = new System.Windows.Forms.Button();
             this.gbClientesNatural = new System.Windows.Forms.GroupBox();
+            this.btnBuscarUbigeo = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtCodigoUbigeo = new System.Windows.Forms.TextBox();
+            this.txtDepartamento = new System.Windows.Forms.TextBox();
+            this.txtProvincia = new System.Windows.Forms.TextBox();
+            this.txtDistrito = new System.Windows.Forms.TextBox();
             this.cbxEstadoCliNat = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtIDCliente = new System.Windows.Forms.TextBox();
@@ -62,12 +66,6 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvClienteNatural = new System.Windows.Forms.DataGridView();
-            this.btnBuscarUbigeo = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.txtCodigoUbigeo = new System.Windows.Forms.TextBox();
-            this.txtDepartamento = new System.Windows.Forms.TextBox();
-            this.txtProvincia = new System.Windows.Forms.TextBox();
-            this.txtDistrito = new System.Windows.Forms.TextBox();
             this.BarraTituloCN.SuspendLayout();
             this.PanelContenedorCN.SuspendLayout();
             this.gbClientesNatural.SuspendLayout();
@@ -102,6 +100,7 @@
             // PanelContenedorCN
             // 
             this.PanelContenedorCN.BackColor = System.Drawing.Color.White;
+            this.PanelContenedorCN.Controls.Add(this.dgvClienteNatural);
             this.PanelContenedorCN.Controls.Add(this.label11);
             this.PanelContenedorCN.Controls.Add(this.txtBuscarDNI);
             this.PanelContenedorCN.Controls.Add(this.btnBuscarCliNat);
@@ -110,7 +109,6 @@
             this.PanelContenedorCN.Controls.Add(this.btnInhabilitarCliNat);
             this.PanelContenedorCN.Controls.Add(this.btnEditar);
             this.PanelContenedorCN.Controls.Add(this.btnNuevo);
-            this.PanelContenedorCN.Controls.Add(this.dgvClienteNatural);
             this.PanelContenedorCN.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelContenedorCN.Location = new System.Drawing.Point(0, 60);
             this.PanelContenedorCN.Name = "PanelContenedorCN";
@@ -182,6 +180,7 @@
             this.gbClientesNatural.Controls.Add(this.label7);
             this.gbClientesNatural.Controls.Add(this.label8);
             this.gbClientesNatural.Controls.Add(this.label9);
+            this.gbClientesNatural.Enabled = false;
             this.gbClientesNatural.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbClientesNatural.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbClientesNatural.ForeColor = System.Drawing.Color.DarkViolet;
@@ -191,6 +190,67 @@
             this.gbClientesNatural.TabIndex = 31;
             this.gbClientesNatural.TabStop = false;
             this.gbClientesNatural.Text = "DATOS DEL CLIENTE";
+            // 
+            // btnBuscarUbigeo
+            // 
+            this.btnBuscarUbigeo.BackColor = System.Drawing.Color.White;
+            this.btnBuscarUbigeo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarUbigeo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnBuscarUbigeo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarUbigeo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarUbigeo.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnBuscarUbigeo.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarUbigeo.Image")));
+            this.btnBuscarUbigeo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarUbigeo.Location = new System.Drawing.Point(713, 36);
+            this.btnBuscarUbigeo.Name = "btnBuscarUbigeo";
+            this.btnBuscarUbigeo.Size = new System.Drawing.Size(71, 29);
+            this.btnBuscarUbigeo.TabIndex = 70;
+            this.btnBuscarUbigeo.Text = "buscar";
+            this.btnBuscarUbigeo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarUbigeo.UseVisualStyleBackColor = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label12.Location = new System.Drawing.Point(334, 38);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(158, 23);
+            this.label12.TabIndex = 69;
+            this.label12.Text = "Codigo Ubigeo:";
+            // 
+            // txtCodigoUbigeo
+            // 
+            this.txtCodigoUbigeo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodigoUbigeo.Location = new System.Drawing.Point(498, 36);
+            this.txtCodigoUbigeo.Name = "txtCodigoUbigeo";
+            this.txtCodigoUbigeo.Size = new System.Drawing.Size(208, 27);
+            this.txtCodigoUbigeo.TabIndex = 68;
+            // 
+            // txtDepartamento
+            // 
+            this.txtDepartamento.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDepartamento.Location = new System.Drawing.Point(498, 69);
+            this.txtDepartamento.Name = "txtDepartamento";
+            this.txtDepartamento.Size = new System.Drawing.Size(208, 27);
+            this.txtDepartamento.TabIndex = 67;
+            // 
+            // txtProvincia
+            // 
+            this.txtProvincia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProvincia.Location = new System.Drawing.Point(498, 102);
+            this.txtProvincia.Name = "txtProvincia";
+            this.txtProvincia.Size = new System.Drawing.Size(208, 27);
+            this.txtProvincia.TabIndex = 66;
+            // 
+            // txtDistrito
+            // 
+            this.txtDistrito.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDistrito.Location = new System.Drawing.Point(498, 132);
+            this.txtDistrito.Name = "txtDistrito";
+            this.txtDistrito.Size = new System.Drawing.Size(208, 27);
+            this.txtDistrito.TabIndex = 65;
             // 
             // cbxEstadoCliNat
             // 
@@ -217,11 +277,9 @@
             // 
             // txtIDCliente
             // 
-            this.txtIDCliente.Enabled = false;
             this.txtIDCliente.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDCliente.Location = new System.Drawing.Point(119, 33);
             this.txtIDCliente.Name = "txtIDCliente";
-            this.txtIDCliente.ReadOnly = true;
             this.txtIDCliente.Size = new System.Drawing.Size(208, 27);
             this.txtIDCliente.TabIndex = 26;
             // 
@@ -230,7 +288,6 @@
             this.txtDNI.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDNI.Location = new System.Drawing.Point(119, 72);
             this.txtDNI.Name = "txtDNI";
-            this.txtDNI.ReadOnly = true;
             this.txtDNI.Size = new System.Drawing.Size(208, 27);
             this.txtDNI.TabIndex = 16;
             // 
@@ -261,7 +318,6 @@
             this.txtNombres.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombres.Location = new System.Drawing.Point(119, 115);
             this.txtNombres.Name = "txtNombres";
-            this.txtNombres.ReadOnly = true;
             this.txtNombres.Size = new System.Drawing.Size(208, 27);
             this.txtNombres.TabIndex = 17;
             // 
@@ -281,7 +337,6 @@
             this.txtApellidos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApellidos.Location = new System.Drawing.Point(119, 160);
             this.txtApellidos.Name = "txtApellidos";
-            this.txtApellidos.ReadOnly = true;
             this.txtApellidos.Size = new System.Drawing.Size(208, 27);
             this.txtApellidos.TabIndex = 18;
             // 
@@ -302,6 +357,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             this.btnCancelar.MouseEnter += new System.EventHandler(this.btnCancelar_MouseEnter);
             this.btnCancelar.MouseLeave += new System.EventHandler(this.btnCancelar_MouseLeave);
             // 
@@ -333,6 +389,7 @@
             this.btnModificar.Text = "Modificar";
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             this.btnModificar.MouseEnter += new System.EventHandler(this.btnModificarCN_MouseEnter);
             this.btnModificar.MouseLeave += new System.EventHandler(this.btnModificarCN_MouseLeave);
             // 
@@ -341,7 +398,6 @@
             this.txtTelefono.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTelefono.Location = new System.Drawing.Point(119, 203);
             this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.ReadOnly = true;
             this.txtTelefono.Size = new System.Drawing.Size(208, 27);
             this.txtTelefono.TabIndex = 19;
             // 
@@ -362,6 +418,7 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             this.btnAgregar.MouseEnter += new System.EventHandler(this.btnAgregarCN_MouseEnter);
             this.btnAgregar.MouseLeave += new System.EventHandler(this.btnAgregarCN_MouseLeave);
             this.btnAgregar.MouseHover += new System.EventHandler(this.btnAgregarCN_MouseHover);
@@ -371,7 +428,6 @@
             this.txtDireccion.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDireccion.Location = new System.Drawing.Point(498, 164);
             this.txtDireccion.Name = "txtDireccion";
-            this.txtDireccion.ReadOnly = true;
             this.txtDireccion.Size = new System.Drawing.Size(314, 23);
             this.txtDireccion.TabIndex = 20;
             // 
@@ -456,6 +512,7 @@
             this.btnInhabilitarCliNat.Text = "Inhabilitar";
             this.btnInhabilitarCliNat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnInhabilitarCliNat.UseVisualStyleBackColor = false;
+            this.btnInhabilitarCliNat.Click += new System.EventHandler(this.btnInhabilitarCliNat_Click);
             this.btnInhabilitarCliNat.MouseEnter += new System.EventHandler(this.btnEliminarCN_MouseEnter);
             this.btnInhabilitarCliNat.MouseLeave += new System.EventHandler(this.btnEliminarCN_MouseLeave);
             // 
@@ -476,6 +533,7 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             this.btnEditar.MouseEnter += new System.EventHandler(this.btnEditarCN_MouseEnter);
             this.btnEditar.MouseLeave += new System.EventHandler(this.btnEditarCN_MouseLeave);
             // 
@@ -496,104 +554,19 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             this.btnNuevo.MouseEnter += new System.EventHandler(this.btnNuevoCN_MouseEnter);
             this.btnNuevo.MouseLeave += new System.EventHandler(this.btnNuevoCN_MouseLeave);
             // 
             // dgvClienteNatural
             // 
-            this.dgvClienteNatural.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvClienteNatural.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvClienteNatural.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkViolet;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkViolet;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClienteNatural.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvClienteNatural.ColumnHeadersHeight = 30;
-            this.dgvClienteNatural.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvClienteNatural.ColumnHeadersVisible = false;
-            this.dgvClienteNatural.Location = new System.Drawing.Point(21, 286);
+            this.dgvClienteNatural.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvClienteNatural.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvClienteNatural.Location = new System.Drawing.Point(19, 272);
             this.dgvClienteNatural.Name = "dgvClienteNatural";
-            this.dgvClienteNatural.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.BlueViolet;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvClienteNatural.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvClienteNatural.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClienteNatural.Size = new System.Drawing.Size(1003, 229);
-            this.dgvClienteNatural.TabIndex = 26;
-            // 
-            // btnBuscarUbigeo
-            // 
-            this.btnBuscarUbigeo.BackColor = System.Drawing.Color.White;
-            this.btnBuscarUbigeo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarUbigeo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnBuscarUbigeo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarUbigeo.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarUbigeo.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnBuscarUbigeo.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarUbigeo.Image")));
-            this.btnBuscarUbigeo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarUbigeo.Location = new System.Drawing.Point(713, 36);
-            this.btnBuscarUbigeo.Name = "btnBuscarUbigeo";
-            this.btnBuscarUbigeo.Size = new System.Drawing.Size(71, 29);
-            this.btnBuscarUbigeo.TabIndex = 70;
-            this.btnBuscarUbigeo.Text = "buscar";
-            this.btnBuscarUbigeo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarUbigeo.UseVisualStyleBackColor = false;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label12.Location = new System.Drawing.Point(334, 38);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(158, 23);
-            this.label12.TabIndex = 69;
-            this.label12.Text = "Codigo Ubigeo:";
-            // 
-            // txtCodigoUbigeo
-            // 
-            this.txtCodigoUbigeo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodigoUbigeo.Location = new System.Drawing.Point(498, 36);
-            this.txtCodigoUbigeo.Name = "txtCodigoUbigeo";
-            this.txtCodigoUbigeo.ReadOnly = true;
-            this.txtCodigoUbigeo.Size = new System.Drawing.Size(208, 27);
-            this.txtCodigoUbigeo.TabIndex = 68;
-            // 
-            // txtDepartamento
-            // 
-            this.txtDepartamento.Enabled = false;
-            this.txtDepartamento.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDepartamento.Location = new System.Drawing.Point(498, 69);
-            this.txtDepartamento.Name = "txtDepartamento";
-            this.txtDepartamento.ReadOnly = true;
-            this.txtDepartamento.Size = new System.Drawing.Size(208, 27);
-            this.txtDepartamento.TabIndex = 67;
-            // 
-            // txtProvincia
-            // 
-            this.txtProvincia.Enabled = false;
-            this.txtProvincia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtProvincia.Location = new System.Drawing.Point(498, 102);
-            this.txtProvincia.Name = "txtProvincia";
-            this.txtProvincia.ReadOnly = true;
-            this.txtProvincia.Size = new System.Drawing.Size(208, 27);
-            this.txtProvincia.TabIndex = 66;
-            // 
-            // txtDistrito
-            // 
-            this.txtDistrito.Enabled = false;
-            this.txtDistrito.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDistrito.Location = new System.Drawing.Point(498, 132);
-            this.txtDistrito.Name = "txtDistrito";
-            this.txtDistrito.ReadOnly = true;
-            this.txtDistrito.Size = new System.Drawing.Size(208, 27);
-            this.txtDistrito.TabIndex = 65;
+            this.dgvClienteNatural.Size = new System.Drawing.Size(1005, 249);
+            this.dgvClienteNatural.TabIndex = 63;
+            this.dgvClienteNatural.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClienteNatural_CellClick);
             // 
             // FrmClienteNatural
             // 
@@ -636,7 +609,6 @@
         private System.Windows.Forms.Button btnInhabilitarCliNat;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.DataGridView dgvClienteNatural;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.GroupBox gbClientesNatural;
@@ -653,5 +625,6 @@
         private System.Windows.Forms.TextBox txtDepartamento;
         private System.Windows.Forms.TextBox txtProvincia;
         private System.Windows.Forms.TextBox txtDistrito;
+        private System.Windows.Forms.DataGridView dgvClienteNatural;
     }
 }

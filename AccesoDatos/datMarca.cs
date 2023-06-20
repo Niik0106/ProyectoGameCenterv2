@@ -41,5 +41,77 @@ namespace AccesoDatos
             finally { cmd.Connection.Close(); }
             return lista;
         }
+
+
+        ///INSERTAR
+        ///
+        public Boolean InsertarMarca(entMarca Marca)
+        {
+            SqlCommand cmd = null;
+            Boolean inserta = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_INSERTAR_MARCA", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@DES_MARCA", Marca.desMarca);
+                cmd.Parameters.AddWithValue("@ESTADO_MARCA", Marca.estMarca);
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0) { inserta = true; }
+            }
+            catch (Exception e) { throw e; }
+            finally { cmd.Connection.Close(); }
+            return inserta;
+        }
+
+        public Boolean EditarMarca(entMarca  Marca)
+        {
+            SqlCommand cmd = null;
+            Boolean edita = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_EDITAR_MARCA", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ID_MARCA", Marca.idMarca);
+                cmd.Parameters.AddWithValue("@DES_MARCA", Marca.desMarca);
+                cmd.Parameters.AddWithValue("@ESTADO_MARCA", Marca.estMarca);
+                cn.Open(); int i = cmd.ExecuteNonQuery();
+                if (i > 0) { edita = true; }
+            }
+            catch (Exception e) { throw e; }
+            finally { cmd.Connection.Close(); }
+            return edita;
+        }
+
+        ///DESHABILITA
+        ///
+        public Boolean DeshabilitarMarca(entMarca Marca)
+        {
+            SqlCommand cmd = null;
+            Boolean deshabilitar = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_DESHABILITO_MARCA", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ID_MARCA", Marca.idMarca);
+                cmd.Parameters.AddWithValue("@ESTADO_MARCA", Marca.estMarca);
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    deshabilitar = true;
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally { cmd.Connection.Close(); }
+            return deshabilitar;
+        }
+
     }
 }

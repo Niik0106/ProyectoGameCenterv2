@@ -59,6 +59,7 @@
             this.dgvMarca.Name = "dgvMarca";
             this.dgvMarca.Size = new System.Drawing.Size(372, 316);
             this.dgvMarca.TabIndex = 20;
+            this.dgvMarca.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMarca_CellClick);
             // 
             // imgMarca
             // 
@@ -88,7 +89,6 @@
             this.txtDescripcionMarca.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDescripcionMarca.Location = new System.Drawing.Point(497, 52);
             this.txtDescripcionMarca.Name = "txtDescripcionMarca";
-            this.txtDescripcionMarca.ReadOnly = true;
             this.txtDescripcionMarca.Size = new System.Drawing.Size(208, 27);
             this.txtDescripcionMarca.TabIndex = 34;
             // 
@@ -133,6 +133,7 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnNuevo
             // 
@@ -151,6 +152,7 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnEditar
             // 
@@ -169,6 +171,7 @@
             this.btnEditar.Text = "Editar";
             this.btnEditar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnDeshabilitarMarca
             // 
@@ -187,6 +190,7 @@
             this.btnDeshabilitarMarca.Text = "Deshabilitar";
             this.btnDeshabilitarMarca.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnDeshabilitarMarca.UseVisualStyleBackColor = false;
+            this.btnDeshabilitarMarca.Click += new System.EventHandler(this.btnDeshabilitarMarca_Click);
             // 
             // txtIDMarca
             // 
@@ -194,7 +198,6 @@
             this.txtIDMarca.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDMarca.Location = new System.Drawing.Point(245, 53);
             this.txtIDMarca.Name = "txtIDMarca";
-            this.txtIDMarca.ReadOnly = true;
             this.txtIDMarca.Size = new System.Drawing.Size(95, 27);
             this.txtIDMarca.TabIndex = 43;
             // 
@@ -258,6 +261,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnModificar
             // 
@@ -276,6 +280,7 @@
             this.btnModificar.Text = "Modificar";
             this.btnModificar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnAgregar
             // 
@@ -294,6 +299,7 @@
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // FrmMarca
             // 
