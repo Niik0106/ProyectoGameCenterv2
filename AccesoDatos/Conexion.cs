@@ -19,8 +19,7 @@ namespace AccesoDatos
         public SqlConnection Conectar()
         {
             SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = "Data Source=; Initial Catalog = MOANSO_GAMECENTER;" +//"User ID=sa; Password=123";
-                                "Integrated Security=true";
+            cn.ConnectionString = "Data Source=; Initial Catalog = MOANSO_GAMECENTER; Integrated Security=true";
 
             return cn;
         }
