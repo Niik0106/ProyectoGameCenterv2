@@ -22,5 +22,25 @@ namespace LogicaNegocio
         {
             return datMarca.Instancia.ListarMarca();
         }
+
+        ///AGREGAR
+        ///
+        public void InsertaMarca(entMarca Marca)
+        {
+            datMarca.Instancia.InsertarMarca(Marca);
+        }
+        ////editar
+        ///
+        public void EditaMarca(entMarca Marca)
+        {
+            datMarca.Instancia.EditarMarca(Marca);
+        }
+        //inhabilitar
+
+        public void DeshabilitaMarca(entMarca marca)
+        {
+            datMarca.Instancia.DeshabilitarMarca(marca);
+        }
+
     }
 }
