@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCronogramaPago));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.gbCronogramaPago = new System.Windows.Forms.GroupBox();
@@ -57,8 +57,7 @@
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnAnular = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
+            this.btnPagado = new System.Windows.Forms.Button();
             this.dgvCronogramaPago = new System.Windows.Forms.DataGridView();
             this.BarraTitulo.SuspendLayout();
             this.gbCronogramaPago.SuspendLayout();
@@ -126,7 +125,7 @@
             // txtNumeroCuotas
             // 
             this.txtNumeroCuotas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNumeroCuotas.Location = new System.Drawing.Point(602, 41);
+            this.txtNumeroCuotas.Location = new System.Drawing.Point(593, 43);
             this.txtNumeroCuotas.Name = "txtNumeroCuotas";
             this.txtNumeroCuotas.ReadOnly = true;
             this.txtNumeroCuotas.Size = new System.Drawing.Size(183, 27);
@@ -137,7 +136,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label11.Location = new System.Drawing.Point(489, 42);
+            this.label11.Location = new System.Drawing.Point(480, 44);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(107, 23);
             this.label11.TabIndex = 46;
@@ -146,10 +145,10 @@
             // txtObservaciones
             // 
             this.txtObservaciones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtObservaciones.Location = new System.Drawing.Point(602, 188);
+            this.txtObservaciones.Location = new System.Drawing.Point(593, 190);
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.ReadOnly = true;
-            this.txtObservaciones.Size = new System.Drawing.Size(183, 27);
+            this.txtObservaciones.Size = new System.Drawing.Size(280, 27);
             this.txtObservaciones.TabIndex = 45;
             // 
             // label7
@@ -157,7 +156,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label7.Location = new System.Drawing.Point(442, 192);
+            this.label7.Location = new System.Drawing.Point(433, 194);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(154, 23);
             this.label7.TabIndex = 44;
@@ -168,7 +167,7 @@
             this.cboEstadoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboEstadoPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboEstadoPago.FormattingEnabled = true;
-            this.cboEstadoPago.Location = new System.Drawing.Point(602, 153);
+            this.cboEstadoPago.Location = new System.Drawing.Point(593, 155);
             this.cboEstadoPago.Name = "cboEstadoPago";
             this.cboEstadoPago.Size = new System.Drawing.Size(183, 29);
             this.cboEstadoPago.TabIndex = 42;
@@ -178,7 +177,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label6.Location = new System.Drawing.Point(465, 155);
+            this.label6.Location = new System.Drawing.Point(456, 157);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(131, 23);
             this.label6.TabIndex = 43;
@@ -188,7 +187,7 @@
             // 
             this.dtimePlazoPago.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtimePlazoPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtimePlazoPago.Location = new System.Drawing.Point(602, 115);
+            this.dtimePlazoPago.Location = new System.Drawing.Point(593, 117);
             this.dtimePlazoPago.Name = "dtimePlazoPago";
             this.dtimePlazoPago.Size = new System.Drawing.Size(183, 31);
             this.dtimePlazoPago.TabIndex = 41;
@@ -199,7 +198,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label8.Location = new System.Drawing.Point(477, 119);
+            this.label8.Location = new System.Drawing.Point(468, 121);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(119, 23);
             this.label8.TabIndex = 40;
@@ -208,7 +207,7 @@
             // txtIDOrdenVenta
             // 
             this.txtIDOrdenVenta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDOrdenVenta.Location = new System.Drawing.Point(182, 156);
+            this.txtIDOrdenVenta.Location = new System.Drawing.Point(168, 117);
             this.txtIDOrdenVenta.Name = "txtIDOrdenVenta";
             this.txtIDOrdenVenta.ReadOnly = true;
             this.txtIDOrdenVenta.Size = new System.Drawing.Size(183, 27);
@@ -217,7 +216,7 @@
             // txtTotal
             // 
             this.txtTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(182, 190);
+            this.txtTotal.Location = new System.Drawing.Point(168, 190);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(183, 27);
@@ -228,7 +227,7 @@
             this.cboMetodoPago.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMetodoPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboMetodoPago.FormattingEnabled = true;
-            this.cboMetodoPago.Location = new System.Drawing.Point(602, 78);
+            this.cboMetodoPago.Location = new System.Drawing.Point(593, 80);
             this.cboMetodoPago.Name = "cboMetodoPago";
             this.cboMetodoPago.Size = new System.Drawing.Size(183, 29);
             this.cboMetodoPago.TabIndex = 22;
@@ -238,7 +237,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label5.Location = new System.Drawing.Point(117, 194);
+            this.label5.Location = new System.Drawing.Point(103, 194);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 23);
             this.label5.TabIndex = 33;
@@ -248,7 +247,7 @@
             // 
             this.dtimeFechaVenta.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtimeFechaVenta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtimeFechaVenta.Location = new System.Drawing.Point(182, 80);
+            this.dtimeFechaVenta.Location = new System.Drawing.Point(168, 80);
             this.dtimeFechaVenta.Name = "dtimeFechaVenta";
             this.dtimeFechaVenta.Size = new System.Drawing.Size(183, 31);
             this.dtimeFechaVenta.TabIndex = 32;
@@ -259,7 +258,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label1.Location = new System.Drawing.Point(64, 45);
+            this.label1.Location = new System.Drawing.Point(50, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 23);
             this.label1.TabIndex = 30;
@@ -268,7 +267,7 @@
             // txtIDCronogramaPago
             // 
             this.txtIDCronogramaPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDCronogramaPago.Location = new System.Drawing.Point(182, 45);
+            this.txtIDCronogramaPago.Location = new System.Drawing.Point(168, 45);
             this.txtIDCronogramaPago.Name = "txtIDCronogramaPago";
             this.txtIDCronogramaPago.ReadOnly = true;
             this.txtIDCronogramaPago.Size = new System.Drawing.Size(183, 27);
@@ -284,7 +283,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(846, 132);
+            this.btnCancelar.Location = new System.Drawing.Point(867, 132);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(130, 50);
             this.btnCancelar.TabIndex = 29;
@@ -297,7 +296,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label4.Location = new System.Drawing.Point(455, 81);
+            this.label4.Location = new System.Drawing.Point(446, 83);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(141, 23);
             this.label4.TabIndex = 28;
@@ -306,7 +305,7 @@
             // txtIDCliente
             // 
             this.txtIDCliente.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDCliente.Location = new System.Drawing.Point(182, 117);
+            this.txtIDCliente.Location = new System.Drawing.Point(168, 155);
             this.txtIDCliente.Name = "txtIDCliente";
             this.txtIDCliente.ReadOnly = true;
             this.txtIDCliente.Size = new System.Drawing.Size(183, 27);
@@ -317,7 +316,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label3.Location = new System.Drawing.Point(44, 83);
+            this.label3.Location = new System.Drawing.Point(30, 83);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(132, 23);
             this.label3.TabIndex = 8;
@@ -333,7 +332,7 @@
             this.btnAgregar.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(846, 53);
+            this.btnAgregar.Location = new System.Drawing.Point(867, 54);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(130, 50);
             this.btnAgregar.TabIndex = 3;
@@ -346,7 +345,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label9.Location = new System.Drawing.Point(72, 118);
+            this.label9.Location = new System.Drawing.Point(58, 156);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(104, 23);
             this.label9.TabIndex = 14;
@@ -357,7 +356,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label10.Location = new System.Drawing.Point(20, 156);
+            this.label10.Location = new System.Drawing.Point(6, 117);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(156, 23);
             this.label10.TabIndex = 15;
@@ -381,66 +380,48 @@
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = false;
             // 
-            // btnAnular
+            // btnPagado
             // 
-            this.btnAnular.BackColor = System.Drawing.Color.White;
-            this.btnAnular.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnAnular.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnAnular.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAnular.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAnular.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnAnular.Image = ((System.Drawing.Image)(resources.GetObject("btnAnular.Image")));
-            this.btnAnular.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAnular.Location = new System.Drawing.Point(895, 573);
-            this.btnAnular.Name = "btnAnular";
-            this.btnAnular.Size = new System.Drawing.Size(130, 50);
-            this.btnAnular.TabIndex = 52;
-            this.btnAnular.Text = "Anular";
-            this.btnAnular.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnAnular.UseVisualStyleBackColor = false;
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.BackColor = System.Drawing.Color.White;
-            this.btnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNuevo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNuevo.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
-            this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(737, 573);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(130, 50);
-            this.btnNuevo.TabIndex = 51;
-            this.btnNuevo.Text = "Nuevo";
-            this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnPagado.BackColor = System.Drawing.Color.White;
+            this.btnPagado.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPagado.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnPagado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagado.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnPagado.Image = ((System.Drawing.Image)(resources.GetObject("btnPagado.Image")));
+            this.btnPagado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPagado.Location = new System.Drawing.Point(895, 574);
+            this.btnPagado.Name = "btnPagado";
+            this.btnPagado.Size = new System.Drawing.Size(130, 50);
+            this.btnPagado.TabIndex = 52;
+            this.btnPagado.Text = "Pagado";
+            this.btnPagado.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPagado.UseVisualStyleBackColor = false;
             // 
             // dgvCronogramaPago
             // 
             this.dgvCronogramaPago.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvCronogramaPago.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvCronogramaPago.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkViolet;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkViolet;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvCronogramaPago.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCronogramaPago.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCronogramaPago.ColumnHeadersHeight = 30;
             this.dgvCronogramaPago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvCronogramaPago.ColumnHeadersVisible = false;
             this.dgvCronogramaPago.Location = new System.Drawing.Point(22, 347);
             this.dgvCronogramaPago.Name = "dgvCronogramaPago";
             this.dgvCronogramaPago.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.BlueViolet;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvCronogramaPago.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.BlueViolet;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvCronogramaPago.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvCronogramaPago.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCronogramaPago.Size = new System.Drawing.Size(1003, 206);
             this.dgvCronogramaPago.TabIndex = 50;
@@ -451,8 +432,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 650);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.btnAnular);
-            this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.btnPagado);
             this.Controls.Add(this.dgvCronogramaPago);
             this.Controls.Add(this.gbCronogramaPago);
             this.Controls.Add(this.BarraTitulo);
@@ -486,8 +466,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnAnular;
-        private System.Windows.Forms.Button btnNuevo;
+        private System.Windows.Forms.Button btnPagado;
         private System.Windows.Forms.DataGridView dgvCronogramaPago;
         private System.Windows.Forms.TextBox txtObservaciones;
         private System.Windows.Forms.Label label7;

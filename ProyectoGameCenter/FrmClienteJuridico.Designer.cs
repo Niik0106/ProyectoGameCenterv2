@@ -34,7 +34,11 @@
             this.BarraTituloCN = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.PanelContenedorCN = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtRucBuscar = new System.Windows.Forms.TextBox();
+            this.btnBuscarCliJur = new System.Windows.Forms.Button();
             this.gbClientesJuridico = new System.Windows.Forms.GroupBox();
+            this.cbxEstadoCliJur = new System.Windows.Forms.CheckBox();
             this.label10 = new System.Windows.Forms.Label();
             this.txtIDCliente = new System.Windows.Forms.TextBox();
             this.txtRUC = new System.Windows.Forms.TextBox();
@@ -55,7 +59,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnInhabilitarCliJur = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.dgvClienteJuridico = new System.Windows.Forms.DataGridView();
@@ -92,9 +96,12 @@
             // PanelContenedorCN
             // 
             this.PanelContenedorCN.BackColor = System.Drawing.Color.White;
+            this.PanelContenedorCN.Controls.Add(this.label3);
+            this.PanelContenedorCN.Controls.Add(this.txtRucBuscar);
+            this.PanelContenedorCN.Controls.Add(this.btnBuscarCliJur);
             this.PanelContenedorCN.Controls.Add(this.gbClientesJuridico);
             this.PanelContenedorCN.Controls.Add(this.btnSalir);
-            this.PanelContenedorCN.Controls.Add(this.btnEliminar);
+            this.PanelContenedorCN.Controls.Add(this.btnInhabilitarCliJur);
             this.PanelContenedorCN.Controls.Add(this.btnEditar);
             this.PanelContenedorCN.Controls.Add(this.btnNuevo);
             this.PanelContenedorCN.Controls.Add(this.dgvClienteJuridico);
@@ -104,8 +111,47 @@
             this.PanelContenedorCN.Size = new System.Drawing.Size(1050, 590);
             this.PanelContenedorCN.TabIndex = 3;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label3.Location = new System.Drawing.Point(169, 524);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(120, 23);
+            this.label3.TabIndex = 59;
+            this.label3.Text = "Buscar RUC:";
+            // 
+            // txtRucBuscar
+            // 
+            this.txtRucBuscar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRucBuscar.Location = new System.Drawing.Point(173, 550);
+            this.txtRucBuscar.Name = "txtRucBuscar";
+            this.txtRucBuscar.ReadOnly = true;
+            this.txtRucBuscar.Size = new System.Drawing.Size(208, 27);
+            this.txtRucBuscar.TabIndex = 61;
+            // 
+            // btnBuscarCliJur
+            // 
+            this.btnBuscarCliJur.BackColor = System.Drawing.Color.White;
+            this.btnBuscarCliJur.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarCliJur.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnBuscarCliJur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarCliJur.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarCliJur.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnBuscarCliJur.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarCliJur.Image")));
+            this.btnBuscarCliJur.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarCliJur.Location = new System.Drawing.Point(412, 527);
+            this.btnBuscarCliJur.Name = "btnBuscarCliJur";
+            this.btnBuscarCliJur.Size = new System.Drawing.Size(130, 50);
+            this.btnBuscarCliJur.TabIndex = 60;
+            this.btnBuscarCliJur.Text = "Buscar";
+            this.btnBuscarCliJur.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarCliJur.UseVisualStyleBackColor = false;
+            // 
             // gbClientesJuridico
             // 
+            this.gbClientesJuridico.Controls.Add(this.cbxEstadoCliJur);
             this.gbClientesJuridico.Controls.Add(this.label10);
             this.gbClientesJuridico.Controls.Add(this.txtIDCliente);
             this.gbClientesJuridico.Controls.Add(this.txtRUC);
@@ -130,10 +176,22 @@
             this.gbClientesJuridico.ForeColor = System.Drawing.Color.DarkViolet;
             this.gbClientesJuridico.Location = new System.Drawing.Point(19, 15);
             this.gbClientesJuridico.Name = "gbClientesJuridico";
-            this.gbClientesJuridico.Size = new System.Drawing.Size(1003, 251);
+            this.gbClientesJuridico.Size = new System.Drawing.Size(1003, 265);
             this.gbClientesJuridico.TabIndex = 31;
             this.gbClientesJuridico.TabStop = false;
             this.gbClientesJuridico.Text = "DATOS DEL CLIENTE";
+            // 
+            // cbxEstadoCliJur
+            // 
+            this.cbxEstadoCliJur.AutoSize = true;
+            this.cbxEstadoCliJur.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbxEstadoCliJur.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold);
+            this.cbxEstadoCliJur.Location = new System.Drawing.Point(467, 211);
+            this.cbxEstadoCliJur.Name = "cbxEstadoCliJur";
+            this.cbxEstadoCliJur.Size = new System.Drawing.Size(91, 27);
+            this.cbxEstadoCliJur.TabIndex = 58;
+            this.cbxEstadoCliJur.Text = "Estado";
+            this.cbxEstadoCliJur.UseVisualStyleBackColor = true;
             // 
             // label10
             // 
@@ -371,23 +429,23 @@
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = false;
             // 
-            // btnEliminar
+            // btnInhabilitarCliJur
             // 
-            this.btnEliminar.BackColor = System.Drawing.Color.White;
-            this.btnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEliminar.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnEliminar.Image = ((System.Drawing.Image)(resources.GetObject("btnEliminar.Image")));
-            this.btnEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEliminar.Location = new System.Drawing.Point(894, 527);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(130, 50);
-            this.btnEliminar.TabIndex = 29;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEliminar.UseVisualStyleBackColor = false;
+            this.btnInhabilitarCliJur.BackColor = System.Drawing.Color.White;
+            this.btnInhabilitarCliJur.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnInhabilitarCliJur.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnInhabilitarCliJur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnInhabilitarCliJur.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInhabilitarCliJur.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnInhabilitarCliJur.Image = ((System.Drawing.Image)(resources.GetObject("btnInhabilitarCliJur.Image")));
+            this.btnInhabilitarCliJur.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnInhabilitarCliJur.Location = new System.Drawing.Point(880, 527);
+            this.btnInhabilitarCliJur.Name = "btnInhabilitarCliJur";
+            this.btnInhabilitarCliJur.Size = new System.Drawing.Size(144, 50);
+            this.btnInhabilitarCliJur.TabIndex = 29;
+            this.btnInhabilitarCliJur.Text = "Inhabilitar";
+            this.btnInhabilitarCliJur.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnInhabilitarCliJur.UseVisualStyleBackColor = false;
             // 
             // btnEditar
             // 
@@ -399,7 +457,7 @@
             this.btnEditar.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(741, 528);
+            this.btnEditar.Location = new System.Drawing.Point(720, 528);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(130, 50);
             this.btnEditar.TabIndex = 28;
@@ -417,7 +475,7 @@
             this.btnNuevo.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(586, 528);
+            this.btnNuevo.Location = new System.Drawing.Point(564, 528);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(130, 50);
             this.btnNuevo.TabIndex = 27;
@@ -465,6 +523,7 @@
             this.Text = "FrmClienteJuridico";
             this.BarraTituloCN.ResumeLayout(false);
             this.PanelContenedorCN.ResumeLayout(false);
+            this.PanelContenedorCN.PerformLayout();
             this.gbClientesJuridico.ResumeLayout(false);
             this.gbClientesJuridico.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClienteJuridico)).EndInit();
@@ -498,9 +557,13 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.Button btnEliminar;
+        private System.Windows.Forms.Button btnInhabilitarCliJur;
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.DataGridView dgvClienteJuridico;
+        private System.Windows.Forms.CheckBox cbxEstadoCliJur;
+        private System.Windows.Forms.Button btnBuscarCliJur;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtRucBuscar;
     }
 }
