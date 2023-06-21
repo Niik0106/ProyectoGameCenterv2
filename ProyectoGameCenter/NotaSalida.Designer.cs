@@ -50,21 +50,25 @@
             this.BarraTituloCN = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.gbNotaSalida = new System.Windows.Forms.GroupBox();
-            this.btnBuscarOV = new System.Windows.Forms.Button();
-            this.dgvProductosNS = new System.Windows.Forms.DataGridView();
             this.btnQuitar = new System.Windows.Forms.Button();
+            this.dgvDetalleNotaSalida = new System.Windows.Forms.DataGridView();
             this.btnAñadir = new System.Windows.Forms.Button();
+            this.gbDetalleNotaSalida = new System.Windows.Forms.GroupBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.txtDesProducto = new System.Windows.Forms.TextBox();
+            this.btnBuscarProducto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvNotaSalida)).BeginInit();
             this.BarraTituloCN.SuspendLayout();
             this.gbNotaSalida.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosNS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleNotaSalida)).BeginInit();
+            this.gbDetalleNotaSalida.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtCantidad
             // 
             this.txtCantidad.Enabled = false;
             this.txtCantidad.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCantidad.Location = new System.Drawing.Point(823, 117);
+            this.txtCantidad.Location = new System.Drawing.Point(164, 99);
             this.txtCantidad.Name = "txtCantidad";
             this.txtCantidad.ReadOnly = true;
             this.txtCantidad.Size = new System.Drawing.Size(137, 27);
@@ -75,7 +79,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label7.Location = new System.Drawing.Point(819, 89);
+            this.label7.Location = new System.Drawing.Point(56, 100);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(104, 23);
             this.label7.TabIndex = 57;
@@ -85,10 +89,10 @@
             // 
             this.txtIDProducto.Enabled = false;
             this.txtIDProducto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDProducto.Location = new System.Drawing.Point(823, 59);
+            this.txtIDProducto.Location = new System.Drawing.Point(164, 33);
             this.txtIDProducto.Name = "txtIDProducto";
             this.txtIDProducto.ReadOnly = true;
-            this.txtIDProducto.Size = new System.Drawing.Size(137, 27);
+            this.txtIDProducto.Size = new System.Drawing.Size(147, 27);
             this.txtIDProducto.TabIndex = 56;
             // 
             // label6
@@ -96,7 +100,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label6.Location = new System.Drawing.Point(819, 33);
+            this.label6.Location = new System.Drawing.Point(39, 33);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(121, 23);
             this.label6.TabIndex = 55;
@@ -112,9 +116,9 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(176, 192);
+            this.btnCancelar.Location = new System.Drawing.Point(272, 208);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(130, 50);
+            this.btnCancelar.Size = new System.Drawing.Size(130, 42);
             this.btnCancelar.TabIndex = 54;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -130,9 +134,9 @@
             this.btnAgregar.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(25, 192);
+            this.btnAgregar.Location = new System.Drawing.Point(107, 208);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(130, 50);
+            this.btnAgregar.Size = new System.Drawing.Size(130, 42);
             this.btnAgregar.TabIndex = 53;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -226,10 +230,10 @@
             // dgvNotaSalida
             // 
             this.dgvNotaSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNotaSalida.Location = new System.Drawing.Point(22, 356);
+            this.dgvNotaSalida.Location = new System.Drawing.Point(22, 362);
             this.dgvNotaSalida.Name = "dgvNotaSalida";
             this.dgvNotaSalida.RowHeadersWidth = 51;
-            this.dgvNotaSalida.Size = new System.Drawing.Size(1003, 213);
+            this.dgvNotaSalida.Size = new System.Drawing.Size(1003, 207);
             this.dgvNotaSalida.TabIndex = 51;
             this.dgvNotaSalida.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategoria_CellContentClick);
             // 
@@ -314,59 +318,25 @@
             // 
             // gbNotaSalida
             // 
-            this.gbNotaSalida.Controls.Add(this.btnQuitar);
-            this.gbNotaSalida.Controls.Add(this.dgvProductosNS);
-            this.gbNotaSalida.Controls.Add(this.btnAñadir);
             this.gbNotaSalida.Controls.Add(this.btnCancelar);
-            this.gbNotaSalida.Controls.Add(this.btnBuscarOV);
             this.gbNotaSalida.Controls.Add(this.btnAgregar);
-            this.gbNotaSalida.Controls.Add(this.label7);
             this.gbNotaSalida.Controls.Add(this.dtFechaEmision);
             this.gbNotaSalida.Controls.Add(this.label2);
             this.gbNotaSalida.Controls.Add(this.txtNumNSalida);
-            this.gbNotaSalida.Controls.Add(this.txtCantidad);
             this.gbNotaSalida.Controls.Add(this.label3);
             this.gbNotaSalida.Controls.Add(this.label5);
             this.gbNotaSalida.Controls.Add(this.txtNumOrdenV);
-            this.gbNotaSalida.Controls.Add(this.txtIDProducto);
             this.gbNotaSalida.Controls.Add(this.label4);
-            this.gbNotaSalida.Controls.Add(this.label6);
             this.gbNotaSalida.Controls.Add(this.Clie);
             this.gbNotaSalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbNotaSalida.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbNotaSalida.ForeColor = System.Drawing.Color.DarkViolet;
             this.gbNotaSalida.Location = new System.Drawing.Point(22, 79);
             this.gbNotaSalida.Name = "gbNotaSalida";
-            this.gbNotaSalida.Size = new System.Drawing.Size(1003, 260);
+            this.gbNotaSalida.Size = new System.Drawing.Size(509, 274);
             this.gbNotaSalida.TabIndex = 59;
             this.gbNotaSalida.TabStop = false;
             this.gbNotaSalida.Text = "DATOS NOTA SALIDA";
-            // 
-            // btnBuscarOV
-            // 
-            this.btnBuscarOV.BackColor = System.Drawing.Color.White;
-            this.btnBuscarOV.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscarOV.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnBuscarOV.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarOV.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarOV.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnBuscarOV.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarOV.Image")));
-            this.btnBuscarOV.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarOV.Location = new System.Drawing.Point(377, 107);
-            this.btnBuscarOV.Name = "btnBuscarOV";
-            this.btnBuscarOV.Size = new System.Drawing.Size(54, 47);
-            this.btnBuscarOV.TabIndex = 60;
-            this.btnBuscarOV.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscarOV.UseVisualStyleBackColor = false;
-            // 
-            // dgvProductosNS
-            // 
-            this.dgvProductosNS.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProductosNS.Location = new System.Drawing.Point(464, 36);
-            this.dgvProductosNS.Name = "dgvProductosNS";
-            this.dgvProductosNS.RowHeadersWidth = 51;
-            this.dgvProductosNS.Size = new System.Drawing.Size(306, 174);
-            this.dgvProductosNS.TabIndex = 60;
             // 
             // btnQuitar
             // 
@@ -378,12 +348,21 @@
             this.btnQuitar.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnQuitar.Image = ((System.Drawing.Image)(resources.GetObject("btnQuitar.Image")));
             this.btnQuitar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnQuitar.Location = new System.Drawing.Point(893, 160);
+            this.btnQuitar.Location = new System.Drawing.Point(416, 200);
             this.btnQuitar.Name = "btnQuitar";
             this.btnQuitar.Size = new System.Drawing.Size(50, 50);
             this.btnQuitar.TabIndex = 61;
             this.btnQuitar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnQuitar.UseVisualStyleBackColor = false;
+            // 
+            // dgvDetalleNotaSalida
+            // 
+            this.dgvDetalleNotaSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalleNotaSalida.Location = new System.Drawing.Point(16, 134);
+            this.dgvDetalleNotaSalida.Name = "dgvDetalleNotaSalida";
+            this.dgvDetalleNotaSalida.RowHeadersWidth = 51;
+            this.dgvDetalleNotaSalida.Size = new System.Drawing.Size(394, 128);
+            this.dgvDetalleNotaSalida.TabIndex = 60;
             // 
             // btnAñadir
             // 
@@ -395,18 +374,79 @@
             this.btnAñadir.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnAñadir.Image = ((System.Drawing.Image)(resources.GetObject("btnAñadir.Image")));
             this.btnAñadir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAñadir.Location = new System.Drawing.Point(837, 159);
+            this.btnAñadir.Location = new System.Drawing.Point(416, 140);
             this.btnAñadir.Name = "btnAñadir";
             this.btnAñadir.Size = new System.Drawing.Size(50, 50);
             this.btnAñadir.TabIndex = 60;
             this.btnAñadir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAñadir.UseVisualStyleBackColor = false;
             // 
+            // gbDetalleNotaSalida
+            // 
+            this.gbDetalleNotaSalida.Controls.Add(this.label12);
+            this.gbDetalleNotaSalida.Controls.Add(this.btnQuitar);
+            this.gbDetalleNotaSalida.Controls.Add(this.btnAñadir);
+            this.gbDetalleNotaSalida.Controls.Add(this.txtDesProducto);
+            this.gbDetalleNotaSalida.Controls.Add(this.btnBuscarProducto);
+            this.gbDetalleNotaSalida.Controls.Add(this.label7);
+            this.gbDetalleNotaSalida.Controls.Add(this.dgvDetalleNotaSalida);
+            this.gbDetalleNotaSalida.Controls.Add(this.label6);
+            this.gbDetalleNotaSalida.Controls.Add(this.txtIDProducto);
+            this.gbDetalleNotaSalida.Controls.Add(this.txtCantidad);
+            this.gbDetalleNotaSalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gbDetalleNotaSalida.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gbDetalleNotaSalida.ForeColor = System.Drawing.Color.DarkViolet;
+            this.gbDetalleNotaSalida.Location = new System.Drawing.Point(546, 79);
+            this.gbDetalleNotaSalida.Name = "gbDetalleNotaSalida";
+            this.gbDetalleNotaSalida.Size = new System.Drawing.Size(479, 274);
+            this.gbDetalleNotaSalida.TabIndex = 64;
+            this.gbDetalleNotaSalida.TabStop = false;
+            this.gbDetalleNotaSalida.Text = "DETALLE NOTA SALIDA";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label12.Location = new System.Drawing.Point(24, 67);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(136, 23);
+            this.label12.TabIndex = 73;
+            this.label12.Text = "Des Producto:";
+            // 
+            // txtDesProducto
+            // 
+            this.txtDesProducto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDesProducto.Location = new System.Drawing.Point(164, 66);
+            this.txtDesProducto.Name = "txtDesProducto";
+            this.txtDesProducto.ReadOnly = true;
+            this.txtDesProducto.Size = new System.Drawing.Size(246, 27);
+            this.txtDesProducto.TabIndex = 72;
+            // 
+            // btnBuscarProducto
+            // 
+            this.btnBuscarProducto.BackColor = System.Drawing.Color.White;
+            this.btnBuscarProducto.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscarProducto.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnBuscarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarProducto.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscarProducto.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnBuscarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProducto.Image")));
+            this.btnBuscarProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarProducto.Location = new System.Drawing.Point(327, 31);
+            this.btnBuscarProducto.Name = "btnBuscarProducto";
+            this.btnBuscarProducto.Size = new System.Drawing.Size(71, 29);
+            this.btnBuscarProducto.TabIndex = 71;
+            this.btnBuscarProducto.Text = "buscar";
+            this.btnBuscarProducto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscarProducto.UseVisualStyleBackColor = false;
+            // 
             // NotaSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 650);
+            this.Controls.Add(this.gbDetalleNotaSalida);
             this.Controls.Add(this.gbNotaSalida);
             this.Controls.Add(this.BarraTituloCN);
             this.Controls.Add(this.btnSalir);
@@ -421,7 +461,9 @@
             this.BarraTituloCN.ResumeLayout(false);
             this.gbNotaSalida.ResumeLayout(false);
             this.gbNotaSalida.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProductosNS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleNotaSalida)).EndInit();
+            this.gbDetalleNotaSalida.ResumeLayout(false);
+            this.gbDetalleNotaSalida.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -449,8 +491,11 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox gbNotaSalida;
         private System.Windows.Forms.Button btnQuitar;
-        private System.Windows.Forms.DataGridView dgvProductosNS;
+        private System.Windows.Forms.DataGridView dgvDetalleNotaSalida;
         private System.Windows.Forms.Button btnAñadir;
-        private System.Windows.Forms.Button btnBuscarOV;
+        private System.Windows.Forms.GroupBox gbDetalleNotaSalida;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox txtDesProducto;
+        private System.Windows.Forms.Button btnBuscarProducto;
     }
 }
