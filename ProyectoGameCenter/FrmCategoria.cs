@@ -120,10 +120,18 @@ namespace ProyectoGameCenter
 
         private void dgvCategoria_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow filaActual = dgvCategoria.Rows[e.RowIndex];
-            txtIDCategoria.Text = filaActual.Cells[0].Value.ToString();
-            txtDescripcionCategoria.Text = filaActual.Cells[1].Value.ToString();
-            cbxEstadoCate.Checked = Convert.ToBoolean(filaActual.Cells[2].Value);
+            try
+            {
+                DataGridViewRow filaActual = dgvCategoria.Rows[e.RowIndex];
+                txtIDCategoria.Text = filaActual.Cells[0].Value.ToString();
+                txtDescripcionCategoria.Text = filaActual.Cells[1].Value.ToString();
+                cbxEstadoCate.Checked = Convert.ToBoolean(filaActual.Cells[2].Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("No toques");
+            }
+
         }
     }
 }

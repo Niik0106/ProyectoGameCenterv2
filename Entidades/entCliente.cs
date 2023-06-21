@@ -8,6 +8,7 @@ namespace Entidades
 {
     public class entCliente
     {
+
         public int ID_CLIENTE { get; set; }
         public string TEL_CLIENTE { get; set; }
         public int COD_UBIGEO { get; set; }
