@@ -15,7 +15,7 @@ namespace ProyectoGameCenter
 {
     public partial class FrmClienteNatural : Form
     {
-       
+
         public FrmClienteNatural()
         {
             InitializeComponent();
@@ -150,18 +150,18 @@ namespace ProyectoGameCenter
                 ListarClientesNaturales();
                 LimpiarVariables();
                 gbClientesNatural.Enabled = false;
-            }           
+            }
         }
         public void ListarClientesNaturales()
         {
-            dgvClienteNatural.DataSource = logClienteNatural.Instancia.ListarClienteNatural();       
+            dgvClienteNatural.DataSource = logClienteNatural.Instancia.ListarClienteNatural();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             gbClientesNatural.Enabled = true;
             txtIDCliente.Enabled = false;
-            btnModificar.Visible =false;
+            btnModificar.Visible = false;
             LimpiarVariables();
         }
         private void btnEditar_Click(object sender, EventArgs e)
@@ -169,7 +169,7 @@ namespace ProyectoGameCenter
             gbClientesNatural.Enabled = true;
             txtIDCliente.Enabled = false;
             btnAgregar.Visible = false;
-            btnModificar.Visible=true;
+            btnModificar.Visible = true;
         }
         private void LimpiarVariables()
         {
@@ -229,7 +229,25 @@ namespace ProyectoGameCenter
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
-            Close();    
+            Close();
+        }
+
+
+
+        private void btnBuscarCliNat_Click(object sender, EventArgs e)
+        {
+            if (txtBuscarDNI.Text != "")
+            {
+                entClienteNatural cliente = new entClienteNatural();
+                cliente.DNI = txtBuscarDNI.Text;
+                DataTable dt = new DataTable();
+                dt = logClienteNatural.Instancia.BuscarDNICliente(cliente);
+                dgvClienteNatural.DataSource = dt;
+            }
+            else
+            {            
+                ListarClientesNaturales();
+            }
         }
     }
 }

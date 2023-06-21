@@ -153,5 +153,23 @@ namespace AccesoDatos
             }
             return deshabilita;
         }
+        ///buscar
+        ///
+        public DataTable Buscar_Cliente_DNI(entClienteNatural cliente)
+        {
+                SqlCommand cmd = null;
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_BUSCAR_DNI_CLIENTE", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@DNI", cliente.DNI);
+                SqlDataAdapter da = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                da.Fill(dt);
+            return dt;
+        }
+
+
+
+
     }
 }

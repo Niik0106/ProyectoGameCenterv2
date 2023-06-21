@@ -2,6 +2,7 @@
 using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,11 @@ namespace LogicaNegocio
         public List<entClienteNatural> ListarClienteNatural()
         {
             return datClienteNatural.Instancia.ListarClienteNatural();
+        }
+        //busqueda
+        public DataTable BuscarDNICliente(entClienteNatural cliente)
+        {
+            return datClienteNatural.Instancia.Buscar_Cliente_DNI(cliente);
         }
 
         //Insertar

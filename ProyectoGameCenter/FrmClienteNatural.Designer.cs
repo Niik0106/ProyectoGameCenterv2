@@ -168,9 +168,9 @@
             this.txtBuscarDNI.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarDNI.Location = new System.Drawing.Point(178, 550);
             this.txtBuscarDNI.Name = "txtBuscarDNI";
-            this.txtBuscarDNI.ReadOnly = true;
             this.txtBuscarDNI.Size = new System.Drawing.Size(208, 27);
             this.txtBuscarDNI.TabIndex = 61;
+            //this.txtBuscarDNI.TextChanged += new System.EventHandler(this.txtBuscarDNI_TextChanged);
             // 
             // btnBuscarCliNat
             // 
@@ -189,6 +189,7 @@
             this.btnBuscarCliNat.Text = "Buscar";
             this.btnBuscarCliNat.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscarCliNat.UseVisualStyleBackColor = false;
+            this.btnBuscarCliNat.Click += new System.EventHandler(this.btnBuscarCliNat_Click);
             // 
             // gbClientesNatural
             // 
