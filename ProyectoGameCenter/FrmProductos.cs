@@ -143,23 +143,27 @@ namespace ProyectoGameCenter
             LimpiarVariables();
         }
 
-        //private void btnBuscarProd_Click(object sender, EventArgs e)
-        //{
-        //    txtIDProducto.Focus();
-        //    string desProd = txtDescripcionProducto.Text;
-        //    entProducto Prod = logProducto.Instancia.BuscarProducto(desProd);
+        private void btnBuscarProd_Click(object sender, EventArgs e)
+        {
 
-        //    if(Prod != null && (Prod.estProducto= true))
-        //    {
-        //        txtIDProducto.Text = Convert.ToString(Prod.idProducto);
-        //        txtPrecio.Text = Convert.ToString(Prod.precioProd);
-        //        txtStock.Text = Convert.ToString(Prod.stockProd);
-        //    }
-        //    else
-        //    {
-        //        MessageBox.Show("El producto no existe o esta inhabilitado. Verfique nuevamente");
-        //    }
-        //}
+            //Supendido por problemas tecnicos XD
+
+
+            //txtIDProducto.Focus();
+            //string desProd = txtDescripcionProducto.Text;
+            //entProducto Prod = logProducto.Instancia.BuscarProducto(desProd);
+
+            //if (Prod != null && (Prod.estProducto = true))
+            //{
+            //    txtIDProducto.Text = Convert.ToString(Prod.idProducto);
+            //    txtPrecio.Text = Convert.ToString(Prod.precioProd);
+            //    txtStock.Text = Convert.ToString(Prod.stockProd);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("El producto no existe o esta inhabilitado. Verfique nuevamente");
+            //}
+        }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -177,5 +181,6 @@ namespace ProyectoGameCenter
             txtStock.Text = filaActual.Cells[5].Value.ToString();
             cbxEstadoProd.Checked = Convert.ToBoolean(filaActual.Cells[6].Value);
         }
+
     }
 }
