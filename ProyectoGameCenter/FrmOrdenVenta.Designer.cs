@@ -38,7 +38,7 @@
             this.gbMetodoPago = new System.Windows.Forms.GroupBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtResultadoBusquedaCliente = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.btnBuscaridCliente = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -109,7 +109,7 @@
             // 
             this.gbMetodoPago.Controls.Add(this.textBox2);
             this.gbMetodoPago.Controls.Add(this.label11);
-            this.gbMetodoPago.Controls.Add(this.textBox1);
+            this.gbMetodoPago.Controls.Add(this.txtResultadoBusquedaCliente);
             this.gbMetodoPago.Controls.Add(this.label8);
             this.gbMetodoPago.Controls.Add(this.btnBuscaridCliente);
             this.gbMetodoPago.Controls.Add(this.btnCancelar);
@@ -136,10 +136,10 @@
             // 
             // textBox2
             // 
+            this.textBox2.Enabled = false;
             this.textBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox2.Location = new System.Drawing.Point(182, 36);
             this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(183, 27);
             this.textBox2.TabIndex = 75;
             // 
@@ -154,14 +154,14 @@
             this.label11.TabIndex = 74;
             this.label11.Text = "ID ORDEN VENTA:";
             // 
-            // textBox1
+            // txtResultadoBusquedaCliente
             // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(182, 147);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(183, 27);
-            this.textBox1.TabIndex = 73;
+            this.txtResultadoBusquedaCliente.Enabled = false;
+            this.txtResultadoBusquedaCliente.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtResultadoBusquedaCliente.Location = new System.Drawing.Point(182, 182);
+            this.txtResultadoBusquedaCliente.Name = "txtResultadoBusquedaCliente";
+            this.txtResultadoBusquedaCliente.Size = new System.Drawing.Size(183, 27);
+            this.txtResultadoBusquedaCliente.TabIndex = 73;
             // 
             // label8
             // 
@@ -191,6 +191,7 @@
             this.btnBuscaridCliente.Text = "buscar";
             this.btnBuscaridCliente.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscaridCliente.UseVisualStyleBackColor = false;
+            this.btnBuscaridCliente.Click += new System.EventHandler(this.btnBuscaridCliente_Click);
             // 
             // btnCancelar
             // 
@@ -215,7 +216,6 @@
             this.txtIDEmpleado.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDEmpleado.Location = new System.Drawing.Point(182, 220);
             this.txtIDEmpleado.Name = "txtIDEmpleado";
-            this.txtIDEmpleado.ReadOnly = true;
             this.txtIDEmpleado.Size = new System.Drawing.Size(183, 27);
             this.txtIDEmpleado.TabIndex = 38;
             // 
@@ -246,7 +246,6 @@
             this.txtIDOrdenVenta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDOrdenVenta.Location = new System.Drawing.Point(182, 73);
             this.txtIDOrdenVenta.Name = "txtIDOrdenVenta";
-            this.txtIDOrdenVenta.ReadOnly = true;
             this.txtIDOrdenVenta.Size = new System.Drawing.Size(183, 27);
             this.txtIDOrdenVenta.TabIndex = 31;
             // 
@@ -264,9 +263,8 @@
             // txtIDCliente
             // 
             this.txtIDCliente.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDCliente.Location = new System.Drawing.Point(182, 185);
+            this.txtIDCliente.Location = new System.Drawing.Point(182, 145);
             this.txtIDCliente.Name = "txtIDCliente";
-            this.txtIDCliente.ReadOnly = true;
             this.txtIDCliente.Size = new System.Drawing.Size(183, 27);
             this.txtIDCliente.TabIndex = 27;
             // 
@@ -341,10 +339,10 @@
             // 
             // txtCantidadVendida
             // 
+            this.txtCantidadVendida.Enabled = false;
             this.txtCantidadVendida.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCantidadVendida.Location = new System.Drawing.Point(127, 105);
             this.txtCantidadVendida.Name = "txtCantidadVendida";
-            this.txtCantidadVendida.ReadOnly = true;
             this.txtCantidadVendida.Size = new System.Drawing.Size(101, 27);
             this.txtCantidadVendida.TabIndex = 36;
             // 
@@ -383,10 +381,10 @@
             // 
             // txtPrecio
             // 
+            this.txtPrecio.Enabled = false;
             this.txtPrecio.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrecio.Location = new System.Drawing.Point(314, 104);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.ReadOnly = true;
             this.txtPrecio.Size = new System.Drawing.Size(96, 27);
             this.txtPrecio.TabIndex = 26;
             // 
@@ -570,10 +568,10 @@
             // 
             // txtDesProducto
             // 
+            this.txtDesProducto.Enabled = false;
             this.txtDesProducto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDesProducto.Location = new System.Drawing.Point(164, 69);
             this.txtDesProducto.Name = "txtDesProducto";
-            this.txtDesProducto.ReadOnly = true;
             this.txtDesProducto.Size = new System.Drawing.Size(157, 27);
             this.txtDesProducto.TabIndex = 72;
             // 
@@ -712,7 +710,7 @@
         private System.Windows.Forms.Button btnGenerarCPago;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtResultadoBusquedaCliente;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnBuscaridCliente;
         private System.Windows.Forms.GroupBox gbDetalleOrdenVenta;

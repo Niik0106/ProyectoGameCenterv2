@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LogicaNegocio;
 
 namespace ProyectoGameCenter
 {
@@ -22,7 +23,7 @@ namespace ProyectoGameCenter
         {
             //Busca Producto
             entProducto entProducto = new entProducto();
-            entProducto = LogicaNegocio.logProducto.Instancia.BuscarProducto(Convert.ToInt32(txtIDProducto.Text.Trim()));
+            entProducto = logProducto.Instancia.BuscarProducto(Convert.ToInt32(txtIDProducto.Text.Trim()));
             if (entProducto != null)
             {
                 txtDesProducto.Text = entProducto.desProducto;
@@ -33,6 +34,33 @@ namespace ProyectoGameCenter
             {
                 MessageBox.Show("Producto no existe", "Buscar Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void btnBuscaridCliente_Click(object sender, EventArgs e)
+        {
+           /*
+            try
+            {
+                // Crear una instancia de la clase entCliente y asignar el valor de búsqueda
+                entClienteNatural filtroCliente = new entClienteNatural();
+                filtroCliente.DNI = txtIDCliente.Text.Trim();
+                List<entClienteNatural> listaClientes = new List<entClienteNatural>();
+                // Llamar al método Buscar_Cliente para obtener los resultados de la búsqueda
+                listaClientes = logClienteNatural.Instancia.BuscarDniClienteNatural(filtroCliente);
+                if (listaClientes !=null && listaClientes.Count > 0)
+                {
+                    txtResultadoBusquedaCliente.Text = Convert.ToString(listaClientes[1]);
+                }
+                else
+                {
+                    MessageBox.Show("El Cliente NO ESTA CATALOGADO", "Buscar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error.." + ex);
+            }
+           */
         }
     }
 }

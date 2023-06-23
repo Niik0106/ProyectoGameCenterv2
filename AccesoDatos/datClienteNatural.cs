@@ -28,7 +28,7 @@ namespace AccesoDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("SP_BUSCAR_DNI_CLIENTE", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@DNI_CLIENTE", filtroCliente.DNI);
+                cmd.Parameters.AddWithValue("@DNI", filtroCliente.DNI);
                 cn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
