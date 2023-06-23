@@ -17,6 +17,45 @@ namespace AccesoDatos
             get { return datClienteNatural._instancia; }
         }
 
+
+        //Busqueda de Cliente Natural por DNI
+        public List<entClienteNatural> BuscarDniClienteNatural(entClienteNatural filtroCliente)
+        {
+            SqlCommand cmd = null;
+            List<entClienteNatural> lista = new List<entClienteNatural>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_BUSCAR_DNI_CLIENTE", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@DNI_CLIENTE", filtroCliente.DNI);
+                cn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    entClienteNatural cliente = new entClienteNatural();
+                    cliente.ID_CLIENTE = (int)reader["ID_CLIENTE"];
+                    cliente.DNI = (string)reader["DNI"];
+                    cliente.NOMBRE_CLI = (string)reader["NOMBRE_CLI"];
+                    cliente.APELLIDO_CLI = (string)reader["APELLIDO_CLI"];
+                    cliente.TEL_CLIENTE = (string)reader["TEL_CLIENTE"];
+                    cliente.COD_UBIGEO = (int)reader["COD_UBIGEO"];
+                    cliente.DIR_CLIENTE = (string)reader["DIR_CLIENTE"];
+                    cliente.ESTADO_CLIENTE = (Boolean)reader["ESTADO_CLIENTE"];
+                    lista.Add(cliente);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return lista;
+        }
+
         //LISTAR CLIENTE NATURAL
         public List<entClienteNatural> ListarClienteNatural()
         {
@@ -153,20 +192,8 @@ namespace AccesoDatos
             }
             return deshabilita;
         }
-        ///buscar
-        ///
-        public DataTable Buscar_Cliente_DNI(entClienteNatural cliente)
-        {
-                SqlCommand cmd = null;
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("SP_BUSCAR_DNI_CLIENTE", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@DNI", cliente.DNI);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-            return dt;
-        }
+
+
 
 
 

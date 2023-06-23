@@ -143,23 +143,23 @@ namespace ProyectoGameCenter
             LimpiarVariables();
         }
 
-        private void btnBuscarProd_Click(object sender, EventArgs e)
-        {
-            txtIDProducto.Focus();
-            string desProd = txtDescripcionProducto.Text;
-            entProducto Prod = logProducto.Instancia.BuscarProducto(desProd);
+        //private void btnBuscarProd_Click(object sender, EventArgs e)
+        //{
+        //    txtIDProducto.Focus();
+        //    string desProd = txtDescripcionProducto.Text;
+        //    entProducto Prod = logProducto.Instancia.BuscarProducto(desProd);
 
-            if(Prod != null && (Prod.estProducto= true))
-            {
-                txtIDProducto.Text = Convert.ToString(Prod.idProducto);
-                txtPrecio.Text = Convert.ToString(Prod.precioProd);
-                txtStock.Text = Convert.ToString(Prod.stockProd);
-            }
-            else
-            {
-                MessageBox.Show("El producto no existe o esta inhabilitado. Verfique nuevamente");
-            }
-        }
+        //    if(Prod != null && (Prod.estProducto= true))
+        //    {
+        //        txtIDProducto.Text = Convert.ToString(Prod.idProducto);
+        //        txtPrecio.Text = Convert.ToString(Prod.precioProd);
+        //        txtStock.Text = Convert.ToString(Prod.stockProd);
+        //    }
+        //    else
+        //    {
+        //        MessageBox.Show("El producto no existe o esta inhabilitado. Verfique nuevamente");
+        //    }
+        //}
 
         private void btnSalir_Click(object sender, EventArgs e)
         {

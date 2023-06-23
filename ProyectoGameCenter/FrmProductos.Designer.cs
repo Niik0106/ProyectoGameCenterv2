@@ -439,7 +439,7 @@
             this.btnBuscarProd.Text = "Buscar";
             this.btnBuscarProd.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscarProd.UseVisualStyleBackColor = false;
-            this.btnBuscarProd.Click += new System.EventHandler(this.btnBuscarProd_Click);
+            //this.btnBuscarProd.Click += new System.EventHandler(this.btnBuscarProd_Click);
             // 
             // txtBuscarProducto
             // 

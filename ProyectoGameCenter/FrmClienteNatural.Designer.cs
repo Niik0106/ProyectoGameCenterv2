@@ -137,6 +137,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvClienteNatural.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvClienteNatural.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvClienteNatural.Location = new System.Drawing.Point(19, 272);
             this.dgvClienteNatural.Name = "dgvClienteNatural";
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -170,7 +171,7 @@
             this.txtBuscarDNI.Name = "txtBuscarDNI";
             this.txtBuscarDNI.Size = new System.Drawing.Size(208, 27);
             this.txtBuscarDNI.TabIndex = 61;
-            //this.txtBuscarDNI.TextChanged += new System.EventHandler(this.txtBuscarDNI_TextChanged);
+            this.txtBuscarDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBuscarDNI_KeyPress);
             // 
             // btnBuscarCliNat
             // 

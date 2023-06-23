@@ -236,17 +236,35 @@ namespace ProyectoGameCenter
 
         private void btnBuscarCliNat_Click(object sender, EventArgs e)
         {
-            if (txtBuscarDNI.Text != "")
+            try
             {
-                entClienteNatural cliente = new entClienteNatural();
-                cliente.DNI = txtBuscarDNI.Text;
-                DataTable dt = new DataTable();
-                dt = logClienteNatural.Instancia.BuscarDNICliente(cliente);
-                dgvClienteNatural.DataSource = dt;
+                if (txtBuscarDNI.Text.Equals(""))
+                {
+                    MessageBox.Show("Debe ingresar un DNI", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    entClienteNatural cliente = new entClienteNatural();
+                    cliente.DNI = txtBuscarDNI.Text;
+                    dgvClienteNatural.DataSource = logClienteNatural.Instancia.BuscarDniClienteNatural(cliente);
+                    if (dgvClienteNatural.Rows.Count == 0)
+                    {
+                        MessageBox.Show("El cliente no se encuentra registrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ListarClientesNaturales();
+                    }
+                }
             }
-            else
-            {            
-                ListarClientesNaturales();
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error..." + ex);
+            }
+        }
+
+        private void txtBuscarDNI_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtBuscarDNI.Text == "")
+            {
+                dgvClienteNatural.DataSource = logClienteNatural.Instancia.ListarClienteNatural();
             }
         }
     }

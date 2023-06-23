@@ -18,15 +18,16 @@ namespace LogicaNegocio
             get { return logClienteNatural._instancia; }
         }
 
+        //Buscar DNI Cliente pero que regrese un entClienteNatural
+        public List<entClienteNatural> BuscarDniClienteNatural(entClienteNatural Cli)
+        {
+            return datClienteNatural.Instancia.BuscarDniClienteNatural(Cli);
+        }
+
         ///listado
         public List<entClienteNatural> ListarClienteNatural()
         {
             return datClienteNatural.Instancia.ListarClienteNatural();
-        }
-        //busqueda
-        public DataTable BuscarDNICliente(entClienteNatural cliente)
-        {
-            return datClienteNatural.Instancia.Buscar_Cliente_DNI(cliente);
         }
 
         //Insertar
