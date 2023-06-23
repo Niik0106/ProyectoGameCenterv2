@@ -129,7 +129,7 @@ namespace ProyectoGameCenter
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No toques");
+                MessageBox.Show("No toques", ex.Message);
             }
 
         }
