@@ -23,7 +23,7 @@ namespace ProyectoGameCenter
         {
             //Busca Producto
             entProducto entProducto = new entProducto();
-            entProducto = logProducto.Instancia.BuscarProducto(Convert.ToInt32(txtIDProducto.Text.Trim()));
+            entProducto = logProducto.Instancia.BuscaIDProducto(Convert.ToInt32(txtIDProducto.Text.Trim()));
             if (entProducto != null)
             {
                 txtDesProducto.Text = entProducto.desProducto;

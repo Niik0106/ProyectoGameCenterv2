@@ -18,16 +18,16 @@ namespace AccesoDatos
         }
 
         //Buscar Producto
-        public entProducto BuscarProducto(int idProducto)
+        public entProducto BuscarIDProducto(int idProducto)
         {
             SqlCommand cmd = null;
             entProducto Producto = null;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spBuscarProducto", cn);
+                cmd = new SqlCommand("SP_BUSCAR_PRODUCTO_ID", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idProd", idProducto);
+                cmd.Parameters.AddWithValue("@ID_PRODUCTO", idProducto);
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
@@ -148,6 +148,45 @@ namespace AccesoDatos
             finally { cmd.Connection.Close(); }
             return delete;
         }
+
+        public List<entProducto> BuscarDescProducto(entProducto filtroProducto)
+        {
+            SqlCommand cmd = null;
+            List<entProducto> lista = new List<entProducto>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_BUSCAR_PRODUCTO_DESC", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@DES_PRODUCTO", filtroProducto.desProducto);
+                cn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    entProducto Prod = new entProducto();
+                    Prod.idProducto = Convert.ToInt32(reader["ID_PRODUCTO"]);
+                    Prod.desProducto = reader["DES_PRODUCTO"].ToString();
+                    Prod.idCategoria = Convert.ToInt32(reader["ID_CATEGORIA"]);
+                    Prod.idMarca = Convert.ToInt32(reader["ID_MARCA"]);
+                    Prod.precioProd = Convert.ToDecimal(reader["PRECIO_PRODUCTO"]);
+                    Prod.stockProd = Convert.ToInt32(reader["STOCK"]);
+                    Prod.estProducto = Convert.ToBoolean(reader["ESTADO_PRODUCTO"]);
+                    lista.Add(Prod);
+                }
+            }                                
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return lista;
+        }
+
+
+
 
     }
 }

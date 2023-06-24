@@ -61,7 +61,7 @@ namespace ProyectoGameCenter
             {
                 entProducto c = new entProducto();
                 c.desProducto = txtDescripcionProducto.Text.Trim();
-                c.idCategoria = Convert.ToInt32(cboMarca.SelectedValue);
+                c.idCategoria = Convert.ToInt32(cboCategoria.SelectedValue);
                 c.idMarca = Convert.ToInt32(cboMarca.SelectedValue);
                 c.precioProd = decimal.Parse(txtPrecio.Text.Trim());
                 c.stockProd = int.Parse(txtStock.Text.Trim());
@@ -84,7 +84,7 @@ namespace ProyectoGameCenter
                 entProducto c = new entProducto();
                 c.idProducto = int.Parse(txtIDProducto.Text.Trim());
                 c.desProducto = txtDescripcionProducto.Text.Trim();
-                c.idCategoria = Convert.ToInt32(cboMarca.SelectedValue);
+                c.idCategoria = Convert.ToInt32(cboCategoria.SelectedValue);
                 c.idMarca = Convert.ToInt32(cboMarca.SelectedValue);
                 c.precioProd = decimal.Parse(txtPrecio.Text.Trim());
                 c.stockProd = int.Parse(txtStock.Text.Trim());
@@ -145,24 +145,29 @@ namespace ProyectoGameCenter
 
         private void btnBuscarProd_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (txtBuscarProducto.Text.Equals(""))
+                {
+                    MessageBox.Show("Debe ingresar la descripcion de un Producto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    entProducto producto = new entProducto();
+                    producto.desProducto = txtBuscarProducto.Text;
+                    dgvProductos.DataSource = logProducto.Instancia.BuscaDescProducto(producto);
+                    if (dgvProductos.Rows.Count == 0)
+                    {
+                        MessageBox.Show("El Producto no se encuentra registrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ListarProductos();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error..." + ex);
+            }
 
-            //Supendido por problemas tecnicos XD
-
-
-            //txtIDProducto.Focus();
-            //string desProd = txtDescripcionProducto.Text;
-            //entProducto Prod = logProducto.Instancia.BuscarProducto(desProd);
-
-            //if (Prod != null && (Prod.estProducto = true))
-            //{
-            //    txtIDProducto.Text = Convert.ToString(Prod.idProducto);
-            //    txtPrecio.Text = Convert.ToString(Prod.precioProd);
-            //    txtStock.Text = Convert.ToString(Prod.stockProd);
-            //}
-            //else
-            //{
-            //    MessageBox.Show("El producto no existe o esta inhabilitado. Verfique nuevamente");
-            //}
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -182,5 +187,12 @@ namespace ProyectoGameCenter
             cbxEstadoProd.Checked = Convert.ToBoolean(filaActual.Cells[6].Value);
         }
 
+        private void txtBuscarProducto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtBuscarProducto.Text == "")
+            {
+                dgvProductos.DataSource = logProducto.Instancia.ListaProducto();
+            }
+        }
     }
 }

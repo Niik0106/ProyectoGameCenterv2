@@ -236,6 +236,7 @@ namespace ProyectoGameCenter
 
         private void btnBuscarCliNat_Click(object sender, EventArgs e)
         {
+            
             try
             {
                 if (txtBuscarDNI.Text.Equals(""))
@@ -258,6 +259,7 @@ namespace ProyectoGameCenter
             {
                 MessageBox.Show("Error..." + ex);
             }
+            
         }
 
         private void txtBuscarDNI_KeyPress(object sender, KeyPressEventArgs e)
