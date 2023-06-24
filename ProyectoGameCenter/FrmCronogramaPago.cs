@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,15 @@ namespace ProyectoGameCenter
         public FrmCronogramaPago()
         {
             InitializeComponent();
+            LlenarDatosEstadoPago();
         }
+
+        public void LlenarDatosEstadoPago()
+        {
+            cboEstadoPago.DataSource = logEstadoPago.Instancia.ListaEstadoPago();
+            cboEstadoPago.DisplayMember = "DES_ESTADO_PAGO";
+            cboEstadoPago.ValueMember = "ID_ESTADO_PAGO";
+        }
+
     }
 }
