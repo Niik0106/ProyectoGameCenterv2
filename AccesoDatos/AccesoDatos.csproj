@@ -45,7 +45,11 @@
     <Compile Include="datCategoria.cs" />
     <Compile Include="datClienteNatural.cs" />
     <Compile Include="datClienteJuridico.cs" />
+    <Compile Include="datEstadoOrdenCompra.cs" />
+    <Compile Include="datEstadoOrdenVenta.cs" />
+    <Compile Include="datEstadoPago.cs" />
     <Compile Include="datMarca.cs" />
+    <Compile Include="datMetodoPago.cs" />
     <Compile Include="datProducto.cs" />
     <Compile Include="datProveedor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
