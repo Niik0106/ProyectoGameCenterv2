@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,7 +16,17 @@ namespace ProyectoGameCenter
         public FrmOrdenCompra()
         {
             InitializeComponent();
+            LlenarDatosEstadoOrdenVenta();
 
         }
+
+        public void LlenarDatosEstadoOrdenVenta()
+        {
+            cbxEstadoCompra.DataSource = logEstadoOrdenCompra.Instancia.ListaEstadoOrdenCompra();
+            cbxEstadoCompra.DisplayMember = "DES_ESTADO_OC";
+            cbxEstadoCompra.ValueMember = "ID_EST_ORDEN_COMPRA";
+        }
+
+
     }
 }
