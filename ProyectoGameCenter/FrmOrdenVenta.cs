@@ -17,7 +17,18 @@ namespace ProyectoGameCenter
         public FrmOrdenVenta()
         {
             InitializeComponent();
+            LlenarDatosEstadoOrdenVenta();
         }
+
+        public void LlenarDatosEstadoOrdenVenta()
+        {
+            cboEstado.DataSource = logEstadoOrdenVenta.Instancia.ListaEstadoOrdenVenta();
+            cboEstado.DisplayMember = "DES_ESTADO_OV";
+            cboEstado.ValueMember = "ID_EST_ORDEN_VENTA";
+        }
+
+
+
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {

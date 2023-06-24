@@ -8,5 +8,8 @@ namespace Entidades
 {
     public class entEstadoOrdenVenta
     {
+        public int ID_EST_ORDEN_VENTA { get; set; }
+        public string DES_ESTADO_OV { get; set; }
+
     }
 }

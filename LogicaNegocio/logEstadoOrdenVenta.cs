@@ -10,5 +10,19 @@ namespace LogicaNegocio
 {
     public class logEstadoOrdenVenta
     {
+
+        private static readonly logEstadoOrdenVenta _instancia = new logEstadoOrdenVenta();
+
+        public static logEstadoOrdenVenta Instancia
+        {
+            get { return logEstadoOrdenVenta._instancia; }
+        }
+
+        ///listado
+        public List<entEstadoOrdenVenta> ListaEstadoOrdenVenta()
+        {
+            return datEstadoOrdenVenta.Instancia.ListarEstadoOrdenVenta();
+        }
+
     }
 }
