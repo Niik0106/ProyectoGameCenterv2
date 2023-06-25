@@ -19,7 +19,13 @@ namespace ProyectoGameCenter
         {
             InitializeComponent();
             LlenarDatosEstadoOrdenVenta();
+            ListarOrdenVenta();
             clienteLogic = new logCliente();
+        }
+
+        public void ListarOrdenVenta()
+        {
+            dgvOrdenVenta.DataSource = logOrdenVenta.Instancia.ListarVentas();
         }
 
         public void LlenarDatosEstadoOrdenVenta()
@@ -29,8 +35,15 @@ namespace ProyectoGameCenter
             cboEstado.ValueMember = "ID_EST_ORDEN_VENTA";
         }
 
-
-
+        public void LimpiarVariables()
+        {
+            txtIDOrdenVenta.Text = "";
+            dateTimePicker1.ResetText();
+            txtIDCliente.Text = "";
+            txtResultadoBusquedaCliente.Text = "";
+            txtIDEmpleado.Text = "";
+            cboEstado.SelectedIndex = default;
+        }
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
@@ -71,6 +84,25 @@ namespace ProyectoGameCenter
                 MessageBox.Show("Error.." + ex);
             }
 
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                entOrdenVenta ordVenta = new entOrdenVenta();
+                ordVenta.numOrdenVenta = Convert.ToInt32(txtNOrdenVenta.Text.Trim());
+                ordVenta.fechaOrden = dateTimePicker1.Value;
+                ordVenta.idCliente = Convert.ToInt32(txtIDCliente.Text.Trim());
+                ordVenta.estOrdenVenta = Convert.ToInt32(cboEstado.SelectedValue);
+                ordVenta.idUsuario = Convert.ToInt32(txtIDEmpleado.Text.Trim());
+                logOrdenVenta.Instancia.InsertaOrdenVenta(ordVenta);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error.." + ex);
+            }
+            LimpiarVariables();
         }
     }
 }
