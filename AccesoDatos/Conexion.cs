@@ -19,7 +19,7 @@ namespace AccesoDatos
         public SqlConnection Conectar()
         {
             SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = "Data Source=DESKTOP-JG84P05\\SQLEXPRESS; Initial Catalog = MOANSO_GAMECENTER; Integrated Security=true";
+            cn.ConnectionString = "Data Source=.; Initial Catalog = MOANSO_GAMECENTER; Integrated Security=true";
 
             return cn;
         }

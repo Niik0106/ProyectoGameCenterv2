@@ -14,10 +14,12 @@ namespace ProyectoGameCenter
 {
     public partial class FrmOrdenVenta : Form
     {
+        private logCliente clienteLogic;
         public FrmOrdenVenta()
         {
             InitializeComponent();
             LlenarDatosEstadoOrdenVenta();
+            clienteLogic = new logCliente();
         }
 
         public void LlenarDatosEstadoOrdenVenta()
@@ -49,29 +51,26 @@ namespace ProyectoGameCenter
 
         private void btnBuscaridCliente_Click(object sender, EventArgs e)
         {
-           /*
             try
             {
-                // Crear una instancia de la clase entCliente y asignar el valor de búsqueda
-                entClienteNatural filtroCliente = new entClienteNatural();
-                filtroCliente.DNI = txtIDCliente.Text.Trim();
-                List<entClienteNatural> listaClientes = new List<entClienteNatural>();
-                // Llamar al método Buscar_Cliente para obtener los resultados de la búsqueda
-                listaClientes = logClienteNatural.Instancia.BuscarDniClienteNatural(filtroCliente);
-                if (listaClientes !=null && listaClientes.Count > 0)
+                int idCliente = Convert.ToInt32(txtIDCliente.Text);
+
+                string identificacion = clienteLogic.ObtenerIdentificacionClientePorID(idCliente);
+
+                if (!string.IsNullOrEmpty(identificacion))
                 {
-                    txtResultadoBusquedaCliente.Text = Convert.ToString(listaClientes[1]);
+                    txtResultadoBusquedaCliente.Text = identificacion;
                 }
                 else
                 {
-                    MessageBox.Show("El Cliente NO ESTA CATALOGADO", "Buscar Cliente", MessageBoxButtons.OK, MessageBoxIcon.Information); 
+                    txtResultadoBusquedaCliente.Text = "No se encontró el cliente.";
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error.." + ex);
             }
-           */
+
         }
     }
 }
