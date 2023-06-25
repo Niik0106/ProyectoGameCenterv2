@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AccesoDatos
 {
-    internal class Conexion
+    public class Conexion
     {
         private static readonly Conexion _instancia = new Conexion();
         public static Conexion Instancia

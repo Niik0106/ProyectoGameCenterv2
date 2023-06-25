@@ -46,11 +46,17 @@
     <Compile Include="datCliente.cs" />
     <Compile Include="datClienteNatural.cs" />
     <Compile Include="datClienteJuridico.cs" />
+    <Compile Include="datDetalleNotaSalida.cs" />
+    <Compile Include="datDetalleOrdenCompra.cs" />
+    <Compile Include="datDetalleOrdenVenta.cs" />
     <Compile Include="datEstadoOrdenCompra.cs" />
     <Compile Include="datEstadoOrdenVenta.cs" />
     <Compile Include="datEstadoPago.cs" />
     <Compile Include="datMarca.cs" />
     <Compile Include="datMetodoPago.cs" />
+    <Compile Include="datNotaSalida.cs" />
+    <Compile Include="datOrdenCompra.cs" />
+    <Compile Include="datOrdenVenta.cs" />
     <Compile Include="datProducto.cs" />
     <Compile Include="datProveedor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

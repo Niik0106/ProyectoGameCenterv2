@@ -45,11 +45,15 @@
     <Compile Include="entClienteNatural.cs" />
     <Compile Include="entCategoria.cs" />
     <Compile Include="entClienteJuridico.cs" />
+    <Compile Include="entDetalleOrdenCompra.cs" />
     <Compile Include="entEstadoOrdenCompra.cs" />
     <Compile Include="entEstadoOrdenVenta.cs" />
     <Compile Include="entEstadoPago.cs" />
     <Compile Include="entMarca.cs" />
     <Compile Include="entMetodoPago.cs" />
+    <Compile Include="entNotaSalida.cs" />
+    <Compile Include="entOrdenCompra.cs" />
+    <Compile Include="entOrdenVenta.cs" />
     <Compile Include="entProducto.cs" />
     <Compile Include="entProveedor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
