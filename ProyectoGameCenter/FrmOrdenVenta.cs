@@ -17,13 +17,14 @@ namespace ProyectoGameCenter
         private logCliente clienteLogic;
         public FrmOrdenVenta()
         {
-            InitializeComponent();
+            
+            InitializeComponent();  
             LlenarDatosEstadoOrdenVenta();
-            ListarOrdenVenta();
+            ListarVentas();
             clienteLogic = new logCliente();
         }
 
-        public void ListarOrdenVenta()
+        public void ListarVentas()
         {
             dgvOrdenVenta.DataSource = logOrdenVenta.Instancia.ListarVentas();
         }
@@ -43,6 +44,7 @@ namespace ProyectoGameCenter
             txtResultadoBusquedaCliente.Text = "";
             txtIDEmpleado.Text = "";
             cboEstado.SelectedIndex = default;
+            gbOrdenVenta.Enabled = false;
         }
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
@@ -103,6 +105,53 @@ namespace ProyectoGameCenter
                 MessageBox.Show("Error.." + ex);
             }
             LimpiarVariables();
+            txtNOrdenVenta.Text = "";
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            gbOrdenVenta.Enabled = true;
+        }
+
+        private void btnAnular_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvOrdenVenta.SelectedRows.Count > 0)
+                {
+                    entOrdenVenta c = new entOrdenVenta();
+                    c.idOrdenVenta = int.Parse(txtIDOrdenVenta.Text.Trim());
+                   logOrdenVenta.Instancia.AnulaOrdenVenta(c);
+                }
+                else
+                {
+                    MessageBox.Show("Escoge un elemento primero");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            LimpiarVariables();
+            txtNOrdenVenta.Text = "";
+            ListarVentas();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            txtNOrdenVenta.Text = "";
+            LimpiarVariables();
+        }
+
+        private void dgvOrdenVenta_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow filaActual = dgvOrdenVenta.Rows[e.RowIndex];
+            txtIDOrdenVenta.Text = filaActual.Cells[0].Value.ToString();
+            txtNOrdenVenta.Text = filaActual.Cells[1].Value.ToString();
+            dateTimePicker1.Text = filaActual.Cells[2].Value.ToString();
+            txtIDCliente.Text = filaActual.Cells[3].Value.ToString();
+            txtIDEmpleado.Text = filaActual.Cells[4].Value.ToString();
+            cboEstado.Text = filaActual.Cells[5].Value.ToString(); 
         }
     }
 }

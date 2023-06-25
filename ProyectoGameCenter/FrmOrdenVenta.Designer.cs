@@ -124,6 +124,7 @@
             this.gbOrdenVenta.Controls.Add(this.cboEstado);
             this.gbOrdenVenta.Controls.Add(this.label9);
             this.gbOrdenVenta.Controls.Add(this.label10);
+            this.gbOrdenVenta.Enabled = false;
             this.gbOrdenVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbOrdenVenta.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbOrdenVenta.ForeColor = System.Drawing.Color.DarkViolet;
@@ -210,6 +211,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // txtIDEmpleado
             // 
@@ -407,6 +409,7 @@
             this.dgvOrdenVenta.ColumnHeadersVisible = false;
             this.dgvOrdenVenta.Location = new System.Drawing.Point(25, 369);
             this.dgvOrdenVenta.Name = "dgvOrdenVenta";
+            this.dgvOrdenVenta.ReadOnly = true;
             this.dgvOrdenVenta.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
@@ -416,6 +419,7 @@
             this.dgvOrdenVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvOrdenVenta.Size = new System.Drawing.Size(997, 176);
             this.dgvOrdenVenta.TabIndex = 45;
+            this.dgvOrdenVenta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrdenVenta_CellClick);
             // 
             // btnSalir
             // 
@@ -452,6 +456,7 @@
             this.btnAnular.Text = "Anular";
             this.btnAnular.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnAnular.UseVisualStyleBackColor = false;
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
             // 
             // btnNuevo
             // 
@@ -470,6 +475,7 @@
             this.btnNuevo.Text = "Nuevo";
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnBuscarOV
             // 

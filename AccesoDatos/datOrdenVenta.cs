@@ -17,7 +17,7 @@ namespace AccesoDatos
             get { return datOrdenVenta._instancia; }
         }
 
-        public List<entOrdenVenta> ListarOrdenVenta()
+        public List<entOrdenVenta> ListarVentas()
         {
             SqlCommand cmd = null;
             List<entOrdenVenta> lista = new List<entOrdenVenta>();
@@ -66,6 +66,25 @@ namespace AccesoDatos
             catch (Exception e) { throw e; }
             finally { cmd.Connection.Close(); }
             return inserta;
+        }
+
+        public Boolean AnularOrdenVenta(entOrdenVenta OrdV)
+        {
+            SqlCommand cmd = null;
+            Boolean delete = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_ANULAR_ORDEN_VENTA", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ID_ORDEN_VENTA", OrdV.idOrdenVenta);
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0) { delete = true; }
+            }
+            catch (Exception e) { throw e; }
+            finally { cmd.Connection.Close(); }
+            return delete;
         }
 
     }

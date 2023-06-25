@@ -19,12 +19,17 @@ namespace LogicaNegocio
 
         public List<entOrdenVenta> ListarVentas()
         {
-            return datOrdenVenta.Instancia.ListarOrdenVenta();
+            return datOrdenVenta.Instancia.ListarVentas();
         }
 
         public void InsertaOrdenVenta(entOrdenVenta OrdV)
         {
             datOrdenVenta.Instancia.InsertarOrdenVenta(OrdV);
+        }
+
+        public void AnulaOrdenVenta(entOrdenVenta OrdV)
+        {
+            datOrdenVenta.Instancia.AnularOrdenVenta(OrdV);
         }
     }
 }
