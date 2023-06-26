@@ -28,16 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOrdenCompra));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.BarraTituloCN = new System.Windows.Forms.Panel();
             this.gboOrdenCompra = new System.Windows.Forms.GroupBox();
-            this.txtIDProducto = new System.Windows.Forms.TextBox();
-            this.label7 = new System.Windows.Forms.Label();
+            this.btnBuscaridProveedor = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.dtpFAtendida = new System.Windows.Forms.DateTimePicker();
             this.dtpFOrdenCompra = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
@@ -50,20 +53,15 @@
             this.label4 = new System.Windows.Forms.Label();
             this.txtIDProveedor = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.txtIDProducto = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.lblCantidad = new System.Windows.Forms.Label();
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
-            this.dgvOrdenCompra = new System.Windows.Forms.DataGridView();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnBuscarOC = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnBuscaridProveedor = new System.Windows.Forms.Button();
             this.gbDetalleOrdenCompra = new System.Windows.Forms.GroupBox();
-            this.dgvDetalleOrdenCompra = new System.Windows.Forms.DataGridView();
             this.label12 = new System.Windows.Forms.Label();
             this.txtDesProducto = new System.Windows.Forms.TextBox();
             this.btnBuscarProducto = new System.Windows.Forms.Button();
@@ -71,10 +69,12 @@
             this.btnAgregarProd = new System.Windows.Forms.Button();
             this.dtpBuscarFecha = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
+            this.dgvOrdenCompra = new System.Windows.Forms.DataGridView();
+            this.dgvDetalleOrdenCompra = new System.Windows.Forms.DataGridView();
             this.BarraTituloCN.SuspendLayout();
             this.gboOrdenCompra.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenCompra)).BeginInit();
             this.gbDetalleOrdenCompra.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenCompra)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleOrdenCompra)).BeginInit();
             this.SuspendLayout();
             // 
@@ -131,25 +131,62 @@
             this.gboOrdenCompra.TabStop = false;
             this.gboOrdenCompra.Text = "ORDEN DE COMPRA";
             // 
-            // txtIDProducto
+            // btnBuscaridProveedor
             // 
-            this.txtIDProducto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.txtIDProducto.Location = new System.Drawing.Point(164, 33);
-            this.txtIDProducto.Name = "txtIDProducto";
-            this.txtIDProducto.ReadOnly = true;
-            this.txtIDProducto.Size = new System.Drawing.Size(157, 27);
-            this.txtIDProducto.TabIndex = 55;
+            this.btnBuscaridProveedor.BackColor = System.Drawing.Color.White;
+            this.btnBuscaridProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnBuscaridProveedor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnBuscaridProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscaridProveedor.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBuscaridProveedor.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnBuscaridProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscaridProveedor.Image")));
+            this.btnBuscaridProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscaridProveedor.Location = new System.Drawing.Point(327, 133);
+            this.btnBuscaridProveedor.Name = "btnBuscaridProveedor";
+            this.btnBuscaridProveedor.Size = new System.Drawing.Size(71, 29);
+            this.btnBuscaridProveedor.TabIndex = 72;
+            this.btnBuscaridProveedor.Text = "buscar";
+            this.btnBuscaridProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnBuscaridProveedor.UseVisualStyleBackColor = false;
             // 
-            // label7
+            // label9
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label7.Location = new System.Drawing.Point(37, 34);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(121, 23);
-            this.label7.TabIndex = 54;
-            this.label7.Text = "ID Producto:";
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label9.Location = new System.Drawing.Point(6, 166);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(104, 23);
+            this.label9.TabIndex = 59;
+            this.label9.Text = "R. SOCIAL:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.textBox2.Location = new System.Drawing.Point(116, 166);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.ReadOnly = true;
+            this.textBox2.Size = new System.Drawing.Size(247, 27);
+            this.textBox2.TabIndex = 58;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label8.Location = new System.Drawing.Point(25, 67);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(182, 23);
+            this.label8.TabIndex = 56;
+            this.label8.Text = "N° Orden Compra:";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(213, 67);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(108, 27);
+            this.textBox1.TabIndex = 57;
             // 
             // dtpFAtendida
             // 
@@ -293,6 +330,26 @@
             this.label2.TabIndex = 44;
             this.label2.Text = "Estado Compra:";
             // 
+            // txtIDProducto
+            // 
+            this.txtIDProducto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.txtIDProducto.Location = new System.Drawing.Point(164, 33);
+            this.txtIDProducto.Name = "txtIDProducto";
+            this.txtIDProducto.ReadOnly = true;
+            this.txtIDProducto.Size = new System.Drawing.Size(157, 27);
+            this.txtIDProducto.TabIndex = 55;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.DarkViolet;
+            this.label7.Location = new System.Drawing.Point(37, 34);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(121, 23);
+            this.label7.TabIndex = 54;
+            this.label7.Text = "ID Producto:";
+            // 
             // txtCantidad
             // 
             this.txtCantidad.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
@@ -349,34 +406,6 @@
             this.btnNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNuevo.UseVisualStyleBackColor = false;
             // 
-            // dgvOrdenCompra
-            // 
-            this.dgvOrdenCompra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvOrdenCompra.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvOrdenCompra.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkViolet;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkViolet;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvOrdenCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvOrdenCompra.ColumnHeadersHeight = 30;
-            this.dgvOrdenCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvOrdenCompra.ColumnHeadersVisible = false;
-            this.dgvOrdenCompra.Location = new System.Drawing.Point(19, 384);
-            this.dgvOrdenCompra.Name = "dgvOrdenCompra";
-            this.dgvOrdenCompra.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.BlueViolet;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvOrdenCompra.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvOrdenCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvOrdenCompra.Size = new System.Drawing.Size(1003, 185);
-            this.dgvOrdenCompra.TabIndex = 59;
-            // 
             // btnSalir
             // 
             this.btnSalir.BackColor = System.Drawing.Color.White;
@@ -413,63 +442,6 @@
             this.btnBuscarOC.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscarOC.UseVisualStyleBackColor = false;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label8.Location = new System.Drawing.Point(25, 67);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(182, 23);
-            this.label8.TabIndex = 56;
-            this.label8.Text = "N° Orden Compra:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(213, 67);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(108, 27);
-            this.textBox1.TabIndex = 57;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.textBox2.Location = new System.Drawing.Point(116, 166);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(247, 27);
-            this.textBox2.TabIndex = 58;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label9.Location = new System.Drawing.Point(6, 166);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(104, 23);
-            this.label9.TabIndex = 59;
-            this.label9.Text = "R. SOCIAL:";
-            // 
-            // btnBuscaridProveedor
-            // 
-            this.btnBuscaridProveedor.BackColor = System.Drawing.Color.White;
-            this.btnBuscaridProveedor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnBuscaridProveedor.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnBuscaridProveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscaridProveedor.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscaridProveedor.ForeColor = System.Drawing.Color.DarkViolet;
-            this.btnBuscaridProveedor.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscaridProveedor.Image")));
-            this.btnBuscaridProveedor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscaridProveedor.Location = new System.Drawing.Point(327, 133);
-            this.btnBuscaridProveedor.Name = "btnBuscaridProveedor";
-            this.btnBuscaridProveedor.Size = new System.Drawing.Size(71, 29);
-            this.btnBuscaridProveedor.TabIndex = 72;
-            this.btnBuscaridProveedor.Text = "buscar";
-            this.btnBuscaridProveedor.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnBuscaridProveedor.UseVisualStyleBackColor = false;
-            // 
             // gbDetalleOrdenCompra
             // 
             this.gbDetalleOrdenCompra.Controls.Add(this.dgvDetalleOrdenCompra);
@@ -491,31 +463,6 @@
             this.gbDetalleOrdenCompra.TabIndex = 63;
             this.gbDetalleOrdenCompra.TabStop = false;
             this.gbDetalleOrdenCompra.Text = "DETALLE ORDEN COMPRA";
-            // 
-            // dgvDetalleOrdenCompra
-            // 
-            this.dgvDetalleOrdenCompra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkViolet;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkViolet;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalleOrdenCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvDetalleOrdenCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalleOrdenCompra.Location = new System.Drawing.Point(17, 133);
-            this.dgvDetalleOrdenCompra.Name = "dgvDetalleOrdenCompra";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.BlueViolet;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvDetalleOrdenCompra.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvDetalleOrdenCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalleOrdenCompra.Size = new System.Drawing.Size(376, 139);
-            this.dgvDetalleOrdenCompra.TabIndex = 74;
             // 
             // label12
             // 
@@ -609,18 +556,68 @@
             this.label10.TabIndex = 65;
             this.label10.Text = "Buscar por Fecha:";
             // 
+            // dgvOrdenCompra
+            // 
+            this.dgvOrdenCompra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvOrdenCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvOrdenCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvOrdenCompra.Location = new System.Drawing.Point(19, 375);
+            this.dgvOrdenCompra.Name = "dgvOrdenCompra";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.BlueViolet;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvOrdenCompra.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvOrdenCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvOrdenCompra.Size = new System.Drawing.Size(1003, 200);
+            this.dgvOrdenCompra.TabIndex = 66;
+            // 
+            // dgvDetalleOrdenCompra
+            // 
+            this.dgvDetalleOrdenCompra.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleOrdenCompra.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDetalleOrdenCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalleOrdenCompra.Location = new System.Drawing.Point(19, 135);
+            this.dgvDetalleOrdenCompra.Name = "dgvDetalleOrdenCompra";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.BlueViolet;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvDetalleOrdenCompra.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvDetalleOrdenCompra.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDetalleOrdenCompra.Size = new System.Drawing.Size(374, 134);
+            this.dgvDetalleOrdenCompra.TabIndex = 75;
+            // 
             // FrmOrdenCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 650);
+            this.Controls.Add(this.dgvOrdenCompra);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.dtpBuscarFecha);
             this.Controls.Add(this.gbDetalleOrdenCompra);
             this.Controls.Add(this.btnBuscarOC);
             this.Controls.Add(this.btnAnular);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.dgvOrdenCompra);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.gboOrdenCompra);
             this.Controls.Add(this.BarraTituloCN);
@@ -630,9 +627,9 @@
             this.BarraTituloCN.ResumeLayout(false);
             this.gboOrdenCompra.ResumeLayout(false);
             this.gboOrdenCompra.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenCompra)).EndInit();
             this.gbDetalleOrdenCompra.ResumeLayout(false);
             this.gbDetalleOrdenCompra.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvOrdenCompra)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleOrdenCompra)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -655,7 +652,6 @@
         private System.Windows.Forms.TextBox txtIDProveedor;
         private System.Windows.Forms.Button btnAnular;
         private System.Windows.Forms.Button btnNuevo;
-        private System.Windows.Forms.DataGridView dgvOrdenCompra;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ComboBox cbxEstadoCompra;
         private System.Windows.Forms.Label label6;
@@ -671,7 +667,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnBuscaridProveedor;
         private System.Windows.Forms.GroupBox gbDetalleOrdenCompra;
-        private System.Windows.Forms.DataGridView dgvDetalleOrdenCompra;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtDesProducto;
         private System.Windows.Forms.Button btnBuscarProducto;
@@ -679,5 +674,7 @@
         private System.Windows.Forms.Button btnAgregarProd;
         private System.Windows.Forms.DateTimePicker dtpBuscarFecha;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView dgvOrdenCompra;
+        private System.Windows.Forms.DataGridView dgvDetalleOrdenCompra;
     }
 }
