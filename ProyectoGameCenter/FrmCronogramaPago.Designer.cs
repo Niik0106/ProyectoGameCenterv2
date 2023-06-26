@@ -401,9 +401,7 @@
             // 
             // dgvCronogramaPago
             // 
-            this.dgvCronogramaPago.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvCronogramaPago.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.dgvCronogramaPago.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dgvCronogramaPago.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkViolet;
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -412,29 +410,28 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvCronogramaPago.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvCronogramaPago.ColumnHeadersHeight = 30;
-            this.dgvCronogramaPago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvCronogramaPago.ColumnHeadersVisible = false;
-            this.dgvCronogramaPago.Location = new System.Drawing.Point(22, 340);
+            this.dgvCronogramaPago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCronogramaPago.Location = new System.Drawing.Point(22, 331);
             this.dgvCronogramaPago.Name = "dgvCronogramaPago";
-            this.dgvCronogramaPago.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.BlueViolet;
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             this.dgvCronogramaPago.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvCronogramaPago.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCronogramaPago.Size = new System.Drawing.Size(1003, 213);
-            this.dgvCronogramaPago.TabIndex = 50;
+            this.dgvCronogramaPago.Size = new System.Drawing.Size(1003, 229);
+            this.dgvCronogramaPago.TabIndex = 54;
             // 
             // FrmCronogramaPago
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 650);
+            this.Controls.Add(this.dgvCronogramaPago);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnPagado);
-            this.Controls.Add(this.dgvCronogramaPago);
             this.Controls.Add(this.gbCronogramaPago);
             this.Controls.Add(this.BarraTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -468,7 +465,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.Button btnPagado;
-        private System.Windows.Forms.DataGridView dgvCronogramaPago;
         private System.Windows.Forms.TextBox txtObservaciones;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox cboEstadoPago;
@@ -478,5 +474,6 @@
         private System.Windows.Forms.TextBox txtIDOrdenVenta;
         private System.Windows.Forms.TextBox txtNumeroCuotas;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.DataGridView dgvCronogramaPago;
     }
 }

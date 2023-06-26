@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCategoria));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.imgCategoriaProd = new System.Windows.Forms.PictureBox();
             this.BarraTituloCN = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -36,7 +38,6 @@
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.dgvCategoria = new System.Windows.Forms.DataGridView();
             this.gbCategoria = new System.Windows.Forms.GroupBox();
             this.cbxEstadoCate = new System.Windows.Forms.CheckBox();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -46,10 +47,11 @@
             this.btnAgregar = new System.Windows.Forms.Button();
             this.txtDescripcionCategoria = new System.Windows.Forms.TextBox();
             this.lblMarca = new System.Windows.Forms.Label();
+            this.dgvCategoria = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.imgCategoriaProd)).BeginInit();
             this.BarraTituloCN.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
             this.gbCategoria.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).BeginInit();
             this.SuspendLayout();
             // 
             // imgCategoriaProd
@@ -163,17 +165,6 @@
             this.btnSalir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // dgvCategoria
-            // 
-            this.dgvCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvCategoria.Location = new System.Drawing.Point(356, 299);
-            this.dgvCategoria.Name = "dgvCategoria";
-            this.dgvCategoria.ReadOnly = true;
-            this.dgvCategoria.RowHeadersWidth = 51;
-            this.dgvCategoria.Size = new System.Drawing.Size(372, 316);
-            this.dgvCategoria.TabIndex = 43;
-            this.dgvCategoria.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategoria_CellClick);
             // 
             // gbCategoria
             // 
@@ -305,18 +296,44 @@
             this.lblMarca.TabIndex = 33;
             this.lblMarca.Text = "Categoria:";
             // 
+            // dgvCategoria
+            // 
+            this.dgvCategoria.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvCategoria.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvCategoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvCategoria.Location = new System.Drawing.Point(340, 299);
+            this.dgvCategoria.Name = "dgvCategoria";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.BlueViolet;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvCategoria.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvCategoria.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvCategoria.Size = new System.Drawing.Size(419, 306);
+            this.dgvCategoria.TabIndex = 58;
+            this.dgvCategoria.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategoria_CellClick);
+            // 
             // FrmCategoria
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1050, 650);
+            this.Controls.Add(this.dgvCategoria);
             this.Controls.Add(this.gbCategoria);
             this.Controls.Add(this.btnDeshabilitarCate);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
             this.Controls.Add(this.btnSalir);
-            this.Controls.Add(this.dgvCategoria);
             this.Controls.Add(this.BarraTituloCN);
             this.Controls.Add(this.imgCategoriaProd);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -325,9 +342,9 @@
             this.Text = "FrmCategoria";
             ((System.ComponentModel.ISupportInitialize)(this.imgCategoriaProd)).EndInit();
             this.BarraTituloCN.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).EndInit();
             this.gbCategoria.ResumeLayout(false);
             this.gbCategoria.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvCategoria)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -340,7 +357,6 @@
         private System.Windows.Forms.Button btnEditar;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnSalir;
-        private System.Windows.Forms.DataGridView dgvCategoria;
         private System.Windows.Forms.GroupBox gbCategoria;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label2;
@@ -350,5 +366,6 @@
         private System.Windows.Forms.TextBox txtDescripcionCategoria;
         private System.Windows.Forms.Label lblMarca;
         private System.Windows.Forms.CheckBox cbxEstadoCate;
+        private System.Windows.Forms.DataGridView dgvCategoria;
     }
 }

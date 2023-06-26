@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(NotaSalida));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.txtCantidad = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtIDProducto = new System.Windows.Forms.TextBox();
@@ -43,7 +47,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtNumNSalida = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.dgvNotaSalida = new System.Windows.Forms.DataGridView();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
@@ -51,17 +54,18 @@
             this.label8 = new System.Windows.Forms.Label();
             this.gbNotaSalida = new System.Windows.Forms.GroupBox();
             this.btnQuitar = new System.Windows.Forms.Button();
-            this.dgvDetalleNotaSalida = new System.Windows.Forms.DataGridView();
             this.btnAñadir = new System.Windows.Forms.Button();
             this.gbDetalleNotaSalida = new System.Windows.Forms.GroupBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtDesProducto = new System.Windows.Forms.TextBox();
             this.btnBuscarProducto = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNotaSalida)).BeginInit();
+            this.dgvNotaSalida = new System.Windows.Forms.DataGridView();
+            this.dgvDetalleNotaSalida = new System.Windows.Forms.DataGridView();
             this.BarraTituloCN.SuspendLayout();
             this.gbNotaSalida.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleNotaSalida)).BeginInit();
             this.gbDetalleNotaSalida.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNotaSalida)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleNotaSalida)).BeginInit();
             this.SuspendLayout();
             // 
             // txtCantidad
@@ -227,16 +231,6 @@
             this.label2.TabIndex = 45;
             this.label2.Text = "N° Nota Salida:";
             // 
-            // dgvNotaSalida
-            // 
-            this.dgvNotaSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvNotaSalida.Location = new System.Drawing.Point(22, 362);
-            this.dgvNotaSalida.Name = "dgvNotaSalida";
-            this.dgvNotaSalida.RowHeadersWidth = 51;
-            this.dgvNotaSalida.Size = new System.Drawing.Size(1003, 207);
-            this.dgvNotaSalida.TabIndex = 51;
-            this.dgvNotaSalida.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCategoria_CellContentClick);
-            // 
             // btnNuevo
             // 
             this.btnNuevo.BackColor = System.Drawing.Color.White;
@@ -355,15 +349,6 @@
             this.btnQuitar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnQuitar.UseVisualStyleBackColor = false;
             // 
-            // dgvDetalleNotaSalida
-            // 
-            this.dgvDetalleNotaSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalleNotaSalida.Location = new System.Drawing.Point(16, 134);
-            this.dgvDetalleNotaSalida.Name = "dgvDetalleNotaSalida";
-            this.dgvDetalleNotaSalida.RowHeadersWidth = 51;
-            this.dgvDetalleNotaSalida.Size = new System.Drawing.Size(394, 128);
-            this.dgvDetalleNotaSalida.TabIndex = 60;
-            // 
             // btnAñadir
             // 
             this.btnAñadir.BackColor = System.Drawing.Color.White;
@@ -383,13 +368,13 @@
             // 
             // gbDetalleNotaSalida
             // 
+            this.gbDetalleNotaSalida.Controls.Add(this.dgvDetalleNotaSalida);
             this.gbDetalleNotaSalida.Controls.Add(this.label12);
             this.gbDetalleNotaSalida.Controls.Add(this.btnQuitar);
             this.gbDetalleNotaSalida.Controls.Add(this.btnAñadir);
             this.gbDetalleNotaSalida.Controls.Add(this.txtDesProducto);
             this.gbDetalleNotaSalida.Controls.Add(this.btnBuscarProducto);
             this.gbDetalleNotaSalida.Controls.Add(this.label7);
-            this.gbDetalleNotaSalida.Controls.Add(this.dgvDetalleNotaSalida);
             this.gbDetalleNotaSalida.Controls.Add(this.label6);
             this.gbDetalleNotaSalida.Controls.Add(this.txtIDProducto);
             this.gbDetalleNotaSalida.Controls.Add(this.txtCantidad);
@@ -441,29 +426,79 @@
             this.btnBuscarProducto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscarProducto.UseVisualStyleBackColor = false;
             // 
+            // dgvNotaSalida
+            // 
+            this.dgvNotaSalida.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvNotaSalida.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvNotaSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvNotaSalida.Location = new System.Drawing.Point(22, 370);
+            this.dgvNotaSalida.Name = "dgvNotaSalida";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.BlueViolet;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvNotaSalida.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvNotaSalida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvNotaSalida.Size = new System.Drawing.Size(1003, 198);
+            this.dgvNotaSalida.TabIndex = 65;
+            // 
+            // dgvDetalleNotaSalida
+            // 
+            this.dgvDetalleNotaSalida.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleNotaSalida.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvDetalleNotaSalida.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDetalleNotaSalida.Location = new System.Drawing.Point(24, 132);
+            this.dgvDetalleNotaSalida.Name = "dgvDetalleNotaSalida";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.BlueViolet;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvDetalleNotaSalida.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvDetalleNotaSalida.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvDetalleNotaSalida.Size = new System.Drawing.Size(374, 134);
+            this.dgvDetalleNotaSalida.TabIndex = 76;
+            // 
             // NotaSalida
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1050, 650);
+            this.Controls.Add(this.dgvNotaSalida);
             this.Controls.Add(this.gbDetalleNotaSalida);
             this.Controls.Add(this.gbNotaSalida);
             this.Controls.Add(this.BarraTituloCN);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnAnular);
             this.Controls.Add(this.btnNuevo);
-            this.Controls.Add(this.dgvNotaSalida);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "NotaSalida";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvNotaSalida)).EndInit();
             this.BarraTituloCN.ResumeLayout(false);
             this.gbNotaSalida.ResumeLayout(false);
             this.gbNotaSalida.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleNotaSalida)).EndInit();
             this.gbDetalleNotaSalida.ResumeLayout(false);
             this.gbDetalleNotaSalida.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvNotaSalida)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleNotaSalida)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -477,7 +512,6 @@
         private System.Windows.Forms.TextBox Clie;
         private System.Windows.Forms.DateTimePicker dtFechaEmision;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dgvNotaSalida;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnNuevo;
@@ -491,11 +525,12 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox gbNotaSalida;
         private System.Windows.Forms.Button btnQuitar;
-        private System.Windows.Forms.DataGridView dgvDetalleNotaSalida;
         private System.Windows.Forms.Button btnAñadir;
         private System.Windows.Forms.GroupBox gbDetalleNotaSalida;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox txtDesProducto;
         private System.Windows.Forms.Button btnBuscarProducto;
+        private System.Windows.Forms.DataGridView dgvNotaSalida;
+        private System.Windows.Forms.DataGridView dgvDetalleNotaSalida;
     }
 }
