@@ -13,10 +13,12 @@ namespace ProyectoGameCenter
 {
     public partial class FrmCronogramaPago : Form
     {
+        
         public FrmCronogramaPago()
         {
             InitializeComponent();
             LlenarDatosEstadoPago();
+
         }
 
         public void LlenarDatosEstadoPago()
@@ -26,5 +28,9 @@ namespace ProyectoGameCenter
             cboEstadoPago.ValueMember = "ID_ESTADO_PAGO";
         }
 
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

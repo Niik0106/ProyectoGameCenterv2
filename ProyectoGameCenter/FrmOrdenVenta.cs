@@ -15,6 +15,7 @@ namespace ProyectoGameCenter
     public partial class FrmOrdenVenta : Form
     {
         private logCliente clienteLogic;
+        private decimal total = 0;
         public FrmOrdenVenta()
         {
             
@@ -27,6 +28,11 @@ namespace ProyectoGameCenter
         public void ListarVentas()
         {
             dgvOrdenVenta.DataSource = logOrdenVenta.Instancia.ListarVentas();
+        }
+
+        public void ListarDetalleVentas()
+        {
+            dgvDetalleOrdenVenta.DataSource = logDetalleOrdenVenta.Instancia.ListarDetalleOrdenVenta();
         }
 
         public void LlenarDatosEstadoOrdenVenta()
@@ -47,6 +53,16 @@ namespace ProyectoGameCenter
             gbOrdenVenta.Enabled = false;
         }
 
+        public void LimpiarVariablesDetalle()
+        {
+            txtIDProducto.Text = "";
+            txtDesProducto.Text = "";
+            txtCantidad.Text = "";
+            txtPrecio.Text = "";
+            txtTotal.Text = "";
+            txtStock.Text = "";
+        }
+
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
             //Busca Producto
@@ -55,7 +71,7 @@ namespace ProyectoGameCenter
             if (entProducto != null)
             {
                 txtDesProducto.Text = entProducto.desProducto;
-                txtCantidadVendida.Text = entProducto.stockProd.ToString();
+                txtStock.Text = entProducto.stockProd.ToString();
                 txtPrecio.Text = entProducto.precioProd.ToString();
             }
             else
@@ -99,13 +115,18 @@ namespace ProyectoGameCenter
                 ordVenta.estOrdenVenta = Convert.ToInt32(cboEstado.SelectedValue);
                 ordVenta.idUsuario = Convert.ToInt32(txtIDEmpleado.Text.Trim());
                 logOrdenVenta.Instancia.InsertaOrdenVenta(ordVenta);
+                gbDetalleOrdenVenta.Enabled = true;
+
+                MessageBox.Show("Orden de Venta registrada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
+
                 MessageBox.Show("Error.." + ex);
             }
             LimpiarVariables();
-            txtNOrdenVenta.Text = "";
+            gbOrdenVenta.Enabled = false;
+            ListarVentas();
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -151,7 +172,59 @@ namespace ProyectoGameCenter
             dateTimePicker1.Text = filaActual.Cells[2].Value.ToString();
             txtIDCliente.Text = filaActual.Cells[3].Value.ToString();
             txtIDEmpleado.Text = filaActual.Cells[4].Value.ToString();
-            cboEstado.Text = filaActual.Cells[5].Value.ToString(); 
+            cboEstado.SelectedValue = Convert.ToInt32(filaActual.Cells[5].Value); 
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                entDetalleOrdenVenta DetalleOV = new entDetalleOrdenVenta();
+                DetalleOV.NUM_ORDEN_VENTA = int.Parse(txtNOrdenVenta.Text.Trim());
+                DetalleOV.ID_PRODUCTO = int.Parse(txtIDProducto.Text.Trim());
+                DetalleOV.CANTIDAD = int.Parse(txtCantidad.Text.Trim());
+                DetalleOV.PRECIO = decimal.Parse(txtPrecio.Text.Trim());
+                DetalleOV.TOTAL = int.Parse(txtCantidad.Text) * decimal.Parse(txtPrecio.Text);
+                // Llamar a la función InsertarCliente
+                Boolean insertado = logDetalleOrdenVenta.Instancia.InsertaDetalleOrdenVenta(DetalleOV);
+
+                if (insertado)
+                {
+                    MessageBox.Show("El Producto se agregó exitosamente al DETALLE.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    total = total + (int.Parse(txtCantidad.Text) * decimal.Parse(txtPrecio.Text));
+                    txtTotal.Text = total.ToString();
+                    ListarDetalleVentas();
+                }
+                else
+                {
+                    MessageBox.Show("No hay STOCK SUFICIENTE de ese PRODUCTO", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    txtTotal.Text = "";
+                }              
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error.." + ex);
+            }
+        }
+
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+            LimpiarVariables();
+            gbOrdenVenta.Enabled = false;
+            gbDetalleOrdenVenta.Enabled=false;
+        }
+
+        private void btnCPago_Click(object sender, EventArgs e)
+        {
+            FrmCronogramaPago Cpago = new FrmCronogramaPago();
+            Cpago.StartPosition = FormStartPosition.Manual;
+            Cpago.Location = new Point(560,180);
+            Cpago.Show();
         }
     }
 }

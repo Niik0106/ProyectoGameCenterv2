@@ -245,7 +245,7 @@
         YII=
 </value>
   </data>
-  <data name="btnGenerarCPago.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnCPago.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
         1wAAAdcBjJIIaAAABBFJREFUWEfdmF2oVFUUx2+paWqlZiKlqUU+FGKlWCqUkm+W+SSi1UOFkhEohAUF
@@ -279,7 +279,7 @@
         4yn+ejCodEgZ60O6ofon10mSPP0Arzw6W4mPjTsAAAAASUVORK5CYII=
 </value>
   </data>
-  <data name="btnEliminarProducto.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btnFinalizar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACYAAAAmCAYAAACoPemuAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAB
         1wAAAdcBjJIIaAAABI9JREFUWEe9mEuo1VUUh69iauY7xSQJEUoUfOLQoGycEkKl0qBwkCI+cKCCD3Ag
