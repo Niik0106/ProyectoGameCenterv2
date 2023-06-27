@@ -1,5 +1,8 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,5 +11,67 @@ namespace AccesoDatos
 {
     public class datOrdenCompra
     {
+        private static readonly datOrdenCompra _instancia = new datOrdenCompra();
+        public static datOrdenCompra Instancia
+        {
+            get { return datOrdenCompra._instancia; }
+        }
+        
+        //Buscar 
+
+
+        //Listado ordenes de venta
+        public List<entOrdenCompra> ListarOrdenesCompra()
+        {
+            SqlCommand cmd = null;
+            List<entOrdenCompra> lista = new List<entOrdenCompra>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_LISTAR_ORDEN_COMPRA", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    entOrdenCompra OrdenCompra = new entOrdenCompra();
+                    OrdenCompra.idOrdenCompra = Convert.ToInt32(dr["ID_ORDEN_COMPRA"]);
+                    OrdenCompra.numeroOrdenCompra = Convert.ToInt32(dr["NUM_ORDEN_COMPRA"]);
+                    OrdenCompra.fechaOrdenCompra = Convert.ToDateTime(dr["FEC_ORDEN_COMPRA"]);
+                    OrdenCompra.idProveedor = Convert.ToInt32(dr["ID_PROVEEDOR"]);
+                    OrdenCompra.idEstadoOrdenCompra = Convert.ToInt32(dr["ID_EST_ORDEN_COMPRA"]);
+                    OrdenCompra.fechaAtendida = Convert.ToDateTime(dr["FEC_ATENDIDA"]);
+                    lista.Add(OrdenCompra);
+                }
+            }
+            catch (Exception e) { throw e; }
+            finally { cmd.Connection.Close(); }
+            return lista;
+        }
+
+        //Insertar orden de compra
+        public Boolean InsertarOrdenCompra(entOrdenCompra OrdenCompra)
+        {
+            SqlCommand cmd = null;
+            Boolean inserto = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_INSERTAR_ORDEN_COMPRA", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@NUM_ORDEN_COMPRA", OrdenCompra.numeroOrdenCompra);
+                cmd.Parameters.AddWithValue("@FEC_ORDEN_COMPRA", OrdenCompra.fechaOrdenCompra);
+                cmd.Parameters.AddWithValue("@ID_PROVEEDOR", OrdenCompra.idProveedor);
+                cmd.Parameters.AddWithValue("@ID_EST_ORDEN_COMPRA", OrdenCompra.idEstadoOrdenCompra);
+                cmd.Parameters.AddWithValue("@FEC_ATENDIDA", OrdenCompra.fechaAtendida);
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0) { inserto = true; }
+            }
+            catch (Exception e) { throw e; }
+            finally { cmd.Connection.Close(); }
+            return inserto;
+        }
+
     }
 }

@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class entDetalleOrdenCompra
+    public class entDetalleOrdenCompra
     {
+        public int numeroOrdenCompra { get; set; }
+        public int idProducto { get; set; }
+        public int cantidadProducto { get; set; }
     }
 }

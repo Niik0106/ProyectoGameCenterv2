@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProveedor));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProveedor));
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.PanelContenedorCN = new System.Windows.Forms.Panel();
+            this.dgvProveedores = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
             this.txtBuscarRUC = new System.Windows.Forms.TextBox();
             this.btnBuscarProv = new System.Windows.Forms.Button();
@@ -67,11 +68,10 @@
             this.label16 = new System.Windows.Forms.Label();
             this.BarraTituloCN = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.dgvProveedores = new System.Windows.Forms.DataGridView();
             this.PanelContenedorCN.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
             this.gbProveedor.SuspendLayout();
             this.BarraTituloCN.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -124,6 +124,32 @@
             this.PanelContenedorCN.Name = "PanelContenedorCN";
             this.PanelContenedorCN.Size = new System.Drawing.Size(1050, 650);
             this.PanelContenedorCN.TabIndex = 4;
+            // 
+            // dgvProveedores
+            // 
+            this.dgvProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProveedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvProveedores.Location = new System.Drawing.Point(22, 342);
+            this.dgvProveedores.Name = "dgvProveedores";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.BlueViolet;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvProveedores.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvProveedores.Size = new System.Drawing.Size(1003, 229);
+            this.dgvProveedores.TabIndex = 63;
+            this.dgvProveedores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellClick);
             // 
             // label4
             // 
@@ -554,32 +580,6 @@
             this.label1.Text = "PROVEEDORES";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // dgvProveedores
-            // 
-            this.dgvProveedores.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkViolet;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkViolet;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProveedores.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvProveedores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvProveedores.Location = new System.Drawing.Point(22, 342);
-            this.dgvProveedores.Name = "dgvProveedores";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.BlueViolet;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvProveedores.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvProveedores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvProveedores.Size = new System.Drawing.Size(1003, 229);
-            this.dgvProveedores.TabIndex = 63;
-            this.dgvProveedores.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvProveedores_CellClick);
-            // 
             // FrmProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -592,10 +592,10 @@
             this.Text = "FrmProveedor";
             this.PanelContenedorCN.ResumeLayout(false);
             this.PanelContenedorCN.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).EndInit();
             this.gbProveedor.ResumeLayout(false);
             this.gbProveedor.PerformLayout();
             this.BarraTituloCN.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).EndInit();
             this.ResumeLayout(false);
 
         }

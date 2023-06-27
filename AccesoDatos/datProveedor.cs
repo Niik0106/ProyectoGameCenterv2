@@ -27,6 +27,56 @@ namespace AccesoDatos
         #endregion singleton
 
         #region metodos
+
+        //Buscar proveedor
+        public entProveedor BuscarIDProveedor(int idProveedor)
+        {
+            SqlCommand cmd = null;
+            entProveedor Prov = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_BUSCAR_ID_PROVEEDOR", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ID_PROVEEDOR", idProveedor);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    Prov = new entProveedor();
+                    Prov.RUC_PROV = dr["RUC_PROV"].ToString();
+                    Prov.RAZON_SOCIAL_PROV = dr["RAZON_SOCIAL_PROV"].ToString();
+                    Prov.TEL_PROVEEDOR = dr["TEL_PROVEEDOR"].ToString();
+                    Prov.COD_UBIGEO = Convert.ToInt32(dr["COD_UBIGEO"]);
+                    Prov.DIR_PROVEEDOR = dr["DIR_PROVEEDOR"].ToString();
+                    Prov.NUM_CUENTA = dr["NUM_CUENTA"].ToString();
+                    Prov.ESTADO_PROVEEDOR = Convert.ToBoolean(dr["ESTADO_PROVEEDOR"]);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return Prov;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         ////////////////////listado de Clientes
         public List<entProveedor> ListarProveedor()
         {
@@ -188,8 +238,6 @@ namespace AccesoDatos
             finally { cmd.Connection.Close(); }
             return inhabilitar;
         }
-
-       
 
         #endregion
 

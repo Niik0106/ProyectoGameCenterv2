@@ -25,6 +25,12 @@ namespace LogicaNegocio
         }
         #endregion singleton
 
+        //Buscar
+        public entProveedor BuscarIDProveedor(int idProveedor)
+        {
+            return datProveedor.Instancia.BuscarIDProveedor(idProveedor);
+        }
+        
         ///listado
         public List<entProveedor> ListaProveedor()
         {
