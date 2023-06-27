@@ -36,5 +36,6 @@ namespace LogicaNegocio
         {
             return datOrdenVenta.Instancia.BuscarOrdenVenta(fechaVenta);
         }
+        
     }
 }

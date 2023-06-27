@@ -730,6 +730,7 @@
             this.dgvOrdenVenta.Location = new System.Drawing.Point(16, 469);
             this.dgvOrdenVenta.Margin = new System.Windows.Forms.Padding(4);
             this.dgvOrdenVenta.Name = "dgvOrdenVenta";
+            this.dgvOrdenVenta.ReadOnly = true;
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

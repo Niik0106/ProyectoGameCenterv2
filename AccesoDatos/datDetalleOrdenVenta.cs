@@ -96,7 +96,32 @@ namespace AccesoDatos
             return inserta;
         }
 
-
-
+        public List<entDetalleOrdenVenta> OrdenarDetalleVenta(entDetalleOrdenVenta numOrd)
+        {
+            SqlCommand cmd = null;
+            List<entDetalleOrdenVenta> lista = new List<entDetalleOrdenVenta>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_OBTENER_DETALLES_ORDEN_VENTA", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@NumOrdenVenta", numOrd.NUM_ORDEN_VENTA);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    entDetalleOrdenVenta DetalleOV = new entDetalleOrdenVenta();
+                    DetalleOV.NUM_ORDEN_VENTA = Convert.ToInt32(dr["NUM_ORDEN_VENTA"]);
+                    DetalleOV.ID_PRODUCTO = Convert.ToInt32(dr["ID_PRODUCTO"]);
+                    DetalleOV.CANTIDAD = Convert.ToInt32(dr["CANTIDAD"]);
+                    DetalleOV.PRECIO = Convert.ToDecimal(dr["PRECIO"]);
+                    DetalleOV.TOTAL = Convert.ToDecimal(dr["PRECIO_TOTAL"]);
+                    lista.Add(DetalleOV);
+                }
+            }
+            catch (Exception e) { throw e; }
+            finally { cmd.Connection.Close(); }
+            return lista;
+        }
     }
 }

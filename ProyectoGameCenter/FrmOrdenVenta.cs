@@ -112,7 +112,6 @@ namespace ProyectoGameCenter
             {
                 MessageBox.Show("Error.." + ex);
             }
-
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -177,12 +176,16 @@ namespace ProyectoGameCenter
         private void dgvOrdenVenta_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow filaActual = dgvOrdenVenta.Rows[e.RowIndex];
+            int numOrdenVenta = Convert.ToInt32(dgvOrdenVenta.Rows[e.RowIndex].Cells[1].Value);
             txtIDOrdenVenta.Text = filaActual.Cells[0].Value.ToString();
             txtNOrdenVenta.Text = filaActual.Cells[1].Value.ToString();
             dateTimePicker1.Text = filaActual.Cells[2].Value.ToString();
             txtIDCliente.Text = filaActual.Cells[3].Value.ToString();
             txtIDEmpleado.Text = filaActual.Cells[4].Value.ToString();
-            cboEstado.SelectedValue = Convert.ToInt32(filaActual.Cells[5].Value); 
+            cboEstado.SelectedValue = Convert.ToInt32(filaActual.Cells[5].Value);
+            entDetalleOrdenVenta DOV = new entDetalleOrdenVenta();
+            DOV.NUM_ORDEN_VENTA = numOrdenVenta;
+            dgvDetalleOrdenVenta.DataSource = logDetalleOrdenVenta.Instancia.OrdenaDetalleVenta(DOV);
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
