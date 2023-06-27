@@ -46,6 +46,7 @@
     <Compile Include="logCliente.cs" />
     <Compile Include="logClienteNatural.cs" />
     <Compile Include="logClienteJuridico.cs" />
+    <Compile Include="logCronograma.cs" />
     <Compile Include="logDetalleNotaSalida.cs" />
     <Compile Include="logDetalleOrdenCompra.cs" />
     <Compile Include="logDetalleOrdenVenta.cs" />

@@ -49,7 +49,6 @@ namespace ProyectoGameCenter
         {
             txtIDOrdenVenta.Text = "";
             dateTimePicker1.ResetText();
-            txtIDCliente.Text = "";
             txtResultadoBusquedaCliente.Text = "";
             txtIDEmpleado.Text = "";
             cboEstado.SelectedIndex = default;
@@ -235,10 +234,20 @@ namespace ProyectoGameCenter
             nOrdenVenta = txtNOrdenVenta.Text;
             totalCR = txtTotal.Text;
             FrmCronogramaPago Cpago = new FrmCronogramaPago();
-            Cpago.StartPosition = FormStartPosition.Manual;
-            Cpago.Location = new Point(560,180);
+            Cpago.StartPosition = FormStartPosition.CenterScreen;
             Cpago.Show();
         }
 
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            LimpiarVariables();
+            LimpiarVariablesDetalle();
+            txtNOrdenVenta.Clear();
+            txtIDCliente.Clear();
+            dgvDetalleOrdenVenta.DataSource = null;
+            dgvDetalleOrdenVenta.Rows.Clear();
+            dgvDetalleOrdenVenta.Columns.Clear();
+            
+        }
     }
 }

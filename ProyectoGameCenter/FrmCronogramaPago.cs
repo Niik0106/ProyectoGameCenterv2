@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades;
 
 
 namespace ProyectoGameCenter
@@ -19,9 +20,18 @@ namespace ProyectoGameCenter
         {
             InitializeComponent();
             LlenarDatosEstadoPago();
+            ListarMetodoPago();
             txtIDOrdenVenta.Text = FrmOrdenVenta.nOrdenVenta;
             txtTotal.Text = FrmOrdenVenta.totalCR;
             txtIDCliente.Text = FrmOrdenVenta.idCliente;
+            ListarCronograma();
+        }
+
+        public void ListarMetodoPago()
+        {
+            cboMetodoPago.DataSource = logMetodoPago.Instancia.ListarMetodoPago();
+            cboMetodoPago.DisplayMember = "DES_METODO_PAGO";
+            cboMetodoPago.ValueMember = "ID_METODO_PAGO";
         }
 
         public void LlenarDatosEstadoPago()
@@ -35,5 +45,59 @@ namespace ProyectoGameCenter
         {
             Close();
         }
+
+        public void ListarCronograma()
+        {
+            dgvCronogramaPago.DataSource = logCronograma.Instancia.ListaCronograma();
+        }
+
+        private void LimpiarVariables()
+        {
+            txtIDCronogramaPago.Clear();
+            dtimeFechaVenta.ResetText();
+            dtimePlazoPago.ResetText();
+            txtNumeroCuotas.Clear();
+            txtIDOrdenVenta.Clear();
+            txtIDCliente.Clear();
+            txtTotal.Clear();
+            cboEstadoPago.ResetText();
+            cboMetodoPago.ResetText();
+            txtObservaciones.Clear();
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                entCronograma c = new entCronograma();
+                c.FECHA_VENTA = dtimeFechaVenta.Value;
+                c.NUM_ORDEN_VENTA = Convert.ToInt32(txtIDOrdenVenta.Text.Trim());
+                c.ID_CLIENTE = Convert.ToInt32(txtIDCliente.Text.Trim());
+                c.TOTAL = Convert.ToDecimal(txtTotal.Text.Trim());
+                c.NUM_CUOTAS = Convert.ToInt32(txtNumeroCuotas.Text.Trim());
+                c.ID_METODO_PAGO = Convert.ToInt32(cboMetodoPago.SelectedValue);
+                c.ID_ESTADO_PAGO = Convert.ToInt32(cboEstadoPago.SelectedValue);
+                c.OBSERVACIONES = txtObservaciones.Text.Trim();
+                logCronograma.Instancia.InsertaCronograma(c);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error.." + ex);
+            }
+            ListarCronograma();
+            LimpiarVariables();
+        }
+
+        private void btnPagado_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            LimpiarVariables();
+        }
+
+        
     }
 }
