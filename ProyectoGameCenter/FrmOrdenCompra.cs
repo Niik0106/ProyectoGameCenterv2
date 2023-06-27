@@ -61,21 +61,51 @@ namespace ProyectoGameCenter
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
-            //Buscar Producto
-            entProducto producto = new entProducto();
-            producto = logProducto.Instancia.BuscarIDProducto(Convert.ToInt32(txtIDProducto.Text.Trim()));
-            txtDesProducto.Text = producto.desProducto;
+            try
+            {
+                //Buscar Producto
+                entProducto producto = new entProducto();
+                producto = logProducto.Instancia.BuscarIDProducto(Convert.ToInt32(txtIDProducto.Text.Trim()));
+                if (producto != null)
+                {
+                    txtDesProducto.Text = producto.desProducto.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Producto no existe en la BD", "Buscar Provducto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error.." + ex);
+            }
+
         }
 
         private void btnBuscaridProveedor_Click(object sender, EventArgs e)
         {
-            //Buscar Proveedor
-            entProveedor proveedor = new entProveedor();
-            proveedor = logProveedor.Instancia.BuscarIDProveedor(Convert.ToInt32(txtIDProveedor.Text.Trim()));
-            txtRazonSocial.Text = proveedor.RAZON_SOCIAL_PROV;
-
+            try
+            {
+                entProveedor proveedor = new entProveedor();
+                proveedor = logProveedor.Instancia.BuscarIDProveedor(Convert.ToInt32(txtIDProveedor.Text.Trim()));
+                if (proveedor != null)
+                {
+                    txtRazonSocial.Text = proveedor.RAZON_SOCIAL_PROV.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Proveedor no esta Catalogado", "Buscar Proveedor", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error.." + ex);
+            }
         }
+            //Buscar Proveedor
+           
 
+        
         private void btnAgregarProd_Click(object sender, EventArgs e)
         {
             //Insertar Detalle orden compra
@@ -85,9 +115,18 @@ namespace ProyectoGameCenter
                 detOrdenCompra.numeroOrdenCompra = Convert.ToInt32(txtNumOrdenCompra.Text.Trim());
                 detOrdenCompra.idProducto = Convert.ToInt32(txtIDProducto.Text.Trim());
                 detOrdenCompra.cantidadProducto = Convert.ToInt32(txtCantidad.Text.Trim());
-                logDetalleOrdenCompra.Instancia.InsertarDetalleOrdenCompra(detOrdenCompra);
+                // Llamar a la función InsertarCliente
+                Boolean insertado = logDetalleOrdenCompra.Instancia.InsertarDetalleOrdenCompra(detOrdenCompra);
 
-                MessageBox.Show("Detalle de Orden de Compra registrado correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (insertado)
+                {
+                    MessageBox.Show("El Producto se agregó exitosamente al DETALLE.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ListadoDetalleOrdenesCompra();
+                }
+                else
+                {
+                    MessageBox.Show("YA EXISTE UN DETALLE CON ESE NUM ORDEN DE COMPRA E ID PRODUCTO", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             catch (Exception ex)
             {

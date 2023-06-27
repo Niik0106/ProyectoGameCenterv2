@@ -63,9 +63,17 @@ namespace AccesoDatos
                 cmd.Parameters.AddWithValue("@NUM_ORDEN_COMPRA", detalleOrdenCompra.numeroOrdenCompra);
                 cmd.Parameters.AddWithValue("@ID_PRODUCTO", detalleOrdenCompra.idProducto);
                 cmd.Parameters.AddWithValue("@CANTIDAD", detalleOrdenCompra.cantidadProducto);
+                // Parámetro de salida @resultado
+                SqlParameter resultadoParam = new SqlParameter("@RESULTADO", SqlDbType.Bit);
+                resultadoParam.Direction = ParameterDirection.Output;
+                cmd.Parameters.Add(resultadoParam);
+
                 cn.Open();
-                int i = cmd.ExecuteNonQuery();
-                if (i > 0)
+                cmd.ExecuteNonQuery();
+
+                // Obtener el valor de @resultado
+                int resultado = Convert.ToInt32(resultadoParam.Value);
+                if (resultado == 1)
                 {
                     inserta = true;
                 }
@@ -76,7 +84,10 @@ namespace AccesoDatos
             }
             finally
             {
-                cmd.Connection.Close();
+                if (cmd != null)
+                {
+                    cmd.Connection.Close();
+                }
             }
             return inserta;
         }

@@ -191,7 +191,7 @@
             this.dtimePlazoPago.Name = "dtimePlazoPago";
             this.dtimePlazoPago.Size = new System.Drawing.Size(183, 31);
             this.dtimePlazoPago.TabIndex = 41;
-            this.dtimePlazoPago.Value = new System.DateTime(2023, 5, 30, 0, 0, 0, 0);
+            this.dtimePlazoPago.Value = new System.DateTime(2023, 6, 27, 0, 0, 0, 0);
             // 
             // label8
             // 
@@ -251,7 +251,7 @@
             this.dtimeFechaVenta.Name = "dtimeFechaVenta";
             this.dtimeFechaVenta.Size = new System.Drawing.Size(183, 31);
             this.dtimeFechaVenta.TabIndex = 32;
-            this.dtimeFechaVenta.Value = new System.DateTime(2023, 5, 30, 0, 0, 0, 0);
+            this.dtimeFechaVenta.Value = new System.DateTime(2023, 6, 27, 0, 0, 0, 0);
             // 
             // label1
             // 
@@ -358,9 +358,9 @@
             this.label10.ForeColor = System.Drawing.Color.DarkViolet;
             this.label10.Location = new System.Drawing.Point(6, 117);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(156, 23);
+            this.label10.Size = new System.Drawing.Size(160, 23);
             this.label10.TabIndex = 15;
-            this.label10.Text = "ID Orden Venta:";
+            this.label10.Text = "N° Orden Venta:";
             // 
             // btnSalir
             // 

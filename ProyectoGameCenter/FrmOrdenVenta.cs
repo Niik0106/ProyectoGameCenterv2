@@ -16,6 +16,9 @@ namespace ProyectoGameCenter
     {
         private logCliente clienteLogic;
         private decimal total = 0;
+        public static string nOrdenVenta;
+        public static string totalCR;
+        public static string idCliente;
         public FrmOrdenVenta()
         {
             
@@ -65,19 +68,27 @@ namespace ProyectoGameCenter
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
-            //Busca Producto
-            entProducto entProducto = new entProducto();
-            entProducto = logProducto.Instancia.BuscarIDProducto(Convert.ToInt32(txtIDProducto.Text.Trim()));
-            if (entProducto != null)
+            try
             {
-                txtDesProducto.Text = entProducto.desProducto;
-                txtStock.Text = entProducto.stockProd.ToString();
-                txtPrecio.Text = entProducto.precioProd.ToString();
+                //Busca Producto
+                entProducto entProducto = new entProducto();
+                entProducto = logProducto.Instancia.BuscarIDProducto(Convert.ToInt32(txtIDProducto.Text.Trim()));
+                if (entProducto != null)
+                {
+                    txtDesProducto.Text = entProducto.desProducto;
+                    txtStock.Text = entProducto.stockProd.ToString();
+                    txtPrecio.Text = entProducto.precioProd.ToString();
+                }
+                else
+                {
+                    MessageBox.Show("Producto no existe", "Buscar Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            else
+            catch (Exception ex)
             {
-                MessageBox.Show("Producto no existe", "Buscar Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Error.." + ex);
             }
+
         }
 
         private void btnBuscaridCliente_Click(object sender, EventArgs e)
@@ -116,7 +127,6 @@ namespace ProyectoGameCenter
                 ordVenta.idUsuario = Convert.ToInt32(txtIDEmpleado.Text.Trim());
                 logOrdenVenta.Instancia.InsertaOrdenVenta(ordVenta);
                 gbDetalleOrdenVenta.Enabled = true;
-
                 MessageBox.Show("Orden de Venta registrada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -221,10 +231,14 @@ namespace ProyectoGameCenter
 
         private void btnCPago_Click(object sender, EventArgs e)
         {
+            idCliente = txtIDCliente.Text;
+            nOrdenVenta = txtNOrdenVenta.Text;
+            totalCR = txtTotal.Text;
             FrmCronogramaPago Cpago = new FrmCronogramaPago();
             Cpago.StartPosition = FormStartPosition.Manual;
             Cpago.Location = new Point(560,180);
             Cpago.Show();
         }
+
     }
 }

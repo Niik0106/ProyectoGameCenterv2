@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace ProyectoGameCenter
 {
     public partial class FrmCronogramaPago : Form
@@ -18,7 +19,9 @@ namespace ProyectoGameCenter
         {
             InitializeComponent();
             LlenarDatosEstadoPago();
-
+            txtIDOrdenVenta.Text = FrmOrdenVenta.nOrdenVenta;
+            txtTotal.Text = FrmOrdenVenta.totalCR;
+            txtIDCliente.Text = FrmOrdenVenta.idCliente;
         }
 
         public void LlenarDatosEstadoPago()
