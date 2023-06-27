@@ -75,10 +75,10 @@
             this.btnBuscarProducto = new System.Windows.Forms.Button();
             this.btnFinalizar = new System.Windows.Forms.Button();
             this.btnAgregarProducto = new System.Windows.Forms.Button();
-            this.txtBuscarNOrdenVenta = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.dgvOrdenVenta = new System.Windows.Forms.DataGridView();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.dtpOrdenVenta = new System.Windows.Forms.DateTimePicker();
             this.BarraTitulo.SuspendLayout();
             this.gbOrdenVenta.SuspendLayout();
             this.gbDetalleOrdenVenta.SuspendLayout();
@@ -501,6 +501,7 @@
             this.btnBuscarOV.Text = "Buscar";
             this.btnBuscarOV.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscarOV.UseVisualStyleBackColor = false;
+            this.btnBuscarOV.Click += new System.EventHandler(this.btnBuscarOV_Click);
             // 
             // btnCPago
             // 
@@ -702,16 +703,6 @@
             this.btnAgregarProducto.UseVisualStyleBackColor = false;
             this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
             // 
-            // txtBuscarNOrdenVenta
-            // 
-            this.txtBuscarNOrdenVenta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarNOrdenVenta.Location = new System.Drawing.Point(649, 734);
-            this.txtBuscarNOrdenVenta.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBuscarNOrdenVenta.Name = "txtBuscarNOrdenVenta";
-            this.txtBuscarNOrdenVenta.ReadOnly = true;
-            this.txtBuscarNOrdenVenta.Size = new System.Drawing.Size(243, 27);
-            this.txtBuscarNOrdenVenta.TabIndex = 63;
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -720,9 +711,9 @@
             this.label13.Location = new System.Drawing.Point(644, 702);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(160, 23);
+            this.label13.Size = new System.Drawing.Size(195, 23);
             this.label13.TabIndex = 64;
-            this.label13.Text = "N° Orden Venta:";
+            this.label13.Text = "Fecha Orden Venta:";
             // 
             // dgvOrdenVenta
             // 
@@ -771,15 +762,27 @@
             this.btnLimpiar.UseVisualStyleBackColor = false;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
+            // dtpOrdenVenta
+            // 
+            this.dtpOrdenVenta.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpOrdenVenta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpOrdenVenta.Location = new System.Drawing.Point(648, 731);
+            this.dtpOrdenVenta.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpOrdenVenta.Name = "dtpOrdenVenta";
+            this.dtpOrdenVenta.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.dtpOrdenVenta.Size = new System.Drawing.Size(243, 31);
+            this.dtpOrdenVenta.TabIndex = 67;
+            this.dtpOrdenVenta.Value = new System.DateTime(2023, 6, 27, 0, 0, 0, 0);
+            // 
             // FrmOrdenVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1400, 800);
+            this.Controls.Add(this.dtpOrdenVenta);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.dgvOrdenVenta);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.txtBuscarNOrdenVenta);
             this.Controls.Add(this.gbDetalleOrdenVenta);
             this.Controls.Add(this.btnCPago);
             this.Controls.Add(this.btnBuscarOV);
@@ -843,7 +846,6 @@
         private System.Windows.Forms.Button btnBuscarProducto;
         private System.Windows.Forms.Button btnFinalizar;
         private System.Windows.Forms.Button btnAgregarProducto;
-        private System.Windows.Forms.TextBox txtBuscarNOrdenVenta;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.DataGridView dgvOrdenVenta;
         private System.Windows.Forms.DataGridView dgvDetalleOrdenVenta;
@@ -852,5 +854,6 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.DateTimePicker dtpOrdenVenta;
     }
 }

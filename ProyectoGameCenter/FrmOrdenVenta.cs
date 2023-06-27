@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LogicaNegocio;
+using System.Data.SqlClient;
 
 namespace ProyectoGameCenter
 {
@@ -247,7 +248,26 @@ namespace ProyectoGameCenter
             dgvDetalleOrdenVenta.DataSource = null;
             dgvDetalleOrdenVenta.Rows.Clear();
             dgvDetalleOrdenVenta.Columns.Clear();
-            
+            ListarVentas();
+        }
+
+        private void btnBuscarOV_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                entOrdenVenta OrdVenta = new entOrdenVenta();
+                OrdVenta.fechaOrden = dtpOrdenVenta.Value;
+                dgvOrdenVenta.DataSource = logOrdenVenta.Instancia.BuscaFechaVenta(OrdVenta);
+                if (dgvOrdenVenta.Rows.Count == 0)
+                {
+                    MessageBox.Show("El existen ventas de esta fecha", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ListarVentas();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error..." + ex);
+            }
         }
     }
 }

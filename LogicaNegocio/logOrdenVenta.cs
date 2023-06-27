@@ -31,5 +31,10 @@ namespace LogicaNegocio
         {
             datOrdenVenta.Instancia.AnularOrdenVenta(OrdV);
         }
+
+        public List<entOrdenVenta> BuscaFechaVenta(entOrdenVenta fechaVenta)
+        {
+            return datOrdenVenta.Instancia.BuscarOrdenVenta(fechaVenta);
+        }
     }
 }

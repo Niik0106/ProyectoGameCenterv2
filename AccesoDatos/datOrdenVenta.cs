@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using Entidades;
+using System.Collections;
 
 namespace AccesoDatos
 {
@@ -86,6 +87,33 @@ namespace AccesoDatos
             finally { cmd.Connection.Close(); }
             return delete;
         }
-
+        public List<entOrdenVenta> BuscarOrdenVenta(entOrdenVenta fechaVenta)
+        {
+            SqlCommand cmd = null;
+            List<entOrdenVenta> lista = new List<entOrdenVenta>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_BUSCAR_ORDENVENTA_FECHA", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@FechaOrden", fechaVenta.fechaOrden);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    entOrdenVenta OrdVenta = new entOrdenVenta();
+                    OrdVenta.idOrdenVenta = Convert.ToInt32(dr["ID_ORDEN_VENTA"]);
+                    OrdVenta.numOrdenVenta = Convert.ToInt32(dr["NUM_ORDEN_VENTA"]);
+                    OrdVenta.fechaOrden = Convert.ToDateTime(dr["FEC_ORDEN"]);
+                    OrdVenta.idCliente = Convert.ToInt32(dr["ID_CLIENTE"]);
+                    OrdVenta.estOrdenVenta = Convert.ToInt32(dr["ID_EST_ORDEN_VENTA"]);
+                    OrdVenta.idUsuario = Convert.ToInt32(dr["ID_USUARIO"]);
+                    lista.Add(OrdVenta);
+                }
+            }
+            catch (Exception e) { throw e; }
+            finally { cmd.Connection.Close(); }
+            return lista;
+        }
     }
 }
