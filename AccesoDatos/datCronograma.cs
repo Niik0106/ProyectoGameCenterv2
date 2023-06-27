@@ -75,5 +75,27 @@ namespace AccesoDatos
             finally { cmd.Connection.Close(); }
             return inserta;
         }
+
+        public Boolean CambiarEstadoCrono(entCronograma Crono)
+        {
+            SqlCommand cmd = null;
+            Boolean cambio = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_CAMBIAR_ESTADO_PAGO", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@IDCronogramaPago", Crono.ID_CRONOGRAMA_PAGO);
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0)
+                {
+                    cambio = true;
+                }
+            }
+            catch (Exception e) { throw e; }
+            finally { cmd.Connection.Close(); }
+            return cambio;
+        }
     }
 }

@@ -192,11 +192,5 @@ namespace AccesoDatos
             }
             return deshabilita;
         }
-
-
-
-
-
-
     }
 }

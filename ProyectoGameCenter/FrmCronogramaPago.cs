@@ -90,7 +90,20 @@ namespace ProyectoGameCenter
 
         private void btnPagado_Click(object sender, EventArgs e)
         {
-
+            if (txtIDCronogramaPago.Text.Equals(""))
+            {
+                MessageBox.Show("Debe seleccionar un cronograma", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+                entCronograma Crono = new entCronograma();
+                Crono.ID_CRONOGRAMA_PAGO = Convert.ToInt32(txtIDCronogramaPago.Text);
+                logCronograma.Instancia.CambiaEstadoCrono(Crono);
+                MessageBox.Show("Conograma establecido como Pagado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ListarCronograma();
+                LimpiarVariables();
+                gbCronogramaPago.Enabled = false;
+            }
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -98,6 +111,19 @@ namespace ProyectoGameCenter
             LimpiarVariables();
         }
 
-        
+        private void dgvCronogramaPago_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow filaActual = dgvCronogramaPago.Rows[e.RowIndex];
+            txtIDCronogramaPago.Text = filaActual.Cells[0].Value.ToString();
+            dtimeFechaVenta.Text = filaActual.Cells[1].Value.ToString();
+            txtIDOrdenVenta.Text = filaActual.Cells[2].Value.ToString();
+            txtIDCliente.Text = filaActual.Cells[3].Value.ToString();          
+            txtTotal.Text = filaActual.Cells[4].Value.ToString();
+            txtNumeroCuotas.Text = filaActual.Cells[5].Value.ToString();
+            cboMetodoPago.SelectedValue = Convert.ToInt32(filaActual.Cells[6].Value);
+            dtimePlazoPago.Text = filaActual.Cells[7].Value.ToString();
+            cboEstadoPago.SelectedValue = Convert.ToInt32(filaActual.Cells[8].Value);
+            txtObservaciones.Text = filaActual.Cells[9].Value.ToString();
+        }
     }
 }

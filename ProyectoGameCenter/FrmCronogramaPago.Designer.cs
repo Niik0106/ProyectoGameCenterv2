@@ -70,7 +70,7 @@
             this.BarraTitulo.Controls.Add(this.label2);
             this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
-            this.BarraTitulo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BarraTitulo.Margin = new System.Windows.Forms.Padding(4);
             this.BarraTitulo.Name = "BarraTitulo";
             this.BarraTitulo.Size = new System.Drawing.Size(1386, 74);
             this.BarraTitulo.TabIndex = 7;
@@ -118,9 +118,9 @@
             this.gbCronogramaPago.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbCronogramaPago.ForeColor = System.Drawing.Color.DarkViolet;
             this.gbCronogramaPago.Location = new System.Drawing.Point(29, 100);
-            this.gbCronogramaPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbCronogramaPago.Margin = new System.Windows.Forms.Padding(4);
             this.gbCronogramaPago.Name = "gbCronogramaPago";
-            this.gbCronogramaPago.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbCronogramaPago.Padding = new System.Windows.Forms.Padding(4);
             this.gbCronogramaPago.Size = new System.Drawing.Size(1337, 298);
             this.gbCronogramaPago.TabIndex = 41;
             this.gbCronogramaPago.TabStop = false;
@@ -130,7 +130,7 @@
             // 
             this.txtNumeroCuotas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumeroCuotas.Location = new System.Drawing.Point(791, 95);
-            this.txtNumeroCuotas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtNumeroCuotas.Margin = new System.Windows.Forms.Padding(4);
             this.txtNumeroCuotas.Name = "txtNumeroCuotas";
             this.txtNumeroCuotas.Size = new System.Drawing.Size(243, 27);
             this.txtNumeroCuotas.TabIndex = 47;
@@ -151,7 +151,7 @@
             // 
             this.txtObservaciones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtObservaciones.Location = new System.Drawing.Point(791, 239);
-            this.txtObservaciones.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtObservaciones.Margin = new System.Windows.Forms.Padding(4);
             this.txtObservaciones.Name = "txtObservaciones";
             this.txtObservaciones.Size = new System.Drawing.Size(372, 27);
             this.txtObservaciones.TabIndex = 45;
@@ -174,7 +174,7 @@
             this.cboEstadoPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboEstadoPago.FormattingEnabled = true;
             this.cboEstadoPago.Location = new System.Drawing.Point(791, 185);
-            this.cboEstadoPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboEstadoPago.Margin = new System.Windows.Forms.Padding(4);
             this.cboEstadoPago.Name = "cboEstadoPago";
             this.cboEstadoPago.Size = new System.Drawing.Size(280, 29);
             this.cboEstadoPago.TabIndex = 42;
@@ -197,7 +197,7 @@
             this.dtimePlazoPago.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtimePlazoPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtimePlazoPago.Location = new System.Drawing.Point(224, 239);
-            this.dtimePlazoPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtimePlazoPago.Margin = new System.Windows.Forms.Padding(4);
             this.dtimePlazoPago.Name = "dtimePlazoPago";
             this.dtimePlazoPago.Size = new System.Drawing.Size(243, 31);
             this.dtimePlazoPago.TabIndex = 41;
@@ -219,7 +219,7 @@
             // 
             this.txtIDOrdenVenta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDOrdenVenta.Location = new System.Drawing.Point(224, 144);
-            this.txtIDOrdenVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIDOrdenVenta.Margin = new System.Windows.Forms.Padding(4);
             this.txtIDOrdenVenta.Name = "txtIDOrdenVenta";
             this.txtIDOrdenVenta.ReadOnly = true;
             this.txtIDOrdenVenta.Size = new System.Drawing.Size(243, 27);
@@ -229,7 +229,7 @@
             // 
             this.txtTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTotal.Location = new System.Drawing.Point(791, 55);
-            this.txtTotal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtTotal.Margin = new System.Windows.Forms.Padding(4);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(243, 27);
@@ -241,7 +241,7 @@
             this.cboMetodoPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboMetodoPago.FormattingEnabled = true;
             this.cboMetodoPago.Location = new System.Drawing.Point(791, 137);
-            this.cboMetodoPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cboMetodoPago.Margin = new System.Windows.Forms.Padding(4);
             this.cboMetodoPago.Name = "cboMetodoPago";
             this.cboMetodoPago.Size = new System.Drawing.Size(307, 29);
             this.cboMetodoPago.TabIndex = 22;
@@ -263,7 +263,7 @@
             this.dtimeFechaVenta.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtimeFechaVenta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtimeFechaVenta.Location = new System.Drawing.Point(224, 98);
-            this.dtimeFechaVenta.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtimeFechaVenta.Margin = new System.Windows.Forms.Padding(4);
             this.dtimeFechaVenta.Name = "dtimeFechaVenta";
             this.dtimeFechaVenta.Size = new System.Drawing.Size(243, 31);
             this.dtimeFechaVenta.TabIndex = 32;
@@ -285,7 +285,7 @@
             // 
             this.txtIDCronogramaPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDCronogramaPago.Location = new System.Drawing.Point(224, 55);
-            this.txtIDCronogramaPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIDCronogramaPago.Margin = new System.Windows.Forms.Padding(4);
             this.txtIDCronogramaPago.Name = "txtIDCronogramaPago";
             this.txtIDCronogramaPago.ReadOnly = true;
             this.txtIDCronogramaPago.Size = new System.Drawing.Size(243, 27);
@@ -302,7 +302,7 @@
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelar.Location = new System.Drawing.Point(1156, 153);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(173, 62);
             this.btnCancelar.TabIndex = 29;
@@ -327,7 +327,7 @@
             // 
             this.txtIDCliente.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIDCliente.Location = new System.Drawing.Point(224, 191);
-            this.txtIDCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtIDCliente.Margin = new System.Windows.Forms.Padding(4);
             this.txtIDCliente.Name = "txtIDCliente";
             this.txtIDCliente.ReadOnly = true;
             this.txtIDCliente.Size = new System.Drawing.Size(243, 27);
@@ -356,7 +356,7 @@
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAgregar.Location = new System.Drawing.Point(1156, 66);
-            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAgregar.Margin = new System.Windows.Forms.Padding(4);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(173, 62);
             this.btnAgregar.TabIndex = 3;
@@ -400,7 +400,7 @@
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalir.Location = new System.Drawing.Point(29, 706);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(173, 62);
             this.btnSalir.TabIndex = 53;
@@ -420,7 +420,7 @@
             this.btnPagado.Image = ((System.Drawing.Image)(resources.GetObject("btnPagado.Image")));
             this.btnPagado.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnPagado.Location = new System.Drawing.Point(1193, 706);
-            this.btnPagado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnPagado.Margin = new System.Windows.Forms.Padding(4);
             this.btnPagado.Name = "btnPagado";
             this.btnPagado.Size = new System.Drawing.Size(173, 62);
             this.btnPagado.TabIndex = 52;
@@ -442,8 +442,9 @@
             this.dgvCronogramaPago.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvCronogramaPago.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvCronogramaPago.Location = new System.Drawing.Point(29, 407);
-            this.dgvCronogramaPago.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvCronogramaPago.Margin = new System.Windows.Forms.Padding(4);
             this.dgvCronogramaPago.Name = "dgvCronogramaPago";
+            this.dgvCronogramaPago.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -454,6 +455,7 @@
             this.dgvCronogramaPago.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvCronogramaPago.Size = new System.Drawing.Size(1337, 282);
             this.dgvCronogramaPago.TabIndex = 54;
+            this.dgvCronogramaPago.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCronogramaPago_CellClick);
             // 
             // FrmCronogramaPago
             // 
@@ -466,7 +468,7 @@
             this.Controls.Add(this.gbCronogramaPago);
             this.Controls.Add(this.BarraTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmCronogramaPago";
             this.Text = "frmCronogramaPago";
             this.BarraTitulo.ResumeLayout(false);

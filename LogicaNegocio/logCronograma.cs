@@ -25,6 +25,9 @@ namespace LogicaNegocio
         {
             datCronograma.Instancia.InsertarCronograma(Crono);
         }
-
+        public void CambiaEstadoCrono (entCronograma Crono)
+        {
+            datCronograma.Instancia.CambiarEstadoCrono(Crono);
+        }
     }
 }
