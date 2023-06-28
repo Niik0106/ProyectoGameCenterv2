@@ -189,15 +189,22 @@ namespace ProyectoGameCenter
 
         private void dgvClienteNatural_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow filaActual = dgvClienteNatural.Rows[e.RowIndex];
-            txtIDCliente.Text = filaActual.Cells[3].Value.ToString();
-            txtDNI.Text = filaActual.Cells[0].Value.ToString();
-            txtNombres.Text = filaActual.Cells[1].Value.ToString();
-            txtApellidos.Text = filaActual.Cells[2].Value.ToString();
-            txtTelefono.Text = filaActual.Cells[4].Value.ToString();
-            txtCodigoUbigeo.Text = filaActual.Cells[5].Value.ToString();
-            txtDireccion.Text = filaActual.Cells[6].Value.ToString();
-            cbxEstadoCliNat.Checked = Convert.ToBoolean(filaActual.Cells[7].Value);
+            try
+            {
+                DataGridViewRow filaActual = dgvClienteNatural.Rows[e.RowIndex];
+                txtIDCliente.Text = filaActual.Cells[3].Value.ToString();
+                txtDNI.Text = filaActual.Cells[0].Value.ToString();
+                txtNombres.Text = filaActual.Cells[1].Value.ToString();
+                txtApellidos.Text = filaActual.Cells[2].Value.ToString();
+                txtTelefono.Text = filaActual.Cells[4].Value.ToString();
+                txtCodigoUbigeo.Text = filaActual.Cells[5].Value.ToString();
+                txtDireccion.Text = filaActual.Cells[6].Value.ToString();
+                cbxEstadoCliNat.Checked = Convert.ToBoolean(filaActual.Cells[7].Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Selecciona un item de la tabla");
+            }        
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

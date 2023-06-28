@@ -113,17 +113,25 @@ namespace ProyectoGameCenter
 
         private void dgvCronogramaPago_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow filaActual = dgvCronogramaPago.Rows[e.RowIndex];
-            txtIDCronogramaPago.Text = filaActual.Cells[0].Value.ToString();
-            dtimeFechaVenta.Text = filaActual.Cells[1].Value.ToString();
-            txtIDOrdenVenta.Text = filaActual.Cells[2].Value.ToString();
-            txtIDCliente.Text = filaActual.Cells[3].Value.ToString();          
-            txtTotal.Text = filaActual.Cells[4].Value.ToString();
-            txtNumeroCuotas.Text = filaActual.Cells[5].Value.ToString();
-            cboMetodoPago.SelectedValue = Convert.ToInt32(filaActual.Cells[6].Value);
-            dtimePlazoPago.Text = filaActual.Cells[7].Value.ToString();
-            cboEstadoPago.SelectedValue = Convert.ToInt32(filaActual.Cells[8].Value);
-            txtObservaciones.Text = filaActual.Cells[9].Value.ToString();
+            try
+            {
+                DataGridViewRow filaActual = dgvCronogramaPago.Rows[e.RowIndex];
+                txtIDCronogramaPago.Text = filaActual.Cells[0].Value.ToString();
+                dtimeFechaVenta.Text = filaActual.Cells[1].Value.ToString();
+                txtIDOrdenVenta.Text = filaActual.Cells[2].Value.ToString();
+                txtIDCliente.Text = filaActual.Cells[3].Value.ToString();
+                txtTotal.Text = filaActual.Cells[4].Value.ToString();
+                txtNumeroCuotas.Text = filaActual.Cells[5].Value.ToString();
+                cboMetodoPago.SelectedValue = Convert.ToInt32(filaActual.Cells[6].Value);
+                dtimePlazoPago.Text = filaActual.Cells[7].Value.ToString();
+                cboEstadoPago.SelectedValue = Convert.ToInt32(filaActual.Cells[8].Value);
+                txtObservaciones.Text = filaActual.Cells[9].Value.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Selecciona un item de la tabla");
+            }
+            
         }
     }
 }

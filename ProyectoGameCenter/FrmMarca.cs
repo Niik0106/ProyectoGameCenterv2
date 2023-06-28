@@ -101,10 +101,17 @@ namespace ProyectoGameCenter
 
         private void dgvMarca_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow filaActual = dgvMarca.Rows[e.RowIndex];
-            txtIDMarca.Text = filaActual.Cells[0].Value.ToString();
-            txtDescripcionMarca.Text = filaActual.Cells[1].Value.ToString();
-            cbxEstadoMarca.Checked = Convert.ToBoolean(filaActual.Cells[2].Value);
+            try
+            {
+                DataGridViewRow filaActual = dgvMarca.Rows[e.RowIndex];
+                txtIDMarca.Text = filaActual.Cells[0].Value.ToString();
+                txtDescripcionMarca.Text = filaActual.Cells[1].Value.ToString();
+                cbxEstadoMarca.Checked = Convert.ToBoolean(filaActual.Cells[2].Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Selecciona un item de la tabla");
+            }
         }
 
         private void btnDeshabilitarMarca_Click(object sender, EventArgs e)

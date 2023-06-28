@@ -118,10 +118,17 @@ namespace ProyectoGameCenter
 
         private void dgvMetodoPago_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow filaActual = dgvMetodoPago.Rows[e.RowIndex];
-            txtIDMetodoPago.Text = filaActual.Cells[0].Value.ToString();
-            txtDescripcionMetodoPago.Text = filaActual.Cells[1].Value.ToString();
-            cbxEstadoMetdPago.Checked = Convert.ToBoolean(filaActual.Cells[2].Value);
+            try
+            {
+                DataGridViewRow filaActual = dgvMetodoPago.Rows[e.RowIndex];
+                txtIDMetodoPago.Text = filaActual.Cells[0].Value.ToString();
+                txtDescripcionMetodoPago.Text = filaActual.Cells[1].Value.ToString();
+                cbxEstadoMetdPago.Checked = Convert.ToBoolean(filaActual.Cells[2].Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Selecciona un item de la tabla");
+            }   
         }
     }
 }

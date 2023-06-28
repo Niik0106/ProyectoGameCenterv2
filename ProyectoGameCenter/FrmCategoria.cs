@@ -129,7 +129,7 @@ namespace ProyectoGameCenter
             }
             catch (Exception ex)
             {
-                MessageBox.Show("No toques", ex.Message);
+                MessageBox.Show("Selecciona un item de la tabla");
             }
 
         }

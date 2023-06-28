@@ -143,15 +143,22 @@ namespace ProyectoGameCenter
 
         private void dgvProveedores_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow filaActual = dgvProveedores.Rows[e.RowIndex];
-            txtIDProveedor.Text = filaActual.Cells[0].Value.ToString();
-            txtRuc.Text = filaActual.Cells[1].Value.ToString();
-            txtRazonSocial.Text = filaActual.Cells[2].Value.ToString();
-            txtTelefono.Text = filaActual.Cells[3].Value.ToString();
-            txtCodigoUbigeo.Text = filaActual.Cells[4].Value.ToString();
-            txtDireccion.Text = filaActual.Cells[5].Value.ToString();
-            txtNumeroCuenta.Text = filaActual.Cells[6].Value.ToString();
-            cbxEstadoProv.Checked = Convert.ToBoolean(filaActual.Cells[7].Value);
+            try
+            {
+                DataGridViewRow filaActual = dgvProveedores.Rows[e.RowIndex];
+                txtIDProveedor.Text = filaActual.Cells[0].Value.ToString();
+                txtRuc.Text = filaActual.Cells[1].Value.ToString();
+                txtRazonSocial.Text = filaActual.Cells[2].Value.ToString();
+                txtTelefono.Text = filaActual.Cells[3].Value.ToString();
+                txtCodigoUbigeo.Text = filaActual.Cells[4].Value.ToString();
+                txtDireccion.Text = filaActual.Cells[5].Value.ToString();
+                txtNumeroCuenta.Text = filaActual.Cells[6].Value.ToString();
+                cbxEstadoProv.Checked = Convert.ToBoolean(filaActual.Cells[7].Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Selecciona un item de la tabla");
+            }     
         }
 
         private void btnInhabilitarProv_Click(object sender, EventArgs e)

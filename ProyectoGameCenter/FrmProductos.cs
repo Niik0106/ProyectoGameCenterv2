@@ -177,14 +177,22 @@ namespace ProyectoGameCenter
 
         private void dgvProductos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow filaActual = dgvProductos.Rows[e.RowIndex];
-            txtIDProducto.Text = filaActual.Cells[0].Value.ToString();
-            txtDescripcionProducto.Text = filaActual.Cells[1].Value.ToString();
-            cboCategoria.Text = filaActual.Cells[2].Value.ToString();
-            cboMarca.Text = filaActual.Cells[3].Value.ToString();
-            txtPrecio.Text = filaActual.Cells[4].Value.ToString();
-            txtStock.Text = filaActual.Cells[5].Value.ToString();
-            cbxEstadoProd.Checked = Convert.ToBoolean(filaActual.Cells[6].Value);
+            try
+            {
+                DataGridViewRow filaActual = dgvProductos.Rows[e.RowIndex];
+                txtIDProducto.Text = filaActual.Cells[0].Value.ToString();
+                txtDescripcionProducto.Text = filaActual.Cells[1].Value.ToString();
+                cboCategoria.Text = filaActual.Cells[2].Value.ToString();
+                cboMarca.Text = filaActual.Cells[3].Value.ToString();
+                txtPrecio.Text = filaActual.Cells[4].Value.ToString();
+                txtStock.Text = filaActual.Cells[5].Value.ToString();
+                cbxEstadoProd.Checked = Convert.ToBoolean(filaActual.Cells[6].Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Selecciona un item de la tabla");
+            }
+            
         }
 
         private void txtBuscarProducto_KeyPress(object sender, KeyPressEventArgs e)

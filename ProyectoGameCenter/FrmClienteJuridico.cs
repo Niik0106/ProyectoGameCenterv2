@@ -108,9 +108,6 @@ namespace ProyectoGameCenter
                 cj.ESTADO_CLIENTE = cbxEstadoCliJur.Checked;
                 // Llamar a la función InsertarCliente
                 logClienteJuridico.Instancia.InsertaClienteJuridico(cj);
-
-
-
             }
             catch (Exception ex)
             {
@@ -156,14 +153,21 @@ namespace ProyectoGameCenter
 
         private void dgvClienteJuridico_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow filaActual = dgvClienteJuridico.Rows[e.RowIndex];
-            txtIDCliente.Text = filaActual.Cells[2].Value.ToString();
-            txtRUC.Text = filaActual.Cells[0].Value.ToString();
-            txtRazonSocial.Text = filaActual.Cells[1].Value.ToString();
-            txtTelefono.Text = filaActual.Cells[3].Value.ToString();
-            txtCodigoUbigeo.Text = filaActual.Cells[4].Value.ToString();
-            txtDireccion.Text = filaActual.Cells[5].Value.ToString();
-            cbxEstadoCliJur.Checked = Convert.ToBoolean(filaActual.Cells[6].Value);
+            try
+            {
+                DataGridViewRow filaActual = dgvClienteJuridico.Rows[e.RowIndex];
+                txtIDCliente.Text = filaActual.Cells[2].Value.ToString();
+                txtRUC.Text = filaActual.Cells[0].Value.ToString();
+                txtRazonSocial.Text = filaActual.Cells[1].Value.ToString();
+                txtTelefono.Text = filaActual.Cells[3].Value.ToString();
+                txtCodigoUbigeo.Text = filaActual.Cells[4].Value.ToString();
+                txtDireccion.Text = filaActual.Cells[5].Value.ToString();
+                cbxEstadoCliJur.Checked = Convert.ToBoolean(filaActual.Cells[6].Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Selecciona un item de la tabla");
+            }    
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
