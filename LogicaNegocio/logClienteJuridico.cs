@@ -17,6 +17,11 @@ namespace LogicaNegocio
             get { return logClienteJuridico._instancia; }
         }
 
+        public List<entClienteJuridico> BuscarDniClienteJuridico(entClienteJuridico Cli)
+        {
+            return datClienteJuridico.Instancia.BuscarDniClienteJuridico(Cli);
+        }
+
         ///listado
         public List<entClienteJuridico> ListaClienteJuridico()
         {

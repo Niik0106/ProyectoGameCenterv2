@@ -19,7 +19,8 @@ namespace ProyectoGameCenter
             InitializeComponent();
             LlenarDatosEstadoOrdenVenta();
             ListadoOrdenesCompra();
-            ListadoDetalleOrdenesCompra();
+            gboOrdenCompra.Enabled = false;
+            gbDetalleOrdenCompra.Enabled = false;
         }
 
         public void LlenarDatosEstadoOrdenVenta()
@@ -35,6 +36,15 @@ namespace ProyectoGameCenter
         private void ListadoDetalleOrdenesCompra()
         {
             dgvDetalleOrdenCompra.DataSource = logDetalleOrdenCompra.Instancia.ListarDetalleOrdenCompra();
+        }
+
+        public void LimpiarVariables()
+        {
+            txtIDOrdenCompra.Text = "";
+            dtpFOrdenCompra.ResetText();
+            txtRazonSocial.Text = "";
+            txtIDProveedor.Text = "";
+            cbxEstadoCompra.SelectedIndex = default;
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -54,6 +64,7 @@ namespace ProyectoGameCenter
                     ordCompra.idEstadoOrdenCompra = Convert.ToInt32(cbxEstadoCompra.SelectedValue);
                     ordCompra.fechaAtendida = dtpFAtendida.Value;
                     logOrdenCompra.Instancia.InsertarOrdenCompra(ordCompra);
+                    gbDetalleOrdenCompra.Enabled = true;
 
                     MessageBox.Show("Orden de Compra registrada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -63,6 +74,8 @@ namespace ProyectoGameCenter
 
                 MessageBox.Show("Error.." + ex);
             }
+            LimpiarVariables();
+            gboOrdenCompra.Enabled = false;
             ListadoOrdenesCompra();
         }
 
@@ -145,7 +158,86 @@ namespace ProyectoGameCenter
 
         private void btnEliminarProd_Click(object sender, EventArgs e)
         {
+            LimpiarVariables();
+            gboOrdenCompra.Enabled = false;
+            gbDetalleOrdenCompra.Enabled = false;
+        }
 
+        private void btnBuscarOC_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                entOrdenCompra OrdC = new entOrdenCompra();
+                OrdC.fechaOrdenCompra = dtpBuscarFecha.Value;
+                dgvOrdenCompra.DataSource = logOrdenCompra.Instancia.BuscaFechaCompra(OrdC);
+                if (dgvOrdenCompra.Rows.Count == 0)
+                {
+                    MessageBox.Show("El existen ventas de esta fecha", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ListadoOrdenesCompra();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error..." + ex);
+            }
+        }
+
+        private void btnAnular_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvOrdenCompra.SelectedRows.Count > 0)
+                {
+                    entOrdenCompra c = new entOrdenCompra();
+                    c.idOrdenCompra = int.Parse(txtIDOrdenCompra.Text.Trim());
+                    logOrdenCompra.Instancia.AnulaOrdenCompra(c);
+                }
+                else
+                {
+                    MessageBox.Show("Escoge un elemento primero");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            LimpiarVariables();
+            txtNumOrdenCompra.Text = "";
+            ListadoOrdenesCompra();
+        }
+
+        private void dgvOrdenCompra_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataGridViewRow filaActual = dgvOrdenCompra.Rows[e.RowIndex];
+                int numOrdenCompra = Convert.ToInt32(dgvOrdenCompra.Rows[e.RowIndex].Cells[1].Value);
+                txtIDOrdenCompra.Text = filaActual.Cells[0].Value.ToString();
+                txtNumOrdenCompra.Text = filaActual.Cells[1].Value.ToString();
+                dtpFOrdenCompra.Text = filaActual.Cells[2].Value.ToString();
+                txtIDProveedor.Text = filaActual.Cells[3].Value.ToString();
+                cbxEstadoCompra.SelectedValue = Convert.ToInt32(filaActual.Cells[4].Value);
+                dtpFAtendida.Text = filaActual.Cells[5].Value.ToString();
+                entDetalleOrdenCompra DOC = new entDetalleOrdenCompra();
+                DOC.numeroOrdenCompra = numOrdenCompra;
+                dgvDetalleOrdenCompra.DataSource = logDetalleOrdenCompra.Instancia.OrdenaDetalleCompra(DOC);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Selecciona un item de la tabla");
+            }
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            gboOrdenCompra.Enabled = true;
+            LimpiarVariables();
+            dgvDetalleOrdenCompra.DataSource = null;
+        }
+
+        private void btnSalir_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

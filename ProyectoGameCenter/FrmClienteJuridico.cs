@@ -108,6 +108,11 @@ namespace ProyectoGameCenter
                 {
                     entClienteJuridico cj = new entClienteJuridico();
                     cj.RUC_CLIENTE = txtRUC.Text.Trim();
+                    if(cj.RUC_CLIENTE.Length != 11)
+                    {
+                        MessageBox.Show("El RUC debe tener 11 dígitos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     cj.RAZON_SOCIAL = txtRazonSocial.Text.Trim();
                     cj.TEL_CLIENTE = txtTelefono.Text.Trim();
                     cj.COD_UBIGEO = int.Parse(txtCodigoUbigeo.Text.Trim());
@@ -181,6 +186,32 @@ namespace ProyectoGameCenter
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void btnBuscarCliJur_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtRucBuscar.Text.Equals(""))
+                {
+                    MessageBox.Show("Debe ingresar un DNI", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    entClienteJuridico cliente = new entClienteJuridico();
+                    cliente.RUC_CLIENTE = txtRucBuscar.Text;
+                    dgvClienteJuridico.DataSource = logClienteJuridico.Instancia.BuscarDniClienteJuridico(cliente);
+                    if (dgvClienteJuridico.Rows.Count == 0)
+                    {
+                        MessageBox.Show("El cliente no se encuentra registrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ListarClienteJuridico();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error..." + ex);
+            }
         }
     }
 }

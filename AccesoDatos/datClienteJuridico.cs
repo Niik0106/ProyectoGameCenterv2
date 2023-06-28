@@ -26,6 +26,43 @@ namespace AccesoDatos
         #endregion singleton
 
         #region metodos
+
+        public List<entClienteJuridico> BuscarDniClienteJuridico(entClienteJuridico filtroCliente)
+        {
+            SqlCommand cmd = null;
+            List<entClienteJuridico> lista = new List<entClienteJuridico>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_BUSCAR_RUC_CLIENTE", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@RUC", filtroCliente.RUC_CLIENTE);
+                cn.Open();
+                SqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    entClienteJuridico cliente = new entClienteJuridico();
+                    cliente.ID_CLIENTE = (int)reader["ID_CLIENTE"];
+                    cliente.RUC_CLIENTE = (string)reader["RUC_CLIENTE"];
+                    cliente.RAZON_SOCIAL = (string)reader["RAZON_SOCIAL"];
+                    cliente.TEL_CLIENTE = (string)reader["TEL_CLIENTE"];
+                    cliente.COD_UBIGEO = (int)reader["COD_UBIGEO"];
+                    cliente.DIR_CLIENTE = (string)reader["DIR_CLIENTE"];
+                    cliente.ESTADO_CLIENTE = (Boolean)reader["ESTADO_CLIENTE"];
+                    lista.Add(cliente);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return lista;
+        }
+
         ////////////////////listado de Clientes
         public List<entClienteJuridico> ListarClienteJuridico()
         {
