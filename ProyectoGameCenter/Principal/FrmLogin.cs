@@ -38,7 +38,6 @@ namespace ProyectoGameCenter.Principal
             else
             {
                 MessageBox.Show("USUARIO Y CONTRASEÑA INCORRECTOS");
-
             }
         }
     }
