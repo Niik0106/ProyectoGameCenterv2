@@ -29,9 +29,17 @@ namespace ProyectoGameCenter.Principal
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            FrmMenu menu = new FrmMenu();
-            menu.Show();
-            this.Hide();
+            if (txtUsuario.Text == "admin" && txtContrasenia.Text == "123")
+            {
+                FrmMenu menu = new FrmMenu();
+                menu.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("USUARIO Y CONTRASEÑA INCORRECTOS");
+
+            }
         }
     }
 }
