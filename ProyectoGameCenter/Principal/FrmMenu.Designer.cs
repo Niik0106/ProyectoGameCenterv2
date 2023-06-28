@@ -31,10 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
             this.panelMenuLateral = new System.Windows.Forms.Panel();
-            this.panelConsultasSubMenu = new System.Windows.Forms.Panel();
-            this.btnConsultaOrdenCompra = new System.Windows.Forms.Button();
-            this.btnConsultaOrdenVenta = new System.Windows.Forms.Button();
-            this.btnConsultas = new System.Windows.Forms.Button();
             this.btnNotaSalida = new System.Windows.Forms.Button();
             this.btnMetodoPago = new System.Windows.Forms.Button();
             this.btnProveedores = new System.Windows.Forms.Button();
@@ -70,7 +66,6 @@
             this.HoraFecha = new System.Windows.Forms.Timer(this.components);
             this.panelContenedor = new System.Windows.Forms.Panel();
             this.panelMenuLateral.SuspendLayout();
-            this.panelConsultasSubMenu.SuspendLayout();
             this.panelVentaSubMenu.SuspendLayout();
             this.panelProductoSubMenu.SuspendLayout();
             this.panelClienteSubMenu.SuspendLayout();
@@ -85,8 +80,6 @@
             // 
             this.panelMenuLateral.AutoScroll = true;
             this.panelMenuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.panelMenuLateral.Controls.Add(this.panelConsultasSubMenu);
-            this.panelMenuLateral.Controls.Add(this.btnConsultas);
             this.panelMenuLateral.Controls.Add(this.btnNotaSalida);
             this.panelMenuLateral.Controls.Add(this.btnMetodoPago);
             this.panelMenuLateral.Controls.Add(this.btnProveedores);
@@ -104,81 +97,6 @@
             this.panelMenuLateral.Name = "panelMenuLateral";
             this.panelMenuLateral.Size = new System.Drawing.Size(250, 750);
             this.panelMenuLateral.TabIndex = 0;
-            // 
-            // panelConsultasSubMenu
-            // 
-            this.panelConsultasSubMenu.BackColor = System.Drawing.Color.Indigo;
-            this.panelConsultasSubMenu.Controls.Add(this.btnConsultaOrdenCompra);
-            this.panelConsultasSubMenu.Controls.Add(this.btnConsultaOrdenVenta);
-            this.panelConsultasSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelConsultasSubMenu.Location = new System.Drawing.Point(0, 850);
-            this.panelConsultasSubMenu.Name = "panelConsultasSubMenu";
-            this.panelConsultasSubMenu.Size = new System.Drawing.Size(233, 100);
-            this.panelConsultasSubMenu.TabIndex = 20;
-            // 
-            // btnConsultaOrdenCompra
-            // 
-            this.btnConsultaOrdenCompra.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsultaOrdenCompra.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConsultaOrdenCompra.FlatAppearance.BorderSize = 0;
-            this.btnConsultaOrdenCompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnConsultaOrdenCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultaOrdenCompra.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultaOrdenCompra.ForeColor = System.Drawing.Color.White;
-            this.btnConsultaOrdenCompra.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultaOrdenCompra.Image")));
-            this.btnConsultaOrdenCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultaOrdenCompra.Location = new System.Drawing.Point(0, 50);
-            this.btnConsultaOrdenCompra.Name = "btnConsultaOrdenCompra";
-            this.btnConsultaOrdenCompra.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnConsultaOrdenCompra.Size = new System.Drawing.Size(233, 50);
-            this.btnConsultaOrdenCompra.TabIndex = 4;
-            this.btnConsultaOrdenCompra.Text = "     ORDEN COMPRA";
-            this.btnConsultaOrdenCompra.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultaOrdenCompra.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnConsultaOrdenCompra.UseVisualStyleBackColor = true;
-            // 
-            // btnConsultaOrdenVenta
-            // 
-            this.btnConsultaOrdenVenta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsultaOrdenVenta.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConsultaOrdenVenta.FlatAppearance.BorderSize = 0;
-            this.btnConsultaOrdenVenta.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnConsultaOrdenVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultaOrdenVenta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultaOrdenVenta.ForeColor = System.Drawing.Color.White;
-            this.btnConsultaOrdenVenta.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultaOrdenVenta.Image")));
-            this.btnConsultaOrdenVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultaOrdenVenta.Location = new System.Drawing.Point(0, 0);
-            this.btnConsultaOrdenVenta.Name = "btnConsultaOrdenVenta";
-            this.btnConsultaOrdenVenta.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnConsultaOrdenVenta.Size = new System.Drawing.Size(233, 50);
-            this.btnConsultaOrdenVenta.TabIndex = 3;
-            this.btnConsultaOrdenVenta.Text = "     ORDEN VENTA";
-            this.btnConsultaOrdenVenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultaOrdenVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnConsultaOrdenVenta.UseVisualStyleBackColor = true;
-            // 
-            // btnConsultas
-            // 
-            this.btnConsultas.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnConsultas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnConsultas.FlatAppearance.BorderSize = 0;
-            this.btnConsultas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
-            this.btnConsultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsultas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsultas.ForeColor = System.Drawing.Color.White;
-            this.btnConsultas.Image = ((System.Drawing.Image)(resources.GetObject("btnConsultas.Image")));
-            this.btnConsultas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultas.Location = new System.Drawing.Point(0, 800);
-            this.btnConsultas.Name = "btnConsultas";
-            this.btnConsultas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnConsultas.Size = new System.Drawing.Size(233, 50);
-            this.btnConsultas.TabIndex = 19;
-            this.btnConsultas.Text = "     CONSULTAS";
-            this.btnConsultas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnConsultas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnConsultas.UseVisualStyleBackColor = true;
-            this.btnConsultas.Click += new System.EventHandler(this.btnConsultas_Click);
             // 
             // btnNotaSalida
             // 
@@ -511,7 +429,7 @@
             this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
             this.btnCerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarSesion.Image")));
             this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 950);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 800);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.btnCerrarSesion.Size = new System.Drawing.Size(233, 50);
@@ -746,12 +664,11 @@
             this.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.MinimumSize = new System.Drawing.Size(1300, 750);
+            this.MinimumSize = new System.Drawing.Size(1300, 726);
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game Center";
             this.panelMenuLateral.ResumeLayout(false);
-            this.panelConsultasSubMenu.ResumeLayout(false);
             this.panelVentaSubMenu.ResumeLayout(false);
             this.panelProductoSubMenu.ResumeLayout(false);
             this.panelClienteSubMenu.ResumeLayout(false);
@@ -786,10 +703,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Panel panelConsultasSubMenu;
-        private System.Windows.Forms.Button btnConsultaOrdenCompra;
-        private System.Windows.Forms.Button btnConsultaOrdenVenta;
-        private System.Windows.Forms.Button btnConsultas;
         private System.Windows.Forms.Button btnNotaSalida;
         private System.Windows.Forms.Button btnMetodoPago;
         private System.Windows.Forms.Button btnProveedores;
