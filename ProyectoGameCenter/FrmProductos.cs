@@ -59,14 +59,22 @@ namespace ProyectoGameCenter
         {
             try
             {
-                entProducto c = new entProducto();
-                c.desProducto = txtDescripcionProducto.Text.Trim();
-                c.idCategoria = Convert.ToInt32(cboCategoria.SelectedValue);
-                c.idMarca = Convert.ToInt32(cboMarca.SelectedValue);
-                c.precioProd = decimal.Parse(txtPrecio.Text.Trim());
-                c.stockProd = int.Parse(txtStock.Text.Trim());
-                c.estProducto = cbxEstadoProd.Checked;
-                logProducto.Instancia.InsertaProducto(c);
+                if (txtDescripcionProducto.Text.Equals("") | txtPrecio.Text.Equals("") |
+                    txtStock.Text.Equals(""))
+                {
+                    MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    entProducto c = new entProducto();
+                    c.desProducto = txtDescripcionProducto.Text.Trim();
+                    c.idCategoria = Convert.ToInt32(cboCategoria.SelectedValue);
+                    c.idMarca = Convert.ToInt32(cboMarca.SelectedValue);
+                    c.precioProd = decimal.Parse(txtPrecio.Text.Trim());
+                    c.stockProd = int.Parse(txtStock.Text.Trim());
+                    c.estProducto = cbxEstadoProd.Checked;
+                    logProducto.Instancia.InsertaProducto(c);
+                }        
             }
             catch (Exception ex)
             {

@@ -101,7 +101,8 @@ namespace ProyectoGameCenter
         {
             try
             {
-                if (txtDNI.Text.Equals("") || txtNombres.Text.Equals("") || txtApellidos.Text.Equals("") || txtTelefono.Text.Equals("") || txtCodigoUbigeo.Text.Equals("") || txtDireccion.Text.Equals(""))
+                if (txtDNI.Text.Equals("") | txtNombres.Text.Equals("") | txtApellidos.Text.Equals("") | 
+                    txtTelefono.Text.Equals("") | txtCodigoUbigeo.Text.Equals("") | txtDireccion.Text.Equals(""))
                 {
                     MessageBox.Show("Debe llenar todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }

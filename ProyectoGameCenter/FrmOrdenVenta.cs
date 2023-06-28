@@ -118,19 +118,25 @@ namespace ProyectoGameCenter
         {
             try
             {
-                entOrdenVenta ordVenta = new entOrdenVenta();
-                ordVenta.numOrdenVenta = Convert.ToInt32(txtNOrdenVenta.Text.Trim());
-                ordVenta.fechaOrden = dateTimePicker1.Value;
-                ordVenta.idCliente = Convert.ToInt32(txtIDCliente.Text.Trim());
-                ordVenta.estOrdenVenta = Convert.ToInt32(cboEstado.SelectedValue);
-                ordVenta.idUsuario = Convert.ToInt32(txtIDEmpleado.Text.Trim());
-                logOrdenVenta.Instancia.InsertaOrdenVenta(ordVenta);
-                gbDetalleOrdenVenta.Enabled = true;
-                MessageBox.Show("Orden de Venta registrada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (txtNOrdenVenta.Text.Equals("") | txtIDCliente.Text.Equals("") | txtIDEmpleado.Text.Equals(""))
+                {
+                    MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    entOrdenVenta ordVenta = new entOrdenVenta();
+                    ordVenta.numOrdenVenta = Convert.ToInt32(txtNOrdenVenta.Text.Trim());
+                    ordVenta.fechaOrden = dateTimePicker1.Value;
+                    ordVenta.idCliente = Convert.ToInt32(txtIDCliente.Text.Trim());
+                    ordVenta.estOrdenVenta = Convert.ToInt32(cboEstado.SelectedValue);
+                    ordVenta.idUsuario = Convert.ToInt32(txtIDEmpleado.Text.Trim());
+                    logOrdenVenta.Instancia.InsertaOrdenVenta(ordVenta);
+                    gbDetalleOrdenVenta.Enabled = true;
+                    MessageBox.Show("Orden de Venta registrada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } 
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Error.." + ex);
             }
             LimpiarVariables();

@@ -63,10 +63,17 @@ namespace ProyectoGameCenter
         {
             try
             {
-                entMetodoPago metodo = new entMetodoPago();
-                metodo.DES_METODO_PAGO = txtDescripcionMetodoPago.Text.Trim();
-                metodo.ESTADO_METODO_PAGO = cbxEstadoMetdPago.Checked;
-                logMetodoPago.Instancia.InsertaMetodoPago(metodo);
+                if (txtDescripcionMetodoPago.Text.Equals(""))
+                {
+                    MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    entMetodoPago metodo = new entMetodoPago();
+                    metodo.DES_METODO_PAGO = txtDescripcionMetodoPago.Text.Trim();
+                    metodo.ESTADO_METODO_PAGO = cbxEstadoMetdPago.Checked;
+                    logMetodoPago.Instancia.InsertaMetodoPago(metodo);
+                }
             }
             catch (Exception ex)
             {

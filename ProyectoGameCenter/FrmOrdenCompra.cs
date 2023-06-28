@@ -41,15 +41,22 @@ namespace ProyectoGameCenter
         {
             try
             {
-                entOrdenCompra ordCompra = new entOrdenCompra();
-                ordCompra.numeroOrdenCompra = Convert.ToInt32(txtNumOrdenCompra.Text.Trim());
-                ordCompra.fechaOrdenCompra = dtpFOrdenCompra.Value;
-                ordCompra.idProveedor = Convert.ToInt32(txtIDProveedor.Text.Trim());
-                ordCompra.idEstadoOrdenCompra = Convert.ToInt32(cbxEstadoCompra.SelectedValue);
-                ordCompra.fechaAtendida = dtpFAtendida.Value;
-                logOrdenCompra.Instancia.InsertarOrdenCompra(ordCompra);
+                if (txtNumOrdenCompra.Text.Equals("") || txtIDProveedor.Text.Equals(""))
+                {
+                    MessageBox.Show("Debe ingresar la descripcion de un Producto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    entOrdenCompra ordCompra = new entOrdenCompra();
+                    ordCompra.numeroOrdenCompra = Convert.ToInt32(txtNumOrdenCompra.Text.Trim());
+                    ordCompra.fechaOrdenCompra = dtpFOrdenCompra.Value;
+                    ordCompra.idProveedor = Convert.ToInt32(txtIDProveedor.Text.Trim());
+                    ordCompra.idEstadoOrdenCompra = Convert.ToInt32(cbxEstadoCompra.SelectedValue);
+                    ordCompra.fechaAtendida = dtpFAtendida.Value;
+                    logOrdenCompra.Instancia.InsertarOrdenCompra(ordCompra);
 
-                MessageBox.Show("Orden de Compra registrada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Orden de Compra registrada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception ex)
             {

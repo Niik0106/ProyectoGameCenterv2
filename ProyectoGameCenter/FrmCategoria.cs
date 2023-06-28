@@ -79,10 +79,17 @@ namespace ProyectoGameCenter
         {
             try
             {
-                entCategoria c = new entCategoria();
-                c.desCategoria = txtDescripcionCategoria.Text.Trim();
-                c.estCategoria = cbxEstadoCate.Checked;
-                logCategoria.Instancia.InsertaCategoria(c);
+                if (txtDescripcionCategoria.Text.Equals(""))
+                {
+                    MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    entCategoria c = new entCategoria();
+                    c.desCategoria = txtDescripcionCategoria.Text.Trim();
+                    c.estCategoria = cbxEstadoCate.Checked;
+                    logCategoria.Instancia.InsertaCategoria(c);
+                }
             }
             catch (Exception ex)
             {

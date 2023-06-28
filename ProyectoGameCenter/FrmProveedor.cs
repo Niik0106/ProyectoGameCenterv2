@@ -74,27 +74,33 @@ namespace ProyectoGameCenter
         {
             try
             {
-                entProveedor pv = new entProveedor();
-                pv.RUC_PROV = txtRuc.Text.Trim();
-                pv.RAZON_SOCIAL_PROV = txtRazonSocial.Text.Trim();
-                pv.TEL_PROVEEDOR = txtTelefono.Text.Trim();
-                pv.COD_UBIGEO = int.Parse(txtCodigoUbigeo.Text.Trim());
-                pv.DIR_PROVEEDOR = txtDireccion.Text.Trim();
-                pv.NUM_CUENTA = txtNumeroCuenta.Text.Trim();
-                pv.ESTADO_PROVEEDOR = cbxEstadoProv.Checked;
-                // Llamar a la función InsertarCliente
-                Boolean insertado = logProveedor.Instancia.InsertaProveedor(pv);
-
-                if (insertado)
+                if (txtRuc.Text.Equals("") | txtRazonSocial.Text.Equals("") | txtTelefono.Text.Equals("") |
+                    txtDireccion.Text.Equals("") | txtCodigoUbigeo.Text.Equals("") | txtNumeroCuenta.Text.Equals(""))
                 {
-                    MessageBox.Show("El Proveedor se agregó exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("Ya existe un registro con el mismo RUC.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    entProveedor pv = new entProveedor();
+                    pv.RUC_PROV = txtRuc.Text.Trim();
+                    pv.RAZON_SOCIAL_PROV = txtRazonSocial.Text.Trim();
+                    pv.TEL_PROVEEDOR = txtTelefono.Text.Trim();
+                    pv.COD_UBIGEO = int.Parse(txtCodigoUbigeo.Text.Trim());
+                    pv.DIR_PROVEEDOR = txtDireccion.Text.Trim();
+                    pv.NUM_CUENTA = txtNumeroCuenta.Text.Trim();
+                    pv.ESTADO_PROVEEDOR = cbxEstadoProv.Checked;
+                    // Llamar a la función InsertarCliente
+                    Boolean insertado = logProveedor.Instancia.InsertaProveedor(pv);
+
+                    if (insertado)
+                    {
+                        MessageBox.Show("El Proveedor se agregó exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ya existe un registro con el mismo RUC.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-
-
             }
             catch (Exception ex)
             {

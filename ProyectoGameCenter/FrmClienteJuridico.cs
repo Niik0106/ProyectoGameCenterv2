@@ -99,15 +99,23 @@ namespace ProyectoGameCenter
         {
             try
             {
-                entClienteJuridico cj = new entClienteJuridico();
-                cj.RUC_CLIENTE = txtRUC.Text.Trim();
-                cj.RAZON_SOCIAL = txtRazonSocial.Text.Trim();
-                cj.TEL_CLIENTE = txtTelefono.Text.Trim();
-                cj.COD_UBIGEO = int.Parse(txtCodigoUbigeo.Text.Trim());
-                cj.DIR_CLIENTE = txtDireccion.Text.Trim();
-                cj.ESTADO_CLIENTE = cbxEstadoCliJur.Checked;
-                // Llamar a la función InsertarCliente
-                logClienteJuridico.Instancia.InsertaClienteJuridico(cj);
+                if (txtRUC.Text.Equals("") | txtRazonSocial.Text.Equals("") | txtTelefono.Text.Equals("") |
+                    txtCodigoUbigeo.Text.Equals("") | txtDireccion.Text.Equals(""))
+                {
+                    MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    entClienteJuridico cj = new entClienteJuridico();
+                    cj.RUC_CLIENTE = txtRUC.Text.Trim();
+                    cj.RAZON_SOCIAL = txtRazonSocial.Text.Trim();
+                    cj.TEL_CLIENTE = txtTelefono.Text.Trim();
+                    cj.COD_UBIGEO = int.Parse(txtCodigoUbigeo.Text.Trim());
+                    cj.DIR_CLIENTE = txtDireccion.Text.Trim();
+                    cj.ESTADO_CLIENTE = cbxEstadoCliJur.Checked;
+                    // Llamar a la función InsertarCliente
+                    logClienteJuridico.Instancia.InsertaClienteJuridico(cj);
+                }
             }
             catch (Exception ex)
             {
