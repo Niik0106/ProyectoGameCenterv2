@@ -17,6 +17,7 @@ namespace LogicaNegocio
             get { return logOrdenVenta._instancia; }
         }
 
+
         public List<entOrdenVenta> ListarVentas()
         {
             return datOrdenVenta.Instancia.ListarVentas();
@@ -32,10 +33,16 @@ namespace LogicaNegocio
             datOrdenVenta.Instancia.AnularOrdenVenta(OrdV);
         }
 
+        //POR FECHA DE VENTA
         public List<entOrdenVenta> BuscaFechaVenta(entOrdenVenta fechaVenta)
         {
             return datOrdenVenta.Instancia.BuscarOrdenVenta(fechaVenta);
         }
-        
+
+        //POR NUMERO DE VENTA
+        public entOrdenVenta BuscarOrdenVentaIDCliente(int numVenta)
+        {
+            return datOrdenVenta.Instancia.BuscarOrdenVentaIDCliente(numVenta);
+        }
     }
 }

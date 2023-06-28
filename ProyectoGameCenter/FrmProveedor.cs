@@ -157,7 +157,7 @@ namespace ProyectoGameCenter
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Selecciona un item de la tabla");
+                MessageBox.Show("Selecciona un item de la tabla", ex.Message);
             }     
         }
 

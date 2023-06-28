@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    internal class entNotaSalida
+    public class entNotaSalida
     {
+        public int idNotaSalida { get; set; }
+        public int numNotaSalida { get; set; }
+        public DateTime fechaEmision { get; set; }
+        public int numOrdenVenta { get; set; }
+        public Boolean estado { get; set; }
+
     }
 }
