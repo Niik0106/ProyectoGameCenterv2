@@ -101,7 +101,8 @@ namespace ProyectoGameCenter
         {
             try
             {
-                if (txtDNI.Text.Equals("") || txtNombres.Text.Equals("") || txtApellidos.Text.Equals("") || txtTelefono.Text.Equals("") || txtCodigoUbigeo.Text.Equals("") || txtDireccion.Text.Equals(""))
+                if (txtDNI.Text.Equals("") | txtNombres.Text.Equals("") | txtApellidos.Text.Equals("") | 
+                    txtTelefono.Text.Equals("") | txtCodigoUbigeo.Text.Equals("") | txtDireccion.Text.Equals(""))
                 {
                     MessageBox.Show("Debe llenar todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -109,6 +110,11 @@ namespace ProyectoGameCenter
                 {
                     entClienteNatural cliente = new entClienteNatural();
                     cliente.DNI = txtDNI.Text;
+                    if(cliente.DNI.Length != 8)
+                    {
+                        MessageBox.Show("El DNI debe tener 8 dígitos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        return;
+                    }
                     cliente.NOMBRE_CLI = txtNombres.Text;
                     cliente.APELLIDO_CLI = txtApellidos.Text;
                     cliente.TEL_CLIENTE = txtTelefono.Text;

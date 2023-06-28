@@ -69,16 +69,23 @@ namespace ProyectoGameCenter
         {
             try
             {
-                entCronograma c = new entCronograma();
-                c.FECHA_VENTA = dtimeFechaVenta.Value;
-                c.NUM_ORDEN_VENTA = Convert.ToInt32(txtIDOrdenVenta.Text.Trim());
-                c.ID_CLIENTE = Convert.ToInt32(txtIDCliente.Text.Trim());
-                c.TOTAL = Convert.ToDecimal(txtTotal.Text.Trim());
-                c.NUM_CUOTAS = Convert.ToInt32(txtNumeroCuotas.Text.Trim());
-                c.ID_METODO_PAGO = Convert.ToInt32(cboMetodoPago.SelectedValue);
-                c.ID_ESTADO_PAGO = Convert.ToInt32(cboEstadoPago.SelectedValue);
-                c.OBSERVACIONES = txtObservaciones.Text.Trim();
-                logCronograma.Instancia.InsertaCronograma(c);
+                if (txtNumeroCuotas.Text.Equals(""))
+                {
+                    MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    entCronograma c = new entCronograma();
+                    c.FECHA_VENTA = dtimeFechaVenta.Value;
+                    c.NUM_ORDEN_VENTA = Convert.ToInt32(txtIDOrdenVenta.Text.Trim());
+                    c.ID_CLIENTE = Convert.ToInt32(txtIDCliente.Text.Trim());
+                    c.TOTAL = Convert.ToDecimal(txtTotal.Text.Trim());
+                    c.NUM_CUOTAS = Convert.ToInt32(txtNumeroCuotas.Text.Trim());
+                    c.ID_METODO_PAGO = Convert.ToInt32(cboMetodoPago.SelectedValue);
+                    c.ID_ESTADO_PAGO = Convert.ToInt32(cboEstadoPago.SelectedValue);
+                    c.OBSERVACIONES = txtObservaciones.Text.Trim();
+                    logCronograma.Instancia.InsertaCronograma(c);
+                }
             }
             catch (Exception ex)
             {

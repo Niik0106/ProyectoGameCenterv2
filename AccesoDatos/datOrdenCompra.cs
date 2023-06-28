@@ -73,5 +73,53 @@ namespace AccesoDatos
             return inserto;
         }
 
+        public Boolean AnularOrdenCompra(entOrdenCompra OrdC)
+        {
+            SqlCommand cmd = null;
+            Boolean delete = false;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_ANULAR_ORDEN_COMPRA", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@ID_ORDEN_COMPRA", OrdC.idOrdenCompra);
+                cn.Open();
+                int i = cmd.ExecuteNonQuery();
+                if (i > 0) { delete = true; }
+            }
+            catch (Exception e) { throw e; }
+            finally { cmd.Connection.Close(); }
+            return delete;
+        }
+
+        public List<entOrdenCompra> BuscarOrdenCompra(entOrdenCompra fechaCompra)
+        {
+            SqlCommand cmd = null;
+            List<entOrdenCompra> lista = new List<entOrdenCompra>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_BUSCAR_ORDENCOMPRA_FECHA", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@FechaOrden", fechaCompra.fechaOrdenCompra);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    entOrdenCompra OrdC = new entOrdenCompra();
+                    OrdC.idOrdenCompra = Convert.ToInt32(dr["ID_ORDEN_COMPRA"]);
+                    OrdC.numeroOrdenCompra = Convert.ToInt32(dr["NUM_ORDEN_COMPRA"]);
+                    OrdC.fechaOrdenCompra = Convert.ToDateTime(dr["FEC_ORDEN_COMPRA"]);
+                    OrdC.idProveedor = Convert.ToInt32(dr["ID_PROVEEDOR"]);
+                    OrdC.idEstadoOrdenCompra = Convert.ToInt32(dr["ID_EST_ORDEN_COMPRA"]);
+                    OrdC.fechaAtendida = Convert.ToDateTime(dr["FEC_ATENDIDA"]);
+                    lista.Add(OrdC);
+                }
+            }
+            catch (Exception e) { throw e; }
+            finally { cmd.Connection.Close(); }
+            return lista;
+        }
+
     }
 }

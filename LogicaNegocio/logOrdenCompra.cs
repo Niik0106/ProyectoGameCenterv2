@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using AccesoDatos;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,6 +27,16 @@ namespace LogicaNegocio
         public Boolean InsertarOrdenCompra(entOrdenCompra OrdenCompra)
         {
             return AccesoDatos.datOrdenCompra.Instancia.InsertarOrdenCompra(OrdenCompra);
+        }
+
+        public void AnulaOrdenCompra(entOrdenCompra OrdC)
+        {
+            datOrdenCompra.Instancia.AnularOrdenCompra(OrdC);
+        }
+
+        public List<entOrdenCompra> BuscaFechaCompra(entOrdenCompra fechaCompra)
+        {
+            return datOrdenCompra.Instancia.BuscarOrdenCompra(fechaCompra);
         }
     }
 }

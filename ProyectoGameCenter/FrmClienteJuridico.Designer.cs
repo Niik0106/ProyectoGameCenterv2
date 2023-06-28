@@ -151,6 +151,7 @@
             this.btnBuscarCliJur.Text = "Buscar";
             this.btnBuscarCliJur.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnBuscarCliJur.UseVisualStyleBackColor = false;
+            this.btnBuscarCliJur.Click += new System.EventHandler(this.btnBuscarCliJur_Click);
             // 
             // gbClienteJuridico
             // 

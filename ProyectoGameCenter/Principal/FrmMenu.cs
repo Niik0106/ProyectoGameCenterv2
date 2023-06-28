@@ -73,7 +73,6 @@ namespace ProyectoGameCenter.Principal
             panelClienteSubMenu.Visible = false;
             panelProductoSubMenu.Visible = false;
             panelVentaSubMenu.Visible = false;
-            panelConsultasSubMenu.Visible = false;
         }
 
         private void OcultarSubMenu()
@@ -83,9 +82,7 @@ namespace ProyectoGameCenter.Principal
             if(panelProductoSubMenu.Visible ==true)
                 panelProductoSubMenu.Visible=false;
             if(panelVentaSubMenu.Visible == true)
-                panelVentaSubMenu.Visible=false;
-            if(panelConsultasSubMenu.Visible == true)
-                panelConsultasSubMenu.Visible=false;              
+                panelVentaSubMenu.Visible=false;         
         }
 
         private void MostrarSubMenu(Panel SubMenu)
@@ -214,25 +211,5 @@ namespace ProyectoGameCenter.Principal
             }
            
         }
-
-        private void btnConsultas_Click(object sender, EventArgs e)
-        {
-            MostrarSubMenu(panelConsultasSubMenu);
-        }
-
-
-
-
-
- 
-
-
-
-
-
- 
-
-        
-
     }
 }

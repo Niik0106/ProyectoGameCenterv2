@@ -59,14 +59,22 @@ namespace ProyectoGameCenter
         {
             try
             {
-                entProducto c = new entProducto();
-                c.desProducto = txtDescripcionProducto.Text.Trim();
-                c.idCategoria = Convert.ToInt32(cboCategoria.SelectedValue);
-                c.idMarca = Convert.ToInt32(cboMarca.SelectedValue);
-                c.precioProd = decimal.Parse(txtPrecio.Text.Trim());
-                c.stockProd = int.Parse(txtStock.Text.Trim());
-                c.estProducto = cbxEstadoProd.Checked;
-                logProducto.Instancia.InsertaProducto(c);
+                if (txtDescripcionProducto.Text.Equals("") | txtPrecio.Text.Equals("") |
+                    txtStock.Text.Equals(""))
+                {
+                    MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    entProducto c = new entProducto();
+                    c.desProducto = txtDescripcionProducto.Text.Trim();
+                    c.idCategoria = Convert.ToInt32(cboCategoria.SelectedValue);
+                    c.idMarca = Convert.ToInt32(cboMarca.SelectedValue);
+                    c.precioProd = decimal.Parse(txtPrecio.Text.Trim());
+                    c.stockProd = int.Parse(txtStock.Text.Trim());
+                    c.estProducto = cbxEstadoProd.Checked;
+                    logProducto.Instancia.InsertaProducto(c);
+                }        
             }
             catch (Exception ex)
             {
@@ -182,8 +190,8 @@ namespace ProyectoGameCenter
                 DataGridViewRow filaActual = dgvProductos.Rows[e.RowIndex];
                 txtIDProducto.Text = filaActual.Cells[0].Value.ToString();
                 txtDescripcionProducto.Text = filaActual.Cells[1].Value.ToString();
-                cboCategoria.Text = filaActual.Cells[2].Value.ToString();
-                cboMarca.Text = filaActual.Cells[3].Value.ToString();
+                cboCategoria.SelectedIndex = Convert.ToInt32(filaActual.Cells[2].Value);
+                cboMarca.SelectedIndex = Convert.ToInt32(filaActual.Cells[3].Value);
                 txtPrecio.Text = filaActual.Cells[4].Value.ToString();
                 txtStock.Text = filaActual.Cells[5].Value.ToString();
                 cbxEstadoProd.Checked = Convert.ToBoolean(filaActual.Cells[6].Value);

@@ -66,10 +66,17 @@ namespace ProyectoGameCenter
         {
             try
             {
-                entMarca marca = new entMarca();
-                marca.desMarca = txtDescripcionMarca.Text.Trim();
-                marca.estMarca = cbxEstadoMarca.Checked;
-                logMarca.Instancia.InsertaMarca(marca);
+                if (txtDescripcionMarca.Text.Equals(""))
+                {
+                    MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    entMarca marca = new entMarca();
+                    marca.desMarca = txtDescripcionMarca.Text.Trim();
+                    marca.estMarca = cbxEstadoMarca.Checked;
+                    logMarca.Instancia.InsertaMarca(marca);
+                }
             }
             catch (Exception ex)
             {

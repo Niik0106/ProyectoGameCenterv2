@@ -110,7 +110,7 @@ namespace ProyectoGameCenter
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error.." + ex);
+                MessageBox.Show("Cliente no existe");
             }
         }
 
@@ -118,19 +118,25 @@ namespace ProyectoGameCenter
         {
             try
             {
-                entOrdenVenta ordVenta = new entOrdenVenta();
-                ordVenta.numOrdenVenta = Convert.ToInt32(txtNOrdenVenta.Text.Trim());
-                ordVenta.fechaOrden = dateTimePicker1.Value;
-                ordVenta.idCliente = Convert.ToInt32(txtIDCliente.Text.Trim());
-                ordVenta.estOrdenVenta = Convert.ToInt32(cboEstado.SelectedValue);
-                ordVenta.idUsuario = Convert.ToInt32(txtIDEmpleado.Text.Trim());
-                logOrdenVenta.Instancia.InsertaOrdenVenta(ordVenta);
-                gbDetalleOrdenVenta.Enabled = true;
-                MessageBox.Show("Orden de Venta registrada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (txtNOrdenVenta.Text.Equals("") | txtIDCliente.Text.Equals("") | txtIDEmpleado.Text.Equals(""))
+                {
+                    MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    entOrdenVenta ordVenta = new entOrdenVenta();
+                    ordVenta.numOrdenVenta = Convert.ToInt32(txtNOrdenVenta.Text.Trim());
+                    ordVenta.fechaOrden = dateTimePicker1.Value;
+                    ordVenta.idCliente = Convert.ToInt32(txtIDCliente.Text.Trim());
+                    ordVenta.estOrdenVenta = Convert.ToInt32(cboEstado.SelectedValue);
+                    ordVenta.idUsuario = Convert.ToInt32(txtIDEmpleado.Text.Trim());
+                    logOrdenVenta.Instancia.InsertaOrdenVenta(ordVenta);
+                    gbDetalleOrdenVenta.Enabled = true;
+                    MessageBox.Show("Orden de Venta registrada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } 
             }
             catch (Exception ex)
             {
-
                 MessageBox.Show("Error.." + ex);
             }
             LimpiarVariables();
@@ -183,11 +189,18 @@ namespace ProyectoGameCenter
                 txtNOrdenVenta.Text = filaActual.Cells[1].Value.ToString();
                 dateTimePicker1.Text = filaActual.Cells[2].Value.ToString();
                 txtIDCliente.Text = filaActual.Cells[3].Value.ToString();
-                txtIDEmpleado.Text = filaActual.Cells[4].Value.ToString();
-                cboEstado.SelectedValue = Convert.ToInt32(filaActual.Cells[5].Value);
+                cboEstado.SelectedValue = Convert.ToInt32(filaActual.Cells[4].Value);
+                txtIDEmpleado.Text = filaActual.Cells[5].Value.ToString();
+                
                 entDetalleOrdenVenta DOV = new entDetalleOrdenVenta();
                 DOV.NUM_ORDEN_VENTA = numOrdenVenta;
                 dgvDetalleOrdenVenta.DataSource = logDetalleOrdenVenta.Instancia.OrdenaDetalleVenta(DOV);
+                gbDetalleOrdenVenta.Enabled = true;
+                txtIDProducto.Enabled = false;
+                txtCantidad.Enabled = false;
+                btnAgregarProducto.Enabled = false;
+                btnFinalizar.Enabled = false;
+                btnBuscarProducto.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -259,6 +272,13 @@ namespace ProyectoGameCenter
             dgvDetalleOrdenVenta.Rows.Clear();
             dgvDetalleOrdenVenta.Columns.Clear();
             ListarVentas();
+            dgvDetalleOrdenVenta.Enabled = false;
+            txtIDProducto.Enabled = true;
+            txtCantidad.Enabled = true;
+            btnAgregarProducto.Enabled = true;
+            btnFinalizar.Enabled = true;
+            btnBuscarProducto.Enabled = true;
+            gbDetalleOrdenVenta.Enabled = false;
         }
 
         private void btnBuscarOV_Click(object sender, EventArgs e)

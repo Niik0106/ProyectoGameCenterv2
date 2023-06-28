@@ -27,5 +27,10 @@ namespace LogicaNegocio
         {
             return datDetalleOrdenCompra.Instancia.InsertarDetalleOrdenCompra(DetalleOrdenCompra);
         }
+
+        public List<entDetalleOrdenCompra> OrdenaDetalleCompra(entDetalleOrdenCompra numOrd)
+        {
+            return datDetalleOrdenCompra.Instancia.OrdenarDetalleCompra(numOrd);
+        }
     }
 }
