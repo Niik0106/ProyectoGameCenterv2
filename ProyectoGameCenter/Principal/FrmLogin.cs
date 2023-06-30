@@ -35,6 +35,10 @@ namespace ProyectoGameCenter.Principal
                 menu.Show();
                 this.Hide();
             }
+            else if (txtUsuario.Text == "" || txtContrasenia.Text == "")
+            {
+                MessageBox.Show("Debe llenar todos los campos");
+            }
             else
             {
                 MessageBox.Show("USUARIO Y CONTRASEÑA INCORRECTOS");

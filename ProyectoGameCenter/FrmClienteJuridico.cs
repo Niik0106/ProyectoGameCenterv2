@@ -213,5 +213,13 @@ namespace ProyectoGameCenter
                 MessageBox.Show("Error..." + ex);
             }
         }
+
+        private void txtRucBuscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (txtRucBuscar.Text == "")
+            {
+                ListarClienteJuridico();
+            }
+        }
     }
 }

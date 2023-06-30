@@ -16,7 +16,7 @@ namespace ProyectoGameCenter
     {
         public FrmProductos()
         {
-            InitializeComponent();          
+            InitializeComponent();
             gbProductos.Enabled = false;
             txtIDProducto.Enabled = false;
             ListarProductos();
@@ -74,7 +74,7 @@ namespace ProyectoGameCenter
                     c.stockProd = int.Parse(txtStock.Text.Trim());
                     c.estProducto = cbxEstadoProd.Checked;
                     logProducto.Instancia.InsertaProducto(c);
-                }        
+                }
             }
             catch (Exception ex)
             {
@@ -111,6 +111,8 @@ namespace ProyectoGameCenter
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             gbProductos.Enabled = false;
+            btnAgregar.Visible= true;
+            btnModificar.Visible = true;
             LimpiarVariables();
         }
 
@@ -148,6 +150,8 @@ namespace ProyectoGameCenter
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             gbProductos.Enabled = true;
+            btnModificar.Visible = false;
+            btnAgregar.Visible = true;
             LimpiarVariables();
         }
 
