@@ -17,6 +17,32 @@ namespace AccesoDatos
         {
             get { return datOrdenVenta._instancia; }
         }
+        public entOrdenVenta BuscarOrdenVentaIDCliente(int numOrdenV)
+        {
+            SqlCommand cmd = null;
+            entOrdenVenta OrdVenta = new entOrdenVenta();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_BUSCAR_ORDEN_VENTA_NUM", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@NUM_ORDEN_VENTA", numOrdenV);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    OrdVenta.idOrdenVenta = Convert.ToInt32(dr["ID_ORDEN_VENTA"]);
+                    OrdVenta.numOrdenVenta = Convert.ToInt32(dr["NUM_ORDEN_VENTA"]);
+                    OrdVenta.fechaOrden = Convert.ToDateTime(dr["FEC_ORDEN"]);
+                    OrdVenta.idCliente = Convert.ToInt32(dr["ID_CLIENTE"]);
+                    OrdVenta.estOrdenVenta = Convert.ToInt32(dr["ID_EST_ORDEN_VENTA"]);
+                    OrdVenta.idUsuario = Convert.ToInt32(dr["ID_USUARIO"]);
+                }
+            }
+            catch (Exception e) { throw e; }
+            finally { cmd.Connection.Close(); }
+            return OrdVenta;
+        }
 
         public List<entOrdenVenta> ListarVentas()
         {
@@ -116,6 +142,7 @@ namespace AccesoDatos
             return lista;
         }
 
+        
         
     }
 }
