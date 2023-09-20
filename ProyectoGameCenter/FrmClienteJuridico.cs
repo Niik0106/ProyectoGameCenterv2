@@ -15,12 +15,13 @@ namespace ProyectoGameCenter
 {
     public partial class FrmClienteJuridico : Form
     {
- 
+        private logDniRuc logDniRuc;
         public FrmClienteJuridico()
         {
             InitializeComponent();
             ListarClienteJuridico();
             gbClienteJuridico.Enabled = false;
+            logDniRuc = new logDniRuc();
         }
 
         public void ListarClienteJuridico()
@@ -192,25 +193,24 @@ namespace ProyectoGameCenter
         {
             try
             {
-                if (txtRucBuscar.Text.Equals(""))
+                if (txtRucBuscar.Text.Length == 11)
                 {
-                    MessageBox.Show("Debe ingresar un DNI", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    entDatosRuc respuesta = logDniRuc.ObtenerDatosRUC(txtRucBuscar.Text);
+                    txtRazonSocial.Text = respuesta.RazonSocial;
+                    txtDireccion.Text = respuesta.Direccion;
+                    txtProvincia.Text = respuesta.Provincia;
+                    txtDistrito.Text = respuesta.Distrito;
+                    txtDepartamento.Text = respuesta.Departamento;
+                    txtRUC.Text = respuesta.RUC;
                 }
                 else
                 {
-                    entClienteJuridico cliente = new entClienteJuridico();
-                    cliente.RUC_CLIENTE = txtRucBuscar.Text;
-                    dgvClienteJuridico.DataSource = logClienteJuridico.Instancia.BuscarDniClienteJuridico(cliente);
-                    if (dgvClienteJuridico.Rows.Count == 0)
-                    {
-                        MessageBox.Show("El cliente no se encuentra registrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ListarClienteJuridico();
-                    }
+                    MessageBox.Show("El número de RUC debe tener 11 caracteres.");
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error..." + ex);
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
 
