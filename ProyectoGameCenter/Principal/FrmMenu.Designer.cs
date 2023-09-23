@@ -650,6 +650,7 @@
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(1050, 650);
             this.panelContenedor.TabIndex = 3;
+            this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
             // FrmMenu
             // 
@@ -668,6 +669,7 @@
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Game Center";
+            this.Load += new System.EventHandler(this.FrmMenu_Load);
             this.panelMenuLateral.ResumeLayout(false);
             this.panelVentaSubMenu.ResumeLayout(false);
             this.panelProductoSubMenu.ResumeLayout(false);
