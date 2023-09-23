@@ -196,6 +196,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\AccesoDatos\AccesoDatos.csproj">
+      <Project>{0e3f3030-27b1-4f3d-9a6f-b26dd783a019}</Project>
+      <Name>AccesoDatos</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Entidades\Entidades.csproj">
       <Project>{1a286b67-84a0-4599-9fc5-7a94edebcdc4}</Project>
       <Name>Entidades</Name>
