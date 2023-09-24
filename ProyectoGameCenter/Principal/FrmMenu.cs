@@ -18,12 +18,15 @@ namespace ProyectoGameCenter.Principal
     public partial class FrmMenu : Form
     {
         private int idUsuario;
-        public FrmMenu(int idUsuario_esperado = 0)
+        private int idRol;
+
+        public FrmMenu(int idUsuario_esperado = 0, int idRolUsuario = 0)
         {
             InitializeComponent();
             PersonalizarDisenio();
 
             idUsuario = idUsuario_esperado;
+            idRol = idRolUsuario;
         }
 
         //REGION DEL PANEL DE CABECERA
@@ -32,15 +35,15 @@ namespace ProyectoGameCenter.Principal
         private extern static void ReleaseCapture();
         [DllImport("User32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-     
+
         private void btnCerrar_Click(object sender, EventArgs e)
         {
             Application.Exit();
         }
 
         private void btnRestaurar_Click(object sender, EventArgs e)
-        {      
-            this.Size = new Size(1200,700);
+        {
+            this.Size = new Size(1200, 700);
             this.Location = new Point(LX, LY);
             btnPCompleta.Visible = true;
             btnRestaurar.Visible = false;
@@ -48,7 +51,7 @@ namespace ProyectoGameCenter.Principal
         int LX, LY;
         private void btnPCompleta_Click(object sender, EventArgs e)
         {
-            LX = this.Location.X; 
+            LX = this.Location.X;
             LY = this.Location.Y;
             this.Size = Screen.PrimaryScreen.WorkingArea.Size;
             this.Location = Screen.PrimaryScreen.WorkingArea.Location;
@@ -58,13 +61,13 @@ namespace ProyectoGameCenter.Principal
 
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
-            this.WindowState=FormWindowState.Minimized;
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void panelCabecera_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
-            SendMessage(this.Handle,0x112,0xf012,0);
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
         //REGION DEL PANEL HORA Y FECHA
@@ -85,11 +88,11 @@ namespace ProyectoGameCenter.Principal
         private void OcultarSubMenu()
         {
             if (panelClienteSubMenu.Visible == true)
-                panelClienteSubMenu.Visible=false;
-            if(panelProductoSubMenu.Visible ==true)
-                panelProductoSubMenu.Visible=false;
-            if(panelVentaSubMenu.Visible == true)
-                panelVentaSubMenu.Visible=false;         
+                panelClienteSubMenu.Visible = false;
+            if (panelProductoSubMenu.Visible == true)
+                panelProductoSubMenu.Visible = false;
+            if (panelVentaSubMenu.Visible == true)
+                panelVentaSubMenu.Visible = false;
         }
 
         private void MostrarSubMenu(Panel SubMenu)
@@ -107,7 +110,7 @@ namespace ProyectoGameCenter.Principal
 
         private void AbrirFormularioHijo(Form FormularioHijo)
         {
-            if(FormularioActivo != null)
+            if (FormularioActivo != null)
                 FormularioActivo.Close();
             FormularioActivo = FormularioHijo;
             FormularioHijo.TopLevel = false;
@@ -214,7 +217,6 @@ namespace ProyectoGameCenter.Principal
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
-            int idRol = CD_Usuario.TipoUsuario;
             switch (idRol)
             {
                 case 1: // Administrador
@@ -235,7 +237,7 @@ namespace ProyectoGameCenter.Principal
                     btnMetodoPago.Visible = false;
                     btnOrdenCompra.Visible = false;
                     btnNotaSalida.Visible = false;
-                break;
+                    break;
 
                 case 3: //Compras
                     btnCliente.Visible = false;
@@ -245,7 +247,7 @@ namespace ProyectoGameCenter.Principal
                     btnMetodoPago.Visible = false;
                     btnOrdenCompra.Enabled = true;
                     btnNotaSalida.Visible = false;
-                break;
+                    break;
 
                 case 4: //Almacen
                     btnCliente.Visible = false;
@@ -255,20 +257,20 @@ namespace ProyectoGameCenter.Principal
                     btnMetodoPago.Visible = false;
                     btnOrdenCompra.Visible = false;
                     btnNotaSalida.Enabled = true;
-                break;
+                    break;
             }
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            if(MessageBox.Show("Esta Seguro que quiere Cerrar Sesion","Alerta",
+            if (MessageBox.Show("Esta Seguro que quiere Cerrar Sesion", "Alerta",
                 MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Close();
                 FrmLogin login = new FrmLogin();
                 login.Show();
             }
-           
+
         }
 
         private string ObtenerPermisos(string nombreUsuario)
