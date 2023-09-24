@@ -20,7 +20,7 @@ namespace ProyectoGameCenter.Principal
         public FrmLogin()
         {
             InitializeComponent();
-            string connectionString = "Data Source=.; Initial Catalog = MOANSO; Integrated Security=true";
+            string connectionString = "Data Source=ANDRES189\\MSSQLSERVER01; Initial Catalog = GAMECENTER_BD; Integrated Security=true";
             sqlConnection = new SqlConnection(connectionString);
         }
 
