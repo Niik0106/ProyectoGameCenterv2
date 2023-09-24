@@ -18,12 +18,15 @@ namespace ProyectoGameCenter.Principal
     public partial class FrmMenu : Form
     {
         private int idUsuario;
-        public FrmMenu(int idUsuario_esperado = 0)
+        private int idRol;
+
+        public FrmMenu(int idUsuario_esperado = 0, int idRolUsuario = 0)
         {
             InitializeComponent();
             PersonalizarDisenio();
 
             idUsuario = idUsuario_esperado;
+            idRol = idRolUsuario;
         }
 
         //REGION DEL PANEL DE CABECERA
@@ -213,8 +216,7 @@ namespace ProyectoGameCenter.Principal
         }
 
         private void FrmMenu_Load(object sender, EventArgs e)
-        {
-            int idRol = CD_Usuario.TipoUsuario;
+        {          
             switch (idRol)
             {
                 case 1: // Administrador

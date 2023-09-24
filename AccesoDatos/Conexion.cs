@@ -10,7 +10,7 @@ namespace AccesoDatos
 {
     public class Conexion
     {
-        public static string cn = "Data Source=.; Initial Catalog = DIARS_GAMECENTER; Integrated Security=true";
+        public static string cn = "Data Source=DESKTOP-ACRSVPL\\SQLEXPRESS; Initial Catalog = DIARS_GAMECENTER; Integrated Security=true";
 
         private static readonly Conexion _instancia = new Conexion();
         public static Conexion Instancia
@@ -22,7 +22,7 @@ namespace AccesoDatos
         {
 
             SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = "Data Source=.; Initial Catalog = DIARS_GAMECENTER; Integrated Security=true";
+            cn.ConnectionString = "Data Source=DESKTOP-ACRSVPL\\SQLEXPRESS; Initial Catalog = DIARS_GAMECENTER; Integrated Security=true";
 
             return cn;
         }

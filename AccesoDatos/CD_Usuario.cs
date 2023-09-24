@@ -63,7 +63,7 @@ namespace AccesoDatos
                     idUsuario = Convert.ToInt32(cmd.Parameters["IdRol"].Value);
 
                 }
-                catch (Exception e)
+                catch (Exception)
                 {
 
                     idUsuario = 0;
