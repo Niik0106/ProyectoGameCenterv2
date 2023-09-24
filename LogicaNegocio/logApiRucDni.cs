@@ -9,6 +9,8 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Net;
 using System.Web;
+using RestSharp;
+
 
 namespace LogicaNegocio
 {
@@ -57,5 +59,54 @@ namespace LogicaNegocio
 
             return datosRUC;
         }
+
+        public static dynamic Post(string url, string json, string autorizacion = null)
+        {
+            try
+            {
+                System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+                var client = new RestClient(url);
+                client.Timeout = 160000;
+
+                var request = new RestRequest(Method.POST);
+                request.Timeout = 160000;
+                request.AddHeader("Content-Type", "application/json");
+                request.AddParameter("application/json", json, ParameterType.RequestBody);
+
+                if (autorizacion != null)
+                {
+                    request.AddHeader("Authorization", autorizacion);
+                }
+
+                IRestResponse response = client.Execute(request);
+
+                dynamic datos = JsonConvert.DeserializeObject(response.Content);
+
+                return datos;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error en la llamada a la API: " + ex.Message);
+                return "";
+            }
+        }
+
+        public static bool Base64ToFile(string base64, string ruta)
+        {
+            try
+            {
+                byte[] bytes = Convert.FromBase64String(base64);
+                File.WriteAllBytes(ruta, bytes);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error al guardar archivo: " + ex.Message);
+                return false;
+            }
+        }
+
+       
     }
 }
