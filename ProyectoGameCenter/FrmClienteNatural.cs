@@ -15,12 +15,11 @@ namespace ProyectoGameCenter
 {
     public partial class FrmClienteNatural : Form
     {
-        private logDniRuc logDniRuc; 
+
         public FrmClienteNatural()
         {
             InitializeComponent();
             ListarClientesNaturales();
-            logDniRuc = new logDniRuc();
         }
 
         private void btnAgregarCN_MouseHover(object sender, EventArgs e)
@@ -241,27 +240,33 @@ namespace ProyectoGameCenter
         }
 
 
+
         private void btnBuscarCliNat_Click(object sender, EventArgs e)
         {
-
+            
             try
             {
-                if (txtBuscarDNI.Text.Length == 8)
+                if (txtBuscarDNI.Text.Equals(""))
                 {
-                    entDatosDni respuesta = logDniRuc.ObtenerDatosDNI(txtBuscarDNI.Text);
-                    txtNombres.Text = respuesta.Nombres;
-                    txtApellidos.Text = respuesta.ApellidoPaterno + " " + respuesta.ApellidoMaterno;
-                    txtDNI.Text = respuesta.DNI;
+                    MessageBox.Show("Debe ingresar un DNI", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    MessageBox.Show("El número de DNI debe tener 8 caracteres.");
+                    entClienteNatural cliente = new entClienteNatural();
+                    cliente.DNI = txtBuscarDNI.Text;
+                    dgvClienteNatural.DataSource = logClienteNatural.Instancia.BuscarDniClienteNatural(cliente);
+                    if (dgvClienteNatural.Rows.Count == 0)
+                    {
+                        MessageBox.Show("El cliente no se encuentra registrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ListarClientesNaturales();
+                    }
                 }
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error..." + ex);
             }
+            
         }
 
         private void txtBuscarDNI_KeyPress(object sender, KeyPressEventArgs e)
