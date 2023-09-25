@@ -385,6 +385,7 @@
             this.btnCancelar.TextColor = System.Drawing.Color.White;
             this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnAgregar
             // 
@@ -407,6 +408,7 @@
             this.btnAgregar.TextColor = System.Drawing.Color.White;
             this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
             // 
             // btnModificar
             // 
@@ -429,6 +431,7 @@
             this.btnModificar.TextColor = System.Drawing.Color.White;
             this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnEditar
             // 
@@ -451,6 +454,7 @@
             this.btnEditar.TextColor = System.Drawing.Color.White;
             this.btnEditar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnEditar.UseVisualStyleBackColor = false;
+            this.btnEditar.Click += new System.EventHandler(this.btnEditar_Click);
             // 
             // btnInhabilitarCliJur
             // 
@@ -473,6 +477,7 @@
             this.btnInhabilitarCliJur.TextColor = System.Drawing.Color.White;
             this.btnInhabilitarCliJur.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnInhabilitarCliJur.UseVisualStyleBackColor = false;
+            this.btnInhabilitarCliJur.Click += new System.EventHandler(this.btnInhabilitarCliJur_Click);
             // 
             // btnBuscarCliJur
             // 
@@ -495,6 +500,7 @@
             this.btnBuscarCliJur.TextColor = System.Drawing.Color.White;
             this.btnBuscarCliJur.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnBuscarCliJur.UseVisualStyleBackColor = false;
+            this.btnBuscarCliJur.Click += new System.EventHandler(this.btnBuscarCliJur_Click);
             // 
             // btnNuevo
             // 
@@ -517,6 +523,7 @@
             this.btnNuevo.TextColor = System.Drawing.Color.White;
             this.btnNuevo.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnSalir
             // 
@@ -539,6 +546,7 @@
             this.btnSalir.TextColor = System.Drawing.Color.White;
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnBuscarClienteJuridicoReniec
             // 
