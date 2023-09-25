@@ -37,10 +37,9 @@ namespace AccesoDatos
                     cliente.ID_CLIENTE = (int)reader["ID_CLIENTE"];
                     cliente.DNI = (string)reader["DNI"];
                     cliente.NOMBRE_CLI = (string)reader["NOMBRE_CLI"];
-                    cliente.APELLIDO_CLI = (string)reader["APELLIDO_CLI"];
+                    cliente.APELLIDO_PATERNO = (string)reader["APELLIDO_PATERNO"];
+                    cliente.APELLIDO_MATERNO = (string)reader["APELLIDO_MATERNO"];
                     cliente.TEL_CLIENTE = (string)reader["TEL_CLIENTE"];
-                    cliente.COD_UBIGEO = (int)reader["COD_UBIGEO"];
-                    cliente.DIR_CLIENTE = (string)reader["DIR_CLIENTE"];
                     cliente.ESTADO_CLIENTE = (Boolean)reader["ESTADO_CLIENTE"];
                     lista.Add(cliente);
                 }
@@ -74,10 +73,9 @@ namespace AccesoDatos
                     cliente.ID_CLIENTE = (int)reader["ID_CLIENTE"];
                     cliente.DNI = (string)reader["DNI"];
                     cliente.NOMBRE_CLI = (string)reader["NOMBRE_CLI"];
-                    cliente.APELLIDO_CLI = (string)reader["APELLIDO_CLI"];
+                    cliente.APELLIDO_PATERNO = (string)reader["APELLIDO_PATERNO"];
+                    cliente.APELLIDO_MATERNO = (string)reader["APELLIDO_MATERNO"];
                     cliente.TEL_CLIENTE = (string)reader["TEL_CLIENTE"];
-                    cliente.COD_UBIGEO = (int)reader["COD_UBIGEO"];
-                    cliente.DIR_CLIENTE = (string)reader["DIR_CLIENTE"];
                     cliente.ESTADO_CLIENTE = (Boolean)reader["ESTADO_CLIENTE"];
                     lista.Add(cliente);
                 }
@@ -105,10 +103,9 @@ namespace AccesoDatos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@DNI", cliente.DNI);
                 cmd.Parameters.AddWithValue("@NOMBRE_CLI", cliente.NOMBRE_CLI);
-                cmd.Parameters.AddWithValue("@APELLIDO_CLI", cliente.APELLIDO_CLI);
+                cmd.Parameters.AddWithValue("@APELLIDO_PATERNO", cliente.APELLIDO_PATERNO);
+                cmd.Parameters.AddWithValue("@APELLIDO_MATERNO", cliente.APELLIDO_MATERNO);
                 cmd.Parameters.AddWithValue("@TEL_CLIENTE", cliente.TEL_CLIENTE);
-                cmd.Parameters.AddWithValue("@COD_UBIGEO", cliente.COD_UBIGEO);
-                cmd.Parameters.AddWithValue("@DIR_CLIENTE", cliente.DIR_CLIENTE);
                 cmd.Parameters.AddWithValue("@ESTADO_CLIENTE", cliente.ESTADO_CLIENTE);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
@@ -141,10 +138,9 @@ namespace AccesoDatos
                 cmd.Parameters.AddWithValue("@ID_CLIENTE", cliente.ID_CLIENTE);
                 cmd.Parameters.AddWithValue("@DNI", cliente.DNI);
                 cmd.Parameters.AddWithValue("@NOMBRE_CLI", cliente.NOMBRE_CLI);
-                cmd.Parameters.AddWithValue("@APELLIDO_CLI", cliente.APELLIDO_CLI);
+                cmd.Parameters.AddWithValue("@APELLIDO_PATERNO", cliente.APELLIDO_PATERNO);
+                cmd.Parameters.AddWithValue("@APELLIDO_MATERNO", cliente.APELLIDO_MATERNO);
                 cmd.Parameters.AddWithValue("@TEL_CLIENTE", cliente.TEL_CLIENTE);
-                cmd.Parameters.AddWithValue("@COD_UBIGEO", cliente.COD_UBIGEO);
-                cmd.Parameters.AddWithValue("@DIR_CLIENTE", cliente.DIR_CLIENTE);
                 cmd.Parameters.AddWithValue("@ESTADO_CLIENTE", cliente.ESTADO_CLIENTE);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();

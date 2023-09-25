@@ -2,19 +2,26 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using AccesoDatos;
+using Entidades;
+
 namespace ProyectoGameCenter.Principal
 {
     public partial class FrmLogin : Form
     {
+        private SqlConnection sqlConnection;
         public FrmLogin()
         {
             InitializeComponent();
+            string connectionString = "Data Source=DESKTOP-ACRSVPL\\SQLEXPRESS; Initial Catalog = DIARS_GAMECENTER; Integrated Security=true";
+            sqlConnection = new SqlConnection(connectionString);
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -29,7 +36,7 @@ namespace ProyectoGameCenter.Principal
 
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-            if (txtUsuario.Text == "admin" && txtContrasenia.Text == "123")
+            /*if (txtUsuario.Text == "admin" && txtContrasenia.Text == "123")
             {
                 FrmMenu menu = new FrmMenu();
                 menu.Show();
@@ -42,7 +49,23 @@ namespace ProyectoGameCenter.Principal
             else
             {
                 MessageBox.Show("USUARIO Y CONTRASEÑA INCORRECTOS");
+            }*/
+
+            
+            int idUsuario_Esperado = CD_Usuario.loguear(txtUsuario.Text, txtContrasenia.Text);
+
+            if (idUsuario_Esperado != 0)
+            {
+                int idRolUsuario = CD_Usuario.ObtenerRol(idUsuario_Esperado);
+                FrmMenu menu = new FrmMenu(idUsuario_Esperado, idRolUsuario);
+                menu.Show();
+                this.Hide();
             }
+            else
+            {
+                MessageBox.Show("Usuario y/o contraseña incorrectos");
+            }
+
         }
     }
 }

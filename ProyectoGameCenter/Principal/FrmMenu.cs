@@ -8,18 +8,31 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Media;
+using AccesoDatos;
+using Entidades;
+using System.Data.SqlClient;
 
 namespace ProyectoGameCenter.Principal
 {
     public partial class FrmMenu : Form
     {
-        public FrmMenu()
+        private int idUsuario;
+        private int idRol;
+
+
+        public FrmMenu(int idUsuario_esperado = 0, int idRolUsuario = 0)
         {
             InitializeComponent();
             PersonalizarDisenio();
+
+            idUsuario = idUsuario_esperado;
+            idRol = idRolUsuario;
+            
         }
 
         //REGION DEL PANEL DE CABECERA
+
 
         [DllImport("User32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -200,6 +213,60 @@ namespace ProyectoGameCenter.Principal
             OcultarSubMenu();
         }
 
+        private void panelContenedor_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {
+            switch (idRol)
+            {
+                case 1: // Administrador
+                    SoundPlayer sonido = new SoundPlayer();
+                    sonido.SoundLocation = "D:/BienvenidoAdmin.wav";
+                    sonido.Play();
+                    btnCliente.Enabled = true;
+                    btnProductos.Enabled = true;
+                    btnVentas.Enabled = true;
+                    btnProveedores.Enabled = true;
+                    btnMetodoPago.Enabled = true;
+                    btnOrdenCompra.Enabled = true;
+                    btnNotaSalida.Enabled = true;
+                    break;
+
+                case 2: // Vendedor
+                    btnCliente.Enabled = true;
+                    btnProductos.Visible = false;
+                    btnVentas.Enabled = true;
+                    btnProveedores.Visible = false;
+                    btnMetodoPago.Visible = false;
+                    btnOrdenCompra.Visible = false;
+                    btnNotaSalida.Visible = false;
+                break;
+
+                case 3: //Compras
+                    btnCliente.Visible = false;
+                    btnProductos.Visible = false;
+                    btnVentas.Visible = false;
+                    btnProveedores.Enabled = true;
+                    btnMetodoPago.Visible = false;
+                    btnOrdenCompra.Enabled = true;
+                    btnNotaSalida.Visible = false;
+                break;
+
+                case 4: //Almacen
+                    btnCliente.Visible = false;
+                    btnProductos.Enabled = true;
+                    btnVentas.Visible = false;
+                    btnProveedores.Visible = false;
+                    btnMetodoPago.Visible = false;
+                    btnOrdenCompra.Visible = false;
+                    btnNotaSalida.Enabled = true;
+                break;
+            }
+        }
+
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
             if(MessageBox.Show("Esta Seguro que quiere Cerrar Sesion","Alerta",
@@ -210,6 +277,28 @@ namespace ProyectoGameCenter.Principal
                 login.Show();
             }
            
+        }
+
+        private string ObtenerPermisos(string nombreUsuario)
+        {
+            string rol = string.Empty;
+            // Conexión a la base de datos
+            using (SqlConnection conexion = new SqlConnection("cadena_de_conexion"))
+            {
+                conexion.Open();
+                // Consulta SQL para obtener el rol del usuario
+                string consulta = "SELECT Rol FROM Usuarios WHERE NombreUsuario = @NombreUsuario";
+                using (SqlCommand cmd = new SqlCommand(consulta, conexion))
+                {
+                    cmd.Parameters.AddWithValue("@NombreUsuario", nombreUsuario);
+                    SqlDataReader reader = cmd.ExecuteReader();
+                    if (reader.Read())
+                    {
+                        rol = reader["Rol"].ToString();
+                    }
+                }
+            }
+            return rol;
         }
     }
 }
