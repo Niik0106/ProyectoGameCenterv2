@@ -22,7 +22,7 @@ namespace AccesoDatos
         {
 
             SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = "Data Source=DESKTOP-ACRSVPL\\SQLEXPRESS; Initial Catalog = DIARS_GAMECENTER; Integrated Security=true";
+            cn.ConnectionString = "Data Source=DESKTOP-ACRSVPL\\SQLEXPRESS; Initial Catalog = BERMEJO; Integrated Security=true";
 
             return cn;
         }

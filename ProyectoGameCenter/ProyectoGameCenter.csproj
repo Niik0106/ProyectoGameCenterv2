@@ -47,6 +47,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="botonanimacion.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="FrmCronogramaPago.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +61,12 @@
     </Compile>
     <Compile Include="FrmOrdenCompra.designer.cs">
       <DependentUpon>FrmOrdenCompra.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmReportesVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmReportesVentas.Designer.cs">
+      <DependentUpon>FrmReportesVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="NotaSalida.cs">
       <SubType>Form</SubType>
@@ -130,6 +139,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RoundedPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="FrmCronogramaPago.resx">
       <DependentUpon>FrmCronogramaPago.cs</DependentUpon>
     </EmbeddedResource>
@@ -159,6 +171,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmProveedor.resx">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmReportesVentas.resx">
+      <DependentUpon>FrmReportesVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="NotaSalida.resx">
       <DependentUpon>NotaSalida.cs</DependentUpon>

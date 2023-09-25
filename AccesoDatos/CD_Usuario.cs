@@ -34,6 +34,7 @@ namespace AccesoDatos
                     cmd.ExecuteNonQuery();
 
                     idUsuario = Convert.ToInt32(cmd.Parameters["IdUsuario"].Value);
+                    
                 }
                 catch (Exception e)
                 {

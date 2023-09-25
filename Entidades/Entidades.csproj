@@ -60,6 +60,7 @@
     <Compile Include="entOrdenVenta.cs" />
     <Compile Include="entProducto.cs" />
     <Compile Include="entProveedor.cs" />
+    <Compile Include="entUsuarios.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SubMenu.cs" />

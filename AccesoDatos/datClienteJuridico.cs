@@ -45,9 +45,11 @@ namespace AccesoDatos
                     cliente.ID_CLIENTE = (int)reader["ID_CLIENTE"];
                     cliente.RUC_CLIENTE = (string)reader["RUC_CLIENTE"];
                     cliente.RAZON_SOCIAL = (string)reader["RAZON_SOCIAL"];
-                    cliente.TEL_CLIENTE = (string)reader["TEL_CLIENTE"];
-                    cliente.COD_UBIGEO = (int)reader["COD_UBIGEO"];
-                    cliente.DIR_CLIENTE = (string)reader["DIR_CLIENTE"];
+                    cliente.DIRECCION = (string)reader["DIRECCION"];
+                    cliente.DEPARTAMENTO = (string)reader["DEPARTAMENTO"];
+                    cliente.PROVINCIA = (string)reader["PROVINCIA"];
+                    cliente.DISTRITO = (string)reader["DISTRITO"];
+                    cliente.TEL_CLIENTE = (string)reader["TEL_CLIENTE"];                  
                     cliente.ESTADO_CLIENTE = (Boolean)reader["ESTADO_CLIENTE"];
                     lista.Add(cliente);
                 }
@@ -81,9 +83,11 @@ namespace AccesoDatos
                     CliJ.ID_CLIENTE = Convert.ToInt32(dr["ID_CLIENTE"]);
                     CliJ.RUC_CLIENTE = dr["RUC_CLIENTE"].ToString();
                     CliJ.RAZON_SOCIAL = dr["RAZON_SOCIAL"].ToString();
+                    CliJ.DIRECCION = dr["DIRECCION"].ToString();
+                    CliJ.DEPARTAMENTO = dr["DEPARTAMENTO"].ToString();
+                    CliJ.PROVINCIA = dr["PROVINCIA"].ToString();
+                    CliJ.DISTRITO = dr["DISTRITO"].ToString();
                     CliJ.TEL_CLIENTE = dr["TEL_CLIENTE"].ToString();
-                    CliJ.COD_UBIGEO = Convert.ToInt32(dr["COD_UBIGEO"]);
-                    CliJ.DIR_CLIENTE = dr["DIR_CLIENTE"].ToString();
                     CliJ.ESTADO_CLIENTE = Convert.ToBoolean(dr["ESTADO_CLIENTE"]);
                     lista.Add(CliJ);
                 }
@@ -112,9 +116,11 @@ namespace AccesoDatos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@RUC", CliJ.RUC_CLIENTE);
                 cmd.Parameters.AddWithValue("@RAZON_SOCIAL", CliJ.RAZON_SOCIAL);
+                cmd.Parameters.AddWithValue("@DIRECCION", CliJ.DIRECCION);
+                cmd.Parameters.AddWithValue("@DEPARTAMENTO", CliJ.DEPARTAMENTO);
+                cmd.Parameters.AddWithValue("@PROVINCIA", CliJ.PROVINCIA);
+                cmd.Parameters.AddWithValue("@DISTRITO", CliJ.DISTRITO);
                 cmd.Parameters.AddWithValue("@TEL_CLIENTE", CliJ.TEL_CLIENTE);
-                cmd.Parameters.AddWithValue("@COD_UBIGEO", CliJ.COD_UBIGEO);
-                cmd.Parameters.AddWithValue("@DIR_CLIENTE", CliJ.DIR_CLIENTE);
                 cmd.Parameters.AddWithValue("@ESTADO_CLIENTE", CliJ.ESTADO_CLIENTE);
 
                 cn.Open();
@@ -149,9 +155,11 @@ namespace AccesoDatos
                 cmd.Parameters.AddWithValue("@ID_CLIENTE", CliJ.ID_CLIENTE);
                 cmd.Parameters.AddWithValue("@RUC", CliJ.RUC_CLIENTE);
                 cmd.Parameters.AddWithValue("@RAZON_SOCIAL", CliJ.RAZON_SOCIAL);
-                cmd.Parameters.AddWithValue("@TEL_CLIENTE", CliJ.TEL_CLIENTE);
-                cmd.Parameters.AddWithValue("@COD_UBIGEO", CliJ.COD_UBIGEO);
-                cmd.Parameters.AddWithValue("@DIR_CLIENTE", CliJ.DIR_CLIENTE);
+                cmd.Parameters.AddWithValue("@DIRECCION", CliJ.DIRECCION);
+                cmd.Parameters.AddWithValue("@DEPARTAMENTO", CliJ.DEPARTAMENTO);
+                cmd.Parameters.AddWithValue("@PROVINCIA", CliJ.PROVINCIA);
+                cmd.Parameters.AddWithValue("@DISTRITO", CliJ.DISTRITO);
+                cmd.Parameters.AddWithValue("@TEL_CLIENTE", CliJ.TEL_CLIENTE);              
                 cmd.Parameters.AddWithValue("@ESTADO_CLIENTE", CliJ.ESTADO_CLIENTE);
 
 

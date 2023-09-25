@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-
+using System.Media;
 using AccesoDatos;
 using Entidades;
 using System.Data.SqlClient;
@@ -20,6 +20,7 @@ namespace ProyectoGameCenter.Principal
         private int idUsuario;
         private int idRol;
 
+
         public FrmMenu(int idUsuario_esperado = 0, int idRolUsuario = 0)
         {
             InitializeComponent();
@@ -27,9 +28,11 @@ namespace ProyectoGameCenter.Principal
 
             idUsuario = idUsuario_esperado;
             idRol = idRolUsuario;
+            
         }
 
         //REGION DEL PANEL DE CABECERA
+
 
         [DllImport("User32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -216,10 +219,13 @@ namespace ProyectoGameCenter.Principal
         }
 
         private void FrmMenu_Load(object sender, EventArgs e)
-        {          
+        {
             switch (idRol)
             {
                 case 1: // Administrador
+                    SoundPlayer sonido = new SoundPlayer();
+                    sonido.SoundLocation = "D:/BienvenidoAdmin.wav";
+                    sonido.Play();
                     btnCliente.Enabled = true;
                     btnProductos.Enabled = true;
                     btnVentas.Enabled = true;
