@@ -20,7 +20,7 @@ namespace ProyectoGameCenter.Principal
         public FrmLogin()
         {
             InitializeComponent();
-            string connectionString = "Data Source=DESKTOP-ACRSVPL\\SQLEXPRESS; Initial Catalog = DIARS_GAMECENTER; Integrated Security=true";
+            string connectionString = "Data Source=DESKTOP-ACRSVPL\\SQLEXPRESS; Initial Catalog = GAMECENTER_BD; Integrated Security=true";
             sqlConnection = new SqlConnection(connectionString);
         }
 
