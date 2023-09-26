@@ -15,11 +15,12 @@ namespace ProyectoGameCenter
 {
     public partial class FrmClienteNatural : Form
     {
-
+        private logDniRuc logDniRuc;
         public FrmClienteNatural()
         {
             InitializeComponent();
             ListarClientesNaturales();
+            logDniRuc = new logDniRuc();
         }
 
         private void btnAgregarCN_MouseHover(object sender, EventArgs e)
@@ -274,6 +275,29 @@ namespace ProyectoGameCenter
             if (txtBuscarDNI.Text == "")
             {
                 dgvClienteNatural.DataSource = logClienteNatural.Instancia.ListarClienteNatural();
+            }
+        }
+
+        private void btnBuscarClienteReniec_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtBuscarDNI.Text.Length == 8)
+                {
+                    entDatosDni respuesta = logDniRuc.ObtenerDatosDNI(txtBuscarDNI.Text);
+                    txtNombres.Text = respuesta.Nombres;
+                    txtApellidoPaterno.Text = respuesta.ApellidoPaterno;
+                    txtApellidoMaterno.Text = respuesta.ApellidoMaterno;
+                    txtDNI.Text = respuesta.DNI;
+                }
+                else
+                {
+                    MessageBox.Show("El número de DNI debe tener 8 caracteres.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
     }
