@@ -75,7 +75,7 @@
             this.BarraTituloCN.Dock = System.Windows.Forms.DockStyle.Top;
             this.BarraTituloCN.Location = new System.Drawing.Point(0, 0);
             this.BarraTituloCN.Name = "BarraTituloCN";
-            this.BarraTituloCN.Size = new System.Drawing.Size(1386, 60);
+            this.BarraTituloCN.Size = new System.Drawing.Size(1109, 60);
             this.BarraTituloCN.TabIndex = 1;
             // 
             // label1
@@ -87,7 +87,7 @@
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(0, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1386, 43);
+            this.label1.Size = new System.Drawing.Size(1109, 43);
             this.label1.TabIndex = 13;
             this.label1.Text = "CLIENTE NATURAL";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -108,7 +108,7 @@
             this.PanelContenedorCN.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PanelContenedorCN.Location = new System.Drawing.Point(0, 60);
             this.PanelContenedorCN.Name = "PanelContenedorCN";
-            this.PanelContenedorCN.Size = new System.Drawing.Size(1386, 728);
+            this.PanelContenedorCN.Size = new System.Drawing.Size(1109, 562);
             this.PanelContenedorCN.TabIndex = 2;
             // 
             // btnEditar
@@ -124,7 +124,7 @@
             this.btnEditar.ForeColor = System.Drawing.Color.White;
             this.btnEditar.Image = ((System.Drawing.Image)(resources.GetObject("btnEditar.Image")));
             this.btnEditar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEditar.Location = new System.Drawing.Point(1227, 798);
+            this.btnEditar.Location = new System.Drawing.Point(741, 509);
             this.btnEditar.Name = "btnEditar";
             this.btnEditar.Size = new System.Drawing.Size(148, 50);
             this.btnEditar.TabIndex = 74;
@@ -147,7 +147,7 @@
             this.btnInhabilitarCliNat.ForeColor = System.Drawing.Color.White;
             this.btnInhabilitarCliNat.Image = ((System.Drawing.Image)(resources.GetObject("btnInhabilitarCliNat.Image")));
             this.btnInhabilitarCliNat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnInhabilitarCliNat.Location = new System.Drawing.Point(1403, 798);
+            this.btnInhabilitarCliNat.Location = new System.Drawing.Point(895, 509);
             this.btnInhabilitarCliNat.Name = "btnInhabilitarCliNat";
             this.btnInhabilitarCliNat.Size = new System.Drawing.Size(148, 50);
             this.btnInhabilitarCliNat.TabIndex = 73;
@@ -170,7 +170,7 @@
             this.btnBuscarCliNat.ForeColor = System.Drawing.Color.White;
             this.btnBuscarCliNat.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarCliNat.Image")));
             this.btnBuscarCliNat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarCliNat.Location = new System.Drawing.Point(865, 801);
+            this.btnBuscarCliNat.Location = new System.Drawing.Point(433, 509);
             this.btnBuscarCliNat.Name = "btnBuscarCliNat";
             this.btnBuscarCliNat.Size = new System.Drawing.Size(148, 50);
             this.btnBuscarCliNat.TabIndex = 72;
@@ -193,7 +193,7 @@
             this.btnSalir.ForeColor = System.Drawing.Color.White;
             this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(116, 801);
+            this.btnSalir.Location = new System.Drawing.Point(12, 500);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(148, 50);
             this.btnSalir.TabIndex = 71;
@@ -216,7 +216,7 @@
             this.btnNuevo.ForeColor = System.Drawing.Color.White;
             this.btnNuevo.Image = ((System.Drawing.Image)(resources.GetObject("btnNuevo.Image")));
             this.btnNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNuevo.Location = new System.Drawing.Point(1050, 798);
+            this.btnNuevo.Location = new System.Drawing.Point(587, 509);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(148, 50);
             this.btnNuevo.TabIndex = 70;
@@ -229,9 +229,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(42, 382);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 254);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(346, 351);
+            this.pictureBox1.Size = new System.Drawing.Size(248, 235);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 64;
             this.pictureBox1.TabStop = false;
@@ -248,7 +248,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvClienteNatural.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvClienteNatural.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClienteNatural.Location = new System.Drawing.Point(417, 371);
+            this.dgvClienteNatural.Location = new System.Drawing.Point(266, 268);
             this.dgvClienteNatural.Name = "dgvClienteNatural";
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
@@ -258,7 +258,7 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
             this.dgvClienteNatural.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvClienteNatural.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClienteNatural.Size = new System.Drawing.Size(1048, 396);
+            this.dgvClienteNatural.Size = new System.Drawing.Size(767, 235);
             this.dgvClienteNatural.TabIndex = 63;
             this.dgvClienteNatural.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClienteNatural_CellClick);
             // 
@@ -267,7 +267,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label11.Location = new System.Drawing.Point(647, 798);
+            this.label11.Location = new System.Drawing.Point(214, 506);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(126, 23);
             this.label11.TabIndex = 62;
@@ -276,7 +276,7 @@
             // txtBuscarDNI
             // 
             this.txtBuscarDNI.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtBuscarDNI.Location = new System.Drawing.Point(651, 824);
+            this.txtBuscarDNI.Location = new System.Drawing.Point(218, 532);
             this.txtBuscarDNI.Name = "txtBuscarDNI";
             this.txtBuscarDNI.Size = new System.Drawing.Size(208, 27);
             this.txtBuscarDNI.TabIndex = 61;
@@ -305,9 +305,9 @@
             this.gbClientesNatural.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbClientesNatural.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbClientesNatural.ForeColor = System.Drawing.Color.DarkViolet;
-            this.gbClientesNatural.Location = new System.Drawing.Point(254, 56);
+            this.gbClientesNatural.Location = new System.Drawing.Point(12, 6);
             this.gbClientesNatural.Name = "gbClientesNatural";
-            this.gbClientesNatural.Size = new System.Drawing.Size(1111, 273);
+            this.gbClientesNatural.Size = new System.Drawing.Size(1021, 242);
             this.gbClientesNatural.TabIndex = 31;
             this.gbClientesNatural.TabStop = false;
             this.gbClientesNatural.Text = "DATOS DEL CLIENTE";
@@ -347,7 +347,7 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.White;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(922, 186);
+            this.btnCancelar.Location = new System.Drawing.Point(857, 182);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(148, 48);
             this.btnCancelar.TabIndex = 71;
@@ -370,7 +370,7 @@
             this.btnAgregar.ForeColor = System.Drawing.Color.White;
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(922, 50);
+            this.btnAgregar.Location = new System.Drawing.Point(857, 46);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(148, 50);
             this.btnAgregar.TabIndex = 69;
@@ -404,7 +404,7 @@
             this.btnModificar.ForeColor = System.Drawing.Color.White;
             this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
             this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(922, 115);
+            this.btnModificar.Location = new System.Drawing.Point(857, 111);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(148, 50);
             this.btnModificar.TabIndex = 70;
@@ -533,7 +533,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.ClientSize = new System.Drawing.Size(1109, 622);
             this.Controls.Add(this.PanelContenedorCN);
             this.Controls.Add(this.BarraTituloCN);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
