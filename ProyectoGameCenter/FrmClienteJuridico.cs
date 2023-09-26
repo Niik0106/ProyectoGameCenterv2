@@ -15,12 +15,13 @@ namespace ProyectoGameCenter
 {
     public partial class FrmClienteJuridico : Form
     {
- 
+        private logDniRuc logDniRuc;
         public FrmClienteJuridico()
         {
             InitializeComponent();
             ListarClienteJuridico();
             gbClienteJuridico.Enabled = false;
+            logDniRuc = new logDniRuc();
         }
 
         public void ListarClienteJuridico()
@@ -225,5 +226,31 @@ namespace ProyectoGameCenter
                 ListarClienteJuridico();
             }
         }
+
+        private void boton1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtRucBuscar.Text.Length == 11)
+                {
+                    entDatosRuc respuesta = logDniRuc.ObtenerDatosRUC(txtRucBuscar.Text);
+                    txtRazonSocial.Text = respuesta.RazonSocial;
+                    txtDireccion.Text = respuesta.Direccion;
+                    txtProvincia.Text = respuesta.Provincia;
+                    txtDistrito.Text = respuesta.Distrito;
+                    txtDepartamento.Text = respuesta.Departamento;
+                    txtRUC.Text = respuesta.RUC;
+                }
+                else
+                {
+                    MessageBox.Show("El número de RUC debe tener 11 caracteres.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
     }
-}
+    }
+

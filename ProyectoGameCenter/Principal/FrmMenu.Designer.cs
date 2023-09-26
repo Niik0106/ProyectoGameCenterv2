@@ -65,7 +65,6 @@
             this.lblHora = new System.Windows.Forms.Label();
             this.HoraFecha = new System.Windows.Forms.Timer(this.components);
             this.panelContenedor = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.panelMenuLateral.SuspendLayout();
             this.panelVentaSubMenu.SuspendLayout();
             this.panelProductoSubMenu.SuspendLayout();
@@ -75,8 +74,6 @@
             this.panelCabecera.SuspendLayout();
             this.panelHoraFecha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            this.panelContenedor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenuLateral
@@ -648,23 +645,12 @@
             // 
             // panelContenedor
             // 
-            this.panelContenedor.Controls.Add(this.pictureBox3);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelContenedor.Location = new System.Drawing.Point(250, 30);
             this.panelContenedor.Name = "panelContenedor";
             this.panelContenedor.Size = new System.Drawing.Size(1670, 980);
             this.panelContenedor.TabIndex = 3;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(542, 170);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(633, 629);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox3.TabIndex = 0;
-            this.pictureBox3.TabStop = false;
             // 
             // FrmMenu
             // 
@@ -694,9 +680,6 @@
             this.panelHoraFecha.ResumeLayout(false);
             this.panelHoraFecha.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            this.panelContenedor.ResumeLayout(false);
-            this.panelContenedor.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -738,6 +721,5 @@
         private System.Windows.Forms.Button btnClienteJuridico;
         private System.Windows.Forms.Button btnClienteNatural;
         private System.Windows.Forms.Panel panelContenedor;
-        private System.Windows.Forms.PictureBox pictureBox3;
     }
 }

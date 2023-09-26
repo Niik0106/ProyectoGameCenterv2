@@ -55,15 +55,15 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.dgvClienteJuridico = new System.Windows.Forms.DataGridView();
-            this.btnCancelar = new ProyectoGameCenter.Botones.Boton();
-            this.btnAgregar = new ProyectoGameCenter.Botones.Boton();
-            this.btnModificar = new ProyectoGameCenter.Botones.Boton();
+            this.boton1 = new ProyectoGameCenter.Botones.Boton();
+            this.btnSalir = new ProyectoGameCenter.Botones.Boton();
             this.btnEditar = new ProyectoGameCenter.Botones.Boton();
             this.btnInhabilitarCliJur = new ProyectoGameCenter.Botones.Boton();
             this.btnBuscarCliJur = new ProyectoGameCenter.Botones.Boton();
             this.btnNuevo = new ProyectoGameCenter.Botones.Boton();
-            this.btnSalir = new ProyectoGameCenter.Botones.Boton();
-            this.btnBuscarClienteJuridicoReniec = new ProyectoGameCenter.Botones.Boton();
+            this.btnCancelar = new ProyectoGameCenter.Botones.Boton();
+            this.btnAgregar = new ProyectoGameCenter.Botones.Boton();
+            this.btnModificar = new ProyectoGameCenter.Botones.Boton();
             this.BarraTituloCN.SuspendLayout();
             this.PanelContenedorCN.SuspendLayout();
             this.gbClienteJuridico.SuspendLayout();
@@ -97,6 +97,7 @@
             // PanelContenedorCN
             // 
             this.PanelContenedorCN.BackColor = System.Drawing.Color.White;
+            this.PanelContenedorCN.Controls.Add(this.boton1);
             this.PanelContenedorCN.Controls.Add(this.btnSalir);
             this.PanelContenedorCN.Controls.Add(this.btnEditar);
             this.PanelContenedorCN.Controls.Add(this.btnInhabilitarCliJur);
@@ -134,7 +135,6 @@
             // 
             // gbClienteJuridico
             // 
-            this.gbClienteJuridico.Controls.Add(this.btnBuscarClienteJuridicoReniec);
             this.gbClienteJuridico.Controls.Add(this.btnCancelar);
             this.gbClienteJuridico.Controls.Add(this.btnAgregar);
             this.gbClienteJuridico.Controls.Add(this.btnModificar);
@@ -364,74 +364,51 @@
             this.dgvClienteJuridico.TabIndex = 26;
             this.dgvClienteJuridico.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClienteJuridico_CellClick);
             // 
-            // btnCancelar
+            // boton1
             // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnCancelar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnCancelar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnCancelar.BorderRadius = 40;
-            this.btnCancelar.BorderSize = 0;
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(1158, 203);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(148, 48);
-            this.btnCancelar.TabIndex = 74;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.TextColor = System.Drawing.Color.White;
-            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            this.boton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.boton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.boton1.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.boton1.BorderRadius = 40;
+            this.boton1.BorderSize = 0;
+            this.boton1.FlatAppearance.BorderSize = 0;
+            this.boton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.boton1.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.boton1.ForeColor = System.Drawing.Color.White;
+            this.boton1.Image = ((System.Drawing.Image)(resources.GetObject("boton1.Image")));
+            this.boton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.boton1.Location = new System.Drawing.Point(595, 813);
+            this.boton1.Name = "boton1";
+            this.boton1.Size = new System.Drawing.Size(98, 30);
+            this.boton1.TabIndex = 80;
+            this.boton1.Text = "Buscar";
+            this.boton1.TextColor = System.Drawing.Color.White;
+            this.boton1.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.boton1.UseVisualStyleBackColor = false;
+            this.boton1.Click += new System.EventHandler(this.boton1_Click_1);
             // 
-            // btnAgregar
+            // btnSalir
             // 
-            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnAgregar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnAgregar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnAgregar.BorderRadius = 40;
-            this.btnAgregar.BorderSize = 0;
-            this.btnAgregar.FlatAppearance.BorderSize = 0;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
-            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(1158, 67);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(148, 50);
-            this.btnAgregar.TabIndex = 72;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.TextColor = System.Drawing.Color.White;
-            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnModificar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnModificar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnModificar.BorderRadius = 40;
-            this.btnModificar.BorderSize = 0;
-            this.btnModificar.FlatAppearance.BorderSize = 0;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
-            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnModificar.Location = new System.Drawing.Point(1158, 132);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(148, 50);
-            this.btnModificar.TabIndex = 73;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.TextColor = System.Drawing.Color.White;
-            this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnModificar.UseVisualStyleBackColor = false;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnSalir.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnSalir.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnSalir.BorderRadius = 40;
+            this.btnSalir.BorderSize = 0;
+            this.btnSalir.FlatAppearance.BorderSize = 0;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnSalir.ForeColor = System.Drawing.Color.White;
+            this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
+            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalir.Location = new System.Drawing.Point(91, 801);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(148, 50);
+            this.btnSalir.TabIndex = 79;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.TextColor = System.Drawing.Color.White;
+            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // btnEditar
             // 
@@ -525,50 +502,74 @@
             this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
-            // btnSalir
+            // btnCancelar
             // 
-            this.btnSalir.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnSalir.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnSalir.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnSalir.BorderRadius = 40;
-            this.btnSalir.BorderSize = 0;
-            this.btnSalir.FlatAppearance.BorderSize = 0;
-            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSalir.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnSalir.ForeColor = System.Drawing.Color.White;
-            this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
-            this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalir.Location = new System.Drawing.Point(91, 801);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(148, 50);
-            this.btnSalir.TabIndex = 79;
-            this.btnSalir.Text = "Salir";
-            this.btnSalir.TextColor = System.Drawing.Color.White;
-            this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnSalir.UseVisualStyleBackColor = false;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnCancelar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnCancelar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCancelar.BorderRadius = 40;
+            this.btnCancelar.BorderSize = 0;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(1158, 203);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(148, 48);
+            this.btnCancelar.TabIndex = 74;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.TextColor = System.Drawing.Color.White;
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
-            // btnBuscarClienteJuridicoReniec
+            // btnAgregar
             // 
-            this.btnBuscarClienteJuridicoReniec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnBuscarClienteJuridicoReniec.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnBuscarClienteJuridicoReniec.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnBuscarClienteJuridicoReniec.BorderRadius = 40;
-            this.btnBuscarClienteJuridicoReniec.BorderSize = 0;
-            this.btnBuscarClienteJuridicoReniec.FlatAppearance.BorderSize = 0;
-            this.btnBuscarClienteJuridicoReniec.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarClienteJuridicoReniec.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBuscarClienteJuridicoReniec.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarClienteJuridicoReniec.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarClienteJuridicoReniec.Image")));
-            this.btnBuscarClienteJuridicoReniec.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarClienteJuridicoReniec.Location = new System.Drawing.Point(536, 84);
-            this.btnBuscarClienteJuridicoReniec.Name = "btnBuscarClienteJuridicoReniec";
-            this.btnBuscarClienteJuridicoReniec.Size = new System.Drawing.Size(98, 30);
-            this.btnBuscarClienteJuridicoReniec.TabIndex = 76;
-            this.btnBuscarClienteJuridicoReniec.Text = "Buscar";
-            this.btnBuscarClienteJuridicoReniec.TextColor = System.Drawing.Color.White;
-            this.btnBuscarClienteJuridicoReniec.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnBuscarClienteJuridicoReniec.UseVisualStyleBackColor = false;
+            this.btnAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnAgregar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnAgregar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAgregar.BorderRadius = 40;
+            this.btnAgregar.BorderSize = 0;
+            this.btnAgregar.FlatAppearance.BorderSize = 0;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
+            this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregar.Location = new System.Drawing.Point(1158, 67);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(148, 50);
+            this.btnAgregar.TabIndex = 72;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.TextColor = System.Drawing.Color.White;
+            this.btnAgregar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnModificar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnModificar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnModificar.BorderRadius = 40;
+            this.btnModificar.BorderSize = 0;
+            this.btnModificar.FlatAppearance.BorderSize = 0;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnModificar.ForeColor = System.Drawing.Color.White;
+            this.btnModificar.Image = ((System.Drawing.Image)(resources.GetObject("btnModificar.Image")));
+            this.btnModificar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnModificar.Location = new System.Drawing.Point(1158, 132);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(148, 50);
+            this.btnModificar.TabIndex = 73;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.TextColor = System.Drawing.Color.White;
+            this.btnModificar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // FrmClienteJuridico
             // 
@@ -624,6 +625,6 @@
         private Botones.Boton btnBuscarCliJur;
         private Botones.Boton btnNuevo;
         private Botones.Boton btnSalir;
-        private Botones.Boton btnBuscarClienteJuridicoReniec;
+        private Botones.Boton boton1;
     }
 }

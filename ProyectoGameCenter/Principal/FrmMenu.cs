@@ -223,9 +223,9 @@ namespace ProyectoGameCenter.Principal
             switch (idRol)
             {
                 case 1: // Administrador
-                    SoundPlayer sonido = new SoundPlayer();
-                    sonido.SoundLocation = "D:/BienvenidoAdmin.wav";
-                    sonido.Play();
+                    //SoundPlayer sonido = new SoundPlayer();
+                    //sonido.SoundLocation = "D:/BienvenidoAdmin.wav";
+                    //sonido.Play();
                     btnCliente.Enabled = true;
                     btnProductos.Enabled = true;
                     btnVentas.Enabled = true;
