@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="entApi.cs" />
     <Compile Include="entCliente.cs" />
     <Compile Include="entClienteNatural.cs" />
     <Compile Include="entCategoria.cs" />
