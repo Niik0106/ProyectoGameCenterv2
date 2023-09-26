@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOrdenVenta));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BarraTitulo = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.gbOrdenVenta = new System.Windows.Forms.GroupBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cboTipoDocumento = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtIDOrdenVenta = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -50,7 +50,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.btnBuscaridCliente = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
-            this.txtDocumentoCliente = new System.Windows.Forms.TextBox();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtIDProducto = new System.Windows.Forms.TextBox();
@@ -79,7 +78,9 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.dtpOrdenVenta = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cboTipoCliente = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnPDF = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -99,7 +100,7 @@
             this.BarraTitulo.Dock = System.Windows.Forms.DockStyle.Top;
             this.BarraTitulo.Location = new System.Drawing.Point(0, 0);
             this.BarraTitulo.Name = "BarraTitulo";
-            this.BarraTitulo.Size = new System.Drawing.Size(1386, 60);
+            this.BarraTitulo.Size = new System.Drawing.Size(1295, 60);
             this.BarraTitulo.TabIndex = 6;
             // 
             // label2
@@ -111,14 +112,14 @@
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(0, 6);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(1386, 43);
+            this.label2.Size = new System.Drawing.Size(1295, 43);
             this.label2.TabIndex = 13;
             this.label2.Text = "ORDEN DE VENTA";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gbOrdenVenta
             // 
-            this.gbOrdenVenta.Controls.Add(this.comboBox1);
+            this.gbOrdenVenta.Controls.Add(this.cboTipoDocumento);
             this.gbOrdenVenta.Controls.Add(this.label16);
             this.gbOrdenVenta.Controls.Add(this.txtIDOrdenVenta);
             this.gbOrdenVenta.Controls.Add(this.label11);
@@ -133,22 +134,25 @@
             this.gbOrdenVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbOrdenVenta.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbOrdenVenta.ForeColor = System.Drawing.Color.DarkViolet;
-            this.gbOrdenVenta.Location = new System.Drawing.Point(64, 126);
+            this.gbOrdenVenta.Location = new System.Drawing.Point(23, 81);
             this.gbOrdenVenta.Name = "gbOrdenVenta";
-            this.gbOrdenVenta.Size = new System.Drawing.Size(678, 198);
+            this.gbOrdenVenta.Size = new System.Drawing.Size(603, 198);
             this.gbOrdenVenta.TabIndex = 40;
             this.gbOrdenVenta.TabStop = false;
             this.gbOrdenVenta.Text = "INFORMACION DE LA VENTA";
             // 
-            // comboBox1
+            // cboTipoDocumento
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(215, 130);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(156, 29);
-            this.comboBox1.TabIndex = 77;
+            this.cboTipoDocumento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoDocumento.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTipoDocumento.FormattingEnabled = true;
+            this.cboTipoDocumento.Items.AddRange(new object[] {
+            "01 - FACTURA",
+            "03 - BOLETA"});
+            this.cboTipoDocumento.Location = new System.Drawing.Point(215, 130);
+            this.cboTipoDocumento.Name = "cboTipoDocumento";
+            this.cboTipoDocumento.Size = new System.Drawing.Size(156, 29);
+            this.cboTipoDocumento.TabIndex = 77;
             // 
             // label16
             // 
@@ -282,9 +286,9 @@
             this.label8.ForeColor = System.Drawing.Color.DarkViolet;
             this.label8.Location = new System.Drawing.Point(17, 43);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(200, 23);
+            this.label8.Size = new System.Drawing.Size(154, 23);
             this.label8.TabIndex = 72;
-            this.label8.Text = "Numero Documento:";
+            this.label8.Text = "Tipo de Cliente:";
             // 
             // btnBuscaridCliente
             // 
@@ -296,7 +300,7 @@
             this.btnBuscaridCliente.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnBuscaridCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscaridCliente.Image")));
             this.btnBuscaridCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscaridCliente.Location = new System.Drawing.Point(261, 68);
+            this.btnBuscaridCliente.Location = new System.Drawing.Point(261, 130);
             this.btnBuscaridCliente.Name = "btnBuscaridCliente";
             this.btnBuscaridCliente.Size = new System.Drawing.Size(71, 29);
             this.btnBuscaridCliente.TabIndex = 71;
@@ -315,22 +319,14 @@
             this.btnCancelar.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
             this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(62, 469);
+            this.btnCancelar.Location = new System.Drawing.Point(19, 450);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(205, 43);
+            this.btnCancelar.Size = new System.Drawing.Size(205, 49);
             this.btnCancelar.TabIndex = 29;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // txtDocumentoCliente
-            // 
-            this.txtDocumentoCliente.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDocumentoCliente.Location = new System.Drawing.Point(21, 68);
-            this.txtDocumentoCliente.Name = "txtDocumentoCliente";
-            this.txtDocumentoCliente.Size = new System.Drawing.Size(234, 27);
-            this.txtDocumentoCliente.TabIndex = 27;
             // 
             // btnAgregar
             // 
@@ -342,7 +338,7 @@
             this.btnAgregar.ForeColor = System.Drawing.Color.DarkViolet;
             this.btnAgregar.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregar.Image")));
             this.btnAgregar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregar.Location = new System.Drawing.Point(62, 402);
+            this.btnAgregar.Location = new System.Drawing.Point(19, 335);
             this.btnAgregar.Name = "btnAgregar";
             this.btnAgregar.Size = new System.Drawing.Size(205, 50);
             this.btnAgregar.TabIndex = 3;
@@ -533,9 +529,9 @@
             this.gbDetalleOrdenVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbDetalleOrdenVenta.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbDetalleOrdenVenta.ForeColor = System.Drawing.Color.DarkViolet;
-            this.gbDetalleOrdenVenta.Location = new System.Drawing.Point(64, 349);
+            this.gbDetalleOrdenVenta.Location = new System.Drawing.Point(23, 304);
             this.gbDetalleOrdenVenta.Name = "gbDetalleOrdenVenta";
-            this.gbDetalleOrdenVenta.Size = new System.Drawing.Size(1177, 471);
+            this.gbDetalleOrdenVenta.Size = new System.Drawing.Size(993, 404);
             this.gbDetalleOrdenVenta.TabIndex = 62;
             this.gbDetalleOrdenVenta.TabStop = false;
             this.gbDetalleOrdenVenta.Text = "DETALLE ORDEN DE VENTA";
@@ -543,27 +539,27 @@
             // dgvDetalleOrdenVenta
             // 
             this.dgvDetalleOrdenVenta.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkViolet;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkViolet;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvDetalleOrdenVenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkViolet;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvDetalleOrdenVenta.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvDetalleOrdenVenta.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDetalleOrdenVenta.Location = new System.Drawing.Point(24, 180);
+            this.dgvDetalleOrdenVenta.Location = new System.Drawing.Point(26, 171);
             this.dgvDetalleOrdenVenta.Name = "dgvDetalleOrdenVenta";
             this.dgvDetalleOrdenVenta.RowHeadersWidth = 51;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.BlueViolet;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvDetalleOrdenVenta.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.BlueViolet;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvDetalleOrdenVenta.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvDetalleOrdenVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDetalleOrdenVenta.Size = new System.Drawing.Size(1125, 264);
+            this.dgvDetalleOrdenVenta.Size = new System.Drawing.Size(941, 213);
             this.dgvDetalleOrdenVenta.TabIndex = 74;
             // 
             // label12
@@ -665,7 +661,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label15.Location = new System.Drawing.Point(113, 273);
+            this.label15.Location = new System.Drawing.Point(15, 223);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(98, 23);
             this.label15.TabIndex = 77;
@@ -675,7 +671,7 @@
             // 
             this.txtTotal.Enabled = false;
             this.txtTotal.Font = new System.Drawing.Font("Century Gothic", 27.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(74, 321);
+            this.txtTotal.Location = new System.Drawing.Point(19, 258);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.Size = new System.Drawing.Size(171, 53);
             this.txtTotal.TabIndex = 75;
@@ -725,23 +721,37 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cboTipoCliente);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.txtDocumentoCliente);
             this.groupBox1.Controls.Add(this.btnBuscaridCliente);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtResultadoBusquedaCliente);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.DarkViolet;
-            this.groupBox1.Location = new System.Drawing.Point(791, 126);
+            this.groupBox1.Location = new System.Drawing.Point(643, 81);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(450, 198);
+            this.groupBox1.Size = new System.Drawing.Size(360, 198);
             this.groupBox1.TabIndex = 78;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "INFORMACION DEL CLIENTE";
             // 
+            // cboTipoCliente
+            // 
+            this.cboTipoCliente.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboTipoCliente.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboTipoCliente.FormattingEnabled = true;
+            this.cboTipoCliente.Items.AddRange(new object[] {
+            "1 - DNI",
+            "6 - RUC"});
+            this.cboTipoCliente.Location = new System.Drawing.Point(21, 69);
+            this.cboTipoCliente.Name = "cboTipoCliente";
+            this.cboTipoCliente.Size = new System.Drawing.Size(156, 29);
+            this.cboTipoCliente.TabIndex = 78;
+            // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.btnPDF);
             this.groupBox2.Controls.Add(this.textBox2);
             this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.btnCancelar);
@@ -753,18 +763,37 @@
             this.groupBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.DarkViolet;
-            this.groupBox2.Location = new System.Drawing.Point(1294, 126);
+            this.groupBox2.Location = new System.Drawing.Point(1025, 81);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(309, 564);
+            this.groupBox2.Size = new System.Drawing.Size(242, 524);
             this.groupBox2.TabIndex = 79;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "IMPORTES";
+            // 
+            // btnPDF
+            // 
+            this.btnPDF.BackColor = System.Drawing.Color.White;
+            this.btnPDF.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPDF.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnPDF.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPDF.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPDF.ForeColor = System.Drawing.Color.DarkViolet;
+            this.btnPDF.Image = ((System.Drawing.Image)(resources.GetObject("btnPDF.Image")));
+            this.btnPDF.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPDF.Location = new System.Drawing.Point(19, 391);
+            this.btnPDF.Name = "btnPDF";
+            this.btnPDF.Size = new System.Drawing.Size(205, 50);
+            this.btnPDF.TabIndex = 82;
+            this.btnPDF.Text = "Generar CDR y PDF";
+            this.btnPDF.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPDF.UseVisualStyleBackColor = false;
+            this.btnPDF.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox2
             // 
             this.textBox2.Enabled = false;
             this.textBox2.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(74, 200);
+            this.textBox2.Location = new System.Drawing.Point(19, 156);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(171, 41);
             this.textBox2.TabIndex = 81;
@@ -775,7 +804,7 @@
             // 
             this.textBox1.Enabled = false;
             this.textBox1.Font = new System.Drawing.Font("Century Gothic", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(74, 88);
+            this.textBox1.Location = new System.Drawing.Point(19, 69);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(171, 41);
             this.textBox1.TabIndex = 80;
@@ -787,7 +816,7 @@
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label18.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label18.Location = new System.Drawing.Point(123, 154);
+            this.label18.Location = new System.Drawing.Point(15, 130);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(68, 23);
             this.label18.TabIndex = 79;
@@ -798,7 +827,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.DarkViolet;
-            this.label17.Location = new System.Drawing.Point(99, 43);
+            this.label17.Location = new System.Drawing.Point(15, 43);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(117, 23);
             this.label17.TabIndex = 78;
@@ -809,7 +838,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1386, 788);
+            this.ClientSize = new System.Drawing.Size(1295, 751);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dtpOrdenVenta);
@@ -850,7 +879,6 @@
         private System.Windows.Forms.TextBox txtNOrdenVenta;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox txtDocumentoCliente;
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnAgregar;
@@ -890,11 +918,13 @@
         private System.Windows.Forms.DateTimePicker dtpOrdenVenta;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cboTipoDocumento;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.ComboBox cboTipoCliente;
+        private System.Windows.Forms.Button btnPDF;
     }
 }
