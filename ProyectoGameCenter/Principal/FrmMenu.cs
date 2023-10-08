@@ -86,6 +86,9 @@ namespace ProyectoGameCenter.Principal
             panelClienteSubMenu.Visible = false;
             panelProductoSubMenu.Visible = false;
             panelVentaSubMenu.Visible = false;
+            panelComprasSubMenu.Visible = false;
+            panelReportesSubMenu.Visible = false;
+            panelConfiguracionSubMenu.Visible = false;
         }
 
         private void OcultarSubMenu()
@@ -95,7 +98,13 @@ namespace ProyectoGameCenter.Principal
             if(panelProductoSubMenu.Visible ==true)
                 panelProductoSubMenu.Visible=false;
             if(panelVentaSubMenu.Visible == true)
-                panelVentaSubMenu.Visible=false;         
+                panelVentaSubMenu.Visible=false;
+            if (panelComprasSubMenu.Visible == true)
+                panelComprasSubMenu.Visible=false;
+            if (panelReportesSubMenu.Visible == true)
+                panelReportesSubMenu.Visible=false;
+            if (panelConfiguracionSubMenu.Visible == true)
+                panelConfiguracionSubMenu.Visible = false;
         }
 
         private void MostrarSubMenu(Panel SubMenu)
@@ -229,40 +238,46 @@ namespace ProyectoGameCenter.Principal
                     btnCliente.Enabled = true;
                     btnProductos.Enabled = true;
                     btnVentas.Enabled = true;
-                    btnProveedores.Enabled = true;
-                    btnMetodoPago.Enabled = true;
-                    btnOrdenCompra.Enabled = true;
-                    btnNotaSalida.Enabled = true;
+                    btnCompras.Enabled = true;
+                    btnReportes.Enabled = true;
+                    btnProveedores.Visible = true;
+                    btnPagos.Visible = true;
+                    btnConfiguracion.Enabled = true;
+                    
+   
                     break;
 
                 case 2: // Vendedor
                     btnCliente.Enabled = true;
                     btnProductos.Visible = false;
                     btnVentas.Enabled = true;
-                    btnProveedores.Visible = false;
-                    btnMetodoPago.Visible = false;
-                    btnOrdenCompra.Visible = false;
-                    btnNotaSalida.Visible = false;
+                    btnCronogramaPago.Visible=false;
+                    //btnProveedores.Visible = false;
+                    //btnReportesCompras.Visible = false;
+                    btnCompras.Visible = false;
+                    
                 break;
 
                 case 3: //Compras
                     btnCliente.Visible = false;
                     btnProductos.Visible = false;
                     btnVentas.Visible = false;
-                    btnProveedores.Enabled = true;
-                    btnMetodoPago.Visible = false;
-                    btnOrdenCompra.Enabled = true;
-                    btnNotaSalida.Visible = false;
+                    //btnProveedores.Enabled = true;
+                    //btnReportesCompras.Visible = false;
+                    btnCompras.Enabled = true;
+                    btnCronogramaPago.Visible = false;
                 break;
 
                 case 4: //Almacen
                     btnCliente.Visible = false;
                     btnProductos.Enabled = true;
-                    btnVentas.Visible = false;
-                    btnProveedores.Visible = false;
-                    btnMetodoPago.Visible = false;
+                    btnVentas.Visible = true;
+                    btnOrdenVenta.Visible = false;
                     btnOrdenCompra.Visible = false;
-                    btnNotaSalida.Enabled = true;
+                    //btnProveedores.Visible = false;
+                    //btnReportesCompras.Visible = false;
+                    btnCompras.Visible = true;
+                    btnCronogramaPago.Enabled = true;
                 break;
             }
         }
@@ -277,6 +292,26 @@ namespace ProyectoGameCenter.Principal
                 login.Show();
             }
            
+        }
+
+        private void btnCompras_Click(object sender, EventArgs e)
+        {
+            MostrarSubMenu(panelComprasSubMenu);
+        }
+
+        private void btnCompras_Click_1(object sender, EventArgs e)
+        {
+            MostrarSubMenu(panelComprasSubMenu);
+        }
+
+        private void btnReportes_Click(object sender, EventArgs e)
+        {
+            MostrarSubMenu(panelReportesSubMenu);
+        }
+
+        private void btnConfiguracion_Click(object sender, EventArgs e)
+        {
+            MostrarSubMenu(panelConfiguracionSubMenu);
         }
 
         private string ObtenerPermisos(string nombreUsuario)

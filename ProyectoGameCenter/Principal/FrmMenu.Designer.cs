@@ -31,12 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
             this.panelMenuLateral = new System.Windows.Forms.Panel();
-            this.btnNotaSalida = new System.Windows.Forms.Button();
-            this.btnMetodoPago = new System.Windows.Forms.Button();
-            this.btnProveedores = new System.Windows.Forms.Button();
-            this.btnOrdenCompra = new System.Windows.Forms.Button();
             this.panelVentaSubMenu = new System.Windows.Forms.Panel();
-            this.btnCronogramaPago = new System.Windows.Forms.Button();
             this.btnOrdenVenta = new System.Windows.Forms.Button();
             this.btnVentas = new System.Windows.Forms.Button();
             this.panelProductoSubMenu = new System.Windows.Forms.Panel();
@@ -65,6 +60,21 @@
             this.lblHora = new System.Windows.Forms.Label();
             this.HoraFecha = new System.Windows.Forms.Timer(this.components);
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.btnCronogramaPago = new System.Windows.Forms.Button();
+            this.btnCompras = new System.Windows.Forms.Button();
+            this.panelComprasSubMenu = new System.Windows.Forms.Panel();
+            this.btnNotaEntrada = new System.Windows.Forms.Button();
+            this.btnOrdenCompra = new System.Windows.Forms.Button();
+            this.btnReportes = new System.Windows.Forms.Button();
+            this.panelReportesSubMenu = new System.Windows.Forms.Panel();
+            this.btnReportesCompras = new System.Windows.Forms.Button();
+            this.btnReportesVentas = new System.Windows.Forms.Button();
+            this.btnProveedores = new System.Windows.Forms.Button();
+            this.btnPagos = new System.Windows.Forms.Button();
+            this.btnConfiguracion = new System.Windows.Forms.Button();
+            this.panelConfiguracionSubMenu = new System.Windows.Forms.Panel();
+            this.btnEmpresa = new System.Windows.Forms.Button();
+            this.btnUsuarios = new System.Windows.Forms.Button();
             this.panelMenuLateral.SuspendLayout();
             this.panelVentaSubMenu.SuspendLayout();
             this.panelProductoSubMenu.SuspendLayout();
@@ -74,16 +84,23 @@
             this.panelCabecera.SuspendLayout();
             this.panelHoraFecha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panelComprasSubMenu.SuspendLayout();
+            this.panelReportesSubMenu.SuspendLayout();
+            this.panelConfiguracionSubMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelMenuLateral
             // 
             this.panelMenuLateral.AutoScroll = true;
             this.panelMenuLateral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.panelMenuLateral.Controls.Add(this.btnNotaSalida);
-            this.panelMenuLateral.Controls.Add(this.btnMetodoPago);
+            this.panelMenuLateral.Controls.Add(this.panelConfiguracionSubMenu);
+            this.panelMenuLateral.Controls.Add(this.btnConfiguracion);
+            this.panelMenuLateral.Controls.Add(this.btnPagos);
             this.panelMenuLateral.Controls.Add(this.btnProveedores);
-            this.panelMenuLateral.Controls.Add(this.btnOrdenCompra);
+            this.panelMenuLateral.Controls.Add(this.panelReportesSubMenu);
+            this.panelMenuLateral.Controls.Add(this.btnReportes);
+            this.panelMenuLateral.Controls.Add(this.panelComprasSubMenu);
+            this.panelMenuLateral.Controls.Add(this.btnCompras);
             this.panelMenuLateral.Controls.Add(this.panelVentaSubMenu);
             this.panelMenuLateral.Controls.Add(this.btnVentas);
             this.panelMenuLateral.Controls.Add(this.panelProductoSubMenu);
@@ -98,94 +115,6 @@
             this.panelMenuLateral.Size = new System.Drawing.Size(250, 1080);
             this.panelMenuLateral.TabIndex = 0;
             // 
-            // btnNotaSalida
-            // 
-            this.btnNotaSalida.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNotaSalida.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnNotaSalida.FlatAppearance.BorderSize = 0;
-            this.btnNotaSalida.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
-            this.btnNotaSalida.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNotaSalida.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnNotaSalida.ForeColor = System.Drawing.Color.White;
-            this.btnNotaSalida.Image = ((System.Drawing.Image)(resources.GetObject("btnNotaSalida.Image")));
-            this.btnNotaSalida.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNotaSalida.Location = new System.Drawing.Point(0, 750);
-            this.btnNotaSalida.Name = "btnNotaSalida";
-            this.btnNotaSalida.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnNotaSalida.Size = new System.Drawing.Size(250, 50);
-            this.btnNotaSalida.TabIndex = 18;
-            this.btnNotaSalida.Text = "     NOTA SALIDA";
-            this.btnNotaSalida.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnNotaSalida.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnNotaSalida.UseVisualStyleBackColor = true;
-            this.btnNotaSalida.Click += new System.EventHandler(this.btnNotaSalida_Click);
-            // 
-            // btnMetodoPago
-            // 
-            this.btnMetodoPago.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnMetodoPago.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnMetodoPago.FlatAppearance.BorderSize = 0;
-            this.btnMetodoPago.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
-            this.btnMetodoPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMetodoPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnMetodoPago.ForeColor = System.Drawing.Color.White;
-            this.btnMetodoPago.Image = ((System.Drawing.Image)(resources.GetObject("btnMetodoPago.Image")));
-            this.btnMetodoPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMetodoPago.Location = new System.Drawing.Point(0, 700);
-            this.btnMetodoPago.Name = "btnMetodoPago";
-            this.btnMetodoPago.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnMetodoPago.Size = new System.Drawing.Size(250, 50);
-            this.btnMetodoPago.TabIndex = 17;
-            this.btnMetodoPago.Text = "     METODO PAGO";
-            this.btnMetodoPago.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnMetodoPago.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnMetodoPago.UseVisualStyleBackColor = true;
-            this.btnMetodoPago.Click += new System.EventHandler(this.btnMetodoPago_Click);
-            // 
-            // btnProveedores
-            // 
-            this.btnProveedores.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnProveedores.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnProveedores.FlatAppearance.BorderSize = 0;
-            this.btnProveedores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
-            this.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnProveedores.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnProveedores.ForeColor = System.Drawing.Color.White;
-            this.btnProveedores.Image = ((System.Drawing.Image)(resources.GetObject("btnProveedores.Image")));
-            this.btnProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProveedores.Location = new System.Drawing.Point(0, 650);
-            this.btnProveedores.Name = "btnProveedores";
-            this.btnProveedores.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnProveedores.Size = new System.Drawing.Size(250, 50);
-            this.btnProveedores.TabIndex = 16;
-            this.btnProveedores.Text = "     PROVEEDORES";
-            this.btnProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnProveedores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnProveedores.UseVisualStyleBackColor = true;
-            this.btnProveedores.Click += new System.EventHandler(this.btnProveedores_Click);
-            // 
-            // btnOrdenCompra
-            // 
-            this.btnOrdenCompra.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnOrdenCompra.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnOrdenCompra.FlatAppearance.BorderSize = 0;
-            this.btnOrdenCompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
-            this.btnOrdenCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOrdenCompra.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOrdenCompra.ForeColor = System.Drawing.Color.White;
-            this.btnOrdenCompra.Image = ((System.Drawing.Image)(resources.GetObject("btnOrdenCompra.Image")));
-            this.btnOrdenCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrdenCompra.Location = new System.Drawing.Point(0, 600);
-            this.btnOrdenCompra.Name = "btnOrdenCompra";
-            this.btnOrdenCompra.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnOrdenCompra.Size = new System.Drawing.Size(250, 50);
-            this.btnOrdenCompra.TabIndex = 15;
-            this.btnOrdenCompra.Text = "     COMPRAS";
-            this.btnOrdenCompra.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOrdenCompra.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnOrdenCompra.UseVisualStyleBackColor = true;
-            this.btnOrdenCompra.Click += new System.EventHandler(this.btnOrdenCompra_Click);
-            // 
             // panelVentaSubMenu
             // 
             this.panelVentaSubMenu.BackColor = System.Drawing.Color.Indigo;
@@ -194,33 +123,12 @@
             this.panelVentaSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelVentaSubMenu.Location = new System.Drawing.Point(0, 500);
             this.panelVentaSubMenu.Name = "panelVentaSubMenu";
-            this.panelVentaSubMenu.Size = new System.Drawing.Size(250, 100);
+            this.panelVentaSubMenu.Size = new System.Drawing.Size(233, 100);
             this.panelVentaSubMenu.TabIndex = 14;
-            // 
-            // btnCronogramaPago
-            // 
-            this.btnCronogramaPago.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCronogramaPago.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnCronogramaPago.FlatAppearance.BorderSize = 0;
-            this.btnCronogramaPago.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
-            this.btnCronogramaPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCronogramaPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCronogramaPago.ForeColor = System.Drawing.Color.White;
-            this.btnCronogramaPago.Image = ((System.Drawing.Image)(resources.GetObject("btnCronogramaPago.Image")));
-            this.btnCronogramaPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCronogramaPago.Location = new System.Drawing.Point(0, 50);
-            this.btnCronogramaPago.Name = "btnCronogramaPago";
-            this.btnCronogramaPago.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnCronogramaPago.Size = new System.Drawing.Size(250, 50);
-            this.btnCronogramaPago.TabIndex = 4;
-            this.btnCronogramaPago.Text = "     CRONOG. PAGO";
-            this.btnCronogramaPago.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCronogramaPago.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCronogramaPago.UseVisualStyleBackColor = true;
-            this.btnCronogramaPago.Click += new System.EventHandler(this.btnCronogramaPago_Click);
             // 
             // btnOrdenVenta
             // 
+            this.btnOrdenVenta.BackColor = System.Drawing.Color.Indigo;
             this.btnOrdenVenta.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOrdenVenta.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnOrdenVenta.FlatAppearance.BorderSize = 0;
@@ -233,12 +141,12 @@
             this.btnOrdenVenta.Location = new System.Drawing.Point(0, 0);
             this.btnOrdenVenta.Name = "btnOrdenVenta";
             this.btnOrdenVenta.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnOrdenVenta.Size = new System.Drawing.Size(250, 50);
+            this.btnOrdenVenta.Size = new System.Drawing.Size(233, 50);
             this.btnOrdenVenta.TabIndex = 3;
             this.btnOrdenVenta.Text = "     ORDEN VENTA";
             this.btnOrdenVenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnOrdenVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnOrdenVenta.UseVisualStyleBackColor = true;
+            this.btnOrdenVenta.UseVisualStyleBackColor = false;
             this.btnOrdenVenta.Click += new System.EventHandler(this.btnOrdenVenta_Click);
             // 
             // btnVentas
@@ -255,7 +163,7 @@
             this.btnVentas.Location = new System.Drawing.Point(0, 450);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnVentas.Size = new System.Drawing.Size(250, 50);
+            this.btnVentas.Size = new System.Drawing.Size(233, 50);
             this.btnVentas.TabIndex = 13;
             this.btnVentas.Text = "     VENTAS";
             this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -272,7 +180,7 @@
             this.panelProductoSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelProductoSubMenu.Location = new System.Drawing.Point(0, 300);
             this.panelProductoSubMenu.Name = "panelProductoSubMenu";
-            this.panelProductoSubMenu.Size = new System.Drawing.Size(250, 150);
+            this.panelProductoSubMenu.Size = new System.Drawing.Size(233, 150);
             this.panelProductoSubMenu.TabIndex = 12;
             // 
             // btnMarca
@@ -289,7 +197,7 @@
             this.btnMarca.Location = new System.Drawing.Point(0, 100);
             this.btnMarca.Name = "btnMarca";
             this.btnMarca.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnMarca.Size = new System.Drawing.Size(250, 50);
+            this.btnMarca.Size = new System.Drawing.Size(233, 50);
             this.btnMarca.TabIndex = 5;
             this.btnMarca.Text = "     MARCA";
             this.btnMarca.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -311,7 +219,7 @@
             this.btnCategoria.Location = new System.Drawing.Point(0, 50);
             this.btnCategoria.Name = "btnCategoria";
             this.btnCategoria.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnCategoria.Size = new System.Drawing.Size(250, 50);
+            this.btnCategoria.Size = new System.Drawing.Size(233, 50);
             this.btnCategoria.TabIndex = 4;
             this.btnCategoria.Text = "     CATEGORIA";
             this.btnCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -333,7 +241,7 @@
             this.btnProductosSubMenu.Location = new System.Drawing.Point(0, 0);
             this.btnProductosSubMenu.Name = "btnProductosSubMenu";
             this.btnProductosSubMenu.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnProductosSubMenu.Size = new System.Drawing.Size(250, 50);
+            this.btnProductosSubMenu.Size = new System.Drawing.Size(233, 50);
             this.btnProductosSubMenu.TabIndex = 3;
             this.btnProductosSubMenu.Text = "     PRODUCTOS";
             this.btnProductosSubMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -355,7 +263,7 @@
             this.btnProductos.Location = new System.Drawing.Point(0, 250);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnProductos.Size = new System.Drawing.Size(250, 50);
+            this.btnProductos.Size = new System.Drawing.Size(233, 50);
             this.btnProductos.TabIndex = 11;
             this.btnProductos.Text = "     PRODUCTOS";
             this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -371,7 +279,7 @@
             this.panelClienteSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelClienteSubMenu.Location = new System.Drawing.Point(0, 150);
             this.panelClienteSubMenu.Name = "panelClienteSubMenu";
-            this.panelClienteSubMenu.Size = new System.Drawing.Size(250, 100);
+            this.panelClienteSubMenu.Size = new System.Drawing.Size(233, 100);
             this.panelClienteSubMenu.TabIndex = 10;
             // 
             // btnClienteJuridico
@@ -388,7 +296,7 @@
             this.btnClienteJuridico.Location = new System.Drawing.Point(0, 50);
             this.btnClienteJuridico.Name = "btnClienteJuridico";
             this.btnClienteJuridico.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnClienteJuridico.Size = new System.Drawing.Size(250, 50);
+            this.btnClienteJuridico.Size = new System.Drawing.Size(233, 50);
             this.btnClienteJuridico.TabIndex = 4;
             this.btnClienteJuridico.Text = "     CLIENTE JURIDICO";
             this.btnClienteJuridico.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -410,7 +318,7 @@
             this.btnClienteNatural.Location = new System.Drawing.Point(0, 0);
             this.btnClienteNatural.Name = "btnClienteNatural";
             this.btnClienteNatural.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnClienteNatural.Size = new System.Drawing.Size(250, 50);
+            this.btnClienteNatural.Size = new System.Drawing.Size(233, 50);
             this.btnClienteNatural.TabIndex = 3;
             this.btnClienteNatural.Text = "     CLIENTE NATURAL";
             this.btnClienteNatural.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -429,10 +337,10 @@
             this.btnCerrarSesion.ForeColor = System.Drawing.Color.White;
             this.btnCerrarSesion.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrarSesion.Image")));
             this.btnCerrarSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 1010);
+            this.btnCerrarSesion.Location = new System.Drawing.Point(0, 1150);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnCerrarSesion.Size = new System.Drawing.Size(250, 70);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(233, 70);
             this.btnCerrarSesion.TabIndex = 9;
             this.btnCerrarSesion.Text = "     CERRAR SESION";
             this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -454,7 +362,7 @@
             this.btnCliente.Location = new System.Drawing.Point(0, 100);
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
-            this.btnCliente.Size = new System.Drawing.Size(250, 50);
+            this.btnCliente.Size = new System.Drawing.Size(233, 50);
             this.btnCliente.TabIndex = 4;
             this.btnCliente.Text = "     CLIENTES";
             this.btnCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -469,7 +377,7 @@
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(250, 100);
+            this.panelLogo.Size = new System.Drawing.Size(233, 100);
             this.panelLogo.TabIndex = 0;
             // 
             // pictureBox1
@@ -652,6 +560,294 @@
             this.panelContenedor.TabIndex = 3;
             this.panelContenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panelContenedor_Paint);
             // 
+            // btnCronogramaPago
+            // 
+            this.btnCronogramaPago.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCronogramaPago.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCronogramaPago.FlatAppearance.BorderSize = 0;
+            this.btnCronogramaPago.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnCronogramaPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCronogramaPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCronogramaPago.ForeColor = System.Drawing.Color.White;
+            this.btnCronogramaPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCronogramaPago.Location = new System.Drawing.Point(0, 50);
+            this.btnCronogramaPago.Name = "btnCronogramaPago";
+            this.btnCronogramaPago.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnCronogramaPago.Size = new System.Drawing.Size(233, 40);
+            this.btnCronogramaPago.TabIndex = 4;
+            this.btnCronogramaPago.Text = "     NOTA SALIDA";
+            this.btnCronogramaPago.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCronogramaPago.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCronogramaPago.UseVisualStyleBackColor = true;
+            this.btnCronogramaPago.Click += new System.EventHandler(this.btnCronogramaPago_Click);
+            // 
+            // btnCompras
+            // 
+            this.btnCompras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnCompras.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnCompras.FlatAppearance.BorderSize = 0;
+            this.btnCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
+            this.btnCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCompras.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCompras.ForeColor = System.Drawing.Color.White;
+            this.btnCompras.Image = ((System.Drawing.Image)(resources.GetObject("btnCompras.Image")));
+            this.btnCompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCompras.Location = new System.Drawing.Point(0, 600);
+            this.btnCompras.Name = "btnCompras";
+            this.btnCompras.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnCompras.Size = new System.Drawing.Size(233, 50);
+            this.btnCompras.TabIndex = 15;
+            this.btnCompras.Text = "     COMPRAS";
+            this.btnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCompras.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCompras.UseVisualStyleBackColor = true;
+            this.btnCompras.Click += new System.EventHandler(this.btnCompras_Click);
+            // 
+            // panelComprasSubMenu
+            // 
+            this.panelComprasSubMenu.BackColor = System.Drawing.Color.Indigo;
+            this.panelComprasSubMenu.Controls.Add(this.btnNotaEntrada);
+            this.panelComprasSubMenu.Controls.Add(this.btnOrdenCompra);
+            this.panelComprasSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelComprasSubMenu.Location = new System.Drawing.Point(0, 650);
+            this.panelComprasSubMenu.Name = "panelComprasSubMenu";
+            this.panelComprasSubMenu.Size = new System.Drawing.Size(233, 100);
+            this.panelComprasSubMenu.TabIndex = 16;
+            // 
+            // btnNotaEntrada
+            // 
+            this.btnNotaEntrada.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNotaEntrada.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnNotaEntrada.FlatAppearance.BorderSize = 0;
+            this.btnNotaEntrada.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnNotaEntrada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotaEntrada.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnNotaEntrada.ForeColor = System.Drawing.Color.White;
+            this.btnNotaEntrada.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNotaEntrada.Location = new System.Drawing.Point(0, 50);
+            this.btnNotaEntrada.Name = "btnNotaEntrada";
+            this.btnNotaEntrada.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnNotaEntrada.Size = new System.Drawing.Size(233, 50);
+            this.btnNotaEntrada.TabIndex = 4;
+            this.btnNotaEntrada.Text = "     NOTA ENTRADA";
+            this.btnNotaEntrada.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnNotaEntrada.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnNotaEntrada.UseVisualStyleBackColor = true;
+            // 
+            // btnOrdenCompra
+            // 
+            this.btnOrdenCompra.BackColor = System.Drawing.Color.Indigo;
+            this.btnOrdenCompra.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnOrdenCompra.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnOrdenCompra.FlatAppearance.BorderSize = 0;
+            this.btnOrdenCompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnOrdenCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOrdenCompra.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnOrdenCompra.ForeColor = System.Drawing.Color.White;
+            this.btnOrdenCompra.Image = ((System.Drawing.Image)(resources.GetObject("btnOrdenCompra.Image")));
+            this.btnOrdenCompra.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOrdenCompra.Location = new System.Drawing.Point(0, 0);
+            this.btnOrdenCompra.Name = "btnOrdenCompra";
+            this.btnOrdenCompra.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnOrdenCompra.Size = new System.Drawing.Size(233, 50);
+            this.btnOrdenCompra.TabIndex = 3;
+            this.btnOrdenCompra.Text = "     ORDEN COMPRA";
+            this.btnOrdenCompra.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOrdenCompra.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnOrdenCompra.UseVisualStyleBackColor = false;
+            // 
+            // btnReportes
+            // 
+            this.btnReportes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReportes.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportes.FlatAppearance.BorderSize = 0;
+            this.btnReportes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
+            this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.ForeColor = System.Drawing.Color.White;
+            this.btnReportes.Image = ((System.Drawing.Image)(resources.GetObject("btnReportes.Image")));
+            this.btnReportes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportes.Location = new System.Drawing.Point(0, 750);
+            this.btnReportes.Name = "btnReportes";
+            this.btnReportes.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnReportes.Size = new System.Drawing.Size(233, 50);
+            this.btnReportes.TabIndex = 17;
+            this.btnReportes.Text = "     REPORTES";
+            this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReportes.UseVisualStyleBackColor = true;
+            this.btnReportes.Click += new System.EventHandler(this.btnReportes_Click);
+            // 
+            // panelReportesSubMenu
+            // 
+            this.panelReportesSubMenu.BackColor = System.Drawing.Color.Indigo;
+            this.panelReportesSubMenu.Controls.Add(this.btnReportesCompras);
+            this.panelReportesSubMenu.Controls.Add(this.btnReportesVentas);
+            this.panelReportesSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelReportesSubMenu.Location = new System.Drawing.Point(0, 800);
+            this.panelReportesSubMenu.Name = "panelReportesSubMenu";
+            this.panelReportesSubMenu.Size = new System.Drawing.Size(233, 100);
+            this.panelReportesSubMenu.TabIndex = 18;
+            // 
+            // btnReportesCompras
+            // 
+            this.btnReportesCompras.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReportesCompras.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportesCompras.FlatAppearance.BorderSize = 0;
+            this.btnReportesCompras.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnReportesCompras.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportesCompras.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportesCompras.ForeColor = System.Drawing.Color.White;
+            this.btnReportesCompras.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportesCompras.Location = new System.Drawing.Point(0, 50);
+            this.btnReportesCompras.Name = "btnReportesCompras";
+            this.btnReportesCompras.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnReportesCompras.Size = new System.Drawing.Size(233, 50);
+            this.btnReportesCompras.TabIndex = 4;
+            this.btnReportesCompras.Text = "     REPORTES COMPRAS";
+            this.btnReportesCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportesCompras.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReportesCompras.UseVisualStyleBackColor = true;
+            // 
+            // btnReportesVentas
+            // 
+            this.btnReportesVentas.BackColor = System.Drawing.Color.Indigo;
+            this.btnReportesVentas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReportesVentas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnReportesVentas.FlatAppearance.BorderSize = 0;
+            this.btnReportesVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnReportesVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReportesVentas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportesVentas.ForeColor = System.Drawing.Color.White;
+            this.btnReportesVentas.Image = ((System.Drawing.Image)(resources.GetObject("btnReportesVentas.Image")));
+            this.btnReportesVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportesVentas.Location = new System.Drawing.Point(0, 0);
+            this.btnReportesVentas.Name = "btnReportesVentas";
+            this.btnReportesVentas.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnReportesVentas.Size = new System.Drawing.Size(233, 50);
+            this.btnReportesVentas.TabIndex = 3;
+            this.btnReportesVentas.Text = "     REPORTES VENTAS";
+            this.btnReportesVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReportesVentas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnReportesVentas.UseVisualStyleBackColor = false;
+            // 
+            // btnProveedores
+            // 
+            this.btnProveedores.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnProveedores.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnProveedores.FlatAppearance.BorderSize = 0;
+            this.btnProveedores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
+            this.btnProveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnProveedores.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnProveedores.ForeColor = System.Drawing.Color.White;
+            this.btnProveedores.Image = ((System.Drawing.Image)(resources.GetObject("btnProveedores.Image")));
+            this.btnProveedores.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProveedores.Location = new System.Drawing.Point(0, 900);
+            this.btnProveedores.Name = "btnProveedores";
+            this.btnProveedores.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnProveedores.Size = new System.Drawing.Size(233, 50);
+            this.btnProveedores.TabIndex = 19;
+            this.btnProveedores.Text = "     PROVEEDORES";
+            this.btnProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnProveedores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnProveedores.UseVisualStyleBackColor = true;
+            // 
+            // btnPagos
+            // 
+            this.btnPagos.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnPagos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnPagos.FlatAppearance.BorderSize = 0;
+            this.btnPagos.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
+            this.btnPagos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPagos.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPagos.ForeColor = System.Drawing.Color.White;
+            this.btnPagos.Image = ((System.Drawing.Image)(resources.GetObject("btnPagos.Image")));
+            this.btnPagos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPagos.Location = new System.Drawing.Point(0, 950);
+            this.btnPagos.Name = "btnPagos";
+            this.btnPagos.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnPagos.Size = new System.Drawing.Size(233, 50);
+            this.btnPagos.TabIndex = 20;
+            this.btnPagos.Text = "     PAGOS";
+            this.btnPagos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPagos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnPagos.UseVisualStyleBackColor = true;
+            // 
+            // btnConfiguracion
+            // 
+            this.btnConfiguracion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConfiguracion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnConfiguracion.FlatAppearance.BorderSize = 0;
+            this.btnConfiguracion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.MediumPurple;
+            this.btnConfiguracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConfiguracion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConfiguracion.ForeColor = System.Drawing.Color.White;
+            this.btnConfiguracion.Image = ((System.Drawing.Image)(resources.GetObject("btnConfiguracion.Image")));
+            this.btnConfiguracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfiguracion.Location = new System.Drawing.Point(0, 1000);
+            this.btnConfiguracion.Name = "btnConfiguracion";
+            this.btnConfiguracion.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnConfiguracion.Size = new System.Drawing.Size(233, 50);
+            this.btnConfiguracion.TabIndex = 21;
+            this.btnConfiguracion.Text = "     CONFIGURACION";
+            this.btnConfiguracion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnConfiguracion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnConfiguracion.UseVisualStyleBackColor = true;
+            this.btnConfiguracion.Click += new System.EventHandler(this.btnConfiguracion_Click);
+            // 
+            // panelConfiguracionSubMenu
+            // 
+            this.panelConfiguracionSubMenu.BackColor = System.Drawing.Color.Indigo;
+            this.panelConfiguracionSubMenu.Controls.Add(this.btnEmpresa);
+            this.panelConfiguracionSubMenu.Controls.Add(this.btnUsuarios);
+            this.panelConfiguracionSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelConfiguracionSubMenu.Location = new System.Drawing.Point(0, 1050);
+            this.panelConfiguracionSubMenu.Name = "panelConfiguracionSubMenu";
+            this.panelConfiguracionSubMenu.Size = new System.Drawing.Size(233, 100);
+            this.panelConfiguracionSubMenu.TabIndex = 22;
+            // 
+            // btnEmpresa
+            // 
+            this.btnEmpresa.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnEmpresa.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnEmpresa.FlatAppearance.BorderSize = 0;
+            this.btnEmpresa.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnEmpresa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEmpresa.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEmpresa.ForeColor = System.Drawing.Color.White;
+            this.btnEmpresa.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmpresa.Location = new System.Drawing.Point(0, 50);
+            this.btnEmpresa.Name = "btnEmpresa";
+            this.btnEmpresa.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnEmpresa.Size = new System.Drawing.Size(233, 50);
+            this.btnEmpresa.TabIndex = 4;
+            this.btnEmpresa.Text = "     EMPRESA";
+            this.btnEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEmpresa.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEmpresa.UseVisualStyleBackColor = true;
+            // 
+            // btnUsuarios
+            // 
+            this.btnUsuarios.BackColor = System.Drawing.Color.Indigo;
+            this.btnUsuarios.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnUsuarios.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnUsuarios.FlatAppearance.BorderSize = 0;
+            this.btnUsuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.DarkSlateBlue;
+            this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUsuarios.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.ForeColor = System.Drawing.Color.White;
+            this.btnUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarios.Image")));
+            this.btnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsuarios.Location = new System.Drawing.Point(0, 0);
+            this.btnUsuarios.Name = "btnUsuarios";
+            this.btnUsuarios.Padding = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.btnUsuarios.Size = new System.Drawing.Size(233, 50);
+            this.btnUsuarios.TabIndex = 3;
+            this.btnUsuarios.Text = "     USUARIOS";
+            this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUsuarios.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnUsuarios.UseVisualStyleBackColor = false;
+            // 
             // FrmMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -680,6 +876,9 @@
             this.panelHoraFecha.ResumeLayout(false);
             this.panelHoraFecha.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panelComprasSubMenu.ResumeLayout(false);
+            this.panelReportesSubMenu.ResumeLayout(false);
+            this.panelConfiguracionSubMenu.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -704,12 +903,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Button btnNotaSalida;
-        private System.Windows.Forms.Button btnMetodoPago;
-        private System.Windows.Forms.Button btnProveedores;
-        private System.Windows.Forms.Button btnOrdenCompra;
         private System.Windows.Forms.Panel panelVentaSubMenu;
-        private System.Windows.Forms.Button btnCronogramaPago;
         private System.Windows.Forms.Button btnOrdenVenta;
         private System.Windows.Forms.Button btnVentas;
         private System.Windows.Forms.Panel panelProductoSubMenu;
@@ -721,5 +915,20 @@
         private System.Windows.Forms.Button btnClienteJuridico;
         private System.Windows.Forms.Button btnClienteNatural;
         private System.Windows.Forms.Panel panelContenedor;
+        private System.Windows.Forms.Panel panelComprasSubMenu;
+        private System.Windows.Forms.Button btnNotaEntrada;
+        private System.Windows.Forms.Button btnOrdenCompra;
+        private System.Windows.Forms.Button btnCompras;
+        private System.Windows.Forms.Button btnCronogramaPago;
+        private System.Windows.Forms.Panel panelReportesSubMenu;
+        private System.Windows.Forms.Button btnReportesCompras;
+        private System.Windows.Forms.Button btnReportesVentas;
+        private System.Windows.Forms.Button btnReportes;
+        private System.Windows.Forms.Button btnPagos;
+        private System.Windows.Forms.Button btnProveedores;
+        private System.Windows.Forms.Panel panelConfiguracionSubMenu;
+        private System.Windows.Forms.Button btnEmpresa;
+        private System.Windows.Forms.Button btnUsuarios;
+        private System.Windows.Forms.Button btnConfiguracion;
     }
 }
