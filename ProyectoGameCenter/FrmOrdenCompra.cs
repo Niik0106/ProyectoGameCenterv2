@@ -79,28 +79,28 @@ namespace ProyectoGameCenter
             ListadoOrdenesCompra();
         }
 
-        private void btnBuscarProducto_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //Buscar Producto
-                entProducto producto = new entProducto();
-                producto = logProducto.Instancia.BuscarIDProducto(Convert.ToInt32(txtIDProducto.Text.Trim()));
-                if (producto != null)
-                {
-                    txtDesProducto.Text = producto.desProducto.ToString();
-                }
-                else
-                {
-                    MessageBox.Show("Producto no existe en la BD", "Buscar Provducto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error.." + ex);
-            }
+        //private void btnBuscarProducto_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        //Buscar Producto
+        //        entProducto producto = new entProducto();
+        //        producto = logProducto.Instancia.BuscarIDProducto(Convert.ToInt32(txtIDProducto.Text.Trim()));
+        //        if (producto != null)
+        //        {
+        //            txtDesProducto.Text = producto.DES_PRODUCTO.ToString();
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Producto no existe en la BD", "Buscar Provducto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error.." + ex);
+        //    }
 
-        }
+        //}
 
         private void btnBuscaridProveedor_Click(object sender, EventArgs e)
         {

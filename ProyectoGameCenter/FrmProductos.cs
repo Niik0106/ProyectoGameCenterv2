@@ -22,6 +22,12 @@ namespace ProyectoGameCenter
             ListarProductos();
             LlenarDatosCategoria();
             LlenarDatosMarca();
+            dgvProductos.AllowUserToResizeRows = false; 
+            dgvProductos.AllowUserToResizeColumns = false;
+            foreach (DataGridViewColumn column in dgvProductos.Columns)
+            {
+                column.Resizable = DataGridViewTriState.False;
+            }
         }
 
         public void ListarProductos()
@@ -49,7 +55,7 @@ namespace ProyectoGameCenter
             txtDescripcionProducto.Clear();
             cboCategoria.SelectedValue = 0;
             cboMarca.SelectedValue = 0;
-            txtPrecio.Clear();
+            txtPrecioVenta.Clear();
             txtStock.Clear();
             txtBuscarProducto.Clear();
             cbxEstadoProd.Checked = false;
@@ -59,7 +65,7 @@ namespace ProyectoGameCenter
         {
             try
             {
-                if (txtDescripcionProducto.Text.Equals("") | txtPrecio.Text.Equals("") |
+                if (txtDescripcionProducto.Text.Equals("") | txtPrecioVenta.Text.Equals("") |
                     txtStock.Text.Equals(""))
                 {
                     MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -67,12 +73,13 @@ namespace ProyectoGameCenter
                 else
                 {
                     entProducto c = new entProducto();
-                    c.desProducto = txtDescripcionProducto.Text.Trim();
-                    c.idCategoria = Convert.ToInt32(cboCategoria.SelectedValue);
-                    c.idMarca = Convert.ToInt32(cboMarca.SelectedValue);
-                    c.precioProd = decimal.Parse(txtPrecio.Text.Trim());
-                    c.stockProd = int.Parse(txtStock.Text.Trim());
-                    c.estProducto = cbxEstadoProd.Checked;
+                    c.DES_PRODUCTO = txtDescripcionProducto.Text.Trim();
+                    c.ID_CATEGORIA = Convert.ToInt32(cboCategoria.SelectedValue);
+                    c.ID_MARCA = Convert.ToInt32(cboMarca.SelectedValue);
+                    c.PRECIO_VENTA = decimal.Parse(txtPrecioVenta.Text.Trim());
+                    c.PRECIO_COMPRA = decimal.Parse(txtPrecioVenta.Text.Trim());
+                    c.STOCK = int.Parse(txtStock.Text.Trim());
+                    c.ESTADO_PRODUCTO = cbxEstadoProd.Checked;
                     logProducto.Instancia.InsertaProducto(c);
                 }
             }
@@ -90,13 +97,14 @@ namespace ProyectoGameCenter
             try
             {
                 entProducto c = new entProducto();
-                c.idProducto = int.Parse(txtIDProducto.Text.Trim());
-                c.desProducto = txtDescripcionProducto.Text.Trim();
-                c.idCategoria = Convert.ToInt32(cboCategoria.SelectedValue);
-                c.idMarca = Convert.ToInt32(cboMarca.SelectedValue);
-                c.precioProd = decimal.Parse(txtPrecio.Text.Trim());
-                c.stockProd = int.Parse(txtStock.Text.Trim());
-                c.estProducto = cbxEstadoProd.Checked;
+                c.ID_PRODUCTO = int.Parse(txtIDProducto.Text.Trim());
+                c.DES_PRODUCTO = txtDescripcionProducto.Text.Trim();
+                c.ID_CATEGORIA = Convert.ToInt32(cboCategoria.SelectedValue);
+                c.ID_MARCA = Convert.ToInt32(cboMarca.SelectedValue);
+                c.PRECIO_VENTA = decimal.Parse(txtPrecioVenta.Text.Trim());
+                c.PRECIO_COMPRA = decimal.Parse(txtPrecioVenta.Text.Trim());
+                c.STOCK = int.Parse(txtStock.Text.Trim());
+                c.ESTADO_PRODUCTO = cbxEstadoProd.Checked;
                 logProducto.Instancia.EditaProducto(c);
             }
             catch (Exception ex)
@@ -123,7 +131,7 @@ namespace ProyectoGameCenter
                 if (dgvProductos.SelectedRows.Count > 0)
                 {
                     entProducto c = new entProducto();
-                    c.idProducto = int.Parse(txtIDProducto.Text.Trim());
+                    c.ID_PRODUCTO = int.Parse(txtIDProducto.Text.Trim());
                     logProducto.Instancia.DeshabilitarProducto(c);
                 }
                 else
@@ -166,7 +174,7 @@ namespace ProyectoGameCenter
                 else
                 {
                     entProducto producto = new entProducto();
-                    producto.desProducto = txtBuscarProducto.Text;
+                    producto.DES_PRODUCTO = txtBuscarProducto.Text;
                     dgvProductos.DataSource = logProducto.Instancia.BuscaDescProducto(producto);
                     if (dgvProductos.Rows.Count == 0)
                     {
@@ -194,17 +202,17 @@ namespace ProyectoGameCenter
                 DataGridViewRow filaActual = dgvProductos.Rows[e.RowIndex];
                 txtIDProducto.Text = filaActual.Cells[0].Value.ToString();
                 txtDescripcionProducto.Text = filaActual.Cells[1].Value.ToString();
-                cboCategoria.SelectedIndex = Convert.ToInt32(filaActual.Cells[2].Value);
-                cboMarca.SelectedIndex = Convert.ToInt32(filaActual.Cells[3].Value);
-                txtPrecio.Text = filaActual.Cells[4].Value.ToString();
-                txtStock.Text = filaActual.Cells[5].Value.ToString();
-                cbxEstadoProd.Checked = Convert.ToBoolean(filaActual.Cells[6].Value);
-            }
-            catch (Exception ex)
+                //cboCategoria.SelectedIndex = Convert.ToInt32(filaActual.Cells[2].Value);
+                //cboMarca.SelectedIndex = Convert.ToInt32(filaActual.Cells[3].Value);
+                txtPrecioVenta.Text = filaActual.Cells[4].Value.ToString();
+                txtPrecioCompra.Text = filaActual.Cells[5].Value.ToString();
+                txtStock.Text = filaActual.Cells[6].Value.ToString();
+                cbxEstadoProd.Checked = Convert.ToBoolean(filaActual.Cells[7].Value);
+            }catch (Exception ex)
             {
                 MessageBox.Show("Selecciona un item de la tabla");
-            }
-            
+            }                      
+
         }
 
         private void txtBuscarProducto_KeyPress(object sender, KeyPressEventArgs e)

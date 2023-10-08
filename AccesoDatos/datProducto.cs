@@ -18,40 +18,40 @@ namespace AccesoDatos
         }
 
         //Buscar Producto
-        public entProducto BuscarIDProducto(int idProducto)
-        {
-            SqlCommand cmd = null;
-            entProducto Producto = null;
-            try
-            {
-                SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("SP_BUSCAR_PRODUCTO_ID", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID_PRODUCTO", idProducto);
-                cn.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-                if (dr.Read())
-                {
-                    Producto = new entProducto();
-                    Producto.idProducto = Convert.ToInt32(dr["ID_PRODUCTO"]);
-                    Producto.desProducto = dr["DES_PRODUCTO"].ToString();
-                    Producto.idCategoria = Convert.ToInt32(dr["ID_CATEGORIA"]);
-                    Producto.idMarca = Convert.ToInt32(dr["ID_MARCA"]);
-                    Producto.precioProd = Convert.ToDecimal(dr["PRECIO_PRODUCTO"]);
-                    Producto.stockProd = Convert.ToInt32(dr["STOCK"]);
-                    Producto.estProducto = Convert.ToBoolean(dr["ESTADO_PRODUCTO"]);
-                }
-            }
-            catch (Exception e)
-            { 
-                throw e;
-            }
-            finally
-            { 
-                cmd.Connection.Close();
-            }
-            return Producto;
-        }
+        //public entProducto BuscarIDProducto(int idProducto)
+        //{
+        //    SqlCommand cmd = null;
+        //    entProducto Producto = null;
+        //    try
+        //    {
+        //        SqlConnection cn = Conexion.Instancia.Conectar();
+        //        cmd = new SqlCommand("SP_BUSCAR_PRODUCTO_ID", cn);
+        //        cmd.CommandType = CommandType.StoredProcedure;
+        //        cmd.Parameters.AddWithValue("@ID_PRODUCTO", idProducto);
+        //        cn.Open();
+        //        SqlDataReader dr = cmd.ExecuteReader();
+        //        if (dr.Read())
+        //        {
+        //            Producto = new entProducto();
+        //            Producto.idProducto = Convert.ToInt32(dr["ID_PRODUCTO"]);
+        //            Producto.desProducto = dr["DES_PRODUCTO"].ToString();
+        //            Producto.idCategoria = Convert.ToInt32(dr["ID_CATEGORIA"]);
+        //            Producto.idMarca = Convert.ToInt32(dr["ID_MARCA"]);
+        //            Producto.precioProd = Convert.ToDecimal(dr["PRECIO_PRODUCTO"]);
+        //            Producto.stockProd = Convert.ToInt32(dr["STOCK"]);
+        //            Producto.estProducto = Convert.ToBoolean(dr["ESTADO_PRODUCTO"]);
+        //        }
+        //    }
+        //    catch (Exception e)
+        //    { 
+        //        throw e;
+        //    }
+        //    finally
+        //    { 
+        //        cmd.Connection.Close();
+        //    }
+        //    return Producto;
+        //}
 
         public List<entProducto> ListarProducto()
         {
@@ -67,13 +67,14 @@ namespace AccesoDatos
                 while (dr.Read())
                 {
                     entProducto Prod = new entProducto();
-                    Prod.idProducto = Convert.ToInt32(dr["ID_PRODUCTO"]);
-                    Prod.desProducto = dr["DES_PRODUCTO"].ToString();
-                    Prod.idCategoria = Convert.ToInt32(dr["ID_CATEGORIA"]);
-                    Prod.idMarca = Convert.ToInt32(dr["ID_MARCA"]);
-                    Prod.precioProd = Convert.ToDecimal(dr["PRECIO_PRODUCTO"]);
-                    Prod.stockProd = Convert.ToInt32(dr["STOCK"]);
-                    Prod.estProducto = Convert.ToBoolean(dr["ESTADO_PRODUCTO"]);
+                    Prod.ID_PRODUCTO = Convert.ToInt32(dr["ID_PRODUCTO"]);
+                    Prod.DES_PRODUCTO = dr["DES_PRODUCTO"].ToString();
+                    Prod.ID_CATEGORIA = Convert.ToInt32(dr["ID_CATEGORIA"]);
+                    Prod.ID_MARCA = Convert.ToInt32(dr["ID_MARCA"]);
+                    Prod.PRECIO_VENTA = Convert.ToDecimal(dr["PRECIO_VENTA"]);
+                    Prod.PRECIO_COMPRA = Convert.ToDecimal(dr["PRECIO_COMPRA"]);
+                    Prod.STOCK = Convert.ToInt32(dr["STOCK"]);
+                    Prod.ESTADO_PRODUCTO = Convert.ToBoolean(dr["ESTADO_PRODUCTO"]);
                     lista.Add(Prod);
                 }
             }
@@ -91,12 +92,13 @@ namespace AccesoDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spInsertarProducto", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@desProd ", Prod.desProducto);
-                cmd.Parameters.AddWithValue("@idCat ", Prod.idCategoria);
-                cmd.Parameters.AddWithValue("@idMarca", Prod.idMarca);
-                cmd.Parameters.AddWithValue("@precio", Prod.precioProd);
-                cmd.Parameters.AddWithValue("@stock", Prod.stockProd);
-                cmd.Parameters.AddWithValue("@estProd", Prod.estProducto);
+                cmd.Parameters.AddWithValue("@desProd ", Prod.DES_PRODUCTO);
+                cmd.Parameters.AddWithValue("@idCat ", Prod.ID_CATEGORIA);
+                cmd.Parameters.AddWithValue("@idMarca", Prod.ID_MARCA);
+                cmd.Parameters.AddWithValue("@precio_venta", Prod.PRECIO_VENTA);
+                cmd.Parameters.AddWithValue("@precio_compra", Prod.PRECIO_COMPRA);
+                cmd.Parameters.AddWithValue("@stock", Prod.STOCK);
+                cmd.Parameters.AddWithValue("@estProd", Prod.ESTADO_PRODUCTO);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0) { inserta = true; }
@@ -115,13 +117,14 @@ namespace AccesoDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spEditarProducto", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idProd", Prod.idProducto);
-                cmd.Parameters.AddWithValue("@desProd", Prod.desProducto);
-                cmd.Parameters.AddWithValue("@idCat", Prod.idCategoria);
-                cmd.Parameters.AddWithValue("@idMarca", Prod.idMarca);
-                cmd.Parameters.AddWithValue("@precio", Prod.precioProd);
-                cmd.Parameters.AddWithValue("@stock", Prod.stockProd);
-                cmd.Parameters.AddWithValue("@estProd", Prod.estProducto);
+                cmd.Parameters.AddWithValue("@idProd", Prod.ID_PRODUCTO);
+                cmd.Parameters.AddWithValue("@desProd", Prod.DES_PRODUCTO);
+                cmd.Parameters.AddWithValue("@idCat", Prod.ID_CATEGORIA);
+                cmd.Parameters.AddWithValue("@idMarca", Prod.ID_MARCA);
+                cmd.Parameters.AddWithValue("@precio_venta", Prod.PRECIO_VENTA);
+                cmd.Parameters.AddWithValue("@precio_compra", Prod.PRECIO_COMPRA);
+                cmd.Parameters.AddWithValue("@stock", Prod.STOCK);
+                cmd.Parameters.AddWithValue("@estProd", Prod.ESTADO_PRODUCTO);
                 cn.Open(); int i = cmd.ExecuteNonQuery();
                 if (i > 0) { edita = true; }
             }
@@ -139,7 +142,7 @@ namespace AccesoDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("spDeshabilitarProducto", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idProd", Prod.idProducto);
+                cmd.Parameters.AddWithValue("@idProd", Prod.ID_PRODUCTO);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0) { delete = true; }
@@ -158,19 +161,20 @@ namespace AccesoDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("SP_BUSCAR_PRODUCTO_DESC", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@DES_PRODUCTO", filtroProducto.desProducto);
+                cmd.Parameters.AddWithValue("@DES_PRODUCTO", filtroProducto.DES_PRODUCTO);
                 cn.Open();
                 SqlDataReader reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
                     entProducto Prod = new entProducto();
-                    Prod.idProducto = Convert.ToInt32(reader["ID_PRODUCTO"]);
-                    Prod.desProducto = reader["DES_PRODUCTO"].ToString();
-                    Prod.idCategoria = Convert.ToInt32(reader["ID_CATEGORIA"]);
-                    Prod.idMarca = Convert.ToInt32(reader["ID_MARCA"]);
-                    Prod.precioProd = Convert.ToDecimal(reader["PRECIO_PRODUCTO"]);
-                    Prod.stockProd = Convert.ToInt32(reader["STOCK"]);
-                    Prod.estProducto = Convert.ToBoolean(reader["ESTADO_PRODUCTO"]);
+                    Prod.ID_PRODUCTO = Convert.ToInt32(reader["ID_PRODUCTO"]);
+                    Prod.DES_PRODUCTO = reader["DES_PRODUCTO"].ToString();
+                    Prod.ID_CATEGORIA = Convert.ToInt32(reader["ID_CATEGORIA"]);
+                    Prod.ID_MARCA = Convert.ToInt32(reader["ID_MARCA"]);
+                    Prod.PRECIO_VENTA = Convert.ToDecimal(reader["PRECIO_VENTA"]);
+                    Prod.PRECIO_COMPRA = Convert.ToDecimal(reader["PRECIO_COMPRA"]);
+                    Prod.STOCK = Convert.ToInt32(reader["STOCK"]);
+                    Prod.ESTADO_PRODUCTO = Convert.ToBoolean(reader["ESTADO_PRODUCTO"]);
                     lista.Add(Prod);
                 }
             }                                

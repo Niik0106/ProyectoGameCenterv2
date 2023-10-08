@@ -27,12 +27,14 @@ namespace ProyectoGameCenter
             LlenarDatosEstadoOrdenVenta();
             //ListarVentas();
             clienteLogic = new logCliente();
+
         }
 
         //public void ListarVentas()
         //{
         //    dgvOrdenVenta.DataSource = logOrdenVenta.Instancia.ListarVentas();
         //}
+
 
         public void ListarDetalleVentas()
         {
@@ -66,30 +68,30 @@ namespace ProyectoGameCenter
             txtStock.Text = "";
         }
 
-        private void btnBuscarProducto_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                //Busca Producto
-                entProducto entProducto = new entProducto();
-                entProducto = logProducto.Instancia.BuscarIDProducto(Convert.ToInt32(txtIDProducto.Text.Trim()));
-                if (entProducto != null)
-                {
-                    txtDesProducto.Text = entProducto.desProducto;
-                    txtStock.Text = entProducto.stockProd.ToString();
-                    txtPrecio.Text = entProducto.precioProd.ToString();
-                }
-                else
-                {
-                    MessageBox.Show("Producto no existe", "Buscar Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error.." + ex);
-            }
+        //private void btnBuscarProducto_Click(object sender, EventArgs e)
+        //{
+        //    try
+        //    {
+        //        //Busca Producto
+        //        entProducto entProducto = new entProducto();
+        //        entProducto = logProducto.Instancia.BuscarIDProducto(Convert.ToInt32(txtIDProducto.Text.Trim()));
+        //        if (entProducto != null)
+        //        {
+        //            txtDesProducto.Text = entProducto.DES_PRODUCTO;
+        //            txtStock.Text = entProducto.STOCK.ToString();
+        //            txtPrecio.Text = entProducto.PRECIO_VENTA.ToString();
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Producto no existe", "Buscar Producto", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error.." + ex);
+        //    }
 
-        }
+        //}
 
         private void btnBuscaridCliente_Click(object sender, EventArgs e)
         {

@@ -160,27 +160,27 @@ namespace ProyectoGameCenter
             }
         }
 
-        private void btnBuscarProducto_Click(object sender, EventArgs e)
-        {
-            //Buscar producto por el codigo de producto
-            try
-            {
-                entProducto producto = new entProducto();
-                producto = logProducto.Instancia.BuscarIDProducto(Convert.ToInt32(txtIDProducto.Text.Trim()));
-                if (producto != null)
-                {
-                    txtDesProducto.Text = producto.desProducto;
-                }
-                else
-                {
-                    MessageBox.Show("Producto no existe");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error al buscar Producto " + ex.Message);
-            }
-        }
+        //private void btnBuscarProducto_Click(object sender, EventArgs e)
+        //{
+        //    //Buscar producto por el codigo de producto
+        //    try
+        //    {
+        //        entProducto producto = new entProducto();
+        //        producto = logProducto.Instancia.BuscarIDProducto(Convert.ToInt32(txtIDProducto.Text.Trim()));
+        //        if (producto != null)
+        //        {
+        //            txtDesProducto.Text = producto.DES_PRODUCTO;
+        //        }
+        //        else
+        //        {
+        //            MessageBox.Show("Producto no existe");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show("Error al buscar Producto " + ex.Message);
+        //    }
+        //}
 
         private void btnAñadir_Click(object sender, EventArgs e)
         {
