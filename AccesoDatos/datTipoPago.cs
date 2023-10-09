@@ -1,50 +1,43 @@
-﻿using System;
+﻿using Entidades;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Entidades;
-
 
 namespace AccesoDatos
 {
-     public class datUsuarios
+    public class datTipoPago
     {
 
-        #region sigleton
-        private static readonly datUsuarios _instancia = new datUsuarios();
-        public static datUsuarios Instancia
+        private static readonly datTipoPago _instancia = new datTipoPago();
+        public static datTipoPago Instancia
         {
-            get
-            {
-                return datUsuarios._instancia;
-            }
+            get { return datTipoPago._instancia; }
         }
-        #endregion singleton
 
-        public List<entUsuarios> ListarUsuarios()
+
+        public List<entTipoPago> ListarTipoPago()
         {
             SqlCommand cmd = null;
-            List<entUsuarios> lista = new List<entUsuarios>();
+            List<entTipoPago> lista = new List<entTipoPago>();
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("SP_LISTAR_USUARIOS", cn);
+                cmd = new SqlCommand("SP_LISTAR_TIPO_PAGO", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    entUsuarios user = new entUsuarios();
-                    user.IdUsuario = Convert.ToInt32(dr["IdUsuario"]);
-                    user.Nombres = dr["Nombres"].ToString();
-                    user.Usuario = dr["Usuario"].ToString();
-                    user.Clave = dr["Clave"].ToString();
-                    user.IdRol = Convert.ToInt32(dr["IdRol"]);
-                    user.estado = Convert.ToBoolean(dr["estado"]);
-                    lista.Add(user);
+                    entTipoPago Tipo = new entTipoPago();
+                    Tipo.ID_TIPO_PAGO = Convert.ToInt32(dr["ID_TIPO_PAGO"]);
+                    Tipo.DES_TIPO_PAGO = dr["DES_TIPO_PAGO"].ToString();
+                    Tipo.ID_METODO_PAGO = Convert.ToInt32(dr["ID_METODO_PAGO"]);
+                    Tipo.ESTADO_TIPO_PAGO = Convert.ToBoolean(dr["ESTADO_TIPO_PAGO"]);
+                    lista.Add(Tipo);
                 }
             }
             catch (Exception e) { throw e; }
@@ -54,20 +47,18 @@ namespace AccesoDatos
 
         ///INSERTAR
         ///
-        public Boolean InsertarUsuario(entUsuarios usuario)
+        public Boolean InsertarTipoPago(entTipoPago Tipo)
         {
             SqlCommand cmd = null;
             Boolean inserta = false;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("SP_INSERTAR_USUARIO", cn);
+                cmd = new SqlCommand("SP_INSERTAR_TIPO_PAGO", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@nombres", usuario.Nombres);
-                cmd.Parameters.AddWithValue("@usuario", usuario.Usuario);
-                cmd.Parameters.AddWithValue("@clave", usuario.Clave);
-                cmd.Parameters.AddWithValue("@idrol", usuario.IdRol);
-                cmd.Parameters.AddWithValue("@estado", usuario.estado);
+                cmd.Parameters.AddWithValue("@DES_TIPO", Tipo.DES_TIPO_PAGO);
+                cmd.Parameters.AddWithValue("@ID_METODO", Tipo.ID_METODO_PAGO);
+                cmd.Parameters.AddWithValue("@ESTADO_TIPO", Tipo.ESTADO_TIPO_PAGO);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0) { inserta = true; }
@@ -77,21 +68,19 @@ namespace AccesoDatos
             return inserta;
         }
 
-        public Boolean EditarUsuario(entUsuarios usuario)
+        public Boolean EditarTipoPago(entTipoPago Tipo)
         {
             SqlCommand cmd = null;
             Boolean edita = false;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("SP_EDITAR_USUARIO", cn);
+                cmd = new SqlCommand("SP_EDITAR_TIPOO_PAGO", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idUsuario", usuario.IdUsuario);
-                cmd.Parameters.AddWithValue("@nombres", usuario.Nombres);
-                cmd.Parameters.AddWithValue("@usuario", usuario.Usuario);
-                cmd.Parameters.AddWithValue("@clave", usuario.Clave);
-                cmd.Parameters.AddWithValue("@idrol", usuario.IdRol);
-                cmd.Parameters.AddWithValue("@estado", usuario.estado);
+                cmd.Parameters.AddWithValue("@ID_TIPO_PAGO", Tipo.ID_TIPO_PAGO);
+                cmd.Parameters.AddWithValue("@DES_TIPO_PAGO", Tipo.DES_TIPO_PAGO);
+                cmd.Parameters.AddWithValue("@ID_METODO", Tipo.ID_METODO_PAGO);
+                cmd.Parameters.AddWithValue("@ESTADO_TIPO_PAGO", Tipo.ESTADO_TIPO_PAGO);
                 cn.Open(); int i = cmd.ExecuteNonQuery();
                 if (i > 0) { edita = true; }
             }
@@ -101,16 +90,16 @@ namespace AccesoDatos
         }
 
 
-        public Boolean DeshabilitarUsuario(entUsuarios usuario)
+        public Boolean DeshabilitarTipoPago(entTipoPago Tipo)
         {
             SqlCommand cmd = null;
             Boolean deshabilitar = false;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("SP_DESHABILITAR_USUARIO", cn);
+                cmd = new SqlCommand("SP_DESHABILITAR_TIPO_PAGO", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idUsuario", usuario.estado);
+                cmd.Parameters.AddWithValue("@ID_TIPO", Tipo.ESTADO_TIPO_PAGO);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -125,7 +114,6 @@ namespace AccesoDatos
             finally { cmd.Connection.Close(); }
             return deshabilitar;
         }
-
 
 
     }

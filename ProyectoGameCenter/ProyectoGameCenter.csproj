@@ -62,6 +62,18 @@
     <Compile Include="FrmCronogramaPago.Designer.cs">
       <DependentUpon>FrmCronogramaPago.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmEmpresa.Designer.cs">
+      <DependentUpon>FrmEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmNotaSalida.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmNotaSalida.Designer.cs">
+      <DependentUpon>FrmNotaSalida.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmOrdenCompra.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,17 +86,11 @@
     <Compile Include="FrmReportesVentas.Designer.cs">
       <DependentUpon>FrmReportesVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="NotaSalida.cs">
+    <Compile Include="FrmTipoPago.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="NotaSalida.Designer.cs">
-      <DependentUpon>NotaSalida.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmMetodoPago.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmMetodoPago.Designer.cs">
-      <DependentUpon>FrmMetodoPago.cs</DependentUpon>
+    <Compile Include="FrmTipoPago.Designer.cs">
+      <DependentUpon>FrmTipoPago.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmOrdenVenta.cs">
       <SubType>Form</SubType>
@@ -131,6 +137,12 @@
     <Compile Include="FrmProveedor.Designer.cs">
       <DependentUpon>FrmProveedor.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmUsuario.Designer.cs">
+      <DependentUpon>FrmUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Principal\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,8 +163,8 @@
     <EmbeddedResource Include="FrmCronogramaPago.resx">
       <DependentUpon>FrmCronogramaPago.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMetodoPago.resx">
-      <DependentUpon>FrmMetodoPago.cs</DependentUpon>
+    <EmbeddedResource Include="FrmTipoPago.resx">
+      <DependentUpon>FrmTipoPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmOrdenCompra.resx">
       <DependentUpon>FrmOrdenCompra.cs</DependentUpon>
@@ -180,9 +192,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmReportesVentas.resx">
       <DependentUpon>FrmReportesVentas.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NotaSalida.resx">
-      <DependentUpon>NotaSalida.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

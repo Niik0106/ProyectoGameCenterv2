@@ -69,6 +69,7 @@
     <Compile Include="datOrdenVenta.cs" />
     <Compile Include="datProducto.cs" />
     <Compile Include="datProveedor.cs" />
+    <Compile Include="datTipoPago.cs" />
     <Compile Include="datUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

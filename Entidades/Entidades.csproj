@@ -67,6 +67,7 @@
     <Compile Include="entOrdenVenta.cs" />
     <Compile Include="entProducto.cs" />
     <Compile Include="entProveedor.cs" />
+    <Compile Include="entTipoPago.cs" />
     <Compile Include="entUsuarios.cs" />
     <Compile Include="Menu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

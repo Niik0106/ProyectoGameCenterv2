@@ -206,15 +206,15 @@ namespace ProyectoGameCenter.Principal
 
         private void btnMetodoPago_Click(object sender, EventArgs e)
         {
-            AbrirFormularioHijo(new FrmMetodoPago());
+            AbrirFormularioHijo(new FrmTipoPago());
             OcultarSubMenu();
         }
 
-        private void btnNotaSalida_Click(object sender, EventArgs e)
-        {
-            AbrirFormularioHijo(new NotaSalida());
-            OcultarSubMenu();
-        }
+        //private void btnNotaSalida_Click(object sender, EventArgs e)
+        //{
+        //    AbrirFormularioHijo(new FrmNotaSalida());
+        //    OcultarSubMenu();
+        //}
 
         private void btnOrdenCompra_Click(object sender, EventArgs e)
         {
@@ -251,7 +251,7 @@ namespace ProyectoGameCenter.Principal
                     btnCliente.Enabled = true;
                     btnProductos.Visible = false;
                     btnVentas.Enabled = true;
-                    btnCronogramaPago.Visible=false;
+                    btnNotaSalida.Visible=false;
                     //btnProveedores.Visible = false;
                     //btnReportesCompras.Visible = false;
                     btnCompras.Visible = false;
@@ -265,7 +265,7 @@ namespace ProyectoGameCenter.Principal
                     //btnProveedores.Enabled = true;
                     //btnReportesCompras.Visible = false;
                     btnCompras.Enabled = true;
-                    btnCronogramaPago.Visible = false;
+                    btnNotaSalida.Visible = false;
                 break;
 
                 case 4: //Almacen
@@ -277,7 +277,7 @@ namespace ProyectoGameCenter.Principal
                     //btnProveedores.Visible = false;
                     //btnReportesCompras.Visible = false;
                     btnCompras.Visible = true;
-                    btnCronogramaPago.Enabled = true;
+                    btnNotaSalida.Enabled = true;
                 break;
             }
         }
@@ -312,6 +312,30 @@ namespace ProyectoGameCenter.Principal
         private void btnConfiguracion_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelConfiguracionSubMenu);
+        }
+
+        private void btnProveedores_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmProveedor());
+            OcultarSubMenu();
+        }
+
+        //private void btnNotaSalida_Click_1(object sender, EventArgs e)
+        //{
+        //    AbrirFormularioHijo(new FrmNotaSalida());
+        //    OcultarSubMenu();
+        //}
+
+        private void btnPagos_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmTipoPago());
+            OcultarSubMenu();
+        }
+
+        private void btnOrdenCompra_Click_1(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmOrdenCompra());
+            OcultarSubMenu();
         }
 
         private string ObtenerPermisos(string nombreUsuario)
