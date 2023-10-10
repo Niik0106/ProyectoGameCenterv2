@@ -25,15 +25,15 @@ namespace ProyectoGameCenter
             
             InitializeComponent();  
             LlenarDatosEstadoOrdenVenta();
-            //ListarVentas();
+            ListarVentas();
             clienteLogic = new logCliente();
 
         }
 
-        //public void ListarVentas()
-        //{
-        //    dgvOrdenVenta.DataSource = logOrdenVenta.Instancia.ListarVentas();
-        //}
+        public void ListarVentas()
+        {
+            dgvOrdenVenta.DataSource = logOrdenVenta.Instancia.ListarVentas();
+        }
 
 
         public void ListarDetalleVentas()
@@ -53,7 +53,7 @@ namespace ProyectoGameCenter
             txtIDOrdenVenta.Text = "";
             dateTimePicker1.ResetText();
             txtResultadoBusquedaCliente.Text = "";
-            txtIDEmpleado.Text = "";
+            
             cboEstado.SelectedIndex = default;
             gbOrdenVenta.Enabled = false;
         }
@@ -120,18 +120,18 @@ namespace ProyectoGameCenter
         {
             try
             {
-                if (txtNOrdenVenta.Text.Equals("") | txtDocumentoCliente.Text.Equals("") | txtIDEmpleado.Text.Equals(""))
+                if (txtNOrdenVenta.Text.Equals("") | txtDocumentoCliente.Text.Equals("") )
                 {
                     MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
                     entOrdenVenta ordVenta = new entOrdenVenta();
-                    ordVenta.numOrdenVenta = Convert.ToInt32(txtNOrdenVenta.Text.Trim());
+                    //ordVenta.numOrdenVenta = Convert.ToInt32(txtNOrdenVenta.Text.Trim());
                     ordVenta.fechaOrden = dateTimePicker1.Value;
                     ordVenta.idCliente = Convert.ToInt32(txtDocumentoCliente.Text.Trim());
                     ordVenta.estOrdenVenta = Convert.ToInt32(cboEstado.SelectedValue);
-                    ordVenta.idUsuario = Convert.ToInt32(txtIDEmpleado.Text.Trim());
+                    
                     logOrdenVenta.Instancia.InsertaOrdenVenta(ordVenta);
                     gbDetalleOrdenVenta.Enabled = true;
                     MessageBox.Show("Orden de Venta registrada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -281,6 +281,11 @@ namespace ProyectoGameCenter
             btnFinalizar.Enabled = true;
             btnBuscarProducto.Enabled = true;
             gbDetalleOrdenVenta.Enabled = false;
+        }
+
+        private void dgvOrdenVenta_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         //private void btnBuscarOV_Click(object sender, EventArgs e)
