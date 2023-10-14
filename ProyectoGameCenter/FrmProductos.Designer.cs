@@ -85,6 +85,9 @@
             // 
             // gbProductos
             // 
+            this.gbProductos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.gbProductos.Controls.Add(this.txtStock);
             this.gbProductos.Controls.Add(this.txtPrecioCompra);
             this.gbProductos.Controls.Add(this.txtPrecioVenta);
@@ -103,7 +106,7 @@
             this.gbProductos.Controls.Add(this.label8);
             this.gbProductos.Controls.Add(this.label9);
             this.gbProductos.Controls.Add(this.label10);
-            this.gbProductos.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.gbProductos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gbProductos.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbProductos.ForeColor = System.Drawing.Color.White;
             this.gbProductos.Location = new System.Drawing.Point(24, 47);
