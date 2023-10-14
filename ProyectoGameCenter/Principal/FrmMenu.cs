@@ -47,6 +47,7 @@ namespace ProyectoGameCenter.Principal
             public static System.Drawing.Color color4 = System.Drawing.Color.FromArgb(95, 77, 221);
             public static System.Drawing.Color color5 = System.Drawing.Color.FromArgb(249, 88, 155);
             public static System.Drawing.Color color6 = System.Drawing.Color.FromArgb(24, 161, 251);
+            public static System.Drawing.Color color7 = System.Drawing.Color.FromArgb(255, 255, 255);
         }
 
 
@@ -193,7 +194,7 @@ namespace ProyectoGameCenter.Principal
         private void btnCliente_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelClienteSubMenu);
-            ActivateButton(sender, RGBColors.color5);
+            ActivateButton(sender, RGBColors.color7);
         }
 
         private void btnClienteNatural_Click(object sender, EventArgs e)
@@ -213,7 +214,7 @@ namespace ProyectoGameCenter.Principal
         private void btnProductos_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelProductoSubMenu);
-            ActivateButton(sender, RGBColors.color5);
+            ActivateButton(sender, RGBColors.color7);
         }
 
         private void btnCategoria_Click(object sender, EventArgs e)
@@ -240,7 +241,7 @@ namespace ProyectoGameCenter.Principal
         private void btnVentas_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelVentaSubMenu);
-            ActivateButton(sender, RGBColors.color5);
+            ActivateButton(sender, RGBColors.color7);
         }
         private void btnOrdenVenta_Click(object sender, EventArgs e)
         {
@@ -331,25 +332,25 @@ namespace ProyectoGameCenter.Principal
         private void btnCompras_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelComprasSubMenu);
-            ActivateButton(sender, RGBColors.color5);
+            ActivateButton(sender, RGBColors.color7);
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelReportesSubMenu);
-            ActivateButton(sender, RGBColors.color5);
+            ActivateButton(sender, RGBColors.color7);
         }
 
         private void btnConfiguracion_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelConfiguracionSubMenu);
-            ActivateButton(sender, RGBColors.color5);
+            ActivateButton(sender, RGBColors.color7);
         }
 
         private void btnProveedores_Click_1(object sender, EventArgs e)
         {
             AbrirFormularioHijo(new FrmProveedor());
-            ActivateButton(sender, RGBColors.color5);
+            ActivateButton(sender, RGBColors.color7);
             OcultarSubMenu();
         }
 
@@ -362,7 +363,7 @@ namespace ProyectoGameCenter.Principal
         private void btnPagos_Click(object sender, EventArgs e)
         {
             AbrirFormularioHijo(new FrmTipoPago());
-            ActivateButton(sender, RGBColors.color5);
+            ActivateButton(sender, RGBColors.color7);
             OcultarSubMenu();
         }
 
