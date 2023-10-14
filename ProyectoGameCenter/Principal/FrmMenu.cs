@@ -446,6 +446,12 @@ namespace ProyectoGameCenter.Principal
             }
         }
 
+        private void HoraFecha_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text=DateTime.Now.ToString("HH:mm:ss");
+            lblFecha.Text= DateTime.Now.ToLongDateString();
+        }
+
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();

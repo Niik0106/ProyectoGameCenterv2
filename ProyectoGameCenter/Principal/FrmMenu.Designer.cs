@@ -71,6 +71,8 @@
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelContenedor = new System.Windows.Forms.Panel();
+            this.lblFecha = new System.Windows.Forms.Label();
+            this.lblHora = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelMenuLateral.SuspendLayout();
             this.panelConfiguracionSubMenu.SuspendLayout();
@@ -111,7 +113,7 @@
             this.panelMenuLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelMenuLateral.Location = new System.Drawing.Point(0, 0);
             this.panelMenuLateral.Name = "panelMenuLateral";
-            this.panelMenuLateral.Size = new System.Drawing.Size(350, 941);
+            this.panelMenuLateral.Size = new System.Drawing.Size(280, 941);
             this.panelMenuLateral.TabIndex = 0;
             this.panelMenuLateral.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenuLateral_Paint);
             // 
@@ -123,7 +125,7 @@
             this.panelConfiguracionSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelConfiguracionSubMenu.Location = new System.Drawing.Point(0, 1620);
             this.panelConfiguracionSubMenu.Name = "panelConfiguracionSubMenu";
-            this.panelConfiguracionSubMenu.Size = new System.Drawing.Size(333, 160);
+            this.panelConfiguracionSubMenu.Size = new System.Drawing.Size(263, 160);
             this.panelConfiguracionSubMenu.TabIndex = 46;
             // 
             // btnEmpresa
@@ -140,7 +142,7 @@
             this.btnEmpresa.Location = new System.Drawing.Point(0, 80);
             this.btnEmpresa.Name = "btnEmpresa";
             this.btnEmpresa.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnEmpresa.Size = new System.Drawing.Size(333, 80);
+            this.btnEmpresa.Size = new System.Drawing.Size(263, 80);
             this.btnEmpresa.TabIndex = 5;
             this.btnEmpresa.Text = "Empresa";
             this.btnEmpresa.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -161,7 +163,7 @@
             this.btnUsuarios.Location = new System.Drawing.Point(0, 0);
             this.btnUsuarios.Name = "btnUsuarios";
             this.btnUsuarios.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnUsuarios.Size = new System.Drawing.Size(333, 80);
+            this.btnUsuarios.Size = new System.Drawing.Size(263, 80);
             this.btnUsuarios.TabIndex = 4;
             this.btnUsuarios.Text = "Usuarios";
             this.btnUsuarios.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -183,7 +185,7 @@
             this.btnConfiguracion.Location = new System.Drawing.Point(0, 1540);
             this.btnConfiguracion.Name = "btnConfiguracion";
             this.btnConfiguracion.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnConfiguracion.Size = new System.Drawing.Size(333, 80);
+            this.btnConfiguracion.Size = new System.Drawing.Size(263, 80);
             this.btnConfiguracion.TabIndex = 45;
             this.btnConfiguracion.Text = "Configuración";
             this.btnConfiguracion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -206,7 +208,7 @@
             this.btnPagos.Location = new System.Drawing.Point(0, 1460);
             this.btnPagos.Name = "btnPagos";
             this.btnPagos.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnPagos.Size = new System.Drawing.Size(333, 80);
+            this.btnPagos.Size = new System.Drawing.Size(263, 80);
             this.btnPagos.TabIndex = 44;
             this.btnPagos.Text = "Pagos";
             this.btnPagos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -229,7 +231,7 @@
             this.btnCerrarSesion.Location = new System.Drawing.Point(0, 1780);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnCerrarSesion.Size = new System.Drawing.Size(333, 80);
+            this.btnCerrarSesion.Size = new System.Drawing.Size(263, 80);
             this.btnCerrarSesion.TabIndex = 31;
             this.btnCerrarSesion.Text = "Cerrar sesión";
             this.btnCerrarSesion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -245,7 +247,7 @@
             this.panelReportesSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelReportesSubMenu.Location = new System.Drawing.Point(0, 1300);
             this.panelReportesSubMenu.Name = "panelReportesSubMenu";
-            this.panelReportesSubMenu.Size = new System.Drawing.Size(333, 160);
+            this.panelReportesSubMenu.Size = new System.Drawing.Size(263, 160);
             this.panelReportesSubMenu.TabIndex = 43;
             // 
             // btnReportesCompras
@@ -262,7 +264,7 @@
             this.btnReportesCompras.Location = new System.Drawing.Point(0, 80);
             this.btnReportesCompras.Name = "btnReportesCompras";
             this.btnReportesCompras.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnReportesCompras.Size = new System.Drawing.Size(333, 80);
+            this.btnReportesCompras.Size = new System.Drawing.Size(263, 80);
             this.btnReportesCompras.TabIndex = 4;
             this.btnReportesCompras.Text = "Reportes Compras";
             this.btnReportesCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -283,7 +285,7 @@
             this.btnReportesVentas.Location = new System.Drawing.Point(0, 0);
             this.btnReportesVentas.Name = "btnReportesVentas";
             this.btnReportesVentas.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnReportesVentas.Size = new System.Drawing.Size(333, 80);
+            this.btnReportesVentas.Size = new System.Drawing.Size(263, 80);
             this.btnReportesVentas.TabIndex = 3;
             this.btnReportesVentas.Text = "Reportes Ventas";
             this.btnReportesVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -305,7 +307,7 @@
             this.btnReportes.Location = new System.Drawing.Point(0, 1220);
             this.btnReportes.Name = "btnReportes";
             this.btnReportes.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnReportes.Size = new System.Drawing.Size(333, 80);
+            this.btnReportes.Size = new System.Drawing.Size(263, 80);
             this.btnReportes.TabIndex = 42;
             this.btnReportes.Text = "Reportes";
             this.btnReportes.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -321,7 +323,7 @@
             this.panelComprasSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelComprasSubMenu.Location = new System.Drawing.Point(0, 1060);
             this.panelComprasSubMenu.Name = "panelComprasSubMenu";
-            this.panelComprasSubMenu.Size = new System.Drawing.Size(333, 160);
+            this.panelComprasSubMenu.Size = new System.Drawing.Size(263, 160);
             this.panelComprasSubMenu.TabIndex = 41;
             // 
             // btnNotaEntrada
@@ -338,7 +340,7 @@
             this.btnNotaEntrada.Location = new System.Drawing.Point(0, 80);
             this.btnNotaEntrada.Name = "btnNotaEntrada";
             this.btnNotaEntrada.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnNotaEntrada.Size = new System.Drawing.Size(333, 80);
+            this.btnNotaEntrada.Size = new System.Drawing.Size(263, 80);
             this.btnNotaEntrada.TabIndex = 3;
             this.btnNotaEntrada.Text = "Nota Entrada";
             this.btnNotaEntrada.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -359,7 +361,7 @@
             this.btnOrdenCompra.Location = new System.Drawing.Point(0, 0);
             this.btnOrdenCompra.Name = "btnOrdenCompra";
             this.btnOrdenCompra.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnOrdenCompra.Size = new System.Drawing.Size(333, 80);
+            this.btnOrdenCompra.Size = new System.Drawing.Size(263, 80);
             this.btnOrdenCompra.TabIndex = 2;
             this.btnOrdenCompra.Text = "Orden Compra";
             this.btnOrdenCompra.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -382,7 +384,7 @@
             this.btnCompras.Location = new System.Drawing.Point(0, 980);
             this.btnCompras.Name = "btnCompras";
             this.btnCompras.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnCompras.Size = new System.Drawing.Size(333, 80);
+            this.btnCompras.Size = new System.Drawing.Size(263, 80);
             this.btnCompras.TabIndex = 40;
             this.btnCompras.Text = "Compras";
             this.btnCompras.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -398,7 +400,7 @@
             this.panelVentaSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelVentaSubMenu.Location = new System.Drawing.Point(0, 820);
             this.panelVentaSubMenu.Name = "panelVentaSubMenu";
-            this.panelVentaSubMenu.Size = new System.Drawing.Size(333, 160);
+            this.panelVentaSubMenu.Size = new System.Drawing.Size(263, 160);
             this.panelVentaSubMenu.TabIndex = 39;
             // 
             // btnNotaSalida
@@ -415,7 +417,7 @@
             this.btnNotaSalida.Location = new System.Drawing.Point(0, 80);
             this.btnNotaSalida.Name = "btnNotaSalida";
             this.btnNotaSalida.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnNotaSalida.Size = new System.Drawing.Size(333, 80);
+            this.btnNotaSalida.Size = new System.Drawing.Size(263, 80);
             this.btnNotaSalida.TabIndex = 2;
             this.btnNotaSalida.Text = "Nota Salida";
             this.btnNotaSalida.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -436,7 +438,7 @@
             this.btnOrdenVenta.Location = new System.Drawing.Point(0, 0);
             this.btnOrdenVenta.Name = "btnOrdenVenta";
             this.btnOrdenVenta.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnOrdenVenta.Size = new System.Drawing.Size(333, 80);
+            this.btnOrdenVenta.Size = new System.Drawing.Size(263, 80);
             this.btnOrdenVenta.TabIndex = 1;
             this.btnOrdenVenta.Text = "Orden Venta";
             this.btnOrdenVenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -459,7 +461,7 @@
             this.btnVentas.Location = new System.Drawing.Point(0, 740);
             this.btnVentas.Name = "btnVentas";
             this.btnVentas.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnVentas.Size = new System.Drawing.Size(333, 80);
+            this.btnVentas.Size = new System.Drawing.Size(263, 80);
             this.btnVentas.TabIndex = 38;
             this.btnVentas.Text = "Ventas";
             this.btnVentas.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -476,7 +478,7 @@
             this.panelProductoSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelProductoSubMenu.Location = new System.Drawing.Point(0, 500);
             this.panelProductoSubMenu.Name = "panelProductoSubMenu";
-            this.panelProductoSubMenu.Size = new System.Drawing.Size(333, 240);
+            this.panelProductoSubMenu.Size = new System.Drawing.Size(263, 240);
             this.panelProductoSubMenu.TabIndex = 37;
             // 
             // btnMarca
@@ -493,7 +495,7 @@
             this.btnMarca.Location = new System.Drawing.Point(0, 160);
             this.btnMarca.Name = "btnMarca";
             this.btnMarca.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnMarca.Size = new System.Drawing.Size(333, 80);
+            this.btnMarca.Size = new System.Drawing.Size(263, 80);
             this.btnMarca.TabIndex = 3;
             this.btnMarca.Text = "Marca";
             this.btnMarca.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -515,7 +517,7 @@
             this.btnCategoria.Location = new System.Drawing.Point(0, 80);
             this.btnCategoria.Name = "btnCategoria";
             this.btnCategoria.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnCategoria.Size = new System.Drawing.Size(333, 80);
+            this.btnCategoria.Size = new System.Drawing.Size(263, 80);
             this.btnCategoria.TabIndex = 2;
             this.btnCategoria.Text = "Categoria";
             this.btnCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -537,7 +539,7 @@
             this.btnProductosSubMenu.Location = new System.Drawing.Point(0, 0);
             this.btnProductosSubMenu.Name = "btnProductosSubMenu";
             this.btnProductosSubMenu.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnProductosSubMenu.Size = new System.Drawing.Size(333, 80);
+            this.btnProductosSubMenu.Size = new System.Drawing.Size(263, 80);
             this.btnProductosSubMenu.TabIndex = 1;
             this.btnProductosSubMenu.Text = "Productos";
             this.btnProductosSubMenu.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -560,7 +562,7 @@
             this.btnProductos.Location = new System.Drawing.Point(0, 420);
             this.btnProductos.Name = "btnProductos";
             this.btnProductos.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnProductos.Size = new System.Drawing.Size(333, 80);
+            this.btnProductos.Size = new System.Drawing.Size(263, 80);
             this.btnProductos.TabIndex = 36;
             this.btnProductos.Text = "Productos";
             this.btnProductos.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -583,7 +585,7 @@
             this.btnProveedores.Location = new System.Drawing.Point(0, 340);
             this.btnProveedores.Name = "btnProveedores";
             this.btnProveedores.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnProveedores.Size = new System.Drawing.Size(333, 80);
+            this.btnProveedores.Size = new System.Drawing.Size(263, 80);
             this.btnProveedores.TabIndex = 35;
             this.btnProveedores.Text = "Proveedores";
             this.btnProveedores.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -599,7 +601,7 @@
             this.panelClienteSubMenu.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelClienteSubMenu.Location = new System.Drawing.Point(0, 180);
             this.panelClienteSubMenu.Name = "panelClienteSubMenu";
-            this.panelClienteSubMenu.Size = new System.Drawing.Size(333, 160);
+            this.panelClienteSubMenu.Size = new System.Drawing.Size(263, 160);
             this.panelClienteSubMenu.TabIndex = 34;
             // 
             // btnClienteJuridico
@@ -616,7 +618,7 @@
             this.btnClienteJuridico.Location = new System.Drawing.Point(0, 80);
             this.btnClienteJuridico.Name = "btnClienteJuridico";
             this.btnClienteJuridico.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnClienteJuridico.Size = new System.Drawing.Size(333, 80);
+            this.btnClienteJuridico.Size = new System.Drawing.Size(263, 80);
             this.btnClienteJuridico.TabIndex = 1;
             this.btnClienteJuridico.Text = "Cliente Juridico";
             this.btnClienteJuridico.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -638,7 +640,7 @@
             this.btnClienteNatural.Location = new System.Drawing.Point(0, 0);
             this.btnClienteNatural.Name = "btnClienteNatural";
             this.btnClienteNatural.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnClienteNatural.Size = new System.Drawing.Size(333, 80);
+            this.btnClienteNatural.Size = new System.Drawing.Size(263, 80);
             this.btnClienteNatural.TabIndex = 0;
             this.btnClienteNatural.Text = "Cliente Natural";
             this.btnClienteNatural.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -661,7 +663,7 @@
             this.btnCliente.Location = new System.Drawing.Point(0, 100);
             this.btnCliente.Name = "btnCliente";
             this.btnCliente.Padding = new System.Windows.Forms.Padding(10, 0, 20, 0);
-            this.btnCliente.Size = new System.Drawing.Size(333, 80);
+            this.btnCliente.Size = new System.Drawing.Size(263, 80);
             this.btnCliente.TabIndex = 33;
             this.btnCliente.Text = "Clientes";
             this.btnCliente.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -676,7 +678,7 @@
             this.panelLogo.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelLogo.Location = new System.Drawing.Point(0, 0);
             this.panelLogo.Name = "panelLogo";
-            this.panelLogo.Size = new System.Drawing.Size(333, 100);
+            this.panelLogo.Size = new System.Drawing.Size(263, 100);
             this.panelLogo.TabIndex = 32;
             // 
             // pictureBox3
@@ -693,6 +695,7 @@
             // HoraFecha
             // 
             this.HoraFecha.Enabled = true;
+            this.HoraFecha.Tick += new System.EventHandler(this.HoraFecha_Tick);
             // 
             // panelTitleBar
             // 
@@ -703,9 +706,9 @@
             this.panelTitleBar.Controls.Add(this.lbTitleChildForm);
             this.panelTitleBar.Controls.Add(this.IconCurrentChildForm);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panelTitleBar.Location = new System.Drawing.Point(350, 0);
+            this.panelTitleBar.Location = new System.Drawing.Point(280, 0);
             this.panelTitleBar.Name = "panelTitleBar";
-            this.panelTitleBar.Size = new System.Drawing.Size(1454, 75);
+            this.panelTitleBar.Size = new System.Drawing.Size(1524, 60);
             this.panelTitleBar.TabIndex = 0;
             this.panelTitleBar.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitleBar_MouseDown);
             // 
@@ -719,7 +722,7 @@
             this.btnMinimizar.IconColor = System.Drawing.Color.Gainsboro;
             this.btnMinimizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMinimizar.IconSize = 25;
-            this.btnMinimizar.Location = new System.Drawing.Point(1358, 3);
+            this.btnMinimizar.Location = new System.Drawing.Point(1428, 3);
             this.btnMinimizar.Name = "btnMinimizar";
             this.btnMinimizar.Size = new System.Drawing.Size(27, 23);
             this.btnMinimizar.TabIndex = 4;
@@ -736,7 +739,7 @@
             this.btnMaximizar.IconColor = System.Drawing.Color.Gainsboro;
             this.btnMaximizar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnMaximizar.IconSize = 25;
-            this.btnMaximizar.Location = new System.Drawing.Point(1391, 3);
+            this.btnMaximizar.Location = new System.Drawing.Point(1461, 3);
             this.btnMaximizar.Name = "btnMaximizar";
             this.btnMaximizar.Size = new System.Drawing.Size(27, 23);
             this.btnMaximizar.TabIndex = 3;
@@ -753,7 +756,7 @@
             this.btnCerrar.IconColor = System.Drawing.Color.Gainsboro;
             this.btnCerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCerrar.IconSize = 25;
-            this.btnCerrar.Location = new System.Drawing.Point(1424, 3);
+            this.btnCerrar.Location = new System.Drawing.Point(1494, 3);
             this.btnCerrar.Name = "btnCerrar";
             this.btnCerrar.Size = new System.Drawing.Size(27, 23);
             this.btnCerrar.TabIndex = 2;
@@ -794,26 +797,56 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(26)))), ((int)(((byte)(24)))), ((int)(((byte)(58)))));
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(350, 75);
+            this.panel1.Location = new System.Drawing.Point(280, 60);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1454, 9);
+            this.panel1.Size = new System.Drawing.Size(1524, 7);
             this.panel1.TabIndex = 4;
             // 
             // panelContenedor
             // 
             this.panelContenedor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.panelContenedor.Controls.Add(this.lblFecha);
+            this.panelContenedor.Controls.Add(this.lblHora);
             this.panelContenedor.Controls.Add(this.pictureBox1);
             this.panelContenedor.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelContenedor.Location = new System.Drawing.Point(350, 84);
+            this.panelContenedor.Location = new System.Drawing.Point(280, 67);
             this.panelContenedor.Name = "panelContenedor";
-            this.panelContenedor.Size = new System.Drawing.Size(1454, 857);
+            this.panelContenedor.Size = new System.Drawing.Size(1524, 874);
             this.panelContenedor.TabIndex = 4;
+            // 
+            // lblFecha
+            // 
+            this.lblFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblFecha.AutoSize = true;
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFecha.ForeColor = System.Drawing.Color.MediumSlateBlue;
+            this.lblFecha.Location = new System.Drawing.Point(675, 615);
+            this.lblFecha.Name = "lblFecha";
+            this.lblFecha.Size = new System.Drawing.Size(86, 31);
+            this.lblFecha.TabIndex = 3;
+            this.lblFecha.Text = "label1";
+            // 
+            // lblHora
+            // 
+            this.lblHora.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHora.AutoSize = true;
+            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblHora.ForeColor = System.Drawing.Color.White;
+            this.lblHora.Location = new System.Drawing.Point(663, 505);
+            this.lblHora.Name = "lblHora";
+            this.lblHora.Size = new System.Drawing.Size(299, 108);
+            this.lblHora.TabIndex = 2;
+            this.lblHora.Text = "label1";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(495, 115);
+            this.pictureBox1.Location = new System.Drawing.Point(563, 198);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(486, 304);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -851,6 +884,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.IconCurrentChildForm)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.panelContenedor.ResumeLayout(false);
+            this.panelContenedor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -900,5 +934,7 @@
         private FontAwesome.Sharp.IconButton btnMinimizar;
         private FontAwesome.Sharp.IconButton btnMaximizar;
         private FontAwesome.Sharp.IconButton btnCerrar;
+        private System.Windows.Forms.Label lblHora;
+        private System.Windows.Forms.Label lblFecha;
     }
 }

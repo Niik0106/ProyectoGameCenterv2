@@ -28,6 +28,14 @@ namespace ProyectoGameCenter
             {
                 column.Resizable = DataGridViewTriState.False;
             }
+            // Crear una instancia de RoundedTextBox
+            RoundedTextBox roundedTextBox1 = new RoundedTextBox();
+            roundedTextBox1.Location = new Point(50, 50);
+            roundedTextBox1.Size = new Size(200, 30);
+
+            // Agregar el RoundedTextBox al formulario
+            this.Controls.Add(roundedTextBox1);
+
         }
 
         public void ListarProductos()
@@ -222,5 +230,27 @@ namespace ProyectoGameCenter
                 dgvProductos.DataSource = logProducto.Instancia.ListaProducto();
             }
         }
+
+        private void cbxEstadoProd_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmProductos_Load(object sender, EventArgs e)
+        {
+            //AjustarDatagrindviewHeight();
+        }
+
+        private void AjustarDatagrindviewHeight()
+        {
+            var height = dgvProductos.ColumnHeadersHeight;
+            foreach(DataGridViewRow dr in dgvProductos.Rows)
+            {
+                height+= dr.Height;
+
+            }
+            dgvProductos.Height = height;
+        }
+
     }
 }
