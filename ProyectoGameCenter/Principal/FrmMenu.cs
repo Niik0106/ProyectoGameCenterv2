@@ -35,6 +35,12 @@ namespace ProyectoGameCenter.Principal
 
             idUsuario = idUsuario_esperado;
             idRol = idRolUsuario;
+
+            //Form
+            this.Text = string.Empty;
+            this.ControlBox = false;
+            this.DoubleBuffered = true;
+            this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
             
         }
 
@@ -70,6 +76,9 @@ namespace ProyectoGameCenter.Principal
                 leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
                 leftBorderBtn.Visible = true;
                 leftBorderBtn.BringToFront();
+                //Icono de formulario hijo
+                IconCurrentChildForm.IconChar = currentBtn.IconChar;
+                IconCurrentChildForm.IconColor = color;
             }
         }
 
@@ -100,15 +109,15 @@ namespace ProyectoGameCenter.Principal
             Application.Exit();
         }
 
-        private void btnRestaurar_Click(object sender, EventArgs e)
+        /*private void btnRestaurar_Click(object sender, EventArgs e)
         {      
             this.Size = new Size(1200,700);
             this.Location = new Point(LX, LY);
             btnPCompleta.Visible = true;
             btnRestaurar.Visible = false;
-        }
+        }*/
         int LX, LY;
-        private void btnPCompleta_Click(object sender, EventArgs e)
+        /*private void btnPCompleta_Click(object sender, EventArgs e)
         {
             LX = this.Location.X; 
             LY = this.Location.Y;
@@ -116,7 +125,7 @@ namespace ProyectoGameCenter.Principal
             this.Location = Screen.PrimaryScreen.WorkingArea.Location;
             btnPCompleta.Visible = false;
             btnRestaurar.Visible = true;
-        }
+        }*/
 
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
@@ -131,11 +140,11 @@ namespace ProyectoGameCenter.Principal
 
         //REGION DEL PANEL HORA Y FECHA
 
-        private void HoraFecha_Tick(object sender, EventArgs e)
+        /*private void HoraFecha_Tick(object sender, EventArgs e)
         {
             lblHora.Text = DateTime.Now.ToString("HH:mm:ss");
             lblFecha.Text = DateTime.Now.ToShortDateString();
-        }
+        }*/
 
         private void PersonalizarDisenio()
         {
@@ -182,12 +191,33 @@ namespace ProyectoGameCenter.Principal
                 FormularioActivo.Close();
             FormularioActivo = FormularioHijo;
             FormularioHijo.TopLevel = false;
+            FormularioHijo.FormBorderStyle = FormBorderStyle.None;
             FormularioHijo.Dock = DockStyle.Fill;
             panelContenedor.Controls.Add(FormularioHijo);
             panelContenedor.Tag = FormularioHijo;
             FormularioHijo.BringToFront();
             FormularioHijo.Show();
+            lbTitleChildForm.Text = FormularioHijo.Text;
         }
+
+        /*private void OpenChildForm(Form childForm)
+        {
+            if (currentChildForm != null)
+            {
+                //open only form
+                currentChildForm.Close();
+            }
+            currentChildForm = childForm;
+            //end
+            childForm.TopLevel = false;
+            childForm.FormBorderStyle = FormBorderStyle.None;
+            childForm.Dock = DockStyle.Fill;
+            panelContenedor.Controls.Add(childForm);
+            panelContenedor.Tag = childForm;
+            childForm.BringToFront();
+            childForm.Show();
+            lbTitleChildForm.Text = childForm.Text;
+        }   */
 
         #region REGION CLIENTE
 
@@ -287,8 +317,8 @@ namespace ProyectoGameCenter.Principal
                     btnProductos.Visible = false;
                     btnVentas.Enabled = true;
                     btnNotaSalida.Visible=false;
-                    //btnProveedores.Visible = false;
-                    //btnReportesCompras.Visible = false;
+                    btnProveedores.Visible = false;
+                    btnReportesCompras.Visible = false;
                     btnCompras.Visible = false;
                     
                 break;
@@ -297,8 +327,8 @@ namespace ProyectoGameCenter.Principal
                     btnCliente.Visible = false;
                     btnProductos.Visible = false;
                     btnVentas.Visible = false;
-                    //btnProveedores.Enabled = true;
-                    //btnReportesCompras.Visible = false;
+                    btnProveedores.Enabled = true;
+                    btnReportesCompras.Visible = false;
                     btnCompras.Enabled = true;
                     btnNotaSalida.Visible = false;
                 break;
@@ -309,8 +339,8 @@ namespace ProyectoGameCenter.Principal
                     btnVentas.Visible = true;
                     btnOrdenVenta.Visible = false;
                     btnOrdenCompra.Visible = false;
-                    //btnProveedores.Visible = false;
-                    //btnReportesCompras.Visible = false;
+                    btnProveedores.Visible = false;
+                    btnReportesCompras.Visible = false;
                     btnCompras.Visible = true;
                     btnNotaSalida.Enabled = true;
                 break;
@@ -388,9 +418,38 @@ namespace ProyectoGameCenter.Principal
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        private void pictureBox3_Click(object sender, EventArgs e)
         {
+            FormularioActivo.Close();
+            OcultarSubMenu();
+            Reset();
+        }
 
+        private void Reset()
+        {
+            DisableButton();
+            leftBorderBtn.Visible = false;
+            IconCurrentChildForm.IconChar = IconChar.Home;
+            IconCurrentChildForm.IconColor = System.Drawing.Color.Gainsboro;
+            lbTitleChildForm.Text = "Home";
+        }
+
+        private void btnMaximizar_Click(object sender, EventArgs e)
+        {
+            if(WindowState == FormWindowState.Normal)
+            {
+                WindowState = FormWindowState.Maximized;
+            }
+            else
+            {
+                WindowState = FormWindowState.Normal;
+            }
+        }
+
+        private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }
