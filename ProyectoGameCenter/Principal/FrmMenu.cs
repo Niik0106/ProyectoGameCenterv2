@@ -12,6 +12,8 @@ using System.Media;
 using AccesoDatos;
 using Entidades;
 using System.Data.SqlClient;
+using FontAwesome.Sharp;
+using System.Windows.Media;
 
 namespace ProyectoGameCenter.Principal
 {
@@ -19,16 +21,69 @@ namespace ProyectoGameCenter.Principal
     {
         private int idUsuario;
         private int idRol;
+        private IconButton currentBtn;
+        private Panel leftBorderBtn;
 
 
         public FrmMenu(int idUsuario_esperado = 0, int idRolUsuario = 0)
         {
             InitializeComponent();
+            leftBorderBtn = new Panel();
+            leftBorderBtn.Size = new Size(7, 60);
+            panelMenuLateral.Controls.Add(leftBorderBtn);
             PersonalizarDisenio();
 
             idUsuario = idUsuario_esperado;
             idRol = idRolUsuario;
             
+        }
+
+        //Estructuras
+        private struct RGBColors
+        {
+            public static System.Drawing.Color color1 = System.Drawing.Color.FromArgb(172, 126, 241);
+            public static System.Drawing.Color color2 = System.Drawing.Color.FromArgb(249, 118, 176);
+            public static System.Drawing.Color color3 = System.Drawing.Color.FromArgb(253, 138, 114);
+            public static System.Drawing.Color color4 = System.Drawing.Color.FromArgb(95, 77, 221);
+            public static System.Drawing.Color color5 = System.Drawing.Color.FromArgb(249, 88, 155);
+            public static System.Drawing.Color color6 = System.Drawing.Color.FromArgb(24, 161, 251);
+        }
+
+
+        //Metodos
+        private void ActivateButton(object senderBtn, System.Drawing.Color color)
+        {
+            if(senderBtn != null)
+            {
+                DisableButton();
+                //Boton
+                currentBtn = (IconButton)senderBtn;
+                currentBtn.BackColor = System.Drawing.Color.FromArgb(37, 36, 81);
+                currentBtn.ForeColor = color;
+                currentBtn.TextAlign = ContentAlignment.MiddleCenter;
+                currentBtn.IconColor = color;
+                currentBtn.TextImageRelation = TextImageRelation.TextBeforeImage;
+                currentBtn.ImageAlign = ContentAlignment.MiddleRight;
+                //Left border button
+                leftBorderBtn.BackColor = color;
+                leftBorderBtn.Location = new Point(0, currentBtn.Location.Y);
+                leftBorderBtn.Visible = true;
+                leftBorderBtn.BringToFront();
+            }
+        }
+
+        private void DisableButton()
+        {
+            if (currentBtn != null)
+            {
+                //Boton
+                currentBtn.BackColor = System.Drawing.Color.FromArgb(31, 30, 68);
+                currentBtn.ForeColor = System.Drawing.Color.Gainsboro;
+                currentBtn.TextAlign = ContentAlignment.MiddleLeft;
+                currentBtn.IconColor = System.Drawing.Color.Gainsboro;
+                currentBtn.TextImageRelation = TextImageRelation.ImageBeforeText;
+                currentBtn.ImageAlign = ContentAlignment.MiddleLeft;
+            }
         }
 
         //REGION DEL PANEL DE CABECERA
@@ -138,6 +193,7 @@ namespace ProyectoGameCenter.Principal
         private void btnCliente_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelClienteSubMenu);
+            ActivateButton(sender, RGBColors.color5);
         }
 
         private void btnClienteNatural_Click(object sender, EventArgs e)
@@ -157,6 +213,7 @@ namespace ProyectoGameCenter.Principal
         private void btnProductos_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelProductoSubMenu);
+            ActivateButton(sender, RGBColors.color5);
         }
 
         private void btnCategoria_Click(object sender, EventArgs e)
@@ -183,6 +240,7 @@ namespace ProyectoGameCenter.Principal
         private void btnVentas_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelVentaSubMenu);
+            ActivateButton(sender, RGBColors.color5);
         }
         private void btnOrdenVenta_Click(object sender, EventArgs e)
         {
@@ -190,37 +248,13 @@ namespace ProyectoGameCenter.Principal
             OcultarSubMenu();
         }
 
-        private void btnCronogramaPago_Click(object sender, EventArgs e)
-        {
-            AbrirFormularioHijo(new FrmCronogramaPago());
-            OcultarSubMenu();
-        }
-
         #endregion
-
-        private void btnProveedores_Click(object sender, EventArgs e)
-        {
-            AbrirFormularioHijo(new FrmProveedor());
-            OcultarSubMenu();
-        }
-
-        private void btnMetodoPago_Click(object sender, EventArgs e)
-        {
-            AbrirFormularioHijo(new FrmTipoPago());
-            OcultarSubMenu();
-        }
 
         //private void btnNotaSalida_Click(object sender, EventArgs e)
         //{
         //    AbrirFormularioHijo(new FrmNotaSalida());
         //    OcultarSubMenu();
         //}
-
-        private void btnOrdenCompra_Click(object sender, EventArgs e)
-        {
-            AbrirFormularioHijo(new FrmOrdenCompra());
-            OcultarSubMenu();
-        }
 
         private void panelContenedor_Paint(object sender, PaintEventArgs e)
         {
@@ -297,26 +331,25 @@ namespace ProyectoGameCenter.Principal
         private void btnCompras_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelComprasSubMenu);
-        }
-
-        private void btnCompras_Click_1(object sender, EventArgs e)
-        {
-            MostrarSubMenu(panelComprasSubMenu);
+            ActivateButton(sender, RGBColors.color5);
         }
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelReportesSubMenu);
+            ActivateButton(sender, RGBColors.color5);
         }
 
         private void btnConfiguracion_Click(object sender, EventArgs e)
         {
             MostrarSubMenu(panelConfiguracionSubMenu);
+            ActivateButton(sender, RGBColors.color5);
         }
 
         private void btnProveedores_Click_1(object sender, EventArgs e)
         {
             AbrirFormularioHijo(new FrmProveedor());
+            ActivateButton(sender, RGBColors.color5);
             OcultarSubMenu();
         }
 
@@ -329,6 +362,7 @@ namespace ProyectoGameCenter.Principal
         private void btnPagos_Click(object sender, EventArgs e)
         {
             AbrirFormularioHijo(new FrmTipoPago());
+            ActivateButton(sender, RGBColors.color5);
             OcultarSubMenu();
         }
 
@@ -338,26 +372,24 @@ namespace ProyectoGameCenter.Principal
             OcultarSubMenu();
         }
 
-        private string ObtenerPermisos(string nombreUsuario)
+        private void panelClienteSubMenu_Paint(object sender, PaintEventArgs e)
         {
-            string rol = string.Empty;
-            // Conexión a la base de datos
-            using (SqlConnection conexion = new SqlConnection("cadena_de_conexion"))
-            {
-                conexion.Open();
-                // Consulta SQL para obtener el rol del usuario
-                string consulta = "SELECT Rol FROM Usuarios WHERE NombreUsuario = @NombreUsuario";
-                using (SqlCommand cmd = new SqlCommand(consulta, conexion))
-                {
-                    cmd.Parameters.AddWithValue("@NombreUsuario", nombreUsuario);
-                    SqlDataReader reader = cmd.ExecuteReader();
-                    if (reader.Read())
-                    {
-                        rol = reader["Rol"].ToString();
-                    }
-                }
-            }
-            return rol;
+
+        }
+
+        private void panelMenuLateral_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelLogo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using FontAwesome.Sharp;
 
 namespace ProyectoGameCenter
 {
@@ -15,6 +16,11 @@ namespace ProyectoGameCenter
         public FrmUsuario()
         {
             InitializeComponent();
+        }
+
+        private void FrmUsuario_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
