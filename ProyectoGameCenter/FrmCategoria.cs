@@ -134,7 +134,7 @@ namespace ProyectoGameCenter
                 txtDescripcionCategoria.Text = filaActual.Cells[1].Value.ToString();
                 cbxEstadoCate.Checked = Convert.ToBoolean(filaActual.Cells[2].Value);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 MessageBox.Show("Selecciona un item de la tabla");
             }

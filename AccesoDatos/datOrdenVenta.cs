@@ -32,11 +32,11 @@ namespace AccesoDatos
                 while (dr.Read())
                 {
                     OrdVenta.idOrdenVenta = Convert.ToInt32(dr["ID_ORDEN_VENTA"]);
-                    OrdVenta.numOrdenVenta = Convert.ToInt32(dr["NUM_ORDEN_VENTA"]);
+                    //OrdVenta.numOrdenVenta = Convert.ToInt32(dr["NUM_ORDEN_VENTA"]);
                     OrdVenta.fechaOrden = Convert.ToDateTime(dr["FEC_ORDEN"]);
                     OrdVenta.idCliente = Convert.ToInt32(dr["ID_CLIENTE"]);
                     OrdVenta.estOrdenVenta = Convert.ToInt32(dr["ID_EST_ORDEN_VENTA"]);
-                    OrdVenta.idUsuario = Convert.ToInt32(dr["ID_USUARIO"]);
+                   
                 }
             }
             catch (Exception e) { throw e; }
@@ -59,11 +59,13 @@ namespace AccesoDatos
                 {
                     entOrdenVenta OrdVenta = new entOrdenVenta();
                     OrdVenta.idOrdenVenta = Convert.ToInt32(dr["ID_ORDEN_VENTA"]);
-                    OrdVenta.numOrdenVenta = Convert.ToInt32(dr["NUM_ORDEN_VENTA"]);
+                    OrdVenta.numOrdenVenta = dr["NUM_ORDEN_VENTA"].ToString();
                     OrdVenta.fechaOrden = Convert.ToDateTime(dr["FEC_ORDEN"]);
                     OrdVenta.idCliente = Convert.ToInt32(dr["ID_CLIENTE"]);
+                    OrdVenta.num_documento = dr["NUM_DOCUMENTO"].ToString();
                     OrdVenta.estOrdenVenta = Convert.ToInt32(dr["ID_EST_ORDEN_VENTA"]);
-                    OrdVenta.idUsuario = Convert.ToInt32(dr["ID_USUARIO"]);
+                    OrdVenta.idTipoComprobante = Convert.ToInt32(dr["ID_TIPO_COMPROBANTE"]);
+                    OrdVenta.des_comprobante = dr["DES_COMPROBANTE"].ToString();
                     lista.Add(OrdVenta);
                 }
             }
@@ -80,12 +82,12 @@ namespace AccesoDatos
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("SP_INSERTAR_ORDEN_VENTA", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@NUM_ORDEN_VENTA", OrdV.numOrdenVenta);
+                cmd.CommandType = CommandType.StoredProcedure;           
                 cmd.Parameters.AddWithValue("@FECHA", OrdV.fechaOrden);
-                cmd.Parameters.AddWithValue("@ID_CLIENTE", OrdV.idCliente);
+                cmd.Parameters.AddWithValue("@NUM_DOCUMENTO", OrdV.num_documento);
                 cmd.Parameters.AddWithValue("@ID_EST_ORDEN_VENTA", OrdV.estOrdenVenta);
-                cmd.Parameters.AddWithValue("@ID_USUARIO", OrdV.idUsuario);
+                cmd.Parameters.AddWithValue("@ID_TIPO_COMPROBANTE", OrdV.idTipoComprobante);
+
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0) { inserta = true; }
@@ -129,11 +131,11 @@ namespace AccesoDatos
                 {
                     entOrdenVenta OrdVenta = new entOrdenVenta();
                     OrdVenta.idOrdenVenta = Convert.ToInt32(dr["ID_ORDEN_VENTA"]);
-                    OrdVenta.numOrdenVenta = Convert.ToInt32(dr["NUM_ORDEN_VENTA"]);
-                    OrdVenta.fechaOrden = Convert.ToDateTime(dr["FEC_ORDEN"]);
+                    //OrdVenta.numOrdenVenta = Convert.ToInt32(dr["NUM_ORDEN_VENTA"]);
+                    //OrdVenta.fechaOrden = Convert.ToDateTime(dr["FEC_ORDEN"]);
                     OrdVenta.idCliente = Convert.ToInt32(dr["ID_CLIENTE"]);
                     OrdVenta.estOrdenVenta = Convert.ToInt32(dr["ID_EST_ORDEN_VENTA"]);
-                    OrdVenta.idUsuario = Convert.ToInt32(dr["ID_USUARIO"]);
+                   
                     lista.Add(OrdVenta);
                 }
             }

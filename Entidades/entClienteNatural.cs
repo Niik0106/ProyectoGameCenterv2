@@ -10,6 +10,7 @@ namespace Entidades
     {
         public string DNI { get; set; }
         public string NOMBRE_CLI { get; set; }
-        public string APELLIDO_CLI { get; set; }
+        public string APELLIDO_PATERNO { get; set; }
+        public string APELLIDO_MATERNO { get; set; }
     }
 }

@@ -15,11 +15,12 @@ namespace ProyectoGameCenter
 {
     public partial class FrmClienteNatural : Form
     {
-
+        private logDniRuc logDniRuc;
         public FrmClienteNatural()
         {
             InitializeComponent();
             ListarClientesNaturales();
+            logDniRuc = new logDniRuc();
         }
 
         private void btnAgregarCN_MouseHover(object sender, EventArgs e)
@@ -101,8 +102,8 @@ namespace ProyectoGameCenter
         {
             try
             {
-                if (txtDNI.Text.Equals("") | txtNombres.Text.Equals("") | txtApellidos.Text.Equals("") | 
-                    txtTelefono.Text.Equals("") | txtCodigoUbigeo.Text.Equals("") | txtDireccion.Text.Equals(""))
+                if (txtDNI.Text.Equals("") | txtNombres.Text.Equals("") | txtApellidoPaterno.Text.Equals("") | txtApellidoMaterno.Text.Equals("") | 
+                    txtTelefono.Text.Equals("") )
                 {
                     MessageBox.Show("Debe llenar todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -116,10 +117,9 @@ namespace ProyectoGameCenter
                         return;
                     }
                     cliente.NOMBRE_CLI = txtNombres.Text;
-                    cliente.APELLIDO_CLI = txtApellidos.Text;
-                    cliente.TEL_CLIENTE = txtTelefono.Text;
-                    cliente.COD_UBIGEO = Convert.ToInt32(txtCodigoUbigeo.Text);
-                    cliente.DIR_CLIENTE = txtDireccion.Text;
+                    cliente.APELLIDO_PATERNO = txtApellidoPaterno.Text;
+                    cliente.APELLIDO_MATERNO = txtApellidoMaterno.Text;
+                    cliente.TEL_CLIENTE = txtTelefono.Text;                    
                     cliente.ESTADO_CLIENTE = cbxEstadoCliNat.Checked;
                     logClienteNatural.Instancia.InsertarClienteNatural(cliente);
                     MessageBox.Show("Cliente Natural registrado correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -136,7 +136,8 @@ namespace ProyectoGameCenter
         private void btnModificar_Click(object sender, EventArgs e)
         {
             //MODIFICAR CLIENTE NATURAL
-            if (txtDNI.Text.Equals("") || txtNombres.Text.Equals("") || txtApellidos.Text.Equals("") || txtTelefono.Text.Equals("") || txtCodigoUbigeo.Text.Equals("") || txtDireccion.Text.Equals(""))
+            if (txtDNI.Text.Equals("") | txtNombres.Text.Equals("") | txtApellidoPaterno.Text.Equals("") | txtApellidoMaterno.Text.Equals("") |
+                    txtTelefono.Text.Equals(""))
             {
                 MessageBox.Show("Debe llenar todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -146,10 +147,9 @@ namespace ProyectoGameCenter
                 cliente.ID_CLIENTE = Convert.ToInt32(txtIDCliente.Text);
                 cliente.DNI = txtDNI.Text;
                 cliente.NOMBRE_CLI = txtNombres.Text;
-                cliente.APELLIDO_CLI = txtApellidos.Text;
+                cliente.APELLIDO_PATERNO = txtApellidoPaterno.Text;
+                cliente.APELLIDO_MATERNO = txtApellidoMaterno.Text;
                 cliente.TEL_CLIENTE = txtTelefono.Text;
-                cliente.COD_UBIGEO = Convert.ToInt32(txtCodigoUbigeo.Text);
-                cliente.DIR_CLIENTE = txtDireccion.Text;
                 cliente.ESTADO_CLIENTE = cbxEstadoCliNat.Checked;
                 logClienteNatural.Instancia.EditarClienteNatural(cliente);
                 MessageBox.Show("Cliente Natural modificado correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -182,13 +182,9 @@ namespace ProyectoGameCenter
             txtIDCliente.Clear();
             txtDNI.Clear();
             txtNombres.Clear();
-            txtApellidos.Clear();
+            txtApellidoPaterno.Clear();
+            txtApellidoMaterno.Clear();
             txtTelefono.Clear();
-            txtCodigoUbigeo.Clear();
-            txtDepartamento.Clear();
-            txtProvincia.Clear();
-            txtDistrito.Clear();
-            txtDireccion.Clear();
             txtBuscarDNI.Clear();
             cbxEstadoCliNat.Checked = false;
         }
@@ -198,14 +194,13 @@ namespace ProyectoGameCenter
             try
             {
                 DataGridViewRow filaActual = dgvClienteNatural.Rows[e.RowIndex];
-                txtIDCliente.Text = filaActual.Cells[3].Value.ToString();
+                txtIDCliente.Text = filaActual.Cells[4].Value.ToString();
                 txtDNI.Text = filaActual.Cells[0].Value.ToString();
                 txtNombres.Text = filaActual.Cells[1].Value.ToString();
-                txtApellidos.Text = filaActual.Cells[2].Value.ToString();
-                txtTelefono.Text = filaActual.Cells[4].Value.ToString();
-                txtCodigoUbigeo.Text = filaActual.Cells[5].Value.ToString();
-                txtDireccion.Text = filaActual.Cells[6].Value.ToString();
-                cbxEstadoCliNat.Checked = Convert.ToBoolean(filaActual.Cells[7].Value);
+                txtApellidoPaterno.Text = filaActual.Cells[2].Value.ToString();
+                txtApellidoPaterno.Text = filaActual.Cells[3].Value.ToString();
+                txtTelefono.Text = filaActual.Cells[5].Value.ToString();             
+                cbxEstadoCliNat.Checked = Convert.ToBoolean(filaActual.Cells[6].Value);
             }
             catch (Exception ex)
             {
@@ -280,6 +275,29 @@ namespace ProyectoGameCenter
             if (txtBuscarDNI.Text == "")
             {
                 dgvClienteNatural.DataSource = logClienteNatural.Instancia.ListarClienteNatural();
+            }
+        }
+
+        private void btnBuscarClienteReniec_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtBuscarDNI.Text.Length == 8)
+                {
+                    entDatosDni respuesta = logDniRuc.ObtenerDatosDNI(txtBuscarDNI.Text);
+                    txtNombres.Text = respuesta.Nombres;
+                    txtApellidoPaterno.Text = respuesta.ApellidoPaterno;
+                    txtApellidoMaterno.Text = respuesta.ApellidoMaterno;
+                    txtDNI.Text = respuesta.DNI;
+                }
+                else
+                {
+                    MessageBox.Show("El número de DNI debe tener 8 caracteres.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
             }
         }
     }

@@ -20,7 +20,7 @@ namespace ProyectoGameCenter.Principal
         public FrmLogin()
         {
             InitializeComponent();
-            string connectionString = "Data Source=DESKTOP-ACRSVPL\\SQLEXPRESS; Initial Catalog = DIARS_GAMECENTER; Integrated Security=true";
+            string connectionString = "Data Source=DESKTOP-ACRSVPL\\SQLEXPRESS; Initial Catalog = GAMECENTER_BD; Integrated Security=true";
             sqlConnection = new SqlConnection(connectionString);
         }
 
@@ -51,7 +51,7 @@ namespace ProyectoGameCenter.Principal
                 MessageBox.Show("USUARIO Y CONTRASEÑA INCORRECTOS");
             }*/
 
-
+            
             int idUsuario_Esperado = CD_Usuario.loguear(txtUsuario.Text, txtContrasenia.Text);
 
             if (idUsuario_Esperado != 0)

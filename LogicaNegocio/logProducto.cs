@@ -38,9 +38,9 @@ namespace LogicaNegocio
             datProducto.Instancia.DeshabilitarProducto(Prod);
         }
 
-        public entProducto BuscarIDProducto(int idProducto)
+        public entProducto BuscarProducto(string desProducto)
         {
-            return datProducto.Instancia.BuscarIDProducto(idProducto);
+            return datProducto.Instancia.BuscarProducto(desProducto);
         }
 
         public List<entProducto> BuscaDescProducto(entProducto Prod)

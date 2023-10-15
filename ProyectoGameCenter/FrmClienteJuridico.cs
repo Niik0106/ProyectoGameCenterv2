@@ -15,12 +15,13 @@ namespace ProyectoGameCenter
 {
     public partial class FrmClienteJuridico : Form
     {
- 
+        private logDniRuc logDniRuc;
         public FrmClienteJuridico()
         {
             InitializeComponent();
             ListarClienteJuridico();
             gbClienteJuridico.Enabled = false;
+            logDniRuc = new logDniRuc();
         }
 
         public void ListarClienteJuridico()
@@ -34,7 +35,6 @@ namespace ProyectoGameCenter
             txtRUC.Text = "";
             txtRazonSocial.Text = "";
             txtTelefono.Text = "";
-            txtCodigoUbigeo.Text = "";
             txtDepartamento.Text = "";
             txtProvincia.Text = "";
             txtDistrito.Text = "";
@@ -99,8 +99,7 @@ namespace ProyectoGameCenter
         {
             try
             {
-                if (txtRUC.Text.Equals("") | txtRazonSocial.Text.Equals("") | txtTelefono.Text.Equals("") |
-                    txtCodigoUbigeo.Text.Equals("") | txtDireccion.Text.Equals(""))
+                if (txtRUC.Text.Equals("") | txtRazonSocial.Text.Equals("") | txtTelefono.Text.Equals("") | txtDireccion.Text.Equals(""))
                 {
                     MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -113,10 +112,12 @@ namespace ProyectoGameCenter
                         MessageBox.Show("El RUC debe tener 11 dígitos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
-                    cj.RAZON_SOCIAL = txtRazonSocial.Text.Trim();
+                    cj.RAZON_SOCIAL = txtRazonSocial.Text.Trim();                   
+                    cj.DIRECCION = txtDireccion.Text.Trim();
+                    cj.DEPARTAMENTO = txtDepartamento.Text.Trim();
+                    cj.PROVINCIA = txtProvincia.Text.Trim();
+                    cj.DISTRITO = txtDireccion.Text.Trim();
                     cj.TEL_CLIENTE = txtTelefono.Text.Trim();
-                    cj.COD_UBIGEO = int.Parse(txtCodigoUbigeo.Text.Trim());
-                    cj.DIR_CLIENTE = txtDireccion.Text.Trim();
                     cj.ESTADO_CLIENTE = cbxEstadoCliJur.Checked;
                     // Llamar a la función InsertarCliente
                     logClienteJuridico.Instancia.InsertaClienteJuridico(cj);
@@ -134,7 +135,7 @@ namespace ProyectoGameCenter
         private void btnModificar_Click(object sender, EventArgs e)
         {
             //MODIFICAR CLIENTE NATURAL
-            if (txtRUC.Text.Equals("") || txtRazonSocial.Text.Equals("") || txtTelefono.Text.Equals("") || txtCodigoUbigeo.Text.Equals("") || txtDireccion.Text.Equals(""))
+            if (txtRUC.Text.Equals("") || txtRazonSocial.Text.Equals("") || txtTelefono.Text.Equals("") || txtDireccion.Text.Equals(""))
             {
                 MessageBox.Show("Debe llenar todos los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -144,9 +145,11 @@ namespace ProyectoGameCenter
                 cliente.ID_CLIENTE = Convert.ToInt32(txtIDCliente.Text);
                 cliente.RUC_CLIENTE = txtRUC.Text;
                 cliente.RAZON_SOCIAL = txtRazonSocial.Text;
+                cliente.DIRECCION = txtDireccion.Text;
+                cliente.DEPARTAMENTO = txtDireccion.Text;
+                cliente.PROVINCIA = txtDireccion.Text;
+                cliente.DISTRITO = txtDireccion.Text;
                 cliente.TEL_CLIENTE = txtTelefono.Text;
-                cliente.COD_UBIGEO = Convert.ToInt32(txtCodigoUbigeo.Text);
-                cliente.DIR_CLIENTE = txtDireccion.Text;
                 cliente.ESTADO_CLIENTE = cbxEstadoCliJur.Checked;
                 logClienteJuridico.Instancia.EditaClienteJuridico(cliente);
                 MessageBox.Show("Cliente modificado correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -169,13 +172,15 @@ namespace ProyectoGameCenter
             try
             {
                 DataGridViewRow filaActual = dgvClienteJuridico.Rows[e.RowIndex];
-                txtIDCliente.Text = filaActual.Cells[2].Value.ToString();
+                txtIDCliente.Text = filaActual.Cells[6].Value.ToString();
                 txtRUC.Text = filaActual.Cells[0].Value.ToString();
                 txtRazonSocial.Text = filaActual.Cells[1].Value.ToString();
-                txtTelefono.Text = filaActual.Cells[3].Value.ToString();
-                txtCodigoUbigeo.Text = filaActual.Cells[4].Value.ToString();
-                txtDireccion.Text = filaActual.Cells[5].Value.ToString();
-                cbxEstadoCliJur.Checked = Convert.ToBoolean(filaActual.Cells[6].Value);
+                txtDireccion.Text = filaActual.Cells[2].Value.ToString();
+                txtDepartamento.Text = filaActual.Cells[3].Value.ToString();
+                txtProvincia.Text = filaActual.Cells[4].Value.ToString();
+                txtDistrito.Text = filaActual.Cells[5].Value.ToString();
+                txtTelefono.Text = filaActual.Cells[7].Value.ToString();
+                cbxEstadoCliJur.Checked = Convert.ToBoolean(filaActual.Cells[8].Value);
             }
             catch (Exception ex)
             {
@@ -221,5 +226,31 @@ namespace ProyectoGameCenter
                 ListarClienteJuridico();
             }
         }
+
+        private void boton1_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtRucBuscar.Text.Length == 11)
+                {
+                    entDatosRuc respuesta = logDniRuc.ObtenerDatosRUC(txtRucBuscar.Text);
+                    txtRazonSocial.Text = respuesta.RazonSocial;
+                    txtDireccion.Text = respuesta.Direccion;
+                    txtProvincia.Text = respuesta.Provincia;
+                    txtDistrito.Text = respuesta.Distrito;
+                    txtDepartamento.Text = respuesta.Departamento;
+                    txtRUC.Text = respuesta.RUC;
+                }
+                else
+                {
+                    MessageBox.Show("El número de RUC debe tener 11 caracteres.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
     }
-}
+    }
+

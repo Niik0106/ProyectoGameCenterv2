@@ -12,37 +12,37 @@ using LogicaNegocio;
 
 namespace ProyectoGameCenter
 {
-    public partial class FrmMetodoPago : Form
+    public partial class FrmTipoPago : Form
     {
-        public FrmMetodoPago()
+        public FrmTipoPago()
         {
             InitializeComponent();
-            ListarMetodoPago();
+            ListarTipoPago();
         }
-        public void ListarMetodoPago()
+        public void ListarTipoPago()
         {
-            dgvMetodoPago.DataSource = logMetodoPago.Instancia.ListarMetodoPago();
+            dgvTipoPago.DataSource = logMetodoPago.Instancia.ListarMetodoPago();
         }
 
         public void LimpiarVariables()
         {
-            txtIDMetodoPago.Text = "";
-            txtDescripcionMetodoPago.Text = "";
-            cbxEstadoMetdPago.Checked = false;
+            txtIDTipoPago.Text = "";
+            txtDescripcionTipo.Text = "";
+            cbxTipoPago.Checked = false;
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
-            gbMetodoPago.Enabled = true;
+            gbTipoPago.Enabled = true;
             btnAgregar.Visible = true;
             btnModificar.Visible = false;
             LimpiarVariables();
-            txtDescripcionMetodoPago.Focus();
+            txtDescripcionTipo.Focus();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
-            gbMetodoPago.Enabled = false;
+            gbTipoPago.Enabled = false;
             btnAgregar.Visible = true;
             btnModificar.Visible = true;
         }
@@ -54,7 +54,7 @@ namespace ProyectoGameCenter
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            gbMetodoPago.Enabled = true;
+            gbTipoPago.Enabled = true;
             btnAgregar.Visible = false;
             btnModificar.Visible = true;
         }
@@ -63,15 +63,15 @@ namespace ProyectoGameCenter
         {
             try
             {
-                if (txtDescripcionMetodoPago.Text.Equals(""))
+                if (txtDescripcionTipo.Text.Equals(""))
                 {
                     MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
                     entMetodoPago metodo = new entMetodoPago();
-                    metodo.DES_METODO_PAGO = txtDescripcionMetodoPago.Text.Trim();
-                    metodo.ESTADO_METODO_PAGO = cbxEstadoMetdPago.Checked;
+                    metodo.DES_METODO_PAGO = txtDescripcionTipo.Text.Trim();
+                    metodo.ESTADO_METODO_PAGO = cbxTipoPago.Checked;
                     logMetodoPago.Instancia.InsertaMetodoPago(metodo);
                 }
             }
@@ -80,9 +80,9 @@ namespace ProyectoGameCenter
                 MessageBox.Show("Error.." + ex);
             }
             LimpiarVariables();
-            gbMetodoPago.Enabled = false;
+            gbTipoPago.Enabled = false;
             btnModificar.Visible = true;
-            ListarMetodoPago();
+            ListarTipoPago();
         }
 
         private void btnModificar_Click(object sender, EventArgs e)
@@ -90,9 +90,9 @@ namespace ProyectoGameCenter
             try
             {
                 entMetodoPago metodo = new entMetodoPago();
-                metodo.ID_METODO_PAGO = int.Parse(txtIDMetodoPago.Text.Trim());
-                metodo.DES_METODO_PAGO = txtDescripcionMetodoPago.Text.Trim();
-                metodo.ESTADO_METODO_PAGO = cbxEstadoMetdPago.Checked;
+                metodo.ID_METODO_PAGO = int.Parse(txtIDTipoPago.Text.Trim());
+                metodo.DES_METODO_PAGO = txtDescripcionTipo.Text.Trim();
+                metodo.ESTADO_METODO_PAGO = cbxTipoPago.Checked;
                 logMetodoPago.Instancia.EditaMetodoPago(metodo);
             }
             catch (Exception ex)
@@ -100,8 +100,8 @@ namespace ProyectoGameCenter
                 MessageBox.Show("Error.." + ex);
             }
             LimpiarVariables();
-            gbMetodoPago.Enabled = false;
-            ListarMetodoPago();
+            gbTipoPago.Enabled = false;
+            ListarTipoPago();
         }
 
         private void btnDeshabilitarMetdPag_Click(object sender, EventArgs e)
@@ -109,9 +109,9 @@ namespace ProyectoGameCenter
             try
             {
                 entMetodoPago metodo = new entMetodoPago();
-                metodo.ID_METODO_PAGO = int.Parse(txtIDMetodoPago.Text.Trim());
-                cbxEstadoMetdPago.Checked = false;
-                metodo.ESTADO_METODO_PAGO = cbxEstadoMetdPago.Checked;
+                metodo.ID_METODO_PAGO = int.Parse(txtIDTipoPago.Text.Trim());
+                cbxTipoPago.Checked = false;
+                metodo.ESTADO_METODO_PAGO = cbxTipoPago.Checked;
                 logMetodoPago.Instancia.DeshabilitaMetodoPago(metodo);
             }
             catch (Exception ex)
@@ -119,18 +119,18 @@ namespace ProyectoGameCenter
                 MessageBox.Show("Error.." + ex);
             }
             LimpiarVariables();
-            gbMetodoPago.Enabled = false;
-            ListarMetodoPago();
+            gbTipoPago.Enabled = false;
+            ListarTipoPago();
         }
 
         private void dgvMetodoPago_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                DataGridViewRow filaActual = dgvMetodoPago.Rows[e.RowIndex];
-                txtIDMetodoPago.Text = filaActual.Cells[0].Value.ToString();
-                txtDescripcionMetodoPago.Text = filaActual.Cells[1].Value.ToString();
-                cbxEstadoMetdPago.Checked = Convert.ToBoolean(filaActual.Cells[2].Value);
+                DataGridViewRow filaActual = dgvTipoPago.Rows[e.RowIndex];
+                txtIDTipoPago.Text = filaActual.Cells[0].Value.ToString();
+                txtDescripcionTipo.Text = filaActual.Cells[1].Value.ToString();
+                cbxTipoPago.Checked = Convert.ToBoolean(filaActual.Cells[2].Value);
             }
             catch (Exception ex)
             {
