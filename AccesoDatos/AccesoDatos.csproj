@@ -67,8 +67,10 @@
     <Compile Include="datNotaSalida.cs" />
     <Compile Include="datOrdenCompra.cs" />
     <Compile Include="datOrdenVenta.cs" />
+    <Compile Include="datPago.cs" />
     <Compile Include="datProducto.cs" />
     <Compile Include="datProveedor.cs" />
+    <Compile Include="datTipoComprobante.cs" />
     <Compile Include="datTipoPago.cs" />
     <Compile Include="datUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

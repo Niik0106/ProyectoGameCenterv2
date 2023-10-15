@@ -210,8 +210,8 @@ namespace ProyectoGameCenter
                 DataGridViewRow filaActual = dgvProductos.Rows[e.RowIndex];
                 txtIDProducto.Text = filaActual.Cells[0].Value.ToString();
                 txtDescripcionProducto.Text = filaActual.Cells[1].Value.ToString();
-                //cboCategoria.SelectedIndex = Convert.ToInt32(filaActual.Cells[2].Value);
-                //cboMarca.SelectedIndex = Convert.ToInt32(filaActual.Cells[3].Value);
+                cboCategoria.SelectedValue = Convert.ToInt32(filaActual.Cells[2].Value);
+                cboMarca.SelectedValue = Convert.ToInt32(filaActual.Cells[3].Value);
                 txtPrecioVenta.Text = filaActual.Cells[4].Value.ToString();
                 txtPrecioCompra.Text = filaActual.Cells[5].Value.ToString();
                 txtStock.Text = filaActual.Cells[6].Value.ToString();

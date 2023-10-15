@@ -64,8 +64,6 @@ namespace AccesoDatos
                     OrdVenta.idCliente = Convert.ToInt32(dr["ID_CLIENTE"]);
                     OrdVenta.num_documento = dr["NUM_DOCUMENTO"].ToString();
                     OrdVenta.estOrdenVenta = Convert.ToInt32(dr["ID_EST_ORDEN_VENTA"]);
-                    OrdVenta.idMetodoPago = Convert.ToInt32(dr["ID_METODO_PAGO"]);
-                    OrdVenta.des_metodo = dr["DES_METODO_PAGO"].ToString();
                     OrdVenta.idTipoComprobante = Convert.ToInt32(dr["ID_TIPO_COMPROBANTE"]);
                     OrdVenta.des_comprobante = dr["DES_COMPROBANTE"].ToString();
                     lista.Add(OrdVenta);
@@ -84,12 +82,12 @@ namespace AccesoDatos
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("SP_INSERTAR_ORDEN_VENTA", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@NUM_ORDEN_VENTA", OrdV.numOrdenVenta);
+                cmd.CommandType = CommandType.StoredProcedure;           
                 cmd.Parameters.AddWithValue("@FECHA", OrdV.fechaOrden);
-                cmd.Parameters.AddWithValue("@ID_CLIENTE", OrdV.idCliente);
+                cmd.Parameters.AddWithValue("@NUM_DOCUMENTO", OrdV.num_documento);
                 cmd.Parameters.AddWithValue("@ID_EST_ORDEN_VENTA", OrdV.estOrdenVenta);
-              
+                cmd.Parameters.AddWithValue("@ID_TIPO_COMPROBANTE", OrdV.idTipoComprobante);
+
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0) { inserta = true; }

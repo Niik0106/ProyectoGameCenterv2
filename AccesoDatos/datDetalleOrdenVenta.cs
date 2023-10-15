@@ -31,11 +31,12 @@ namespace AccesoDatos
                 while (dr.Read())
                 {
                     entDetalleOrdenVenta DetalleOV = new entDetalleOrdenVenta();
-                    DetalleOV.NUM_ORDEN_VENTA = Convert.ToInt32(dr["NUM_ORDEN_VENTA"]);
+                    DetalleOV.NUM_ORDEN_VENTA = dr["NUM_ORDEN_VENTA"].ToString();
                     DetalleOV.ID_PRODUCTO = Convert.ToInt32(dr["ID_PRODUCTO"]);
+                    DetalleOV.DESCRIPCION_PROD = dr["DESCRIPCION_PROD"].ToString();
                     DetalleOV.CANTIDAD = Convert.ToInt32(dr["CANTIDAD"]);
                     DetalleOV.PRECIO = Convert.ToDecimal(dr["PRECIO"]);
-                    DetalleOV.TOTAL = Convert.ToDecimal(dr["PRECIO_TOTAL"]);
+                    DetalleOV.PRECIO_TOTAL = Convert.ToDecimal(dr["PRECIO_TOTAL"]);
                     lista.Add(DetalleOV);
                 }
 
@@ -63,9 +64,10 @@ namespace AccesoDatos
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@NUM_VENTA", DetalleOV.NUM_ORDEN_VENTA);
                 cmd.Parameters.AddWithValue("@ID_PRODUCTO", DetalleOV.ID_PRODUCTO);
+                cmd.Parameters.AddWithValue("@DESCRIPCION", DetalleOV.DESCRIPCION_PROD);
                 cmd.Parameters.AddWithValue("@CANTIDAD", DetalleOV.CANTIDAD);
                 cmd.Parameters.AddWithValue("@PRECIO", DetalleOV.PRECIO);             
-                cmd.Parameters.AddWithValue("@PRECIO_TOTAL", DetalleOV.TOTAL);
+                cmd.Parameters.AddWithValue("@PRECIO_TOTAL", DetalleOV.PRECIO_TOTAL);
 
                 // Parámetro de salida @resultado
                 SqlParameter resultadoParam = new SqlParameter("@RESULTADO", SqlDbType.Bit);
@@ -111,11 +113,12 @@ namespace AccesoDatos
                 while (dr.Read())
                 {
                     entDetalleOrdenVenta DetalleOV = new entDetalleOrdenVenta();
-                    DetalleOV.NUM_ORDEN_VENTA = Convert.ToInt32(dr["NUM_ORDEN_VENTA"]);
+                    DetalleOV.NUM_ORDEN_VENTA = dr["NUM_ORDEN_VENTA"].ToString();
                     DetalleOV.ID_PRODUCTO = Convert.ToInt32(dr["ID_PRODUCTO"]);
+                    DetalleOV.DESCRIPCION_PROD = dr["DESCRIPCION_PROD"].ToString();
                     DetalleOV.CANTIDAD = Convert.ToInt32(dr["CANTIDAD"]);
                     DetalleOV.PRECIO = Convert.ToDecimal(dr["PRECIO"]);
-                    DetalleOV.TOTAL = Convert.ToDecimal(dr["PRECIO_TOTAL"]);
+                    DetalleOV.PRECIO_TOTAL = Convert.ToDecimal(dr["PRECIO_TOTAL"]);
                     lista.Add(DetalleOV);
                 }
             }

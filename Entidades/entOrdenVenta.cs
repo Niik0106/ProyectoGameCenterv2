@@ -14,8 +14,7 @@ namespace Entidades
         public int idCliente { get; set; }
         public int estOrdenVenta { get; set;}
         public string num_documento { get; set; }
-        public int idMetodoPago { get; set; }
-        public string des_metodo { get; set; }
+
         public int idTipoComprobante { get; set; }
         public string des_comprobante { get; set; }
     }
