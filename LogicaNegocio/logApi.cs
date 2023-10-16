@@ -10,6 +10,7 @@ using System.Net;
 using System.Web;
 using RestSharp;
 using Newtonsoft.Json;
+using System.Runtime.InteropServices.ComTypes;
 
 
 namespace LogicaNegocio
@@ -25,16 +26,16 @@ namespace LogicaNegocio
 
         public entDatosDni ObtenerDatosDNI(string dni)
         {
-            string url = "https://apiperu.dev/api/dni/" + dni + "?token=c914dd400dbf2407371906c2f879857c693a45611b037de5b09f53c23b584013";
+            string url = "https://dniruc.apisperu.com/api/v1/dni/" + dni + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImRvZ2V6X3lvdXR1YmVyMTZAaG90bWFpbC5jb20ifQ.vEML8po9xpReNEqgAssccVyYzGkpXLO6V0fFjBqiI1k";
 
             dynamic respuesta = apiDniRuc.Get(url);
 
             entDatosDni datosDNI = new entDatosDni
             {
                 Nombres = respuesta.nombres.ToString(),
-                ApellidoPaterno = respuesta.apellido_paterno.ToString(),
-                ApellidoMaterno = respuesta.apellido_materno.ToString(),
-                DNI = respuesta.numero.ToString()
+                ApellidoPaterno = respuesta.apellidoPaterno.ToString(),
+                ApellidoMaterno = respuesta.apellidoMaterno.ToString(),
+                DNI = respuesta.dni.ToString()
             };
 
             return datosDNI;
@@ -42,14 +43,14 @@ namespace LogicaNegocio
 
         public entDatosRuc ObtenerDatosRUC(string ruc)
         {
-            string url = "https://apiperu.dev/api/ruc/" + ruc + "?token=c914dd400dbf2407371906c2f879857c693a45611b037de5b09f53c23b584013";
+            string url = "https://dniruc.apisperu.com/api/v1/ruc/" + ruc + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImRvZ2V6X3lvdXR1YmVyMTZAaG90bWFpbC5jb20ifQ.vEML8po9xpReNEqgAssccVyYzGkpXLO6V0fFjBqiI1k";
 
             dynamic respuesta = apiDniRuc.Get(url);
 
             entDatosRuc datosRUC = new entDatosRuc
             {
                 Direccion = respuesta.direccion.ToString(),
-                RazonSocial = respuesta.nombre_o_razon_social.ToString(),
+                RazonSocial = respuesta.razonSocial.ToString(),
                 Departamento = respuesta.departamento.ToString(),
                 Provincia = respuesta.provincia.ToString(),
                 Distrito = respuesta.distrito.ToString(),

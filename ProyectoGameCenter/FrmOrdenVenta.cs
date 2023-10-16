@@ -10,10 +10,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LogicaNegocio;
 using System.Data.SqlClient;
-using Newtonsoft.Json.Linq;
-using System.Diagnostics.CodeAnalysis;
-using System.IO;
-using System.Net;
 
 namespace ProyectoGameCenter
 {
@@ -21,6 +17,8 @@ namespace ProyectoGameCenter
     {
         private logCliente clienteLogic;
         private decimal total = 0;
+        private decimal Subtotal = 0;
+        private double igv = 0;
         public static string nOrdenVenta;
         public static string totalCR;
         public static string idCliente;
@@ -29,14 +27,19 @@ namespace ProyectoGameCenter
             
             InitializeComponent();  
             LlenarDatosEstadoOrdenVenta();
-            //ListarVentas();
+            ListarVentas();
+            LlenarDatosTipoComprobante();
+            LlenarDatosMetodoPago();
+            LlenarDatosTipoPago();
             clienteLogic = new logCliente();
+
         }
 
-        //public void ListarVentas()
-        //{
-        //    dgvOrdenVenta.DataSource = logOrdenVenta.Instancia.ListarVentas();
-        //}
+        public void ListarVentas()
+        {
+            dgvOrdenVenta.DataSource = logOrdenVenta.Instancia.ListarVentas();
+        }
+
 
         public void ListarDetalleVentas()
         {
@@ -50,14 +53,45 @@ namespace ProyectoGameCenter
             cboEstado.ValueMember = "ID_EST_ORDEN_VENTA";
         }
 
+        public void LlenarDatosMetodoPago()
+        {
+            cboMetodoPago.DataSource = logMetodoPago.Instancia.ListarMetodoPago();
+            cboMetodoPago.DisplayMember = "DES_METODO_PAGO";
+            cboMetodoPago.ValueMember = "ID_METODO_PAGO";
+        }
+
+        public void LlenarDatosTipoPago()
+        {
+            cboTipoPago.DataSource = logTipoPago.Instancia.ListarTipoPago();
+            cboTipoPago.DisplayMember = "DES_TIPO_PAGO";
+            cboTipoPago.ValueMember = "ID_TIPO_PAGO";
+        }
+
+        public void LlenarDatosTipoComprobante()
+        {
+            cboTipoComprobante.DataSource = logTipoComprobante.Instancia.ListarTipoComprobante();
+            cboTipoComprobante.DisplayMember = "DES_TIPO_COMPROBANTE";
+            cboTipoComprobante.ValueMember = "ID_TIPO_COMPROBANTE";
+        }
+
         public void LimpiarVariables()
         {
             txtIDOrdenVenta.Text = "";
             dateTimePicker1.ResetText();
             txtResultadoBusquedaCliente.Text = "";
-            txtIDEmpleado.Text = "";
+            
             cboEstado.SelectedIndex = default;
-            gbOrdenVenta.Enabled = false;
+            
+        }
+
+        public void LimpiarImportes()
+        {
+            txtSubTotal.Text = "";
+            txtIgv.Text = "";
+            txtTotal.Text = "";
+            cboMetodoPago.SelectedIndex = default;
+            cboTipoPago.SelectedIndex = default;
+            gbImportes.Enabled = false;
         }
 
         public void LimpiarVariablesDetalle()
@@ -65,8 +99,8 @@ namespace ProyectoGameCenter
             txtIDProducto.Text = "";
             txtDesProducto.Text = "";
             txtCantidad.Text = "";
-            txtPrecio.Text = "";
-            txtTotal.Text = "";
+            txtPrecioVenta.Text = "";
+          
             txtStock.Text = "";
         }
 
@@ -76,12 +110,14 @@ namespace ProyectoGameCenter
             {
                 //Busca Producto
                 entProducto entProducto = new entProducto();
-                entProducto = logProducto.Instancia.BuscarIDProducto(Convert.ToInt32(txtIDProducto.Text.Trim()));
+                entProducto = logProducto.Instancia.BuscarProducto(txtDesProducto.Text.ToString());
                 if (entProducto != null)
                 {
-                    txtDesProducto.Text = entProducto.desProducto;
-                    txtStock.Text = entProducto.stockProd.ToString();
-                    txtPrecio.Text = entProducto.precioProd.ToString();
+                    txtDesProducto.Text = entProducto.DES_PRODUCTO.ToString();
+                    txtIDProducto.Text = entProducto.ID_PRODUCTO.ToString();
+                    txtStock.Text = entProducto.STOCK.ToString();
+                    txtPrecioVenta.Text = entProducto.PRECIO_VENTA.ToString();
+                    txtPrecioCompra.Text = entProducto.PRECIO_COMPRA.ToString();
                 }
                 else
                 {
@@ -99,7 +135,7 @@ namespace ProyectoGameCenter
         {
             try
             {
-                int idCliente = Convert.ToInt32(txtResultadoBusquedaCliente.Text);
+                int idCliente = Convert.ToInt32(txtDocumentoCliente.Text);
 
                 string identificacion = clienteLogic.ObtenerIdentificacionClientePorID(idCliente);
 
@@ -120,62 +156,40 @@ namespace ProyectoGameCenter
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (txtNOrdenVenta.Text.Equals("") | txtResultadoBusquedaCliente.Text.Equals("") | txtIDEmpleado.Text.Equals(""))
-                {
-                    MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    entOrdenVenta ordVenta = new entOrdenVenta();
-                    ordVenta.numOrdenVenta = Convert.ToInt32(txtNOrdenVenta.Text.Trim());
-                    ordVenta.fechaOrden = dateTimePicker1.Value;
-                    ordVenta.idCliente = Convert.ToInt32(txtResultadoBusquedaCliente.Text.Trim());
-                    ordVenta.estOrdenVenta = Convert.ToInt32(cboEstado.SelectedValue);
-                    ordVenta.idUsuario = Convert.ToInt32(txtIDEmpleado.Text.Trim());
-                    logOrdenVenta.Instancia.InsertaOrdenVenta(ordVenta);
-                    gbDetalleOrdenVenta.Enabled = true;
-                    MessageBox.Show("Orden de Venta registrada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                } 
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error.." + ex);
-            }
-            LimpiarVariables();
-            gbOrdenVenta.Enabled = false;
-            //ListarVentas();
+           
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             gbOrdenVenta.Enabled = true;
+            gbDetalleOrdenVenta.Enabled=true;
+            LimpiarVariables();
+            LimpiarVariablesDetalle();
         }
 
-        //private void btnAnular_Click(object sender, EventArgs e)
-        //{
-        //    try
-        //    {
-        //        if (dgvOrdenVenta.SelectedRows.Count > 0)
-        //        {
-        //            entOrdenVenta c = new entOrdenVenta();
-        //            c.idOrdenVenta = int.Parse(txtIDOrdenVenta.Text.Trim());
-        //           logOrdenVenta.Instancia.AnulaOrdenVenta(c);
-        //        }
-        //        else
-        //        {
-        //            MessageBox.Show("Escoge un elemento primero");
-        //        }
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Error: " + ex.Message);
-        //    }
-        //    LimpiarVariables();
-        //    txtNOrdenVenta.Text = "";
-        //    ListarVentas();
-        //}
+        private void btnAnular_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dgvOrdenVenta.SelectedRows.Count > 0)
+                {
+                    entOrdenVenta c = new entOrdenVenta();
+                    c.idOrdenVenta = int.Parse(txtIDOrdenVenta.Text.Trim());
+                    logOrdenVenta.Instancia.AnulaOrdenVenta(c);
+                }
+                else
+                {
+                    MessageBox.Show("Escoge un elemento primero");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+            LimpiarVariables();
+            txtNOrdenVenta.Text = "";
+            ListarVentas();
+        }
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
@@ -183,34 +197,35 @@ namespace ProyectoGameCenter
             LimpiarVariables();
         }
 
-        //private void dgvOrdenVenta_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-        //    try
-        //    {
-        //        DataGridViewRow filaActual = dgvOrdenVenta.Rows[e.RowIndex];
-        //        int numOrdenVenta = Convert.ToInt32(dgvOrdenVenta.Rows[e.RowIndex].Cells[1].Value);
-        //        txtIDOrdenVenta.Text = filaActual.Cells[0].Value.ToString();
-        //        txtNOrdenVenta.Text = filaActual.Cells[1].Value.ToString();
-        //        dateTimePicker1.Text = filaActual.Cells[2].Value.ToString();
-        //        txtDocumentoCliente.Text = filaActual.Cells[3].Value.ToString();
-        //        cboEstado.SelectedValue = Convert.ToInt32(filaActual.Cells[4].Value);
-        //        txtIDEmpleado.Text = filaActual.Cells[5].Value.ToString();
-                
-        //        entDetalleOrdenVenta DOV = new entDetalleOrdenVenta();
-        //        DOV.NUM_ORDEN_VENTA = numOrdenVenta;
-        //        dgvDetalleOrdenVenta.DataSource = logDetalleOrdenVenta.Instancia.OrdenaDetalleVenta(DOV);
-        //        gbDetalleOrdenVenta.Enabled = true;
-        //        txtIDProducto.Enabled = false;
-        //        txtCantidad.Enabled = false;
-        //        btnAgregarProducto.Enabled = false;
-        //        btnFinalizar.Enabled = false;
-        //        btnBuscarProducto.Enabled = false;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show("Selecciona un item de la tabla");
-        //    }
-        //}
+        private void dgvOrdenVenta_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataGridViewRow filaActual = dgvOrdenVenta.Rows[e.RowIndex];
+                string numOrdenVenta = (string)dgvOrdenVenta.Rows[e.RowIndex].Cells[1].Value;
+                txtIDOrdenVenta.Text = filaActual.Cells[0].Value.ToString();
+                txtNOrdenVenta.Text = filaActual.Cells[1].Value.ToString();
+                dateTimePicker1.Text = filaActual.Cells[2].Value.ToString();
+                txtDocumentoCliente.Text = filaActual.Cells[5].Value.ToString();
+                cboEstado.SelectedValue = Convert.ToInt32(filaActual.Cells[4].Value);
+                cboTipoComprobante.SelectedValue = Convert.ToInt32(filaActual.Cells[6].Value);
+
+
+                entDetalleOrdenVenta DOV = new entDetalleOrdenVenta();
+                DOV.NUM_ORDEN_VENTA = numOrdenVenta;
+                dgvDetalleOrdenVenta.DataSource = logDetalleOrdenVenta.Instancia.OrdenaDetalleVenta(DOV);
+                gbDetalleOrdenVenta.Enabled = true;
+                txtIDProducto.Enabled = false;
+                txtCantidad.Enabled = true;
+                btnAgregarProducto.Enabled = true;
+                btnFinalizar.Enabled = true;
+                btnBuscarProducto.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Selecciona un item de la tabla");
+            }
+        }
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -222,25 +237,36 @@ namespace ProyectoGameCenter
             try
             {
                 entDetalleOrdenVenta DetalleOV = new entDetalleOrdenVenta();
-                DetalleOV.NUM_ORDEN_VENTA = int.Parse(txtNOrdenVenta.Text.Trim());
+                DetalleOV.NUM_ORDEN_VENTA = txtNOrdenVenta.Text.Trim();
                 DetalleOV.ID_PRODUCTO = int.Parse(txtIDProducto.Text.Trim());
+                DetalleOV.DESCRIPCION_PROD = txtDesProducto.Text.Trim();
                 DetalleOV.CANTIDAD = int.Parse(txtCantidad.Text.Trim());
-                DetalleOV.PRECIO = decimal.Parse(txtPrecio.Text.Trim());
-                DetalleOV.TOTAL = int.Parse(txtCantidad.Text) * decimal.Parse(txtPrecio.Text);
+                DetalleOV.PRECIO = decimal.Parse(txtPrecioVenta.Text.Trim());
+                DetalleOV.PRECIO_TOTAL = int.Parse(txtCantidad.Text) * decimal.Parse(txtPrecioVenta.Text);
+
+
+
+               
                 // Llamar a la función InsertarCliente
                 Boolean insertado = logDetalleOrdenVenta.Instancia.InsertaDetalleOrdenVenta(DetalleOV);
 
                 if (insertado)
                 {
                     MessageBox.Show("El Producto se agregó exitosamente al DETALLE.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    total = total + (int.Parse(txtCantidad.Text) * decimal.Parse(txtPrecio.Text));
+                    Subtotal = Subtotal+(int.Parse(txtCantidad.Text) * decimal.Parse(txtPrecioVenta.Text));
+                    txtSubTotal.Text = Subtotal.ToString();
+                    igv = double.Parse(txtSubTotal.Text) * 0.18;
+                    txtIgv.Text = igv.ToString();
+                    total = decimal.Parse(txtSubTotal.Text) + decimal.Parse(txtIgv.Text);
                     txtTotal.Text = total.ToString();
                     ListarDetalleVentas();
+                    LimpiarVariablesDetalle();
                 }
                 else
                 {
                     MessageBox.Show("No hay STOCK SUFICIENTE de ese PRODUCTO", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    txtTotal.Text = "";
+                    
+                    LimpiarVariablesDetalle();
                 }              
             }
             catch (Exception ex)
@@ -258,7 +284,7 @@ namespace ProyectoGameCenter
 
         private void btnCPago_Click(object sender, EventArgs e)
         {
-            idCliente = txtResultadoBusquedaCliente.Text;
+            idCliente = txtDocumentoCliente.Text;
             nOrdenVenta = txtNOrdenVenta.Text;
             totalCR = txtTotal.Text;
             FrmCronogramaPago Cpago = new FrmCronogramaPago();
@@ -271,7 +297,7 @@ namespace ProyectoGameCenter
             LimpiarVariables();
             LimpiarVariablesDetalle();
             txtNOrdenVenta.Clear();
-            txtResultadoBusquedaCliente.Clear();
+            txtDocumentoCliente.Clear();
             dgvDetalleOrdenVenta.DataSource = null;
             dgvDetalleOrdenVenta.Rows.Clear();
             dgvDetalleOrdenVenta.Columns.Clear();
@@ -285,243 +311,77 @@ namespace ProyectoGameCenter
             gbDetalleOrdenVenta.Enabled = false;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAgregarOrdenVenta_Click(object sender, EventArgs e)
         {
             try
             {
-                string url = "https://facturacion.apisperu.com/api/v1/invoice/pdf";
-                string token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTUyNzY5NjgsImV4cCI6NDg0ODg3Njk2OCwidXNlcm5hbWUiOiJkb2dleiIsImNvbXBhbnkiOiIyMDUyMzgwODcxMSJ9.Z7DbsYMV-IK2R26cHxxyXXeVXJbt8lH9TCpfmGc_WRPyqxM1CTKoy3NP15Edw3pIQyLPw01pV3O7LKthZVzFWcXkGQlzfRkmAwyrOK0j6D2JKiX71Frct70OM3ikQ1JwurMkwoaxkgOcpL9azy5HB6SLAWzsgz4eSBSCw0oyWc-XSYA12_hyQhQUpPxnz6Q4UfBjXWMoGwHpqjIuYswRAcIdFIVL0uvjhhck51wGuwGWaaZEsiBh40caZnptJ0Pf-3pvnK63kgx34pdksknADw_HyFzOTTUro6pFuLxNj1A1HMg733JCwVjGqMqo5Ewx3vBNj1P2PoA06zqU3qs6ziWdhWkwZYqG4VZro1MYKGKca0ucAih5sK5eQcJhBuiDZk4oJwCe1vKtLM0AumF5yrpzFfcDRu3OeeAA62mqUosWAHr0HSaOz5WQCsP9VmquizhX6gNAoyQ1hQKSTk7-vZVuV3rwneN06f3bTOZtAFi5X-_tjjq6d4Ucfl85glgjj-y6ivKXkM1I1cV5QBboIPEn_jC77SRydQ4PN1w-HnIG_-dLvTepba0kLDOAxL_9Fugn0cYazfdOHTdVMNiTpL5drxaOC4ieVGo_5Qdc3TFBte13Dc3Mb0gTB308PKbzn5isUc9PvrYdCXTlJCaCBDmJiJ5Cp-XRpEu7fc0exKE";
-
-                string nuevoNumDoc = txtResultadoBusquedaCliente.Text;
-
-                decimal mtoImpVenta = 118;
-
-                var body = JObject.Parse($@"
-{{
-    ""ublVersion"": ""2.1"",
-    ""tipoOperacion"": ""0101"",
-    ""tipoDoc"": ""{cboTipoDocumento.Text.Split('-')[0].Trim()}"",
-    ""serie"": ""B001"",
-    ""correlativo"": ""1"",
-    ""fechaEmision"": ""{DateTime.Now.ToString("yyyy-MM-ddTHH")}"",
-    ""formaPago"": {{
-        ""moneda"": ""PEN"",
-        ""tipo"": ""Contado""
-    }},
-    ""tipoMoneda"": ""PEN"",
-    ""client"": {{
-        ""tipoDoc"": ""{cboTipoCliente.Text.Split('-')[0].Trim()}"",
-        ""numDoc"": 72621594,
-        ""rznSocial"": ""DIEGO JESÚS SALDAÑA RONCAL"",
-        ""address"": {{
-            ""direccion"": ""CARLOS ALVEAR 1534"",
-            ""provincia"": ""TRUJILLO"",
-            ""departamento"": ""LA LIBERTAD"",
-            ""distrito"": ""LA ESPERANZA"",
-            ""ubigueo"": ""120101""
-        }}
-    }},
-    ""company"": {{
-        ""ruc"": 20523808711,
-        ""razonSocial"": ""GAME CENTER S.A.C."",
-        ""nombreComercial"": ""GAME CENTER S.A.C."",
-        ""address"": {{
-            ""direccion"": ""JR. GARCIA NARANJO NRO. 75 INT. 17 URB. LA VICTORIA"",
-            ""provincia"": ""LIMA"",
-            ""departamento"": ""LIMA"",
-            ""distrito"": ""LA VICTORIA"",
-            ""ubigueo"": ""150115""
-        }}
-    }},
-    ""mtoOperGravadas"": 100,
-    ""mtoIGV"": 18,
-    ""valorVenta"": 100,
-    ""totalImpuestos"": 18,
-    ""subTotal"": 118,
-    ""mtoImpVenta"": 118,
-    ""details"": [
-        {{
-            ""codProducto"": ""P001"",
-            ""unidad"": ""NIU"",
-            ""descripcion"": ""PRODUCTO 1"",
-            ""cantidad"": 2,
-            ""mtoValorUnitario"": 50,
-            ""mtoValorVenta"": 100,
-            ""mtoBaseIgv"": 100,
-            ""porcentajeIgv"": 18,
-            ""igv"": 18,
-            ""tipAfeIgv"": 10,
-            ""totalImpuestos"": 18,
-            ""mtoPrecioUnitario"": 59
-        }}
-    ],
-    ""legends"": [
-        {{
-            ""code"": ""1000"",
-            ""value"": ""SON {mtoImpVenta.NumeroALetras()}"" 
-        }}
-    ]
-}}");
-                body["client"]["numDoc"] = nuevoNumDoc;
-                string newbody = body.ToString();
-
-                HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
-                request.Method = "POST";
-                request.Headers.Add("Authorization", token);
-                request.ContentType = "application/json";
-
-                byte[] postData = System.Text.Encoding.UTF8.GetBytes(newbody);
-
-                using (Stream stream = request.GetRequestStream())
+                if (txtDocumentoCliente.Text.Equals(""))
                 {
-                    stream.Write(postData, 0, postData.Length);
+                    MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-
-                using (HttpWebResponse response = (HttpWebResponse)request.GetResponse())
+                else
                 {
-                    if (response.StatusCode == HttpStatusCode.OK)
-                    {
-                        // Archivo PDF generado por la API
-                        using (Stream pdfStream = response.GetResponseStream())
-                        {
-                            // Ventana de diálogo para guardar el PDF
-                            SaveFileDialog saveFileDialog = new SaveFileDialog();
-                            saveFileDialog.Filter = "Archivos PDF (*.pdf)|*.pdf";
-                            saveFileDialog.DefaultExt = "pdf";
+                    entOrdenVenta ordVenta = new entOrdenVenta();
+                    //ordVenta.numOrdenVenta = Convert.ToInt32(txtNOrdenVenta.Text.Trim());
+                    ordVenta.fechaOrden = dateTimePicker1.Value;
+                    ordVenta.num_documento = txtDocumentoCliente.Text.ToString();
+                    ordVenta.estOrdenVenta = Convert.ToInt32(cboEstado.SelectedValue);
+                    ordVenta.idTipoComprobante = Convert.ToInt32(cboTipoComprobante.SelectedValue);
 
-                            if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                            {
-                                string filePath = saveFileDialog.FileName;
-
-                                // Guardar el archivo PDF en el sistema de archivos
-                                using (FileStream fileStream = File.Create(filePath))
-                                {
-                                    pdfStream.CopyTo(fileStream);
-                                }
-
-                                Console.WriteLine("El archivo PDF se ha guardado correctamente.");
-                            }
-                            else
-                            {
-                                Console.WriteLine("La operación de guardado fue cancelada por el usuario.");
-                            }
-                        }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Error en la respuesta de la API: " + response.StatusDescription);
-                    }
+                    logOrdenVenta.Instancia.InsertaOrdenVenta(ordVenta);
+                    gbDetalleOrdenVenta.Enabled = true;
+                    MessageBox.Show("Orden de Venta registrada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
-
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message);
+                MessageBox.Show("Error.." + ex);
             }
+            //LimpiarVariables();
+            gbOrdenVenta.Enabled = false;
+            ListarVentas();
         }
-    }
 
-    public static class Conversores
-    {
-        public static string NumeroALetras(this decimal numberAsString)
+        private void btnAgregarPago_Click(object sender, EventArgs e)
         {
-            string dec;
+            try
+            {
+                if (txtIgv.Text.Equals("") || txtSubTotal.Text.Equals("") || txtTotal.Text.Equals(""))
+                {
+                    MessageBox.Show("Los campos estan Vacios", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    entPago Pago = new entPago();
+                    Pago.NUM_ORDEN_VENTA = txtNOrdenVenta.Text.ToString();
+                    Pago.SUBTOTAL = Convert.ToDecimal(txtSubTotal.Text);
+                    Pago.IGV = Convert.ToDecimal(txtIgv.Text);
+                    Pago.TOTAL = Convert.ToDecimal( txtTotal.Text);
+                    Pago.ID_METODO_PAGO = Convert.ToInt32(cboMetodoPago.SelectedValue);
+                    Pago.ID_TIPO_PAGO = Convert.ToInt32(cboTipoPago.SelectedValue);
 
-            var entero = Convert.ToInt64(Math.Truncate(numberAsString));
-            var decimales = Convert.ToInt32(Math.Round((numberAsString - entero) * 100, 2));
-            if (decimales > 0)
-            {
-                //dec = " PESOS CON " + decimales.ToString() + "/100";
-                dec = $" CON {decimales:0,0}/100 SOLES";
+                    logPago.Instancia.InsertarPago(Pago);                 
+                    MessageBox.Show("Pago registrado correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
-            //Código agregado por mí
-            else
+            catch (Exception ex)
             {
-                //dec = " PESOS CON " + decimales.ToString() + "/100";
-                dec = $" CON {decimales:0,0}/100 SOLES";
+                MessageBox.Show("Error.." + ex);
             }
-            var res = NumeroALetras(Convert.ToDouble(entero)) + dec;
-            return res;
+            LimpiarVariables();
+            LimpiarVariablesDetalle();
+            gbOrdenVenta.Enabled = false;
+            gbDetalleOrdenVenta.Enabled = false;
+
         }
-        [SuppressMessage("ReSharper", "CompareOfFloatsByEqualityOperator")]
-        private static string NumeroALetras(double value)
-        {
-            string num2Text; value = Math.Truncate(value);
-            if (value == 0) num2Text = "CERO";
-            else if (value == 1) num2Text = "UNO";
-            else if (value == 2) num2Text = "DOS";
-            else if (value == 3) num2Text = "TRES";
-            else if (value == 4) num2Text = "CUATRO";
-            else if (value == 5) num2Text = "CINCO";
-            else if (value == 6) num2Text = "SEIS";
-            else if (value == 7) num2Text = "SIETE";
-            else if (value == 8) num2Text = "OCHO";
-            else if (value == 9) num2Text = "NUEVE";
-            else if (value == 10) num2Text = "DIEZ";
-            else if (value == 11) num2Text = "ONCE";
-            else if (value == 12) num2Text = "DOCE";
-            else if (value == 13) num2Text = "TRECE";
-            else if (value == 14) num2Text = "CATORCE";
-            else if (value == 15) num2Text = "QUINCE";
-            else if (value < 20) num2Text = "DIECI" + NumeroALetras(value - 10);
-            else if (value == 20) num2Text = "VEINTE";
-            else if (value < 30) num2Text = "VEINTI" + NumeroALetras(value - 20);
-            else if (value == 30) num2Text = "TREINTA";
-            else if (value == 40) num2Text = "CUARENTA";
-            else if (value == 50) num2Text = "CINCUENTA";
-            else if (value == 60) num2Text = "SESENTA";
-            else if (value == 70) num2Text = "SETENTA";
-            else if (value == 80) num2Text = "OCHENTA";
-            else if (value == 90) num2Text = "NOVENTA";
-            else if (value < 100) num2Text = NumeroALetras(Math.Truncate(value / 10) * 10) + " Y " + NumeroALetras(value % 10);
-            else if (value == 100) num2Text = "CIEN";
-            else if (value < 200) num2Text = "CIENTO " + NumeroALetras(value - 100);
-            else if ((value == 200) || (value == 300) || (value == 400) || (value == 600) || (value == 800)) num2Text = NumeroALetras(Math.Truncate(value / 100)) + "CIENTOS";
-            else if (value == 500) num2Text = "QUINIENTOS";
-            else if (value == 700) num2Text = "SETECIENTOS";
-            else if (value == 900) num2Text = "NOVECIENTOS";
-            else if (value < 1000) num2Text = NumeroALetras(Math.Truncate(value / 100) * 100) + " " + NumeroALetras(value % 100);
-            else if (value == 1000) num2Text = "MIL";
-            else if (value < 2000) num2Text = "MIL " + NumeroALetras(value % 1000);
-            else if (value < 1000000)
-            {
-                num2Text = NumeroALetras(Math.Truncate(value / 1000)) + " MIL";
-                if ((value % 1000) > 0)
-                {
-                    num2Text = num2Text + " " + NumeroALetras(value % 1000);
-                }
-            }
-            else if (value == 1000000)
-            {
-                num2Text = "UN MILLON";
-            }
-            else if (value < 2000000)
-            {
-                num2Text = "UN MILLON " + NumeroALetras(value % 1000000);
-            }
-            else if (value < 1000000000000)
-            {
-                num2Text = NumeroALetras(Math.Truncate(value / 1000000)) + " MILLONES ";
-                if ((value - Math.Truncate(value / 1000000) * 1000000) > 0)
-                {
-                    num2Text = num2Text + " " + NumeroALetras(value - Math.Truncate(value / 1000000) * 1000000);
-                }
-            }
-            else if (value == 1000000000000) num2Text = "UN BILLON";
-            else if (value < 2000000000000) num2Text = "UN BILLON " + NumeroALetras(value - Math.Truncate(value / 1000000000000) * 1000000000000);
-            else
-            {
-                num2Text = NumeroALetras(Math.Truncate(value / 1000000000000)) + " BILLONES";
-                if ((value - Math.Truncate(value / 1000000000000) * 1000000000000) > 0)
-                {
-                    num2Text = num2Text + " " + NumeroALetras(value - Math.Truncate(value / 1000000000000) * 1000000000000);
-                }
-            }
-            return num2Text;
-        }
-    }
-}
+
+
+
+
+
+
+
+
 
         //private void btnBuscarOV_Click(object sender, EventArgs e)
         //{
@@ -541,3 +401,5 @@ namespace ProyectoGameCenter
         //        MessageBox.Show("Error..." + ex);
         //    }
         //}
+    }
+}

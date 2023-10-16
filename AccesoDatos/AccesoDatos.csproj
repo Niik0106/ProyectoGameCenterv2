@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="CD_Usuario.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="Dashboard.cs" />
     <Compile Include="datApi.cs" />
     <Compile Include="datCategoria.cs" />
     <Compile Include="datCliente.cs" />
@@ -68,8 +69,11 @@
     <Compile Include="datNotaSalida.cs" />
     <Compile Include="datOrdenCompra.cs" />
     <Compile Include="datOrdenVenta.cs" />
+    <Compile Include="datPago.cs" />
     <Compile Include="datProducto.cs" />
     <Compile Include="datProveedor.cs" />
+    <Compile Include="datTipoComprobante.cs" />
+    <Compile Include="datTipoPago.cs" />
     <Compile Include="datUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

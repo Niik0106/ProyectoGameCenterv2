@@ -9,10 +9,11 @@ namespace Entidades
     public class entDetalleOrdenVenta
     {
 
-        public int NUM_ORDEN_VENTA { get; set; }
+        public string NUM_ORDEN_VENTA { get; set; }
         public int ID_PRODUCTO { get; set; }
+        public string DESCRIPCION_PROD { get; set; }
         public int CANTIDAD { get; set; }
         public decimal PRECIO { get; set;}
-        public decimal TOTAL { get; set; }
+        public decimal PRECIO_TOTAL { get; set; }
     }
 }

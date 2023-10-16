@@ -8,12 +8,13 @@ namespace Entidades
 {
     public class entProducto
     {
-        public int idProducto { get; set; }
-        public string desProducto { get; set; }
-        public int idCategoria { get; set; }
-        public int idMarca { get; set; }
-        public decimal precioProd { get; set; }
-        public int stockProd { get; set; }
-        public Boolean estProducto { get; set; }
+        public int ID_PRODUCTO { get; set; }
+        public string DES_PRODUCTO { get; set; }
+        public int ID_CATEGORIA { get; set; }
+        public int ID_MARCA { get; set; }
+        public decimal PRECIO_VENTA { get; set; }
+        public decimal PRECIO_COMPRA { get; set; }
+        public int STOCK { get; set; }
+        public Boolean ESTADO_PRODUCTO { get; set; }
     }
 }

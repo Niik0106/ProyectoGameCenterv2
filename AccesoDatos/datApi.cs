@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using Entidades;
 using RestSharp;
 using Newtonsoft.Json;
+using RestSharp.Extensions.MonoHttp;
 
 namespace AccesoDatos
 {

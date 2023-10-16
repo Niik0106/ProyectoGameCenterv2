@@ -14,6 +14,7 @@ namespace Entidades
         public string Usuario { get; set;}
         public string Clave { get; set; }
         public int IdRol { get; set; }
+        public Boolean estado { get; set; }
     }
 
 }
