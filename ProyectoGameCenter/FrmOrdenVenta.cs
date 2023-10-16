@@ -81,7 +81,7 @@ namespace ProyectoGameCenter
             txtResultadoBusquedaCliente.Text = "";
             
             cboEstado.SelectedIndex = default;
-            gbOrdenVenta.Enabled = false;
+            
         }
 
         public void LimpiarImportes()

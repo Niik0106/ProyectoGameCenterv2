@@ -23,7 +23,8 @@ namespace ProyectoGameCenter.Principal
         private int idRol;
         private IconButton currentBtn;
         private Panel leftBorderBtn;
-
+        private Dashboard model;
+        
 
         public FrmMenu(int idUsuario_esperado = 0, int idRolUsuario = 0)
         {
@@ -35,14 +36,50 @@ namespace ProyectoGameCenter.Principal
 
             idUsuario = idUsuario_esperado;
             idRol = idRolUsuario;
+            
 
             //Form
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
+
+            dtpInicio.Value = DateTime.Today.AddDays(-7);
+            dtpFin.Value = DateTime.Now;
+            btnUlitmos7Dias.Select();
+
+            model = new Dashboard();
+            CargarDatos();
             
         }
+
+        private void CargarDatos()
+        {
+            var refreshData = model.LoadData(dtpInicio.Value, dtpFin.Value);
+            if (refreshData == true)
+            {
+                lblNumeroOrdenes.Text = model.NumOrdenes.ToString();
+                lblTotalIngresos.Text = "$" + model.TotalIngresos.ToString();
+                lblTotalGanancias.Text = "$" + model.TotalGanancias.ToString();
+                lblNumeroClientes.Text = model.NumClientes.ToString();
+                lblNumeroProveedores.Text = model.NumProveedores.ToString();
+                lblNumeroProductos.Text = model.NumProductos.ToString();
+                chartIngresoBruto.DataSource = model.ListaIngresoBrutos;
+                chartIngresoBruto.Series[0].XValueMember = "Date";
+                chartIngresoBruto.Series[0].YValueMembers = "TotalAmount";
+                chartIngresoBruto.DataBind();
+                chartTopProductos.DataSource = model.TopListaProductos;
+                chartTopProductos.Series[0].XValueMember = "Key";
+                chartTopProductos.Series[0].YValueMembers = "Value";
+                chartTopProductos.DataBind();
+                dgvProductosBajoStock.DataSource = model.ProductosBajoStock;
+                dgvProductosBajoStock.Columns[0].HeaderText = "PRODUCTO";
+                dgvProductosBajoStock.Columns[1].HeaderText = "STOCK";
+                Console.WriteLine("Loaded view :)");
+            }
+            else Console.WriteLine("View not loaded, same query");
+        }
+
 
         //Estructuras
         private struct RGBColors
@@ -294,6 +331,7 @@ namespace ProyectoGameCenter.Principal
 
         private void FrmMenu_Load(object sender, EventArgs e)
         {
+            dgvProductosBajoStock.Columns[1].Width = 40;
             switch (idRol)
             {
                 case 1: // Administrador
@@ -450,6 +488,80 @@ namespace ProyectoGameCenter.Principal
         {
             lblHora.Text=DateTime.Now.ToString("HH:mm:ss");
             lblFecha.Text= DateTime.Now.ToLongDateString();
+        }
+
+        private void btnHoy_Click(object sender, EventArgs e)
+        {
+            dtpInicio.Value = DateTime.Today;
+            dtpFin.Value = DateTime.Now;
+            CargarDatos();
+            DesactivarFechasPersonalizadas();
+
+        }
+
+        private void DesactivarFechasPersonalizadas()
+        {
+            dtpFin.Enabled = false;
+            dtpInicio.Enabled = false;
+            btnOKFechaPersonalizada.Visible = false;
+        }
+
+        private void btnUlitmos7Dias_Click(object sender, EventArgs e)
+        {
+            dtpInicio.Value = DateTime.Today.AddDays(-7);
+            dtpFin.Value = DateTime.Now;
+            CargarDatos();
+            DesactivarFechasPersonalizadas();
+        }
+
+        private void btn30Dias_Click(object sender, EventArgs e)
+        {
+            dtpInicio.Value = DateTime.Today.AddDays(-30);
+            dtpFin.Value = DateTime.Now;
+            CargarDatos();
+            DesactivarFechasPersonalizadas();
+        }
+
+        private void btnEsteMes_Click(object sender, EventArgs e)
+        {
+            dtpInicio.Value = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+            dtpFin.Value = DateTime.Now;
+            CargarDatos();
+            DesactivarFechasPersonalizadas();
+        }
+
+        private void btnPersonalizadoFecha_Click(object sender, EventArgs e)
+        {
+            dtpFin.Enabled = true;
+            dtpInicio.Enabled = true;
+            btnOKFechaPersonalizada.Visible = true;
+        }
+
+        private void btnOKFechaPersonalizada_Click(object sender, EventArgs e)
+        {
+            CargarDatos();
+        }
+
+        private void lblFechaInicio_Click(object sender, EventArgs e)
+        {
+            dtpInicio.Select();
+            SendKeys.Send("%{DOWN}");
+        }
+
+        private void dtpInicio_ValueChanged(object sender, EventArgs e)
+        {
+            lblFechaInicio.Text = dtpInicio.Text;
+        }
+
+        private void lblFechaFinal_Click(object sender, EventArgs e)
+        {
+            dtpFin.Select();
+            SendKeys.Send("%{DOWN}");
+        }
+
+        private void dtpFin_ValueChanged(object sender, EventArgs e)
+        {
+            lblFechaFinal.Text = dtpFin.Text;
         }
 
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
