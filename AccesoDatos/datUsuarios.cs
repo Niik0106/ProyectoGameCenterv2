@@ -43,6 +43,7 @@ namespace AccesoDatos
                     user.Usuario = dr["Usuario"].ToString();
                     user.Clave = dr["Clave"].ToString();
                     user.IdRol = Convert.ToInt32(dr["IdRol"]);
+                    user.NombreRol = dr["Nombre"].ToString();
                     user.estado = Convert.ToBoolean(dr["estado"]);
                     lista.Add(user);
                 }
@@ -125,8 +126,66 @@ namespace AccesoDatos
             finally { cmd.Connection.Close(); }
             return deshabilitar;
         }
-
-
+        /*
+        public entUsuarios BuscarProducto(string usuario)
+        {
+            SqlCommand cmd = null;
+            entUsuarios Usuario = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_BUSCAR_PRODUCTO_DESC", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@DES_PRODUCTO", desProducto);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    Producto = new entProducto();
+                    Producto.ID_PRODUCTO = Convert.ToInt32(dr["ID_PRODUCTO"]);
+                    Producto.DES_PRODUCTO = dr["DES_PRODUCTO"].ToString();
+                    Producto.ID_CATEGORIA = Convert.ToInt32(dr["ID_CATEGORIA"]);
+                    Producto.ID_MARCA = Convert.ToInt32(dr["ID_MARCA"]);
+                    Producto.PRECIO_VENTA = Convert.ToDecimal(dr["PRECIO_VENTA"]);
+                    Producto.PRECIO_COMPRA = Convert.ToDecimal(dr["PRECIO_COMPRA"]);
+                    Producto.STOCK = Convert.ToInt32(dr["STOCK"]);
+                    Producto.ESTADO_PRODUCTO = Convert.ToBoolean(dr["ESTADO_PRODUCTO"]);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return Producto;
+        }
+        */
+        public List<entUsuarios> ListarRoles()
+        {
+            SqlCommand cmd = null;
+            List<entUsuarios> lista = new List<entUsuarios>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spListarRoles", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    entUsuarios User = new entUsuarios();
+                    User.IdRol = Convert.ToInt32(dr["IdRol"]);
+                    User.NombreRol = dr["Nombre"].ToString();
+                    lista.Add(User);
+                }
+            }
+            catch (Exception e) { throw e; }
+            finally { cmd.Connection.Close(); }
+            return lista;
+        }
 
     }
 }
