@@ -50,6 +50,7 @@
   <ItemGroup>
     <Compile Include="CD_Usuario.cs" />
     <Compile Include="Conexion.cs" />
+    <Compile Include="Dashboard.cs" />
     <Compile Include="datApi.cs" />
     <Compile Include="datCategoria.cs" />
     <Compile Include="datCliente.cs" />
