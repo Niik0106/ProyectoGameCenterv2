@@ -43,6 +43,7 @@ namespace AccesoDatos
                     user.Usuario = dr["Usuario"].ToString();
                     user.Clave = dr["Clave"].ToString();
                     user.IdRol = Convert.ToInt32(dr["IdRol"]);
+                    user.NombreRol = dr["Nombre"].ToString();
                     user.estado = Convert.ToBoolean(dr["estado"]);
                     lista.Add(user);
                 }
@@ -110,7 +111,7 @@ namespace AccesoDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("SP_DESHABILITAR_USUARIO", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idUsuario", usuario.estado);
+                cmd.Parameters.AddWithValue("@idUsuario", usuario.IdUsuario);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
@@ -125,8 +126,65 @@ namespace AccesoDatos
             finally { cmd.Connection.Close(); }
             return deshabilitar;
         }
-
-
+        
+        public List<entUsuarios> BuscarUsuario(entUsuarios usuario)
+        {
+            SqlCommand cmd = null;
+            List<entUsuarios> lista = new List<entUsuarios>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_BUSCAR_USUARIO", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@Usuario", usuario.Usuario);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    entUsuarios Usuario = new entUsuarios();
+                    Usuario.IdUsuario = Convert.ToInt32(dr["IdUsuario"]);
+                    Usuario.Nombres = dr["Nombres"].ToString();
+                    Usuario.Usuario = dr["Usuario"].ToString();
+                    Usuario.Clave = dr["Clave"].ToString();
+                    Usuario.IdRol = Convert.ToInt32(dr["IdRol"]);
+                    Usuario.estado = Convert.ToBoolean(dr["estado"]);
+                    lista.Add(Usuario);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return lista;
+        }
+        
+        public List<entUsuarios> ListarRoles()
+        {
+            SqlCommand cmd = null;
+            List<entUsuarios> lista = new List<entUsuarios>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("spListarRoles", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    entUsuarios User = new entUsuarios();
+                    User.IdRol = Convert.ToInt32(dr["IdRol"]);
+                    User.NombreRol = dr["Nombre"].ToString();
+                    lista.Add(User);
+                }
+            }
+            catch (Exception e) { throw e; }
+            finally { cmd.Connection.Close(); }
+            return lista;
+        }
 
     }
 }

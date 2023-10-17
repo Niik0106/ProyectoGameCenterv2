@@ -564,6 +564,12 @@ namespace ProyectoGameCenter.Principal
             lblFechaFinal.Text = dtpFin.Text;
         }
 
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmUsuario());
+            OcultarSubMenu();
+        }
+
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
