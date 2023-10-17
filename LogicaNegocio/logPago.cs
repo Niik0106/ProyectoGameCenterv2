@@ -28,6 +28,11 @@ namespace LogicaNegocio
             datPago.Instancia.InsertarPago(Cat);
         }
 
+        public entPago ObtenerDetallePago(string NumVenta)
+        {
+            return datPago.Instancia.ObtenerDetallePago(NumVenta);
+        }
+
 
     }
 }

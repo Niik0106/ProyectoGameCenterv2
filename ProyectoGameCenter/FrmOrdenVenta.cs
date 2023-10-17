@@ -210,10 +210,30 @@ namespace ProyectoGameCenter
                 cboEstado.SelectedValue = Convert.ToInt32(filaActual.Cells[4].Value);
                 cboTipoComprobante.SelectedValue = Convert.ToInt32(filaActual.Cells[6].Value);
 
-
+                ////DETALLE ORDEN DE VENTA
+                
                 entDetalleOrdenVenta DOV = new entDetalleOrdenVenta();
                 DOV.NUM_ORDEN_VENTA = numOrdenVenta;
                 dgvDetalleOrdenVenta.DataSource = logDetalleOrdenVenta.Instancia.OrdenaDetalleVenta(DOV);
+
+                ////DETALLE DE PAGO
+                ///
+                entPago Pago = new entPago();
+                Pago = logPago.Instancia.ObtenerDetallePago(txtNOrdenVenta.Text.ToString());
+                if (Pago != null)
+                {
+                    txtSubTotal.Text = Pago.SUBTOTAL.ToString();
+                    txtIgv.Text = Pago.IGV.ToString();
+                    txtTotal.Text = Pago.TOTAL.ToString();
+                    cboMetodoPago.SelectedValue = Convert.ToInt32(Pago.ID_METODO_PAGO.ToString());
+                    cboTipoPago.SelectedValue = Convert.ToInt32(Pago.ID_TIPO_PAGO.ToString());
+
+                }
+                else
+                {
+                    MessageBox.Show("Detalle Pago no existe", "Buscar Otro Detalle", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
                 gbDetalleOrdenVenta.Enabled = true;
                 txtIDProducto.Enabled = false;
                 txtCantidad.Enabled = true;
