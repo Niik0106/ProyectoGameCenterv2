@@ -126,30 +126,29 @@ namespace AccesoDatos
             finally { cmd.Connection.Close(); }
             return deshabilitar;
         }
-        /*
-        public entUsuarios BuscarProducto(string usuario)
+        
+        public List<entUsuarios> BuscarUsuario(entUsuarios usuario)
         {
             SqlCommand cmd = null;
-            entUsuarios Usuario = null;
+            List<entUsuarios> lista = new List<entUsuarios>();
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("SP_BUSCAR_PRODUCTO_DESC", cn);
+                cmd = new SqlCommand("SP_BUSCAR_USUARIO", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@DES_PRODUCTO", desProducto);
+                cmd.Parameters.AddWithValue("@Usuario", usuario.Usuario);
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
-                    Producto = new entProducto();
-                    Producto.ID_PRODUCTO = Convert.ToInt32(dr["ID_PRODUCTO"]);
-                    Producto.DES_PRODUCTO = dr["DES_PRODUCTO"].ToString();
-                    Producto.ID_CATEGORIA = Convert.ToInt32(dr["ID_CATEGORIA"]);
-                    Producto.ID_MARCA = Convert.ToInt32(dr["ID_MARCA"]);
-                    Producto.PRECIO_VENTA = Convert.ToDecimal(dr["PRECIO_VENTA"]);
-                    Producto.PRECIO_COMPRA = Convert.ToDecimal(dr["PRECIO_COMPRA"]);
-                    Producto.STOCK = Convert.ToInt32(dr["STOCK"]);
-                    Producto.ESTADO_PRODUCTO = Convert.ToBoolean(dr["ESTADO_PRODUCTO"]);
+                    entUsuarios Usuario = new entUsuarios();
+                    Usuario.IdUsuario = Convert.ToInt32(dr["IdUsuario"]);
+                    Usuario.Nombres = dr["Nombres"].ToString();
+                    Usuario.Usuario = dr["Usuario"].ToString();
+                    Usuario.Clave = dr["Clave"].ToString();
+                    Usuario.IdRol = Convert.ToInt32(dr["IdRol"]);
+                    Usuario.estado = Convert.ToBoolean(dr["estado"]);
+                    lista.Add(Usuario);
                 }
             }
             catch (Exception e)
@@ -160,9 +159,9 @@ namespace AccesoDatos
             {
                 cmd.Connection.Close();
             }
-            return Producto;
+            return lista;
         }
-        */
+        
         public List<entUsuarios> ListarRoles()
         {
             SqlCommand cmd = null;

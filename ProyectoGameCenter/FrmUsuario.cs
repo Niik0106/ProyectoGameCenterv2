@@ -27,6 +27,7 @@ namespace ProyectoGameCenter
             {
                 column.Resizable = DataGridViewTriState.False;
             }
+            
             // Crear una instancia de RoundedTextBox
             RoundedTextBox roundedTextBox1 = new RoundedTextBox();
             roundedTextBox1.Location = new Point(50, 50);
@@ -74,7 +75,6 @@ namespace ProyectoGameCenter
                     c.Nombres = txtNombreUsuario.Text.Trim();
                     c.Usuario = txtUsuario.Text.Trim();
                     c.Clave = txtContrasenia.Text.Trim();
-                    c.IdUsuario = Convert.ToInt32(txtIDUsuario);
                     c.IdRol = Convert.ToInt32(cboRol.SelectedValue);
                     c.estado = cboEstadoUsuario.Checked;
                     logUsuarios.Instancia.InsertaUsuario(c);
@@ -97,7 +97,7 @@ namespace ProyectoGameCenter
                     c.Nombres = txtNombreUsuario.Text.Trim();
                     c.Usuario = txtUsuario.Text.Trim();
                     c.Clave = txtContrasenia.Text.Trim();
-                    c.IdUsuario = Convert.ToInt32(txtIDUsuario);
+                    c.IdUsuario = int.Parse(txtIDUsuario.Text.Trim());
                     c.IdRol = Convert.ToInt32(cboRol.SelectedValue);
                     c.estado = cboEstadoUsuario.Checked;
                     logUsuarios.Instancia.EditaUsuarios(c);
@@ -121,7 +121,20 @@ namespace ProyectoGameCenter
 
         private void dgvUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            try
+            {
+                DataGridViewRow filaActual = dgvUsuarios.Rows[e.RowIndex];
+                txtIDUsuario.Text = filaActual.Cells[0].Value.ToString();
+                txtNombreUsuario.Text = filaActual.Cells[1].Value.ToString();
+                txtUsuario.Text = filaActual.Cells[2].Value.ToString();
+                txtContrasenia.Text = filaActual.Cells[3].Value.ToString();
+                cboRol.SelectedValue = Convert.ToInt32(filaActual.Cells[4].Value);
+                cboEstadoUsuario.Checked = Convert.ToBoolean(filaActual.Cells[6].Value);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Selecciona un item de la tabla");
+            }
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -165,7 +178,7 @@ namespace ProyectoGameCenter
 
         private void btnBuscarUsuario_Click(object sender, EventArgs e)
         {
-            /*try
+            try
             {
                 if (txtBuscarUsuario.Text.Equals(""))
                 {
@@ -174,19 +187,19 @@ namespace ProyectoGameCenter
                 else
                 {
                     entUsuarios usuario = new entUsuarios();
-                    usuario.Nombres = txtBuscarUsuario.Text;
-                    dgvProductos.DataSource = logProducto.Instancia.BuscaDescProducto(producto);
-                    if (dgvProductos.Rows.Count == 0)
+                    usuario.Usuario = txtBuscarUsuario.Text;
+                    dgvUsuarios.DataSource = logUsuarios.Instancia.BuscarUsuario(usuario);
+                    if (dgvUsuarios.Rows.Count == 0)
                     {
-                        MessageBox.Show("El Producto no se encuentra registrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ListarProductos();
+                        MessageBox.Show("El Usuario no se encuentra registrado", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ListarUsuarios();
                     }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error..." + ex);
-            }*/
+            }
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

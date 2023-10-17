@@ -43,6 +43,11 @@ namespace LogicaNegocio
             datUsuarios.Instancia.DeshabilitarUsuario(User);
         }
 
+        public List<entUsuarios> BuscarUsuario(entUsuarios User)
+        {
+            return datUsuarios.Instancia.BuscarUsuario(User);
+        }
+
         public List<entUsuarios> ListarRol()
         {
             return datUsuarios.Instancia.ListarRoles();
