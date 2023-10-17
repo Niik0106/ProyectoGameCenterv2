@@ -111,7 +111,7 @@ namespace AccesoDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("SP_DESHABILITAR_USUARIO", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@idUsuario", usuario.estado);
+                cmd.Parameters.AddWithValue("@idUsuario", usuario.IdUsuario);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)
