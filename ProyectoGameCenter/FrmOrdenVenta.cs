@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using LogicaNegocio;
 using System.Data.SqlClient;
+using System.Windows.Markup.Localizer;
 
 namespace ProyectoGameCenter
 {
@@ -77,7 +78,7 @@ namespace ProyectoGameCenter
         public void LimpiarVariables()
         {
             txtIDOrdenVenta.Text = "";
-            dateTimePicker1.ResetText();
+            dtpFechaOrden.ResetText();
             txtResultadoBusquedaCliente.Text = "";
             
             cboEstado.SelectedIndex = default;
@@ -91,7 +92,7 @@ namespace ProyectoGameCenter
             txtTotal.Text = "";
             cboMetodoPago.SelectedIndex = default;
             cboTipoPago.SelectedIndex = default;
-            gbImportes.Enabled = false;
+
         }
 
         public void LimpiarVariablesDetalle()
@@ -103,6 +104,8 @@ namespace ProyectoGameCenter
           
             txtStock.Text = "";
         }
+
+
 
         private void btnBuscarProducto_Click(object sender, EventArgs e)
         {
@@ -159,12 +162,33 @@ namespace ProyectoGameCenter
            
         }
 
+        public void bloqueartxtOrdenVenta()
+        {
+            txtNOrdenVenta.Enabled = false;
+            txtIDOrdenVenta.Enabled = false;
+            dtpFechaOrden.Enabled = false;
+            txtResultadoBusquedaCliente.Enabled = false;
+            txtNOrdenVenta.Enabled = false;
+            txtIDOrdenVenta.Enabled = false;
+            cboEstado.Enabled = false;
+            cboTipoComprobante.Enabled = false;  
+            btnBuscaridCliente.Enabled = false;
+            btnAgregarOrdenVenta.Enabled = false;
+        }
+
         private void btnNuevo_Click(object sender, EventArgs e)
         {
             gbOrdenVenta.Enabled = true;
-            gbDetalleOrdenVenta.Enabled=true;
+            gbDetalleOrdenVenta.Enabled=false;
+            
+            txtNOrdenVenta.Enabled = false;
+            txtIDOrdenVenta.Enabled = false;
+            dtpFechaOrden.Enabled = false;
+            txtResultadoBusquedaCliente.Enabled = false;
             LimpiarVariables();
+            LimpiarImportes();
             LimpiarVariablesDetalle();
+
         }
 
         private void btnAnular_Click(object sender, EventArgs e)
@@ -205,16 +229,16 @@ namespace ProyectoGameCenter
                 string numOrdenVenta = (string)dgvOrdenVenta.Rows[e.RowIndex].Cells[1].Value;
                 txtIDOrdenVenta.Text = filaActual.Cells[0].Value.ToString();
                 txtNOrdenVenta.Text = filaActual.Cells[1].Value.ToString();
-                dateTimePicker1.Text = filaActual.Cells[2].Value.ToString();
+                dtpFechaOrden.Text = filaActual.Cells[2].Value.ToString();
                 txtDocumentoCliente.Text = filaActual.Cells[5].Value.ToString();
                 cboEstado.SelectedValue = Convert.ToInt32(filaActual.Cells[4].Value);
                 cboTipoComprobante.SelectedValue = Convert.ToInt32(filaActual.Cells[6].Value);
 
-                ////DETALLE ORDEN DE VENTA
-                
+                ////DETALLE ORDEN DE VENTA                
+
                 entDetalleOrdenVenta DOV = new entDetalleOrdenVenta();
-                DOV.NUM_ORDEN_VENTA = numOrdenVenta;
-                dgvDetalleOrdenVenta.DataSource = logDetalleOrdenVenta.Instancia.OrdenaDetalleVenta(DOV);
+                DOV.NUM_ORDEN_VENTA = txtNOrdenVenta.Text;
+                dgvDetalleOrdenVenta.DataSource = logDetalleOrdenVenta.Instancia.OrdenaDetalleVenta(DOV);               
 
                 ////DETALLE DE PAGO
                 ///
@@ -231,7 +255,7 @@ namespace ProyectoGameCenter
                 }
                 else
                 {
-                    MessageBox.Show("Detalle Pago no existe", "Buscar Otro Detalle", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpiarImportes();
                 }
 
                 gbDetalleOrdenVenta.Enabled = true;
@@ -279,7 +303,12 @@ namespace ProyectoGameCenter
                     txtIgv.Text = igv.ToString();
                     total = decimal.Parse(txtSubTotal.Text) + decimal.Parse(txtIgv.Text);
                     txtTotal.Text = total.ToString();
-                    ListarDetalleVentas();
+                    DetalleOV.NUM_ORDEN_VENTA = txtNOrdenVenta.Text;
+                    dgvDetalleOrdenVenta.DataSource = logDetalleOrdenVenta.Instancia.OrdenaDetalleVenta(DetalleOV);
+                    if (dgvDetalleOrdenVenta.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Hola ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
                     LimpiarVariablesDetalle();
                 }
                 else
@@ -343,13 +372,14 @@ namespace ProyectoGameCenter
                 {
                     entOrdenVenta ordVenta = new entOrdenVenta();
                     //ordVenta.numOrdenVenta = Convert.ToInt32(txtNOrdenVenta.Text.Trim());
-                    ordVenta.fechaOrden = dateTimePicker1.Value;
+                    ordVenta.fechaOrden = dtpFechaOrden.Value;
                     ordVenta.num_documento = txtDocumentoCliente.Text.ToString();
                     ordVenta.estOrdenVenta = Convert.ToInt32(cboEstado.SelectedValue);
                     ordVenta.idTipoComprobante = Convert.ToInt32(cboTipoComprobante.SelectedValue);
 
                     logOrdenVenta.Instancia.InsertaOrdenVenta(ordVenta);
                     gbDetalleOrdenVenta.Enabled = true;
+                    gbImportes.Enabled = true;
                     MessageBox.Show("Orden de Venta registrada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
@@ -357,8 +387,7 @@ namespace ProyectoGameCenter
             {
                 MessageBox.Show("Error.." + ex);
             }
-            //LimpiarVariables();
-            gbOrdenVenta.Enabled = false;
+            bloqueartxtOrdenVenta();
             ListarVentas();
         }
 
@@ -390,8 +419,10 @@ namespace ProyectoGameCenter
             }
             LimpiarVariables();
             LimpiarVariablesDetalle();
+            LimpiarImportes();
             gbOrdenVenta.Enabled = false;
             gbDetalleOrdenVenta.Enabled = false;
+            gbImportes.Enabled = false;
 
         }
 
