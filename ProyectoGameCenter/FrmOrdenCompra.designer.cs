@@ -798,7 +798,7 @@
             this.Controls.Add(this.gboOrdenCompra);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmOrdenCompra";
-            this.Text = "FmrOrdenCompra";
+            this.Text = "Orden Compra";
             this.Load += new System.EventHandler(this.FrmOrdenCompra_Load);
             this.gboOrdenCompra.ResumeLayout(false);
             this.gboOrdenCompra.PerformLayout();
