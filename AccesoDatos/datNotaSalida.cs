@@ -18,6 +18,36 @@ namespace AccesoDatos
             get { return datNotaSalida._instancia; }
         }
 
+        public int BuscarOrdenVenta(string numOrdenV)
+        {
+            int resultado = 0; // Inicializamos el resultado a 0 por defecto
+
+            using (SqlConnection cn = Conexion.Instancia.Conectar())
+            {
+                using (SqlCommand cmd = new SqlCommand("[dbo].[SP_VERIFICAR_ORDEN_VENTA]", cn))
+                {
+
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@NUM_ORDEN_VENTA", numOrdenV);
+
+                    cn.Open();
+
+                    object result = cmd.ExecuteScalar();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        resultado = (int)result;
+                    }
+
+                }
+            }
+
+            // El valor 0 o 1 ya está almacenado en la variable resultado
+            return resultado;
+        }
+
+
+
         //Listar Nota de Salida
         public List<entNotaSalida> ListarNotaSalida()
         {
@@ -36,8 +66,8 @@ namespace AccesoDatos
                     notaSalida.idNotaSalida = Convert.ToInt32(dr["ID_NOTA_SALIDA"]);
                     notaSalida.numNotaSalida = Convert.ToInt32(dr["NUM_NOTA_SALIDA"]);
                     notaSalida.fechaEmision = Convert.ToDateTime(dr["FEC_EMISION"]);
-                    notaSalida.numOrdenVenta = Convert.ToInt32(dr["NUM_ORDEN_VENTA"]);
-                    notaSalida.estado = Convert.ToBoolean(dr["ESTADO_NOTA_SALIDA"]);
+                    notaSalida.numOrdenVenta = (string)(dr["NUM_ORDEN_VENTA"]);
+                    notaSalida.estado = Convert.ToInt32(dr["ID_EST_NOTA_SALIDA"]);
                     lista.Add(notaSalida);
                 }
             }
@@ -70,7 +100,7 @@ namespace AccesoDatos
         }
 
         //Deshabilitar Nota de Salida
-        public Boolean DeshabilitarNotaSalida(int idNotaSalida)
+        public Boolean DeshabilitarNotaSalida(entNotaSalida idNotaSalida)
         {
             SqlCommand cmd = null;
             Boolean deshabilita = false;
@@ -79,7 +109,7 @@ namespace AccesoDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("SP_ANULAR_NOTA_SALIDA", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID_NOTA_SALIDA", idNotaSalida);
+                cmd.Parameters.AddWithValue("@ID_NOTA_SALIDA", idNotaSalida.idNotaSalida);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0) { deshabilita = true; }
@@ -88,5 +118,41 @@ namespace AccesoDatos
             finally { cmd.Connection.Close(); }
             return deshabilita;
         }
+
+
+        public List<entNotaSalida> BuscarNotaSalida(entNotaSalida fechaNota)
+        {
+            SqlCommand cmd = null;
+            List<entNotaSalida> lista = new List<entNotaSalida>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_BUSCAR_NOTASALIDA_FECHA", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@FEC_EMISION", fechaNota.fechaEmision);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    entNotaSalida OrdVenta = new entNotaSalida();
+                    OrdVenta.idNotaSalida = Convert.ToInt32(dr["ID_NOTA_SALIDA"]);
+                    //OrdVenta.numOrdenVenta = Convert.ToInt32(dr["NUM_ORDEN_VENTA"]);
+                    //OrdVenta.fechaOrden = Convert.ToDateTime(dr["FEC_ORDEN"]);
+                    OrdVenta.estado = Convert.ToInt32(dr["ID_EST_NOTA_SALIDA"]);
+
+                    lista.Add(OrdVenta);
+                }
+            }
+            catch (Exception e) { throw e; }
+            finally { cmd.Connection.Close(); }
+            return lista;
+        }
+
+
+
     }
+
+
+   
+
 }

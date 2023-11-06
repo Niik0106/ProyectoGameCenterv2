@@ -422,11 +422,7 @@ namespace ProyectoGameCenter.Principal
             OcultarSubMenu();
         }
 
-        //private void btnNotaSalida_Click_1(object sender, EventArgs e)
-        //{
-        //    AbrirFormularioHijo(new FrmNotaSalida());
-        //    OcultarSubMenu();
-        //}
+
 
         private void btnPagos_Click(object sender, EventArgs e)
         {
@@ -567,6 +563,12 @@ namespace ProyectoGameCenter.Principal
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
             AbrirFormularioHijo(new FrmUsuario());
+            OcultarSubMenu();
+        }
+
+        private void btnNotaSalida_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmNotaSalida());
             OcultarSubMenu();
         }
 

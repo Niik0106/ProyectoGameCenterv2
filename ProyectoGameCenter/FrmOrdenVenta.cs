@@ -375,6 +375,166 @@ namespace ProyectoGameCenter
 
         }
 
+        private void cboTipoComprobante_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtIDOrdenVenta_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtNOrdenVenta_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbOrdenVenta_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cboEstado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmOrdenVenta_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtDesProducto_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtIDProducto_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtStock_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPrecioVenta_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCantidad_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtPrecioCompra_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFinalizar_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label16_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gbDetalleOrdenVenta_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvDetalleOrdenVenta_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpOrdenVenta_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscarOV_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnAnular_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscaridCliente_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
 
 
 

@@ -57,6 +57,7 @@
     <Compile Include="logDetalleNotaSalida.cs" />
     <Compile Include="logDetalleOrdenCompra.cs" />
     <Compile Include="logDetalleOrdenVenta.cs" />
+    <Compile Include="logEstadoNotaSalida.cs" />
     <Compile Include="logEstadoOrdenCompra.cs" />
     <Compile Include="logEstadoOrdenVenta.cs" />
     <Compile Include="logEstadoPago.cs" />

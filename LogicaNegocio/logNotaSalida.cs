@@ -30,9 +30,19 @@ namespace LogicaNegocio
         }
 
         //Deshabilitar Nota de Salida
-        public Boolean DeshabilitarNotaSalida(int notaSalida)
+        public void DeshabilitarNotaSalida(entNotaSalida notaSalida)
         {
-            return datNotaSalida.Instancia.DeshabilitarNotaSalida(notaSalida);
+            datNotaSalida.Instancia.DeshabilitarNotaSalida(notaSalida);
+        }
+
+        public List<entNotaSalida> BuscaFechaVenta(entNotaSalida fechaNota)
+        {
+            return datNotaSalida.Instancia.BuscarNotaSalida(fechaNota);
+        }
+
+        public int Verificar_Orden_Venta(string numVenta)
+        {
+            return datNotaSalida.Instancia.BuscarOrdenVenta(numVenta);
         }
     }
 }

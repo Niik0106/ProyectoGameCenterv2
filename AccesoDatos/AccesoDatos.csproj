@@ -60,6 +60,7 @@
     <Compile Include="datDetalleNotaSalida.cs" />
     <Compile Include="datDetalleOrdenCompra.cs" />
     <Compile Include="datDetalleOrdenVenta.cs" />
+    <Compile Include="datEstadoNotaSalida.cs" />
     <Compile Include="datEstadoOrdenCompra.cs" />
     <Compile Include="datEstadoOrdenVenta.cs" />
     <Compile Include="datEstadoPago.cs" />
