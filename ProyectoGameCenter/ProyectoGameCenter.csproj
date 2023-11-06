@@ -180,6 +180,9 @@
     <EmbeddedResource Include="FrmCronogramaPago.resx">
       <DependentUpon>FrmCronogramaPago.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmNotaSalida.resx">
+      <DependentUpon>FrmNotaSalida.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmTipoPago.resx">
       <DependentUpon>FrmTipoPago.cs</DependentUpon>
     </EmbeddedResource>

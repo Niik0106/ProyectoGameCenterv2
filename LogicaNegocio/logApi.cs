@@ -26,7 +26,7 @@ namespace LogicaNegocio
 
         public entDatosDni ObtenerDatosDNI(string dni)
         {
-            string url = "https://dniruc.apisperu.com/api/v1/dni/" + dni + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImRvZ2V6X3lvdXR1YmVyMTZAaG90bWFpbC5jb20ifQ.vEML8po9xpReNEqgAssccVyYzGkpXLO6V0fFjBqiI1k";
+            string url = "https://dniruc.apisperu.com/api/v1/dni/" + dni + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFuZHJlc3ZhbGRlcmFnYXJjaWFAZ21haWwuY29tIn0.2HEHDyoJH-aeEP-CLyySuFJ-_XvdnyrzkZSyzFpDSS4";
 
             dynamic respuesta = apiDniRuc.Get(url);
 
@@ -43,7 +43,7 @@ namespace LogicaNegocio
 
         public entDatosRuc ObtenerDatosRUC(string ruc)
         {
-            string url = "https://dniruc.apisperu.com/api/v1/ruc/" + ruc + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImRvZ2V6X3lvdXR1YmVyMTZAaG90bWFpbC5jb20ifQ.vEML8po9xpReNEqgAssccVyYzGkpXLO6V0fFjBqiI1k";
+            string url = "https://dniruc.apisperu.com/api/v1/ruc/" + ruc + "?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImFuZHJlc3ZhbGRlcmFnYXJjaWFAZ21haWwuY29tIn0.2HEHDyoJH-aeEP-CLyySuFJ-_XvdnyrzkZSyzFpDSS4";
 
             dynamic respuesta = apiDniRuc.Get(url);
 
