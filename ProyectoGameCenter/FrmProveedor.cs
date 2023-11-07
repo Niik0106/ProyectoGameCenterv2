@@ -75,7 +75,7 @@ namespace ProyectoGameCenter
             try
             {
                 if (txtRuc.Text.Equals("") | txtRazonSocial.Text.Equals("") | txtTelefono.Text.Equals("") |
-                    txtDireccion.Text.Equals("") | txtCodigoUbigeo.Text.Equals("") | txtNumeroCuenta.Text.Equals(""))
+                    txtDireccion.Text.Equals("") | txtCodigoUbigeo.Text.Equals(""))
                 {
                     MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -87,7 +87,6 @@ namespace ProyectoGameCenter
                     pv.TEL_PROVEEDOR = txtTelefono.Text.Trim();
                     pv.COD_UBIGEO = int.Parse(txtCodigoUbigeo.Text.Trim());
                     pv.DIR_PROVEEDOR = txtDireccion.Text.Trim();
-                    pv.NUM_CUENTA = txtNumeroCuenta.Text.Trim();
                     pv.ESTADO_PROVEEDOR = cbxEstadoProv.Checked;
                     // Llamar a la función InsertarCliente
                     Boolean insertado = logProveedor.Instancia.InsertaProveedor(pv);
@@ -122,7 +121,6 @@ namespace ProyectoGameCenter
                 pv.TEL_PROVEEDOR = txtTelefono.Text.Trim();
                 pv.COD_UBIGEO = int.Parse(txtCodigoUbigeo.Text.Trim());
                 pv.DIR_PROVEEDOR = txtDireccion.Text.Trim();
-                pv.NUM_CUENTA = txtNumeroCuenta.Text.Trim();
                 pv.ESTADO_PROVEEDOR = cbxEstadoProv.Checked;
                 // Llamar a la función InsertarCliente
                 Boolean editado = logProveedor.Instancia.InsertaProveedor(pv);
@@ -158,8 +156,7 @@ namespace ProyectoGameCenter
                 txtTelefono.Text = filaActual.Cells[3].Value.ToString();
                 txtCodigoUbigeo.Text = filaActual.Cells[4].Value.ToString();
                 txtDireccion.Text = filaActual.Cells[5].Value.ToString();
-                txtNumeroCuenta.Text = filaActual.Cells[6].Value.ToString();
-                cbxEstadoProv.Checked = Convert.ToBoolean(filaActual.Cells[7].Value);
+                cbxEstadoProv.Checked = Convert.ToBoolean(filaActual.Cells[6].Value);
             }
             catch (Exception ex)
             {

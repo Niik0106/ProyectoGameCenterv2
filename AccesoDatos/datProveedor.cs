@@ -49,7 +49,6 @@ namespace AccesoDatos
                     Prov.TEL_PROVEEDOR = dr["TEL_PROVEEDOR"].ToString();
                     Prov.COD_UBIGEO = Convert.ToInt32(dr["COD_UBIGEO"]);
                     Prov.DIR_PROVEEDOR = dr["DIR_PROVEEDOR"].ToString();
-                    Prov.NUM_CUENTA = dr["NUM_CUENTA"].ToString();
                     Prov.ESTADO_PROVEEDOR = Convert.ToBoolean(dr["ESTADO_PROVEEDOR"]);
                 }
             }
@@ -98,7 +97,6 @@ namespace AccesoDatos
                     Prov.TEL_PROVEEDOR = dr["TEL_PROVEEDOR"].ToString();
                     Prov.COD_UBIGEO = Convert.ToInt32(dr["COD_UBIGEO"]);
                     Prov.DIR_PROVEEDOR = dr["DIR_PROVEEDOR"].ToString();
-                    Prov.NUM_CUENTA = dr["NUM_CUENTA"].ToString();
                     Prov.ESTADO_PROVEEDOR = Convert.ToBoolean(dr["ESTADO_PROVEEDOR"]);
                     lista.Add(Prov);
                 }
@@ -130,7 +128,6 @@ namespace AccesoDatos
                 cmd.Parameters.AddWithValue("@TEL_PROVEEDOR", Prov.TEL_PROVEEDOR);
                 cmd.Parameters.AddWithValue("@COD_UBIGEO", Prov.COD_UBIGEO);
                 cmd.Parameters.AddWithValue("@DIR_PROVEEDOR", Prov.DIR_PROVEEDOR);
-                cmd.Parameters.AddWithValue("@NUM_CUENTA", Prov.NUM_CUENTA);
                 cmd.Parameters.AddWithValue("@ESTADO_PROVEEDOR",Prov.ESTADO_PROVEEDOR );
 
                 // Parámetro de salida @resultado
@@ -179,7 +176,6 @@ namespace AccesoDatos
                 cmd.Parameters.AddWithValue("@TEL_PROVEEDOR", Prov.TEL_PROVEEDOR);
                 cmd.Parameters.AddWithValue("@COD_UBIGEO", Prov.COD_UBIGEO);
                 cmd.Parameters.AddWithValue("@DIR_PROVEEDOR", Prov.DIR_PROVEEDOR);
-                cmd.Parameters.AddWithValue("@NUM_CUENTA", Prov.NUM_CUENTA);
                 cmd.Parameters.AddWithValue("@ESTADO_PROVEEDOR", Prov.ESTADO_PROVEEDOR);
 
                 // Parámetro de salida @resultado

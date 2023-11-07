@@ -359,6 +359,7 @@
             this.dgvOrdenCompra.Size = new System.Drawing.Size(1465, 206);
             this.dgvOrdenCompra.TabIndex = 104;
             this.dgvOrdenCompra.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrdenCompra_CellClick);
+            this.dgvOrdenCompra.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvOrdenCompra_CellContentClick);
             // 
             // groupBox1
             // 

@@ -51,18 +51,18 @@ namespace ProyectoGameCenter
         {
             try
             {
-                if (txtNumOrdenCompra.Text.Equals("") || txtIDProveedor.Text.Equals(""))
+                if (txtIDProveedor.Text.Equals(""))
                 {
                     MessageBox.Show("Debe ingresar la descripcion de un Producto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
                     entOrdenCompra ordCompra = new entOrdenCompra();
-                    ordCompra.numeroOrdenCompra = Convert.ToInt32(txtNumOrdenCompra.Text.Trim());
+                    //ordCompra.numeroOrdenCompra = Convert.ToInt32(txtNumOrdenCompra.Text.Trim());
                     ordCompra.fechaOrdenCompra = dtpFOrdenCompra.Value;
-                    ordCompra.idProveedor = Convert.ToInt32(txtIDProveedor.Text.Trim());
+                    ordCompra.razonSocial = txtRazonSocial.Text.Trim();
                     ordCompra.idEstadoOrdenCompra = Convert.ToInt32(cbxEstadoCompra.SelectedValue);
-                    ordCompra.fechaAtendida = dtpFAtendida.Value;
+                    ordCompra.RUC = txtIDProveedor.Text.Trim();
                     logOrdenCompra.Instancia.InsertarOrdenCompra(ordCompra);
                     gbDetalleOrdenCompra.Enabled = true;
 
@@ -256,6 +256,11 @@ namespace ProyectoGameCenter
         }
 
         private void gbDetalleOrdenCompra_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvOrdenCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

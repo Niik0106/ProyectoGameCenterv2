@@ -14,7 +14,6 @@ namespace Entidades
             public string TEL_PROVEEDOR { get; set; }
             public int COD_UBIGEO { get; set; }
             public string DIR_PROVEEDOR { get; set; }
-            public string NUM_CUENTA { get; set; }
             public Boolean ESTADO_PROVEEDOR { get; set; }
 
     }
