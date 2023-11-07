@@ -100,9 +100,7 @@
     <Compile Include="FrmTipoPago.Designer.cs">
       <DependentUpon>FrmTipoPago.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmOrdenVenta.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmOrdenVenta.cs" />
     <Compile Include="FrmOrdenVenta.Designer.cs">
       <DependentUpon>FrmOrdenVenta.cs</DependentUpon>
     </Compile>
