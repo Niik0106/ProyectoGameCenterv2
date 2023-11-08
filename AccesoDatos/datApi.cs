@@ -25,7 +25,7 @@ namespace AccesoDatos
             Stream myStream = myHttpWebResponse.GetResponseStream();
             StreamReader myStreamReader = new StreamReader(myStream);
             // Leemos los datos
-            string datos = HttpUtility.HtmlDecode(myStreamReader.ReadToEnd());
+            string datos = System.Web.HttpUtility.HtmlDecode(myStreamReader.ReadToEnd());
 
             dynamic data = JsonConvert.DeserializeObject(datos);
 
