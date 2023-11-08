@@ -107,7 +107,7 @@ namespace AccesoDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("SP_OBTENER_DETALLES_ORDEN_VENTA", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@NumOrdenVenta", numOrd.NUM_ORDEN_VENTA);
+                cmd.Parameters.AddWithValue("@NumVenta", numOrd.NUM_ORDEN_VENTA);
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())

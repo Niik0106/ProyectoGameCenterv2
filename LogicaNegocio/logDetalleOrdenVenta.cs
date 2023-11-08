@@ -38,5 +38,7 @@ namespace LogicaNegocio
         {
             return datDetalleOrdenVenta.Instancia.OrdenarDetalleVenta(numOrd);
         }
+
+        
     }
 }

@@ -75,5 +75,41 @@ namespace AccesoDatos
             return inserta;
         }
 
+
+        public entPago ObtenerDetallePago(string NumVenta)
+        {
+            SqlCommand cmd = null;
+            entPago Pago = null;
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_OBTENER_DETALLE_PAGO", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@NUM_VENTA", NumVenta);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                if (dr.Read())
+                {
+                    Pago = new entPago();
+                    Pago.ID_PAGO = Convert.ToInt32(dr["ID_PAGO"]);
+                    Pago.NUM_ORDEN_VENTA = dr["NUM_ORDEN_VENTA"].ToString();
+                    Pago.SUBTOTAL = Convert.ToDecimal(dr["SUBTOTAL"]);
+                    Pago.IGV = Convert.ToDecimal(dr["IGV"]);
+                    Pago.TOTAL = Convert.ToDecimal(dr["TOTAL"]);
+                    Pago.ID_METODO_PAGO = Convert.ToInt32(dr["ID_METODO_PAGO"]);
+                    Pago.ID_TIPO_PAGO = Convert.ToInt32(dr["ID_TIPO_PAGO"]);
+                }
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
+            finally
+            {
+                cmd.Connection.Close();
+            }
+            return Pago;
+        }
+
     }
 }
