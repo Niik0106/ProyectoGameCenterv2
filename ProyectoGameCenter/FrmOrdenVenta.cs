@@ -275,8 +275,6 @@ namespace ProyectoGameCenter
                 DetalleOV.PRECIO_TOTAL = int.Parse(txtCantidad.Text) * decimal.Parse(txtPrecioVenta.Text);
 
 
-
-
                 // Llamar a la función InsertarCliente
                 Boolean insertado = logDetalleOrdenVenta.Instancia.InsertaDetalleOrdenVenta(DetalleOV);
 
@@ -356,24 +354,56 @@ namespace ProyectoGameCenter
                 }
                 else
                 {
-                    entOrdenVenta ordVenta = new entOrdenVenta();
-                    //ordVenta.numOrdenVenta = Convert.ToInt32(txtNOrdenVenta.Text.Trim());
-                    ordVenta.fechaOrden = dtpFechaOrden.Value;
-                    ordVenta.num_documento = txtDocumentoCliente.Text.ToString();
-                    ordVenta.estOrdenVenta = Convert.ToInt32(cboEstado.SelectedValue);
-                    ordVenta.idTipoComprobante = Convert.ToInt32(cboTipoComprobante.SelectedValue);
+                    string tipoComprobante = cboTipoComprobante.Text;
+                    if (tipoComprobante == "BOLETA")
+                    {
+                        if (txtDocumentoCliente.Text.Length == 8)
+                        {
+                            entOrdenVenta ordVenta = new entOrdenVenta();
+                            //ordVenta.numOrdenVenta = Convert.ToInt32(txtNOrdenVenta.Text.Trim());
+                            ordVenta.fechaOrden = dtpFechaOrden.Value;
+                            ordVenta.num_documento = txtDocumentoCliente.Text.ToString();
+                            ordVenta.estOrdenVenta = Convert.ToInt32(cboEstado.SelectedValue);
+                            ordVenta.idTipoComprobante = Convert.ToInt32(cboTipoComprobante.SelectedValue);
 
-                    logOrdenVenta.Instancia.InsertaOrdenVenta(ordVenta);
-                    gbDetalleOrdenVenta.Enabled = true;
-                    gbImportes.Enabled = true;
-                    MessageBox.Show("Orden de Venta registrada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            logOrdenVenta.Instancia.InsertaOrdenVenta(ordVenta);
+                            gbDetalleOrdenVenta.Enabled = true;
+                            gbImportes.Enabled = true;
+                            MessageBox.Show("Orden de Venta registrada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Seleccione Factura para usar un RUC");
+                        }
+                    }
+                    else
+                    {
+                        if (txtDocumentoCliente.Text.Length == 11)
+                        {
+                            entOrdenVenta ordVenta = new entOrdenVenta();
+                            //ordVenta.numOrdenVenta = Convert.ToInt32(txtNOrdenVenta.Text.Trim());
+                            ordVenta.fechaOrden = dtpFechaOrden.Value;
+                            ordVenta.num_documento = txtDocumentoCliente.Text.ToString();
+                            ordVenta.estOrdenVenta = Convert.ToInt32(cboEstado.SelectedValue);
+                            ordVenta.idTipoComprobante = Convert.ToInt32(cboTipoComprobante.SelectedValue);
+
+                            logOrdenVenta.Instancia.InsertaOrdenVenta(ordVenta);
+                            gbDetalleOrdenVenta.Enabled = true;
+                            gbImportes.Enabled = true;
+                            MessageBox.Show("Orden de Venta registrada correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Seleccione Boleta para usar un DNI");
+                        }
+                    }
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show("Error.." + ex);
             }
-            bloqueartxtOrdenVenta();
+            
             ListarVentas();
         }
 
@@ -382,25 +412,14 @@ namespace ProyectoGameCenter
             #region Verificacion y Generacion XML
             DateTimeOffset fechaHoraActual = DateTimeOffset.Now;
             string fechaHoraStr = fechaHoraActual.ToString("yyyy-MM-ddTHH:mm:sszzz");
-            string tipoComprobante = cboTipoComprobante.SelectedValue.ToString();
+            string tipoComprobante = cboTipoComprobante.Text;
             string metodoPagoID = cboMetodoPago.Text;
             string tipoPagoID = cboTipoPago.Text;
             string idventa = txtNOrdenVenta.Text;
-            string correlativoStr = idventa.TrimStart('0'); // Tu número de correlativo en formato de cadena
-
+            string correlativoStr = idventa.TrimStart('0');
             string docCliente = txtDocumentoCliente.Text;
 
-            string tipoCom = "", tipoCliente = "", metodoPago = "";
-
-            string url = "https://facturacion.apisperu.com/api/v1/invoice/send";
-            string token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTUyNzY5NjgsImV4cCI6NDg0ODg3Njk2OCwidXNlcm5hbWUiOiJkb2dleiIsImNvbXBhbnkiOiIyMDUyMzgwODcxMSJ9.Z7DbsYMV-IK2R26cHxxyXXeVXJbt8lH9TCpfmGc_WRPyqxM1CTKoy3NP15Edw3pIQyLPw01pV3O7LKthZVzFWcXkGQlzfRkmAwyrOK0j6D2JKiX71Frct70OM3ikQ1JwurMkwoaxkgOcpL9azy5HB6SLAWzsgz4eSBSCw0oyWc-XSYA12_hyQhQUpPxnz6Q4UfBjXWMoGwHpqjIuYswRAcIdFIVL0uvjhhck51wGuwGWaaZEsiBh40caZnptJ0Pf-3pvnK63kgx34pdksknADw_HyFzOTTUro6pFuLxNj1A1HMg733JCwVjGqMqo5Ewx3vBNj1P2PoA06zqU3qs6ziWdhWkwZYqG4VZro1MYKGKca0ucAih5sK5eQcJhBuiDZk4oJwCe1vKtLM0AumF5yrpzFfcDRu3OeeAA62mqUosWAHr0HSaOz5WQCsP9VmquizhX6gNAoyQ1hQKSTk7-vZVuV3rwneN06f3bTOZtAFi5X-_tjjq6d4Ucfl85glgjj-y6ivKXkM1I1cV5QBboIPEn_jC77SRydQ4PN1w-HnIG_-dLvTepba0kLDOAxL_9Fugn0cYazfdOHTdVMNiTpL5drxaOC4ieVGo_5Qdc3TFBte13Dc3Mb0gTB308PKbzn5isUc9PvrYdCXTlJCaCBDmJiJ5Cp-XRpEu7fc0exKE";
-
-            if (tipoComprobante == "0") { tipoCom = "01"; }
-            else { tipoCom = "03"; }
-
-            if (txtResultadoBusquedaCliente.Text.Length == 8) { tipoCliente = "6"; }
-            else { tipoCliente = "1"; }
-
+            string nombreArchivo = string.Empty, nombrePDF = string.Empty, direccion = "", provincia = "", departamento = "", distrito = "", ubigeo = "", json = string.Empty;
 
             string idProd = dgvDetalleOrdenVenta.Rows[0].Cells[1].Value.ToString();
             int cantProd = (int)dgvDetalleOrdenVenta.Rows[0].Cells[3].Value;
@@ -418,62 +437,75 @@ namespace ProyectoGameCenter
             {
                 valorRedondeado = Math.Floor(precioFinal * 10) / 10; // Redondea hacia abajo
             }
-            Console.Write(tipoCom);
-            Console.Write(tipoCliente);
 
-            #region Cuerpo Solicitud Boleta
+            string url = "https://facturacion.apisperu.com/api/v1/invoice/send";
+            string token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTUyNzY5NjgsImV4cCI6NDg0ODg3Njk2OCwidXNlcm5hbWUiOiJkb2dleiIsImNvbXBhbnkiOiIyMDUyMzgwODcxMSJ9.Z7DbsYMV-IK2R26cHxxyXXeVXJbt8lH9TCpfmGc_WRPyqxM1CTKoy3NP15Edw3pIQyLPw01pV3O7LKthZVzFWcXkGQlzfRkmAwyrOK0j6D2JKiX71Frct70OM3ikQ1JwurMkwoaxkgOcpL9azy5HB6SLAWzsgz4eSBSCw0oyWc-XSYA12_hyQhQUpPxnz6Q4UfBjXWMoGwHpqjIuYswRAcIdFIVL0uvjhhck51wGuwGWaaZEsiBh40caZnptJ0Pf-3pvnK63kgx34pdksknADw_HyFzOTTUro6pFuLxNj1A1HMg733JCwVjGqMqo5Ewx3vBNj1P2PoA06zqU3qs6ziWdhWkwZYqG4VZro1MYKGKca0ucAih5sK5eQcJhBuiDZk4oJwCe1vKtLM0AumF5yrpzFfcDRu3OeeAA62mqUosWAHr0HSaOz5WQCsP9VmquizhX6gNAoyQ1hQKSTk7-vZVuV3rwneN06f3bTOZtAFi5X-_tjjq6d4Ucfl85glgjj-y6ivKXkM1I1cV5QBboIPEn_jC77SRydQ4PN1w-HnIG_-dLvTepba0kLDOAxL_9Fugn0cYazfdOHTdVMNiTpL5drxaOC4ieVGo_5Qdc3TFBte13Dc3Mb0gTB308PKbzn5isUc9PvrYdCXTlJCaCBDmJiJ5Cp-XRpEu7fc0exKE";
 
-            var body = new
-            {
-                ublVersion = "2.1",
-                tipoOperacion = "0101",
-                tipoDoc = tipoCom,
-                serie = "B001",
-                correlativo = correlativoStr,
-                fechaEmision = fechaHoraStr,
-                formaPago = new
+            if (txtResultadoBusquedaCliente.Text != string.Empty) {
+
+                if(txtDocumentoCliente.Text.Length == 8)
                 {
-                    moneda = "PEN",
-                    tipo = metodoPagoID + ", " + tipoPagoID
-                },
-                tipoMoneda = "PEN",
-                client = new
-                {
-                    tipoDoc = tipoCliente,
-                    numDoc = Int64.Parse(docCliente),
-                    rznSocial = txtResultadoBusquedaCliente.Text,
-                    address = new
+                    entClienteNatural cliente = new entClienteNatural();
+                    cliente.DNI = txtDocumentoCliente.Text;
+                    List<entClienteNatural> resultado = logClienteNatural.Instancia.BuscarDniClienteNatural(cliente);
+
+                    if (resultado.Count > 0)
                     {
-                        direccion = "",
-                        provincia = "",
-                        departamento = "",
-                        distrito = "",
-                        ubigueo = ""
-                    }
-                },
-                company = new
-                {
-                    ruc = 20523808711,
-                    razonSocial = "GAME CENTER S.A.C.",
-                    nombreComercial = "GAME CENTER S.A.C.",
-                    address = new
-                    {
-                        direccion = "JR. GARCIA NARANJO NRO. 75 INT. 17 URB. LA VICTORIA",
-                        provincia = "LIMA",
-                        departamento = "LIMA",
-                        distrito = "LA VICTORIA",
-                        ubigueo = "150115"
-                    }
-                },
-                mtoOperGravadas = precioProducto * cantProd,
-                mtoIGV = precioFinal - (precioProducto * cantProd),
-                valorVenta = precioProducto * cantProd,
-                totalImpuestos = precioFinal - precioProducto,
-                subTotal = Convert.ToDecimal(valorRedondeado),
-                mtoImpVenta = valorRedondeado,
+                        txtResultadoBusquedaCliente.Text = resultado[0].NOMBRE_CLI + " " +  resultado[0].APELLIDO_PATERNO + " " +  resultado[0].APELLIDO_MATERNO;
 
-                details = new[]
-                {
+                        #region Cuerpo Solicitud Boleta
+
+                        var bodyBoleta = new
+                        {
+                            ublVersion = "2.1",
+                            tipoOperacion = "0101",
+                            tipoDoc = "03",
+                            serie = "B001",
+                            correlativo = correlativoStr,
+                            fechaEmision = fechaHoraStr,
+                            formaPago = new
+                            {
+                                moneda = "PEN",
+                                tipo = metodoPagoID + ", " + tipoPagoID
+                            },
+                            tipoMoneda = "PEN",
+                            client = new
+                            {
+                                tipoDoc = "1",
+                                numDoc = Int64.Parse(docCliente),
+                                rznSocial = txtResultadoBusquedaCliente.Text,
+                                address = new
+                                {
+                                    direccion = "",
+                                    provincia = "",
+                                    departamento = "",
+                                    distrito = "",
+                                    ubigueo = ""
+                                }
+                            },
+                            company = new
+                            {
+                                ruc = 20523808711,
+                                razonSocial = "GAME CENTER S.A.C.",
+                                nombreComercial = "GAME CENTER S.A.C.",
+                                address = new
+                                {
+                                    direccion = "JR. GARCIA NARANJO NRO. 75 INT. 17 URB. LA VICTORIA",
+                                    provincia = "LIMA",
+                                    departamento = "LIMA",
+                                    distrito = "LA VICTORIA",
+                                    ubigueo = "150115"
+                                }
+                            },
+                            mtoOperGravadas = precioProducto * cantProd,
+                            mtoIGV = precioFinal - (precioProducto * cantProd),
+                            valorVenta = precioProducto * cantProd,
+                            totalImpuestos = precioFinal - precioProducto,
+                            subTotal = Convert.ToDecimal(valorRedondeado),
+                            mtoImpVenta = valorRedondeado,
+
+                            details = new[]
+                            {
                     new
                     {
                         codProducto = "P" + idProd,
@@ -491,8 +523,8 @@ namespace ProyectoGameCenter
                     }
                 },
 
-                legends = new[]
-            {
+                            legends = new[]
+                        {
                 new
                 {
                     code = "1000",
@@ -500,10 +532,135 @@ namespace ProyectoGameCenter
                 }
             }
 
-            };
+                        };
 
-            #endregion
-            string json = JsonConvert.SerializeObject(body);
+                        #endregion
+                        json = JsonConvert.SerializeObject(bodyBoleta);
+
+                        nombreArchivo = docCliente + "-03-B" + correlativoStr + ".zip"; //"NroRUC_DNI-TIPODECOMPROBANTE-SERIE-CORRELATIVO";
+
+                        nombrePDF = docCliente + "-03-B" + correlativoStr + ".pdf";
+                    }
+                    else
+                    {
+                        txtResultadoBusquedaCliente.Text = string.Empty;
+                        MessageBox.Show("No se encontraron resultados para el DNI ingresado.");
+                    }      
+                }
+                else if (txtDocumentoCliente.Text.Length == 11)
+                {
+                    entClienteJuridico cliente = new entClienteJuridico();
+                    cliente.RUC_CLIENTE = txtDocumentoCliente.Text;
+                    List<entClienteJuridico> resultado = logClienteJuridico.Instancia.BuscarDniClienteJuridico(cliente);
+
+                    if (resultado.Count > 0)
+                    {
+                        txtResultadoBusquedaCliente.Text = resultado[0].RAZON_SOCIAL;
+                        direccion = resultado[0].DIRECCION;
+                        provincia = resultado[0].PROVINCIA;
+                        departamento = resultado[0].DEPARTAMENTO;
+                        distrito = resultado[0].DISTRITO;
+
+                        #region Cuerpo Solicitud Factura
+
+                        var bodyFactura = new
+                        {
+                            ublVersion = "2.1",
+                            fecVencimiento = fechaHoraStr,
+                            tipoOperacion = "0101",
+                            tipoDoc = "01",
+                            serie = "F001",
+                            correlativo = correlativoStr,
+                            fechaEmision = fechaHoraStr,
+                            formaPago = new
+                            {
+                                moneda = "PEN",
+                                tipo = metodoPagoID + ", " + tipoPagoID
+                            },
+                            tipoMoneda = "PEN",
+                            client = new
+                            {
+                                tipoDoc = "6",
+                                numDoc = Int64.Parse(docCliente),
+                                rznSocial = txtResultadoBusquedaCliente.Text,
+                                address = new
+                                {
+                                    direccion = direccion,
+                                    provincia = provincia,
+                                    departamento = departamento,
+                                    distrito = distrito,
+                                }
+                            },
+                            company = new
+                            {
+                                ruc = 20523808711,
+                                razonSocial = "GAME CENTER S.A.C.",
+                                nombreComercial = "GAME CENTER S.A.C.",
+                                address = new
+                                {
+                                    direccion = "JR. GARCIA NARANJO NRO. 75 INT. 17 URB. LA VICTORIA",
+                                    provincia = "LIMA",
+                                    departamento = "LIMA",
+                                    distrito = "LA VICTORIA",
+                                    ubigueo = "150115"
+                                }
+                            },
+                            mtoOperGravadas = precioProducto * cantProd,
+                            mtoOperExoneradas = 0,
+                            mtoIGV = precioFinal - (precioProducto * cantProd),
+                            valorVenta = precioProducto * cantProd,
+                            totalImpuestos = precioFinal - precioProducto,
+                            subTotal = Convert.ToDecimal(valorRedondeado),
+                            mtoImpVenta = valorRedondeado,
+
+                            details = new[]
+                        {
+                    new
+                    {
+                        codProducto = "P" + idProd,
+                        unidad = "NIU",
+                        descripcion = desProd,
+                        cantidad = cantProd,
+                        mtoValorUnitario = precioProducto,
+                        mtoValorVenta = precioProducto*cantProd,
+                        mtoBaseIgv = precioProducto*cantProd,
+                        porcentajeIgv = 18,
+                        igv = precioFinal - (precioProducto*cantProd),
+                        tipAfeIgv = 10,
+                        totalImpuestos = precioFinal - (precioProducto*cantProd),
+                        mtoPrecioUnitario = precioProducto*1.18m
+                    }
+                },
+
+                            legends = new[]
+                    {
+                new
+                {
+                    code = "1000",
+                    value = "SON " + valorRedondeado.NumeroALetras()
+                }
+            }
+
+                        };
+
+                        #endregion
+                        json = JsonConvert.SerializeObject(bodyFactura);
+
+                        nombreArchivo = docCliente + "-03-F" + correlativoStr + ".zip"; //"NroRUC_DNI-TIPODECOMPROBANTE-SERIE-CORRELATIVO";
+
+                        nombrePDF = docCliente + "-03-F" + correlativoStr + ".pdf";
+                    }
+                    else
+                    {
+                        txtResultadoBusquedaCliente.Text = string.Empty;
+                        MessageBox.Show("No se encontraron resultados para el RUC ingresado.");
+                    }
+                }
+
+            }
+            else {
+                MessageBox.Show("Seleccione una fila primero");
+            }       
 
             dynamic response = logDniRuc.Post(url, json, token);
 
@@ -516,9 +673,8 @@ namespace ProyectoGameCenter
 
             MessageBox.Show(response.sunatResponse.cdrResponse.description.ToString());
 
-            string nombreArchivoBoleta = docCliente + "-" + tipoCom + "-B001-" + correlativoStr + ".zip"; //"NroRUC_DNI-TIPODECOMPROBANTE-SERIE-CORRELATIVO";
 
-            string ruta = SaveDialog(nombreArchivoBoleta);
+            string ruta = SaveDialog(nombreArchivo);
 
             decimal demo = 118.00m;
             Console.WriteLine("SON " + demo.NumeroALetras());
@@ -539,7 +695,6 @@ namespace ProyectoGameCenter
 
 
             url = "https://facturacion.apisperu.com/api/v1/invoice/pdf";
-            string nombrePDF = docCliente + "-" + tipoCom + "-B" + idventa + ".pdf";
 
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "POST";
