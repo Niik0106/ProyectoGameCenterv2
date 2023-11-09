@@ -92,9 +92,6 @@
             this.txtIDProducto = new ProyectoGameCenter.NiikTextBox();
             this.btnFinalizar = new ProyectoGameCenter.Botones.Boton();
             this.btnAgregarProducto = new ProyectoGameCenter.Botones.Boton();
-            this.btnAgregarOrdenVenta = new ProyectoGameCenter.Botones.Boton();
-            this.txtNOrdenVenta = new ProyectoGameCenter.NiikTextBox();
-            this.txtIDOrdenVenta = new ProyectoGameCenter.NiikTextBox();
             this.gbOrdenVenta.SuspendLayout();
             this.gbDetalleOrdenVenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleOrdenVenta)).BeginInit();
