@@ -14,6 +14,9 @@ using System.Windows.Markup.Localizer;
 using AccesoDatos;
 using System.Diagnostics.CodeAnalysis;
 using Newtonsoft.Json;
+using System.Windows.Media;
+using System.IO;
+using System.Net;
 
 namespace ProyectoGameCenter
 {
@@ -237,30 +240,10 @@ namespace ProyectoGameCenter
                 cboEstado.SelectedValue = Convert.ToInt32(filaActual.Cells[4].Value);
                 cboTipoComprobante.SelectedValue = Convert.ToInt32(filaActual.Cells[6].Value);
 
-                ////DETALLE ORDEN DE VENTA                
 
                 entDetalleOrdenVenta DOV = new entDetalleOrdenVenta();
-                DOV.NUM_ORDEN_VENTA = txtNOrdenVenta.Text;
+                DOV.NUM_ORDEN_VENTA = numOrdenVenta;
                 dgvDetalleOrdenVenta.DataSource = logDetalleOrdenVenta.Instancia.OrdenaDetalleVenta(DOV);
-
-                ////DETALLE DE PAGO
-                ///
-                entPago Pago = new entPago();
-                Pago = logPago.Instancia.ObtenerDetallePago(txtNOrdenVenta.Text.ToString());
-                if (Pago != null)
-                {
-                    txtSubTotal.Text = Pago.SUBTOTAL.ToString();
-                    txtIgv.Text = Pago.IGV.ToString();
-                    txtTotal.Text = Pago.TOTAL.ToString();
-                    cboMetodoPago.SelectedValue = Convert.ToInt32(Pago.ID_METODO_PAGO.ToString());
-                    cboTipoPago.SelectedValue = Convert.ToInt32(Pago.ID_TIPO_PAGO.ToString());
-
-                }
-                else
-                {
-                    LimpiarImportes();
-                }
-
                 gbDetalleOrdenVenta.Enabled = true;
                 txtIDProducto.Enabled = false;
                 txtCantidad.Enabled = true;
@@ -270,7 +253,7 @@ namespace ProyectoGameCenter
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Selecciona un item de la tabla");
+
             }
         }
 
@@ -397,72 +380,67 @@ namespace ProyectoGameCenter
         private void btnAgregarPago_Click(object sender, EventArgs e)
         {
             #region Verificacion y Generacion XML
-            decimal precioFinal = 118m;
             DateTimeOffset fechaHoraActual = DateTimeOffset.Now;
             string fechaHoraStr = fechaHoraActual.ToString("yyyy-MM-ddTHH:mm:sszzz");
             string tipoComprobante = cboTipoComprobante.SelectedValue.ToString();
-            string metodoPagoID = cboMetodoPago.SelectedValue.ToString();
-            string tipoPagoID = cboTipoPago.SelectedValue.ToString();
-            string serie = "";
+            string metodoPagoID = cboMetodoPago.Text;
+            string tipoPagoID = cboTipoPago.Text;
+            string idventa = txtNOrdenVenta.Text;
+            string correlativoStr = idventa.TrimStart('0'); // Tu número de correlativo en formato de cadena
 
+            string docCliente = txtDocumentoCliente.Text;
 
             string tipoCom = "", tipoCliente = "", metodoPago = "";
 
             string url = "https://facturacion.apisperu.com/api/v1/invoice/send";
             string token = "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE2OTUyNzY5NjgsImV4cCI6NDg0ODg3Njk2OCwidXNlcm5hbWUiOiJkb2dleiIsImNvbXBhbnkiOiIyMDUyMzgwODcxMSJ9.Z7DbsYMV-IK2R26cHxxyXXeVXJbt8lH9TCpfmGc_WRPyqxM1CTKoy3NP15Edw3pIQyLPw01pV3O7LKthZVzFWcXkGQlzfRkmAwyrOK0j6D2JKiX71Frct70OM3ikQ1JwurMkwoaxkgOcpL9azy5HB6SLAWzsgz4eSBSCw0oyWc-XSYA12_hyQhQUpPxnz6Q4UfBjXWMoGwHpqjIuYswRAcIdFIVL0uvjhhck51wGuwGWaaZEsiBh40caZnptJ0Pf-3pvnK63kgx34pdksknADw_HyFzOTTUro6pFuLxNj1A1HMg733JCwVjGqMqo5Ewx3vBNj1P2PoA06zqU3qs6ziWdhWkwZYqG4VZro1MYKGKca0ucAih5sK5eQcJhBuiDZk4oJwCe1vKtLM0AumF5yrpzFfcDRu3OeeAA62mqUosWAHr0HSaOz5WQCsP9VmquizhX6gNAoyQ1hQKSTk7-vZVuV3rwneN06f3bTOZtAFi5X-_tjjq6d4Ucfl85glgjj-y6ivKXkM1I1cV5QBboIPEn_jC77SRydQ4PN1w-HnIG_-dLvTepba0kLDOAxL_9Fugn0cYazfdOHTdVMNiTpL5drxaOC4ieVGo_5Qdc3TFBte13Dc3Mb0gTB308PKbzn5isUc9PvrYdCXTlJCaCBDmJiJ5Cp-XRpEu7fc0exKE";
 
-            if (tipoComprobante == "0") { tipoCom = "03"; }
-            else { tipoCom = "01"; }
+            if (tipoComprobante == "0") { tipoCom = "01"; }
+            else { tipoCom = "03"; }
 
-            if (txtResultadoBusquedaCliente.Text.Length == 8) { tipoCliente = "1"; }
-            else { tipoCliente = "6"; }
-
-            switch (metodoPagoID)
-            {
-                case "0": metodoPago = "TARJETA DE DEBITO"; break;
-                case "1": metodoPago = "TARJETA DE CREDITO"; break;
-                case "2": metodoPago = "PAGOS MOVILES"; break;
-                case "3": metodoPago = "EFECTIVO"; break;
-            }
-
-            switch (tipoPagoID)
-            {
-                case "0": metodoPago += ",BCP"; break;
-                case "1": metodoPago += ",BBVA"; break;
-                case "2": metodoPago = ",PLIN"; break;
-                case "3": metodoPago = ",YAPE"; break;
-                case "4": break;
-            }
+            if (txtResultadoBusquedaCliente.Text.Length == 8) { tipoCliente = "6"; }
+            else { tipoCliente = "1"; }
 
 
-            string nuevoNumDoc = txtResultadoBusquedaCliente.Text;
-            string idventa = txtNOrdenVenta.Text;
-            int idProd = (int)dgvDetalleOrdenVenta.Rows[0].Cells[1].Value;
+            string idProd = dgvDetalleOrdenVenta.Rows[0].Cells[1].Value.ToString();
             int cantProd = (int)dgvDetalleOrdenVenta.Rows[0].Cells[3].Value;
-            string desProd = (string)dgvDetalleOrdenVenta.Rows[0].Cells[2].Value;
+            string desProd = dgvDetalleOrdenVenta.Rows[0].Cells[2].Value.ToString();
             decimal precioProducto = (decimal)dgvDetalleOrdenVenta.Rows[0].Cells[4].Value;
+            decimal precioFinal = precioProducto * cantProd * 1.18m;
+            decimal ultimoDigito = precioFinal - Math.Truncate(precioFinal);
+            decimal valorRedondeado;
 
+            if (ultimoDigito >= 0.5m)
+            {
+                valorRedondeado = Math.Ceiling(precioFinal * 10) / 10; // Redondea hacia arriba
+            }
+            else
+            {
+                valorRedondeado = Math.Floor(precioFinal * 10) / 10; // Redondea hacia abajo
+            }
+            Console.Write(tipoCom);
+            Console.Write(tipoCliente);
 
-            #region Cuerpo Solicitud
+            #region Cuerpo Solicitud Boleta
 
             var body = new
             {
                 ublVersion = "2.1",
                 tipoOperacion = "0101",
                 tipoDoc = tipoCom,
-                serie = serie,
-                correlativo = "1",
+                serie = "B001",
+                correlativo = correlativoStr,
                 fechaEmision = fechaHoraStr,
                 formaPago = new
                 {
                     moneda = "PEN",
-                    tipo = metodoPago
+                    tipo = metodoPagoID + ", " + tipoPagoID
                 },
                 tipoMoneda = "PEN",
                 client = new
                 {
                     tipoDoc = tipoCliente,
-                    numDoc = Int32.Parse(txtDocumentoCliente.Text),
+                    numDoc = Int64.Parse(docCliente),
                     rznSocial = txtResultadoBusquedaCliente.Text,
                     address = new
                     {
@@ -487,29 +465,29 @@ namespace ProyectoGameCenter
                         ubigueo = "150115"
                     }
                 },
-                mtoOperGravadas = 100,
-                mtoIGV = 18,
-                valorVenta = 100,
-                totalImpuestos = 18,
-                subTotal = Convert.ToInt32(txtSubTotal.Text),
-                mtoImpVenta = Convert.ToInt64(txtTotal.Text),
+                mtoOperGravadas = precioProducto * cantProd,
+                mtoIGV = precioFinal - (precioProducto * cantProd),
+                valorVenta = precioProducto * cantProd,
+                totalImpuestos = precioFinal - precioProducto,
+                subTotal = Convert.ToDecimal(valorRedondeado),
+                mtoImpVenta = valorRedondeado,
 
                 details = new[]
-                { 
+                {
                     new
                     {
-                        codProducto = "P001",
+                        codProducto = "P" + idProd,
                         unidad = "NIU",
-                        descripcion = "PRODUCTO 1",
-                        cantidad = 2,
-                        mtoValorUnitario = 50,
-                        mtoValorVenta = 100,
-                        mtoBaseIgv = 100,
+                        descripcion = desProd,
+                        cantidad = cantProd,
+                        mtoValorUnitario = precioProducto,
+                        mtoValorVenta = precioProducto*cantProd,
+                        mtoBaseIgv = precioProducto*cantProd,
                         porcentajeIgv = 18,
-                        igv = 18,
+                        igv = precioFinal - (precioProducto*cantProd),
                         tipAfeIgv = 10,
-                        totalImpuestos = 18,
-                        mtoPrecioUnitario = 59
+                        totalImpuestos = precioFinal - (precioProducto*cantProd),
+                        mtoPrecioUnitario = precioProducto*1.18m
                     }
                 },
 
@@ -518,7 +496,7 @@ namespace ProyectoGameCenter
                 new
                 {
                     code = "1000",
-                    value = "SON " + precioFinal.NumeroALetras()
+                    value = "SON " + valorRedondeado.NumeroALetras()
                 }
             }
 
@@ -529,6 +507,7 @@ namespace ProyectoGameCenter
 
             dynamic response = logDniRuc.Post(url, json, token);
 
+
             if (!Convert.ToBoolean(response.sunatResponse.success))
             {
                 MessageBox.Show("Exito");
@@ -537,9 +516,9 @@ namespace ProyectoGameCenter
 
             MessageBox.Show(response.sunatResponse.cdrResponse.description.ToString());
 
-            string nombreArchivo = "72621594-03-B001-2.zip"; //"NroRUC_DNI-TIPODECOMPROBANTE-SERIE-CORRELATIVO";
+            string nombreArchivoBoleta = docCliente + "-" + tipoCom + "-B001-" + correlativoStr + ".zip"; //"NroRUC_DNI-TIPODECOMPROBANTE-SERIE-CORRELATIVO";
 
-            string ruta = SaveDialog(nombreArchivo);
+            string ruta = SaveDialog(nombreArchivoBoleta);
 
             decimal demo = 118.00m;
             Console.WriteLine("SON " + demo.NumeroALetras());
@@ -559,10 +538,57 @@ namespace ProyectoGameCenter
             #region Generador PDF
 
 
+            url = "https://facturacion.apisperu.com/api/v1/invoice/pdf";
+            string nombrePDF = docCliente + "-" + tipoCom + "-B" + idventa + ".pdf";
 
-            #endregion
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(url);
+            request.Method = "POST";
+            request.Headers.Add("Authorization", token);
+            request.ContentType = "application/json";
 
-        }
+            byte[] postData = System.Text.Encoding.UTF8.GetBytes(json);
+
+            using (Stream stream = request.GetRequestStream())
+            {
+                stream.Write(postData, 0, postData.Length);
+            }
+
+            using (HttpWebResponse response2 = (HttpWebResponse)request.GetResponse())
+            {
+                if (response2.StatusCode == HttpStatusCode.OK)
+                {
+                    // Archivo PDF generado por la API
+                    using (Stream pdfStream = response2.GetResponseStream())
+                    {
+                        string filePath = SaveDialog(nombrePDF);
+
+                        if (!string.IsNullOrEmpty(filePath))
+                        {
+                            // Guardar el archivo PDF en el sistema de archivos
+                            using (FileStream fileStream = System.IO.File.Create(filePath))
+                            {
+                                pdfStream.CopyTo(fileStream);
+                            }
+
+                            Console.WriteLine("El archivo PDF se ha guardado correctamente en " + filePath);
+                        }
+                        else
+                        {
+                            Console.WriteLine("La operación de guardado fue cancelada por el usuario.");
+                        }
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Error en la respuesta de la API: " + response2.StatusDescription);
+                }
+
+
+            }
+
+                #endregion
+            }
+
 
         private void btnBuscaridCliente_Click_1(object sender, EventArgs e)
         {
@@ -646,6 +672,73 @@ namespace ProyectoGameCenter
             {
                 MessageBox.Show(ex.Message);
                 return "";
+            }
+        }
+
+        private void dgvOrdenVenta_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataGridViewRow filaActual = dgvOrdenVenta.Rows[e.RowIndex];
+                string numOrdenVenta = (string)dgvOrdenVenta.Rows[e.RowIndex].Cells[1].Value;
+                txtIDOrdenVenta.Text = filaActual.Cells[0].Value.ToString();
+                txtNOrdenVenta.Text = filaActual.Cells[1].Value.ToString();
+                dtpFechaOrden.Text = filaActual.Cells[2].Value.ToString();
+                txtDocumentoCliente.Text = filaActual.Cells[5].Value.ToString();
+                cboEstado.SelectedValue = Convert.ToInt32(filaActual.Cells[4].Value);
+                cboTipoComprobante.SelectedValue = Convert.ToInt32(filaActual.Cells[6].Value);
+
+                if (txtDocumentoCliente.Text.Length == 8)
+                {
+                    entClienteNatural cliente = new entClienteNatural();
+                    cliente.DNI = txtDocumentoCliente.Text;
+                    List<entClienteNatural> resultado = logClienteNatural.Instancia.BuscarDniClienteNatural(cliente);
+
+                    if (resultado.Count > 0)
+                    {
+                        // Suponiendo que tienes TextBox llamados txtNombre y txtApellido en tu formulario
+                        txtResultadoBusquedaCliente.Text = resultado[0].NOMBRE_CLI + " " + resultado[0].APELLIDO_PATERNO + " " + resultado[0].APELLIDO_MATERNO;
+                    }
+                    else
+                    {
+                        // Si no se encontraron resultados, puedes mostrar un mensaje de error o limpiar los TextBox.
+                        txtResultadoBusquedaCliente.Text = string.Empty;
+                        MessageBox.Show("No se encontraron resultados para el DNI ingresado.");
+                    }
+                }
+
+                else if (txtDocumentoCliente.Text.Length == 11)
+                {
+                    entClienteJuridico cliente = new entClienteJuridico();
+                    cliente.RUC_CLIENTE = txtDocumentoCliente.Text;
+                    List<entClienteJuridico> resultado = logClienteJuridico.Instancia.BuscarDniClienteJuridico(cliente);
+
+                    if (resultado.Count > 0)
+                    {
+                        // Suponiendo que tienes TextBox llamados txtNombre y txtApellido en tu formulario
+                        txtResultadoBusquedaCliente.Text = resultado[0].RAZON_SOCIAL;
+                    }
+                    else
+                    {
+                        // Si no se encontraron resultados, puedes mostrar un mensaje de error o limpiar los TextBox.
+                        txtResultadoBusquedaCliente.Text = string.Empty;
+                        MessageBox.Show("No se encontraron resultados para el RUC ingresado.");
+                    }
+                }
+
+                entDetalleOrdenVenta DOV = new entDetalleOrdenVenta();
+                DOV.NUM_ORDEN_VENTA = numOrdenVenta;
+                dgvDetalleOrdenVenta.DataSource = logDetalleOrdenVenta.Instancia.OrdenaDetalleVenta(DOV);
+                gbDetalleOrdenVenta.Enabled = true;
+                txtIDProducto.Enabled = false;
+                txtCantidad.Enabled = true;
+                btnAgregarProducto.Enabled = true;
+                btnFinalizar.Enabled = true;
+                btnBuscarProducto.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Selecciona un item de la tabla");
             }
         }
     }
