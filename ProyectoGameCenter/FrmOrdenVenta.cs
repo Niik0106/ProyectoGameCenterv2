@@ -86,7 +86,7 @@ namespace ProyectoGameCenter
             txtIDOrdenVenta.Text = "";
             dtpFechaOrden.ResetText();
             txtResultadoBusquedaCliente.Text = "";
-
+            txtDocumentoCliente.Text = string.Empty;
             cboEstado.SelectedIndex = default;
 
         }
@@ -107,7 +107,7 @@ namespace ProyectoGameCenter
             txtDesProducto.Text = "";
             txtCantidad.Text = "";
             txtPrecioVenta.Text = "";
-
+            txtPrecioCompra.Text = string.Empty;
             txtStock.Text = "";
         }
 
@@ -186,11 +186,14 @@ namespace ProyectoGameCenter
         {
             gbOrdenVenta.Enabled = true;
             gbDetalleOrdenVenta.Enabled = false;
-
             txtNOrdenVenta.Enabled = false;
+            txtNOrdenVenta.Text = string.Empty;
             txtIDOrdenVenta.Enabled = false;
             dtpFechaOrden.Enabled = false;
             txtResultadoBusquedaCliente.Enabled = false;
+            dgvDetalleOrdenVenta.DataSource = null;
+            dgvDetalleOrdenVenta.Rows.Clear();
+            dgvDetalleOrdenVenta.Columns.Clear();
             LimpiarVariables();
             LimpiarImportes();
             LimpiarVariablesDetalle();
@@ -365,6 +368,8 @@ namespace ProyectoGameCenter
                             ordVenta.num_documento = txtDocumentoCliente.Text.ToString();
                             ordVenta.estOrdenVenta = Convert.ToInt32(cboEstado.SelectedValue);
                             ordVenta.idTipoComprobante = Convert.ToInt32(cboTipoComprobante.SelectedValue);
+                            cboMetodoPago.Enabled = true;
+                            cboTipoPago.Enabled = true;
 
                             logOrdenVenta.Instancia.InsertaOrdenVenta(ordVenta);
                             gbDetalleOrdenVenta.Enabled = true;
@@ -386,6 +391,8 @@ namespace ProyectoGameCenter
                             ordVenta.num_documento = txtDocumentoCliente.Text.ToString();
                             ordVenta.estOrdenVenta = Convert.ToInt32(cboEstado.SelectedValue);
                             ordVenta.idTipoComprobante = Convert.ToInt32(cboTipoComprobante.SelectedValue);
+                            cboMetodoPago.Enabled = false;
+                            cboTipoPago.Enabled = false;
 
                             logOrdenVenta.Instancia.InsertaOrdenVenta(ordVenta);
                             gbDetalleOrdenVenta.Enabled = true;
@@ -412,7 +419,6 @@ namespace ProyectoGameCenter
             #region Verificacion y Generacion XML
             DateTimeOffset fechaHoraActual = DateTimeOffset.Now;
             string fechaHoraStr = fechaHoraActual.ToString("yyyy-MM-ddTHH:mm:sszzz");
-            string tipoComprobante = cboTipoComprobante.Text;
             string metodoPagoID = cboMetodoPago.Text;
             string tipoPagoID = cboTipoPago.Text;
             string idventa = txtNOrdenVenta.Text;
@@ -500,7 +506,7 @@ namespace ProyectoGameCenter
                             mtoOperGravadas = precioProducto * cantProd,
                             mtoIGV = precioFinal - (precioProducto * cantProd),
                             valorVenta = precioProducto * cantProd,
-                            totalImpuestos = precioFinal - precioProducto,
+                            totalImpuestos = precioFinal - (precioProducto * cantProd),
                             subTotal = Convert.ToDecimal(valorRedondeado),
                             mtoImpVenta = valorRedondeado,
 
@@ -537,9 +543,9 @@ namespace ProyectoGameCenter
                         #endregion
                         json = JsonConvert.SerializeObject(bodyBoleta);
 
-                        nombreArchivo = docCliente + "-03-B" + correlativoStr + ".zip"; //"NroRUC_DNI-TIPODECOMPROBANTE-SERIE-CORRELATIVO";
+                        nombreArchivo = docCliente + "-03-B" + idventa + ".zip"; //"NroRUC_DNI-TIPODECOMPROBANTE-SERIE-CORRELATIVO";
 
-                        nombrePDF = docCliente + "-03-B" + correlativoStr + ".pdf";
+                        nombrePDF = docCliente + "-03-B" + idventa + ".pdf";
                     }
                     else
                     {
@@ -561,6 +567,7 @@ namespace ProyectoGameCenter
                         departamento = resultado[0].DEPARTAMENTO;
                         distrito = resultado[0].DISTRITO;
 
+
                         #region Cuerpo Solicitud Factura
 
                         var bodyFactura = new
@@ -575,7 +582,7 @@ namespace ProyectoGameCenter
                             formaPago = new
                             {
                                 moneda = "PEN",
-                                tipo = metodoPagoID + ", " + tipoPagoID
+                                tipo = "Contado"
                             },
                             tipoMoneda = "PEN",
                             client = new
@@ -606,10 +613,9 @@ namespace ProyectoGameCenter
                                 }
                             },
                             mtoOperGravadas = precioProducto * cantProd,
-                            mtoOperExoneradas = 0,
                             mtoIGV = precioFinal - (precioProducto * cantProd),
                             valorVenta = precioProducto * cantProd,
-                            totalImpuestos = precioFinal - precioProducto,
+                            totalImpuestos = precioFinal - (precioProducto * cantProd),
                             subTotal = Convert.ToDecimal(valorRedondeado),
                             mtoImpVenta = valorRedondeado,
 
@@ -646,9 +652,9 @@ namespace ProyectoGameCenter
                         #endregion
                         json = JsonConvert.SerializeObject(bodyFactura);
 
-                        nombreArchivo = docCliente + "-03-F" + correlativoStr + ".zip"; //"NroRUC_DNI-TIPODECOMPROBANTE-SERIE-CORRELATIVO";
+                        nombreArchivo = docCliente + "-03-F" + idventa + ".zip"; //"NroRUC_DNI-TIPODECOMPROBANTE-SERIE-CORRELATIVO";
 
-                        nombrePDF = docCliente + "-03-F" + correlativoStr + ".pdf";
+                        nombrePDF = docCliente + "-03-F" + idventa + ".pdf";
                     }
                     else
                     {
@@ -664,6 +670,7 @@ namespace ProyectoGameCenter
 
             dynamic response = logDniRuc.Post(url, json, token);
 
+            Console.WriteLine(response.ToString());
 
             if (!Convert.ToBoolean(response.sunatResponse.success))
             {
@@ -685,7 +692,7 @@ namespace ProyectoGameCenter
 
                 if (exito == true)
                 {
-                    MessageBox.Show("CDR Descargado");
+                    MessageBox.Show("El archivo CDR se ha guardado correctamente en " + ruta);
                 }
                 else { MessageBox.Show("Error al guardar el CDR"); }
             }
@@ -725,11 +732,11 @@ namespace ProyectoGameCenter
                                 pdfStream.CopyTo(fileStream);
                             }
 
-                            Console.WriteLine("El archivo PDF se ha guardado correctamente en " + filePath);
+                            MessageBox.Show("El archivo PDF se ha guardado correctamente en " + filePath);
                         }
                         else
                         {
-                            Console.WriteLine("La operación de guardado fue cancelada por el usuario.");
+                            MessageBox.Show("La operación de guardado fue cancelada por el usuario.");
                         }
                     }
                 }
