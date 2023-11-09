@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
+using Newtonsoft.Json;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using Entidades;
 using RestSharp;
-using Newtonsoft.Json;
-using RestSharp.Extensions.MonoHttp;
 
 namespace AccesoDatos
 {
-    public class datApi
+    public class datApiDniRuc
     {
         public dynamic Get(string url)
         {
@@ -25,11 +24,14 @@ namespace AccesoDatos
             Stream myStream = myHttpWebResponse.GetResponseStream();
             StreamReader myStreamReader = new StreamReader(myStream);
             // Leemos los datos
-            string datos = System.Web.HttpUtility.HtmlDecode(myStreamReader.ReadToEnd());
+            string datos = HttpUtility.HtmlDecode(myStreamReader.ReadToEnd());
 
             dynamic data = JsonConvert.DeserializeObject(datos);
 
             return data;
         }
+
+       
+
     }
 }
