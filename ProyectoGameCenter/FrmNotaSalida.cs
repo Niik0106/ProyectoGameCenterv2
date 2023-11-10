@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicaNegocio;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,20 @@ namespace ProyectoGameCenter
         public FrmNotaSalida()
         {
             InitializeComponent();
+            ListarNotaSalida();
+            ListarVentas();
         }
+
+        public void ListarNotaSalida()
+        {
+            dgvNotaSalida.DataSource = logNotaSalida.Instancia.ListarNotaSalida();
+        }
+
+        public void ListarVentas()
+        {
+            dgvOrdenVenta.DataSource = logOrdenVenta.Instancia.ListarVentas();
+        }
+
+
     }
 }

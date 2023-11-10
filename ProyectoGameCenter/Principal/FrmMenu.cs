@@ -570,6 +570,12 @@ namespace ProyectoGameCenter.Principal
             OcultarSubMenu();
         }
 
+        private void btnNotaSalida_Click(object sender, EventArgs e)
+        {
+            AbrirFormularioHijo(new FrmNotaSalida());
+            OcultarSubMenu();
+        }
+
         private void panelTitleBar_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();

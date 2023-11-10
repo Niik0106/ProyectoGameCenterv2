@@ -11,7 +11,7 @@ namespace Entidades
         public int idNotaSalida { get; set; }
         public int numNotaSalida { get; set; }
         public DateTime fechaEmision { get; set; }
-        public int numOrdenVenta { get; set; }
+        public string numOrdenVenta { get; set; }
         public Boolean estado { get; set; }
 
     }

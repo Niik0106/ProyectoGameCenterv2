@@ -36,7 +36,7 @@ namespace AccesoDatos
                     notaSalida.idNotaSalida = Convert.ToInt32(dr["ID_NOTA_SALIDA"]);
                     notaSalida.numNotaSalida = Convert.ToInt32(dr["NUM_NOTA_SALIDA"]);
                     notaSalida.fechaEmision = Convert.ToDateTime(dr["FEC_EMISION"]);
-                    notaSalida.numOrdenVenta = Convert.ToInt32(dr["NUM_ORDEN_VENTA"]);
+                    notaSalida.numOrdenVenta = dr["NUM_ORDEN_VENTA"].ToString();
                     notaSalida.estado = Convert.ToBoolean(dr["ESTADO_NOTA_SALIDA"]);
                     lista.Add(notaSalida);
                 }
@@ -55,8 +55,7 @@ namespace AccesoDatos
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("SP_INSERTAR_NOTA_SALIDA", cn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@NUM_NOTA_SALIDA", notaSalida.numNotaSalida);
+                cmd.CommandType = CommandType.StoredProcedure;          
                 cmd.Parameters.AddWithValue("@FEC_EMISION", notaSalida.fechaEmision);
                 cmd.Parameters.AddWithValue("@NUM_ORDEN_VENTA", notaSalida.numOrdenVenta);
                 cmd.Parameters.AddWithValue("@ESTADO_NOTA_SALIDA", notaSalida.estado);

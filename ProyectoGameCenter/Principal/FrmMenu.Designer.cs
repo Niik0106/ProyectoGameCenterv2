@@ -30,16 +30,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title3 = new System.Windows.Forms.DataVisualization.Charting.Title();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend4 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series4 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.Title title4 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title1 = new System.Windows.Forms.DataVisualization.Charting.Title();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.Title title2 = new System.Windows.Forms.DataVisualization.Charting.Title();
             this.panelMenuLateral = new System.Windows.Forms.Panel();
             this.panelConfiguracionSubMenu = new System.Windows.Forms.Panel();
             this.btnEmpresa = new FontAwesome.Sharp.IconButton();
@@ -93,6 +93,8 @@
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.lblNumeroProductos = new System.Windows.Forms.Label();
+            this.btnOKFechaPersonalizada = new ProyectoGameCenter.Botones.Boton();
+            this.btnPersonalizadoFecha = new ProyectoGameCenter.Botones.Boton();
             this.panel6 = new System.Windows.Forms.Panel();
             this.dgvProductosBajoStock = new System.Windows.Forms.DataGridView();
             this.label4 = new System.Windows.Forms.Label();
@@ -110,6 +112,10 @@
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.lblNumeroOrdenes = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.btnHoy = new ProyectoGameCenter.Botones.Boton();
+            this.btnUlitmos7Dias = new ProyectoGameCenter.Botones.Boton();
+            this.btn30Dias = new ProyectoGameCenter.Botones.Boton();
+            this.btnEsteMes = new ProyectoGameCenter.Botones.Boton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.lblNumeroClientes = new System.Windows.Forms.Label();
@@ -119,12 +125,6 @@
             this.dtpFin = new System.Windows.Forms.DateTimePicker();
             this.dtpInicio = new System.Windows.Forms.DateTimePicker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnOKFechaPersonalizada = new ProyectoGameCenter.Botones.Boton();
-            this.btnPersonalizadoFecha = new ProyectoGameCenter.Botones.Boton();
-            this.btnHoy = new ProyectoGameCenter.Botones.Boton();
-            this.btnUlitmos7Dias = new ProyectoGameCenter.Botones.Boton();
-            this.btn30Dias = new ProyectoGameCenter.Botones.Boton();
-            this.btnEsteMes = new ProyectoGameCenter.Botones.Boton();
             this.panelMenuLateral.SuspendLayout();
             this.panelConfiguracionSubMenu.SuspendLayout();
             this.panelReportesSubMenu.SuspendLayout();
@@ -491,6 +491,7 @@
             this.btnNotaSalida.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNotaSalida.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNotaSalida.UseVisualStyleBackColor = true;
+            this.btnNotaSalida.Click += new System.EventHandler(this.btnNotaSalida_Click);
             // 
             // btnOrdenVenta
             // 
@@ -1049,6 +1050,54 @@
             this.lblNumeroProductos.TabIndex = 42;
             this.lblNumeroProductos.Text = "1000";
             // 
+            // btnOKFechaPersonalizada
+            // 
+            this.btnOKFechaPersonalizada.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnOKFechaPersonalizada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnOKFechaPersonalizada.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnOKFechaPersonalizada.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnOKFechaPersonalizada.BorderRadius = 40;
+            this.btnOKFechaPersonalizada.BorderSize = 0;
+            this.btnOKFechaPersonalizada.FlatAppearance.BorderSize = 0;
+            this.btnOKFechaPersonalizada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOKFechaPersonalizada.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnOKFechaPersonalizada.ForeColor = System.Drawing.Color.White;
+            this.btnOKFechaPersonalizada.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnOKFechaPersonalizada.Location = new System.Drawing.Point(607, 21);
+            this.btnOKFechaPersonalizada.Name = "btnOKFechaPersonalizada";
+            this.btnOKFechaPersonalizada.Size = new System.Drawing.Size(73, 50);
+            this.btnOKFechaPersonalizada.TabIndex = 96;
+            this.btnOKFechaPersonalizada.Text = "OK";
+            this.btnOKFechaPersonalizada.TextColor = System.Drawing.Color.White;
+            this.btnOKFechaPersonalizada.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnOKFechaPersonalizada.UseVisualStyleBackColor = false;
+            this.btnOKFechaPersonalizada.Visible = false;
+            this.btnOKFechaPersonalizada.Click += new System.EventHandler(this.btnOKFechaPersonalizada_Click);
+            // 
+            // btnPersonalizadoFecha
+            // 
+            this.btnPersonalizadoFecha.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnPersonalizadoFecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnPersonalizadoFecha.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnPersonalizadoFecha.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnPersonalizadoFecha.BorderRadius = 40;
+            this.btnPersonalizadoFecha.BorderSize = 0;
+            this.btnPersonalizadoFecha.FlatAppearance.BorderSize = 0;
+            this.btnPersonalizadoFecha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnPersonalizadoFecha.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnPersonalizadoFecha.ForeColor = System.Drawing.Color.White;
+            this.btnPersonalizadoFecha.Image = ((System.Drawing.Image)(resources.GetObject("btnPersonalizadoFecha.Image")));
+            this.btnPersonalizadoFecha.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnPersonalizadoFecha.Location = new System.Drawing.Point(686, 21);
+            this.btnPersonalizadoFecha.Name = "btnPersonalizadoFecha";
+            this.btnPersonalizadoFecha.Size = new System.Drawing.Size(164, 50);
+            this.btnPersonalizadoFecha.TabIndex = 95;
+            this.btnPersonalizadoFecha.Text = "Personalizado";
+            this.btnPersonalizadoFecha.TextColor = System.Drawing.Color.White;
+            this.btnPersonalizadoFecha.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnPersonalizadoFecha.UseVisualStyleBackColor = false;
+            this.btnPersonalizadoFecha.Click += new System.EventHandler(this.btnPersonalizadoFecha_Click);
+            // 
             // panel6
             // 
             this.panel6.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1068,23 +1117,23 @@
             this.dgvProductosBajoStock.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgvProductosBajoStock.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgvProductosBajoStock.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(45)))), ((int)(((byte)(86)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(141)))), ((int)(((byte)(181)))));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(45)))), ((int)(((byte)(86)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(141)))), ((int)(((byte)(181)))));
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvProductosBajoStock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(45)))), ((int)(((byte)(86)))));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(141)))), ((int)(((byte)(181)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(45)))), ((int)(((byte)(86)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(124)))), ((int)(((byte)(141)))), ((int)(((byte)(181)))));
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvProductosBajoStock.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvProductosBajoStock.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(45)))), ((int)(((byte)(86)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvProductosBajoStock.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(45)))), ((int)(((byte)(86)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvProductosBajoStock.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvProductosBajoStock.EnableHeadersVisualStyles = false;
             this.dgvProductosBajoStock.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(75)))), ((int)(((byte)(111)))));
             this.dgvProductosBajoStock.Location = new System.Drawing.Point(22, 40);
@@ -1111,16 +1160,16 @@
             // 
             this.chartTopProductos.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.chartTopProductos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(45)))), ((int)(((byte)(86)))));
-            chartArea3.BackColor = System.Drawing.Color.Transparent;
-            chartArea3.Name = "ChartArea1";
-            this.chartTopProductos.ChartAreas.Add(chartArea3);
-            legend3.BackColor = System.Drawing.Color.Transparent;
-            legend3.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
-            legend3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            legend3.ForeColor = System.Drawing.Color.Silver;
-            legend3.IsTextAutoFit = false;
-            legend3.Name = "Legend1";
-            this.chartTopProductos.Legends.Add(legend3);
+            chartArea1.BackColor = System.Drawing.Color.Transparent;
+            chartArea1.Name = "ChartArea1";
+            this.chartTopProductos.ChartAreas.Add(chartArea1);
+            legend1.BackColor = System.Drawing.Color.Transparent;
+            legend1.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Bottom;
+            legend1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            legend1.ForeColor = System.Drawing.Color.Silver;
+            legend1.IsTextAutoFit = false;
+            legend1.Name = "Legend1";
+            this.chartTopProductos.Legends.Add(legend1);
             this.chartTopProductos.Location = new System.Drawing.Point(1046, 282);
             this.chartTopProductos.Name = "chartTopProductos";
             this.chartTopProductos.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
@@ -1131,81 +1180,81 @@
         System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(88)))), ((int)(((byte)(127))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(222)))), ((int)(((byte)(205))))),
         System.Drawing.Color.FromArgb(((int)(((byte)(107)))), ((int)(((byte)(83)))), ((int)(((byte)(255)))))};
-            series3.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
-            series3.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            series3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(45)))), ((int)(((byte)(86)))));
-            series3.BorderWidth = 10;
-            series3.ChartArea = "ChartArea1";
-            series3.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
-            series3.EmptyPointStyle.LabelForeColor = System.Drawing.Color.White;
-            series3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            series3.IsValueShownAsLabel = true;
-            series3.IsXValueIndexed = true;
-            series3.LabelForeColor = System.Drawing.Color.White;
-            series3.Legend = "Legend1";
-            series3.Name = "Series1";
-            this.chartTopProductos.Series.Add(series3);
+            series1.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.DiagonalRight;
+            series1.BackSecondaryColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
+            series1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(45)))), ((int)(((byte)(86)))));
+            series1.BorderWidth = 10;
+            series1.ChartArea = "ChartArea1";
+            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Doughnut;
+            series1.EmptyPointStyle.LabelForeColor = System.Drawing.Color.White;
+            series1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            series1.IsValueShownAsLabel = true;
+            series1.IsXValueIndexed = true;
+            series1.LabelForeColor = System.Drawing.Color.White;
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartTopProductos.Series.Add(series1);
             this.chartTopProductos.Size = new System.Drawing.Size(421, 539);
             this.chartTopProductos.TabIndex = 93;
             this.chartTopProductos.Text = "chart2";
-            title3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title3.ForeColor = System.Drawing.Color.WhiteSmoke;
-            title3.Name = "Title1";
-            title3.Text = "TOP 5 DE PRODUCTOS";
-            this.chartTopProductos.Titles.Add(title3);
+            title1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title1.ForeColor = System.Drawing.Color.WhiteSmoke;
+            title1.Name = "Title1";
+            title1.Text = "TOP 5 DE PRODUCTOS";
+            this.chartTopProductos.Titles.Add(title1);
             // 
             // chartIngresoBruto
             // 
             this.chartIngresoBruto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.chartIngresoBruto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(42)))), ((int)(((byte)(45)))), ((int)(((byte)(86)))));
-            chartArea4.AxisX.IsLabelAutoFit = false;
-            chartArea4.AxisX.IsMarginVisible = false;
-            chartArea4.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            chartArea4.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Silver;
-            chartArea4.AxisX.LineColor = System.Drawing.Color.White;
-            chartArea4.AxisX.LineWidth = 0;
-            chartArea4.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
-            chartArea4.AxisX.MajorTickMark.LineColor = System.Drawing.Color.White;
-            chartArea4.AxisX.MajorTickMark.LineWidth = 2;
-            chartArea4.AxisX.MajorTickMark.Size = 3F;
-            chartArea4.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Silver;
-            chartArea4.AxisY.LabelStyle.Format = "${0}";
-            chartArea4.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(75)))), ((int)(((byte)(111)))));
-            chartArea4.AxisY.LineWidth = 0;
-            chartArea4.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(75)))), ((int)(((byte)(111)))));
-            chartArea4.AxisY.MajorTickMark.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(75)))), ((int)(((byte)(111)))));
-            chartArea4.BackColor = System.Drawing.Color.Transparent;
-            chartArea4.Name = "ChartArea1";
-            this.chartIngresoBruto.ChartAreas.Add(chartArea4);
-            legend4.BackColor = System.Drawing.Color.Transparent;
-            legend4.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
-            legend4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            legend4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
-            legend4.IsTextAutoFit = false;
-            legend4.Name = "Legend1";
-            this.chartIngresoBruto.Legends.Add(legend4);
+            chartArea2.AxisX.IsLabelAutoFit = false;
+            chartArea2.AxisX.IsMarginVisible = false;
+            chartArea2.AxisX.LabelStyle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            chartArea2.AxisX.LabelStyle.ForeColor = System.Drawing.Color.Silver;
+            chartArea2.AxisX.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisX.LineWidth = 0;
+            chartArea2.AxisX.MajorGrid.LineColor = System.Drawing.Color.Transparent;
+            chartArea2.AxisX.MajorTickMark.LineColor = System.Drawing.Color.White;
+            chartArea2.AxisX.MajorTickMark.LineWidth = 2;
+            chartArea2.AxisX.MajorTickMark.Size = 3F;
+            chartArea2.AxisY.LabelStyle.ForeColor = System.Drawing.Color.Silver;
+            chartArea2.AxisY.LabelStyle.Format = "${0}";
+            chartArea2.AxisY.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(75)))), ((int)(((byte)(111)))));
+            chartArea2.AxisY.LineWidth = 0;
+            chartArea2.AxisY.MajorGrid.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(75)))), ((int)(((byte)(111)))));
+            chartArea2.AxisY.MajorTickMark.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(75)))), ((int)(((byte)(111)))));
+            chartArea2.BackColor = System.Drawing.Color.Transparent;
+            chartArea2.Name = "ChartArea1";
+            this.chartIngresoBruto.ChartAreas.Add(chartArea2);
+            legend2.BackColor = System.Drawing.Color.Transparent;
+            legend2.Docking = System.Windows.Forms.DataVisualization.Charting.Docking.Top;
+            legend2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            legend2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(255)))));
+            legend2.IsTextAutoFit = false;
+            legend2.Name = "Legend1";
+            this.chartIngresoBruto.Legends.Add(legend2);
             this.chartIngresoBruto.Location = new System.Drawing.Point(70, 489);
             this.chartIngresoBruto.Name = "chartIngresoBruto";
             this.chartIngresoBruto.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
-            series4.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
-            series4.BackSecondaryColor = System.Drawing.Color.Fuchsia;
-            series4.BorderColor = System.Drawing.Color.Transparent;
-            series4.ChartArea = "ChartArea1";
-            series4.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
-            series4.Color = System.Drawing.Color.MediumSlateBlue;
-            series4.Legend = "Legend1";
-            series4.Name = "Series1";
-            series4.YValuesPerPoint = 2;
-            this.chartIngresoBruto.Series.Add(series4);
+            series2.BackGradientStyle = System.Windows.Forms.DataVisualization.Charting.GradientStyle.LeftRight;
+            series2.BackSecondaryColor = System.Drawing.Color.Fuchsia;
+            series2.BorderColor = System.Drawing.Color.Transparent;
+            series2.ChartArea = "ChartArea1";
+            series2.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.SplineArea;
+            series2.Color = System.Drawing.Color.MediumSlateBlue;
+            series2.Legend = "Legend1";
+            series2.Name = "Series1";
+            series2.YValuesPerPoint = 2;
+            this.chartIngresoBruto.Series.Add(series2);
             this.chartIngresoBruto.Size = new System.Drawing.Size(944, 332);
             this.chartIngresoBruto.TabIndex = 92;
             this.chartIngresoBruto.Text = "chart1";
-            title4.Alignment = System.Drawing.ContentAlignment.TopLeft;
-            title4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            title4.ForeColor = System.Drawing.Color.WhiteSmoke;
-            title4.Name = "Title1";
-            title4.Text = "INGRESOS BRUTOS";
-            this.chartIngresoBruto.Titles.Add(title4);
+            title2.Alignment = System.Drawing.ContentAlignment.TopLeft;
+            title2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            title2.ForeColor = System.Drawing.Color.WhiteSmoke;
+            title2.Name = "Title1";
+            title2.Text = "INGRESOS BRUTOS";
+            this.chartIngresoBruto.Titles.Add(title2);
             // 
             // panel5
             // 
@@ -1345,6 +1394,102 @@
             this.label13.TabIndex = 38;
             this.label13.Text = "Numero Ordenes";
             // 
+            // btnHoy
+            // 
+            this.btnHoy.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnHoy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnHoy.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnHoy.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnHoy.BorderRadius = 40;
+            this.btnHoy.BorderSize = 0;
+            this.btnHoy.FlatAppearance.BorderSize = 0;
+            this.btnHoy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnHoy.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnHoy.ForeColor = System.Drawing.Color.White;
+            this.btnHoy.Image = ((System.Drawing.Image)(resources.GetObject("btnHoy.Image")));
+            this.btnHoy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnHoy.Location = new System.Drawing.Point(856, 21);
+            this.btnHoy.Name = "btnHoy";
+            this.btnHoy.Size = new System.Drawing.Size(148, 50);
+            this.btnHoy.TabIndex = 88;
+            this.btnHoy.Text = "Hoy";
+            this.btnHoy.TextColor = System.Drawing.Color.White;
+            this.btnHoy.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnHoy.UseVisualStyleBackColor = false;
+            this.btnHoy.Click += new System.EventHandler(this.btnHoy_Click);
+            // 
+            // btnUlitmos7Dias
+            // 
+            this.btnUlitmos7Dias.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnUlitmos7Dias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnUlitmos7Dias.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnUlitmos7Dias.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnUlitmos7Dias.BorderRadius = 40;
+            this.btnUlitmos7Dias.BorderSize = 0;
+            this.btnUlitmos7Dias.FlatAppearance.BorderSize = 0;
+            this.btnUlitmos7Dias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUlitmos7Dias.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnUlitmos7Dias.ForeColor = System.Drawing.Color.White;
+            this.btnUlitmos7Dias.Image = ((System.Drawing.Image)(resources.GetObject("btnUlitmos7Dias.Image")));
+            this.btnUlitmos7Dias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnUlitmos7Dias.Location = new System.Drawing.Point(1011, 21);
+            this.btnUlitmos7Dias.Name = "btnUlitmos7Dias";
+            this.btnUlitmos7Dias.Size = new System.Drawing.Size(148, 50);
+            this.btnUlitmos7Dias.TabIndex = 87;
+            this.btnUlitmos7Dias.Text = "Ultimos 7 Dias";
+            this.btnUlitmos7Dias.TextColor = System.Drawing.Color.White;
+            this.btnUlitmos7Dias.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnUlitmos7Dias.UseVisualStyleBackColor = false;
+            this.btnUlitmos7Dias.Click += new System.EventHandler(this.btnUlitmos7Dias_Click);
+            // 
+            // btn30Dias
+            // 
+            this.btn30Dias.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btn30Dias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btn30Dias.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btn30Dias.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btn30Dias.BorderRadius = 40;
+            this.btn30Dias.BorderSize = 0;
+            this.btn30Dias.FlatAppearance.BorderSize = 0;
+            this.btn30Dias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn30Dias.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btn30Dias.ForeColor = System.Drawing.Color.White;
+            this.btn30Dias.Image = ((System.Drawing.Image)(resources.GetObject("btn30Dias.Image")));
+            this.btn30Dias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btn30Dias.Location = new System.Drawing.Point(1165, 21);
+            this.btn30Dias.Name = "btn30Dias";
+            this.btn30Dias.Size = new System.Drawing.Size(148, 50);
+            this.btn30Dias.TabIndex = 86;
+            this.btn30Dias.Text = "Ultimos 30 Dias";
+            this.btn30Dias.TextColor = System.Drawing.Color.White;
+            this.btn30Dias.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn30Dias.UseVisualStyleBackColor = false;
+            this.btn30Dias.Click += new System.EventHandler(this.btn30Dias_Click);
+            // 
+            // btnEsteMes
+            // 
+            this.btnEsteMes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.btnEsteMes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnEsteMes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnEsteMes.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnEsteMes.BorderRadius = 40;
+            this.btnEsteMes.BorderSize = 0;
+            this.btnEsteMes.FlatAppearance.BorderSize = 0;
+            this.btnEsteMes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEsteMes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnEsteMes.ForeColor = System.Drawing.Color.White;
+            this.btnEsteMes.Image = ((System.Drawing.Image)(resources.GetObject("btnEsteMes.Image")));
+            this.btnEsteMes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEsteMes.Location = new System.Drawing.Point(1319, 21);
+            this.btnEsteMes.Name = "btnEsteMes";
+            this.btnEsteMes.Size = new System.Drawing.Size(148, 50);
+            this.btnEsteMes.TabIndex = 85;
+            this.btnEsteMes.Text = "Del Mes";
+            this.btnEsteMes.TextColor = System.Drawing.Color.White;
+            this.btnEsteMes.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnEsteMes.UseVisualStyleBackColor = false;
+            this.btnEsteMes.Click += new System.EventHandler(this.btnEsteMes_Click);
+            // 
             // panel2
             // 
             this.panel2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -1453,150 +1598,6 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            // 
-            // btnOKFechaPersonalizada
-            // 
-            this.btnOKFechaPersonalizada.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnOKFechaPersonalizada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnOKFechaPersonalizada.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnOKFechaPersonalizada.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnOKFechaPersonalizada.BorderRadius = 40;
-            this.btnOKFechaPersonalizada.BorderSize = 0;
-            this.btnOKFechaPersonalizada.FlatAppearance.BorderSize = 0;
-            this.btnOKFechaPersonalizada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOKFechaPersonalizada.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnOKFechaPersonalizada.ForeColor = System.Drawing.Color.White;
-            this.btnOKFechaPersonalizada.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnOKFechaPersonalizada.Location = new System.Drawing.Point(607, 21);
-            this.btnOKFechaPersonalizada.Name = "btnOKFechaPersonalizada";
-            this.btnOKFechaPersonalizada.Size = new System.Drawing.Size(73, 50);
-            this.btnOKFechaPersonalizada.TabIndex = 96;
-            this.btnOKFechaPersonalizada.Text = "OK";
-            this.btnOKFechaPersonalizada.TextColor = System.Drawing.Color.White;
-            this.btnOKFechaPersonalizada.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnOKFechaPersonalizada.UseVisualStyleBackColor = false;
-            this.btnOKFechaPersonalizada.Visible = false;
-            this.btnOKFechaPersonalizada.Click += new System.EventHandler(this.btnOKFechaPersonalizada_Click);
-            // 
-            // btnPersonalizadoFecha
-            // 
-            this.btnPersonalizadoFecha.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnPersonalizadoFecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnPersonalizadoFecha.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnPersonalizadoFecha.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnPersonalizadoFecha.BorderRadius = 40;
-            this.btnPersonalizadoFecha.BorderSize = 0;
-            this.btnPersonalizadoFecha.FlatAppearance.BorderSize = 0;
-            this.btnPersonalizadoFecha.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnPersonalizadoFecha.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnPersonalizadoFecha.ForeColor = System.Drawing.Color.White;
-            this.btnPersonalizadoFecha.Image = ((System.Drawing.Image)(resources.GetObject("btnPersonalizadoFecha.Image")));
-            this.btnPersonalizadoFecha.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnPersonalizadoFecha.Location = new System.Drawing.Point(686, 21);
-            this.btnPersonalizadoFecha.Name = "btnPersonalizadoFecha";
-            this.btnPersonalizadoFecha.Size = new System.Drawing.Size(164, 50);
-            this.btnPersonalizadoFecha.TabIndex = 95;
-            this.btnPersonalizadoFecha.Text = "Personalizado";
-            this.btnPersonalizadoFecha.TextColor = System.Drawing.Color.White;
-            this.btnPersonalizadoFecha.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnPersonalizadoFecha.UseVisualStyleBackColor = false;
-            this.btnPersonalizadoFecha.Click += new System.EventHandler(this.btnPersonalizadoFecha_Click);
-            // 
-            // btnHoy
-            // 
-            this.btnHoy.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnHoy.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnHoy.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnHoy.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnHoy.BorderRadius = 40;
-            this.btnHoy.BorderSize = 0;
-            this.btnHoy.FlatAppearance.BorderSize = 0;
-            this.btnHoy.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnHoy.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnHoy.ForeColor = System.Drawing.Color.White;
-            this.btnHoy.Image = ((System.Drawing.Image)(resources.GetObject("btnHoy.Image")));
-            this.btnHoy.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnHoy.Location = new System.Drawing.Point(856, 21);
-            this.btnHoy.Name = "btnHoy";
-            this.btnHoy.Size = new System.Drawing.Size(148, 50);
-            this.btnHoy.TabIndex = 88;
-            this.btnHoy.Text = "Hoy";
-            this.btnHoy.TextColor = System.Drawing.Color.White;
-            this.btnHoy.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnHoy.UseVisualStyleBackColor = false;
-            this.btnHoy.Click += new System.EventHandler(this.btnHoy_Click);
-            // 
-            // btnUlitmos7Dias
-            // 
-            this.btnUlitmos7Dias.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnUlitmos7Dias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnUlitmos7Dias.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnUlitmos7Dias.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnUlitmos7Dias.BorderRadius = 40;
-            this.btnUlitmos7Dias.BorderSize = 0;
-            this.btnUlitmos7Dias.FlatAppearance.BorderSize = 0;
-            this.btnUlitmos7Dias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUlitmos7Dias.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnUlitmos7Dias.ForeColor = System.Drawing.Color.White;
-            this.btnUlitmos7Dias.Image = ((System.Drawing.Image)(resources.GetObject("btnUlitmos7Dias.Image")));
-            this.btnUlitmos7Dias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnUlitmos7Dias.Location = new System.Drawing.Point(1011, 21);
-            this.btnUlitmos7Dias.Name = "btnUlitmos7Dias";
-            this.btnUlitmos7Dias.Size = new System.Drawing.Size(148, 50);
-            this.btnUlitmos7Dias.TabIndex = 87;
-            this.btnUlitmos7Dias.Text = "Ultimos 7 Dias";
-            this.btnUlitmos7Dias.TextColor = System.Drawing.Color.White;
-            this.btnUlitmos7Dias.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnUlitmos7Dias.UseVisualStyleBackColor = false;
-            this.btnUlitmos7Dias.Click += new System.EventHandler(this.btnUlitmos7Dias_Click);
-            // 
-            // btn30Dias
-            // 
-            this.btn30Dias.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btn30Dias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btn30Dias.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btn30Dias.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btn30Dias.BorderRadius = 40;
-            this.btn30Dias.BorderSize = 0;
-            this.btn30Dias.FlatAppearance.BorderSize = 0;
-            this.btn30Dias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn30Dias.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btn30Dias.ForeColor = System.Drawing.Color.White;
-            this.btn30Dias.Image = ((System.Drawing.Image)(resources.GetObject("btn30Dias.Image")));
-            this.btn30Dias.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btn30Dias.Location = new System.Drawing.Point(1165, 21);
-            this.btn30Dias.Name = "btn30Dias";
-            this.btn30Dias.Size = new System.Drawing.Size(148, 50);
-            this.btn30Dias.TabIndex = 86;
-            this.btn30Dias.Text = "Ultimos 30 Dias";
-            this.btn30Dias.TextColor = System.Drawing.Color.White;
-            this.btn30Dias.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btn30Dias.UseVisualStyleBackColor = false;
-            this.btn30Dias.Click += new System.EventHandler(this.btn30Dias_Click);
-            // 
-            // btnEsteMes
-            // 
-            this.btnEsteMes.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnEsteMes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnEsteMes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnEsteMes.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnEsteMes.BorderRadius = 40;
-            this.btnEsteMes.BorderSize = 0;
-            this.btnEsteMes.FlatAppearance.BorderSize = 0;
-            this.btnEsteMes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEsteMes.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnEsteMes.ForeColor = System.Drawing.Color.White;
-            this.btnEsteMes.Image = ((System.Drawing.Image)(resources.GetObject("btnEsteMes.Image")));
-            this.btnEsteMes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEsteMes.Location = new System.Drawing.Point(1319, 21);
-            this.btnEsteMes.Name = "btnEsteMes";
-            this.btnEsteMes.Size = new System.Drawing.Size(148, 50);
-            this.btnEsteMes.TabIndex = 85;
-            this.btnEsteMes.Text = "Del Mes";
-            this.btnEsteMes.TextColor = System.Drawing.Color.White;
-            this.btnEsteMes.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnEsteMes.UseVisualStyleBackColor = false;
-            this.btnEsteMes.Click += new System.EventHandler(this.btnEsteMes_Click);
             // 
             // FrmMenu
             // 
