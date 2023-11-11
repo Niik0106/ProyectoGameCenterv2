@@ -28,17 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOrdenVenta));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOrdenVenta));
             this.gbOrdenVenta = new System.Windows.Forms.GroupBox();
-            this.btnAgregarOrdenVenta = new ProyectoGameCenter.Botones.Boton();
-            this.txtNOrdenVenta = new ProyectoGameCenter.NiikTextBox();
-            this.txtIDOrdenVenta = new ProyectoGameCenter.NiikTextBox();
             this.cboTipoComprobante = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -57,16 +54,7 @@
             this.btnCPago = new System.Windows.Forms.Button();
             this.gbDetalleOrdenVenta = new System.Windows.Forms.GroupBox();
             this.dgvDetalleOrdenVenta = new System.Windows.Forms.DataGridView();
-            this.btnBuscarProducto = new ProyectoGameCenter.Botones.Boton();
-            this.txtPrecioCompra = new ProyectoGameCenter.NiikTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtDesProducto = new ProyectoGameCenter.NiikTextBox();
-            this.txtStock = new ProyectoGameCenter.NiikTextBox();
-            this.txtPrecioVenta = new ProyectoGameCenter.NiikTextBox();
-            this.txtCantidad = new ProyectoGameCenter.NiikTextBox();
-            this.txtIDProducto = new ProyectoGameCenter.NiikTextBox();
-            this.btnFinalizar = new ProyectoGameCenter.Botones.Boton();
-            this.btnAgregarProducto = new ProyectoGameCenter.Botones.Boton();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
@@ -75,12 +63,7 @@
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.dtpOrdenVenta = new System.Windows.Forms.DateTimePicker();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnBuscaridCliente = new ProyectoGameCenter.Botones.Boton();
-            this.txtResultadoBusquedaCliente = new ProyectoGameCenter.NiikTextBox();
-            this.txtDocumentoCliente = new ProyectoGameCenter.NiikTextBox();
             this.gbImportes = new System.Windows.Forms.GroupBox();
-            this.btnCancelar = new ProyectoGameCenter.Botones.Boton();
-            this.btnAgregarPago = new ProyectoGameCenter.Botones.Boton();
             this.cboTipoPago = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.txtIgv = new System.Windows.Forms.TextBox();
@@ -92,6 +75,23 @@
             this.btnAnular = new ProyectoGameCenter.Botones.Boton();
             this.btnNuevo = new ProyectoGameCenter.Botones.Boton();
             this.btnSalir = new ProyectoGameCenter.Botones.Boton();
+            this.btnCancelar = new ProyectoGameCenter.Botones.Boton();
+            this.btnAgregarPago = new ProyectoGameCenter.Botones.Boton();
+            this.btnBuscaridCliente = new ProyectoGameCenter.Botones.Boton();
+            this.txtResultadoBusquedaCliente = new ProyectoGameCenter.NiikTextBox();
+            this.txtDocumentoCliente = new ProyectoGameCenter.NiikTextBox();
+            this.btnBuscarProducto = new ProyectoGameCenter.Botones.Boton();
+            this.txtPrecioCompra = new ProyectoGameCenter.NiikTextBox();
+            this.txtDesProducto = new ProyectoGameCenter.NiikTextBox();
+            this.txtStock = new ProyectoGameCenter.NiikTextBox();
+            this.txtPrecioVenta = new ProyectoGameCenter.NiikTextBox();
+            this.txtCantidad = new ProyectoGameCenter.NiikTextBox();
+            this.txtIDProducto = new ProyectoGameCenter.NiikTextBox();
+            this.btnFinalizar = new ProyectoGameCenter.Botones.Boton();
+            this.btnAgregarProducto = new ProyectoGameCenter.Botones.Boton();
+            this.btnAgregarOrdenVenta = new ProyectoGameCenter.Botones.Boton();
+            this.txtNOrdenVenta = new ProyectoGameCenter.NiikTextBox();
+            this.txtIDOrdenVenta = new ProyectoGameCenter.NiikTextBox();
             this.gbOrdenVenta.SuspendLayout();
             this.gbDetalleOrdenVenta.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetalleOrdenVenta)).BeginInit();
@@ -123,73 +123,6 @@
             this.gbOrdenVenta.TabIndex = 40;
             this.gbOrdenVenta.TabStop = false;
             this.gbOrdenVenta.Text = "INFORMACION DE LA VENTA";
-            // 
-            // btnAgregarOrdenVenta
-            // 
-            this.btnAgregarOrdenVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnAgregarOrdenVenta.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnAgregarOrdenVenta.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnAgregarOrdenVenta.BorderRadius = 40;
-            this.btnAgregarOrdenVenta.BorderSize = 0;
-            this.btnAgregarOrdenVenta.FlatAppearance.BorderSize = 0;
-            this.btnAgregarOrdenVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarOrdenVenta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnAgregarOrdenVenta.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarOrdenVenta.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarOrdenVenta.Image")));
-            this.btnAgregarOrdenVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarOrdenVenta.Location = new System.Drawing.Point(450, 120);
-            this.btnAgregarOrdenVenta.Name = "btnAgregarOrdenVenta";
-            this.btnAgregarOrdenVenta.Size = new System.Drawing.Size(148, 50);
-            this.btnAgregarOrdenVenta.TabIndex = 95;
-            this.btnAgregarOrdenVenta.Text = "Agregar";
-            this.btnAgregarOrdenVenta.TextColor = System.Drawing.Color.White;
-            this.btnAgregarOrdenVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnAgregarOrdenVenta.UseVisualStyleBackColor = false;
-            this.btnAgregarOrdenVenta.Click += new System.EventHandler(this.btnAgregarOrdenVenta_Click);
-            // 
-            // txtNOrdenVenta
-            // 
-            this.txtNOrdenVenta.BackColor = System.Drawing.SystemColors.Window;
-            this.txtNOrdenVenta.BorderColor = System.Drawing.Color.DarkSlateBlue;
-            this.txtNOrdenVenta.BorderFocusColor = System.Drawing.Color.DarkOrchid;
-            this.txtNOrdenVenta.BorderRadius = 15;
-            this.txtNOrdenVenta.BorderSize = 2;
-            this.txtNOrdenVenta.Enabled = false;
-            this.txtNOrdenVenta.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtNOrdenVenta.ForeColor = System.Drawing.Color.Black;
-            this.txtNOrdenVenta.Location = new System.Drawing.Point(215, 63);
-            this.txtNOrdenVenta.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNOrdenVenta.Multiline = false;
-            this.txtNOrdenVenta.Name = "txtNOrdenVenta";
-            this.txtNOrdenVenta.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtNOrdenVenta.PasswordChar = false;
-            this.txtNOrdenVenta.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtNOrdenVenta.PlaceholderText = "";
-            this.txtNOrdenVenta.Size = new System.Drawing.Size(112, 36);
-            this.txtNOrdenVenta.TabIndex = 91;
-            this.txtNOrdenVenta.UnderlinedStyle = false;
-            // 
-            // txtIDOrdenVenta
-            // 
-            this.txtIDOrdenVenta.BackColor = System.Drawing.SystemColors.Window;
-            this.txtIDOrdenVenta.BorderColor = System.Drawing.Color.DarkSlateBlue;
-            this.txtIDOrdenVenta.BorderFocusColor = System.Drawing.Color.DarkOrchid;
-            this.txtIDOrdenVenta.BorderRadius = 15;
-            this.txtIDOrdenVenta.BorderSize = 2;
-            this.txtIDOrdenVenta.Enabled = false;
-            this.txtIDOrdenVenta.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtIDOrdenVenta.ForeColor = System.Drawing.Color.Black;
-            this.txtIDOrdenVenta.Location = new System.Drawing.Point(24, 59);
-            this.txtIDOrdenVenta.Margin = new System.Windows.Forms.Padding(4);
-            this.txtIDOrdenVenta.Multiline = false;
-            this.txtIDOrdenVenta.Name = "txtIDOrdenVenta";
-            this.txtIDOrdenVenta.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtIDOrdenVenta.PasswordChar = false;
-            this.txtIDOrdenVenta.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtIDOrdenVenta.PlaceholderText = "";
-            this.txtIDOrdenVenta.Size = new System.Drawing.Size(112, 36);
-            this.txtIDOrdenVenta.TabIndex = 90;
-            this.txtIDOrdenVenta.UnderlinedStyle = false;
             // 
             // cboTipoComprobante
             // 
@@ -421,7 +354,7 @@
             this.dgvDetalleOrdenVenta.ColumnHeadersHeight = 40;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
@@ -444,52 +377,8 @@
             this.dgvDetalleOrdenVenta.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvDetalleOrdenVenta.Size = new System.Drawing.Size(1054, 143);
             this.dgvDetalleOrdenVenta.TabIndex = 94;
+            this.dgvDetalleOrdenVenta.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleOrdenVenta_CellClick);
             this.dgvDetalleOrdenVenta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvDetalleOrdenVenta_CellContentClick);
-            // 
-            // btnBuscarProducto
-            // 
-            this.btnBuscarProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnBuscarProducto.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnBuscarProducto.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnBuscarProducto.BorderRadius = 40;
-            this.btnBuscarProducto.BorderSize = 0;
-            this.btnBuscarProducto.FlatAppearance.BorderSize = 0;
-            this.btnBuscarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscarProducto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnBuscarProducto.ForeColor = System.Drawing.Color.White;
-            this.btnBuscarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProducto.Image")));
-            this.btnBuscarProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarProducto.Location = new System.Drawing.Point(469, 56);
-            this.btnBuscarProducto.Name = "btnBuscarProducto";
-            this.btnBuscarProducto.Size = new System.Drawing.Size(103, 37);
-            this.btnBuscarProducto.TabIndex = 93;
-            this.btnBuscarProducto.Text = "Buscar";
-            this.btnBuscarProducto.TextColor = System.Drawing.Color.White;
-            this.btnBuscarProducto.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnBuscarProducto.UseVisualStyleBackColor = false;
-            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
-            // 
-            // txtPrecioCompra
-            // 
-            this.txtPrecioCompra.BackColor = System.Drawing.SystemColors.Window;
-            this.txtPrecioCompra.BorderColor = System.Drawing.Color.DarkSlateBlue;
-            this.txtPrecioCompra.BorderFocusColor = System.Drawing.Color.DarkOrchid;
-            this.txtPrecioCompra.BorderRadius = 15;
-            this.txtPrecioCompra.BorderSize = 2;
-            this.txtPrecioCompra.Enabled = false;
-            this.txtPrecioCompra.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtPrecioCompra.ForeColor = System.Drawing.Color.Black;
-            this.txtPrecioCompra.Location = new System.Drawing.Point(606, 129);
-            this.txtPrecioCompra.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPrecioCompra.Multiline = false;
-            this.txtPrecioCompra.Name = "txtPrecioCompra";
-            this.txtPrecioCompra.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtPrecioCompra.PasswordChar = false;
-            this.txtPrecioCompra.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtPrecioCompra.PlaceholderText = "";
-            this.txtPrecioCompra.Size = new System.Drawing.Size(169, 36);
-            this.txtPrecioCompra.TabIndex = 92;
-            this.txtPrecioCompra.UnderlinedStyle = false;
             // 
             // label2
             // 
@@ -501,160 +390,6 @@
             this.label2.Size = new System.Drawing.Size(155, 23);
             this.label2.TabIndex = 91;
             this.label2.Text = "Precio Compra:";
-            // 
-            // txtDesProducto
-            // 
-            this.txtDesProducto.BackColor = System.Drawing.SystemColors.Window;
-            this.txtDesProducto.BorderColor = System.Drawing.Color.DarkSlateBlue;
-            this.txtDesProducto.BorderFocusColor = System.Drawing.Color.DarkOrchid;
-            this.txtDesProducto.BorderRadius = 15;
-            this.txtDesProducto.BorderSize = 2;
-            this.txtDesProducto.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtDesProducto.ForeColor = System.Drawing.Color.Black;
-            this.txtDesProducto.Location = new System.Drawing.Point(24, 59);
-            this.txtDesProducto.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDesProducto.Multiline = false;
-            this.txtDesProducto.Name = "txtDesProducto";
-            this.txtDesProducto.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtDesProducto.PasswordChar = false;
-            this.txtDesProducto.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtDesProducto.PlaceholderText = "";
-            this.txtDesProducto.Size = new System.Drawing.Size(436, 36);
-            this.txtDesProducto.TabIndex = 90;
-            this.txtDesProducto.UnderlinedStyle = false;
-            this.txtDesProducto._TextChanged += new System.EventHandler(this.txtDesProducto__TextChanged);
-            // 
-            // txtStock
-            // 
-            this.txtStock.BackColor = System.Drawing.SystemColors.Window;
-            this.txtStock.BorderColor = System.Drawing.Color.DarkSlateBlue;
-            this.txtStock.BorderFocusColor = System.Drawing.Color.DarkOrchid;
-            this.txtStock.BorderRadius = 15;
-            this.txtStock.BorderSize = 2;
-            this.txtStock.Enabled = false;
-            this.txtStock.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtStock.ForeColor = System.Drawing.Color.Black;
-            this.txtStock.Location = new System.Drawing.Point(259, 129);
-            this.txtStock.Margin = new System.Windows.Forms.Padding(4);
-            this.txtStock.Multiline = false;
-            this.txtStock.Name = "txtStock";
-            this.txtStock.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtStock.PasswordChar = false;
-            this.txtStock.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtStock.PlaceholderText = "";
-            this.txtStock.Size = new System.Drawing.Size(112, 36);
-            this.txtStock.TabIndex = 89;
-            this.txtStock.UnderlinedStyle = false;
-            // 
-            // txtPrecioVenta
-            // 
-            this.txtPrecioVenta.BackColor = System.Drawing.SystemColors.Window;
-            this.txtPrecioVenta.BorderColor = System.Drawing.Color.DarkSlateBlue;
-            this.txtPrecioVenta.BorderFocusColor = System.Drawing.Color.DarkOrchid;
-            this.txtPrecioVenta.BorderRadius = 15;
-            this.txtPrecioVenta.BorderSize = 2;
-            this.txtPrecioVenta.Enabled = false;
-            this.txtPrecioVenta.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtPrecioVenta.ForeColor = System.Drawing.Color.Black;
-            this.txtPrecioVenta.Location = new System.Drawing.Point(415, 129);
-            this.txtPrecioVenta.Margin = new System.Windows.Forms.Padding(4);
-            this.txtPrecioVenta.Multiline = false;
-            this.txtPrecioVenta.Name = "txtPrecioVenta";
-            this.txtPrecioVenta.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtPrecioVenta.PasswordChar = false;
-            this.txtPrecioVenta.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtPrecioVenta.PlaceholderText = "";
-            this.txtPrecioVenta.Size = new System.Drawing.Size(157, 36);
-            this.txtPrecioVenta.TabIndex = 88;
-            this.txtPrecioVenta.UnderlinedStyle = false;
-            // 
-            // txtCantidad
-            // 
-            this.txtCantidad.BackColor = System.Drawing.SystemColors.Window;
-            this.txtCantidad.BorderColor = System.Drawing.Color.DarkSlateBlue;
-            this.txtCantidad.BorderFocusColor = System.Drawing.Color.DarkOrchid;
-            this.txtCantidad.BorderRadius = 15;
-            this.txtCantidad.BorderSize = 2;
-            this.txtCantidad.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtCantidad.ForeColor = System.Drawing.Color.Black;
-            this.txtCantidad.Location = new System.Drawing.Point(598, 59);
-            this.txtCantidad.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCantidad.Multiline = false;
-            this.txtCantidad.Name = "txtCantidad";
-            this.txtCantidad.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtCantidad.PasswordChar = false;
-            this.txtCantidad.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtCantidad.PlaceholderText = "";
-            this.txtCantidad.Size = new System.Drawing.Size(197, 36);
-            this.txtCantidad.TabIndex = 87;
-            this.txtCantidad.UnderlinedStyle = false;
-            // 
-            // txtIDProducto
-            // 
-            this.txtIDProducto.BackColor = System.Drawing.SystemColors.Window;
-            this.txtIDProducto.BorderColor = System.Drawing.Color.DarkSlateBlue;
-            this.txtIDProducto.BorderFocusColor = System.Drawing.Color.DarkOrchid;
-            this.txtIDProducto.BorderRadius = 15;
-            this.txtIDProducto.BorderSize = 2;
-            this.txtIDProducto.Enabled = false;
-            this.txtIDProducto.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtIDProducto.ForeColor = System.Drawing.Color.Black;
-            this.txtIDProducto.Location = new System.Drawing.Point(24, 129);
-            this.txtIDProducto.Margin = new System.Windows.Forms.Padding(4);
-            this.txtIDProducto.Multiline = false;
-            this.txtIDProducto.Name = "txtIDProducto";
-            this.txtIDProducto.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtIDProducto.PasswordChar = false;
-            this.txtIDProducto.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtIDProducto.PlaceholderText = "";
-            this.txtIDProducto.Size = new System.Drawing.Size(197, 36);
-            this.txtIDProducto.TabIndex = 86;
-            this.txtIDProducto.UnderlinedStyle = false;
-            // 
-            // btnFinalizar
-            // 
-            this.btnFinalizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnFinalizar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnFinalizar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnFinalizar.BorderRadius = 40;
-            this.btnFinalizar.BorderSize = 0;
-            this.btnFinalizar.FlatAppearance.BorderSize = 0;
-            this.btnFinalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFinalizar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnFinalizar.ForeColor = System.Drawing.Color.White;
-            this.btnFinalizar.Image = ((System.Drawing.Image)(resources.GetObject("btnFinalizar.Image")));
-            this.btnFinalizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFinalizar.Location = new System.Drawing.Point(832, 117);
-            this.btnFinalizar.Name = "btnFinalizar";
-            this.btnFinalizar.Size = new System.Drawing.Size(148, 48);
-            this.btnFinalizar.TabIndex = 80;
-            this.btnFinalizar.Text = "Eliminar";
-            this.btnFinalizar.TextColor = System.Drawing.Color.White;
-            this.btnFinalizar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnFinalizar.UseVisualStyleBackColor = false;
-            // 
-            // btnAgregarProducto
-            // 
-            this.btnAgregarProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnAgregarProducto.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnAgregarProducto.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnAgregarProducto.BorderRadius = 40;
-            this.btnAgregarProducto.BorderSize = 0;
-            this.btnAgregarProducto.FlatAppearance.BorderSize = 0;
-            this.btnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarProducto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnAgregarProducto.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarProducto.Image")));
-            this.btnAgregarProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarProducto.Location = new System.Drawing.Point(832, 48);
-            this.btnAgregarProducto.Name = "btnAgregarProducto";
-            this.btnAgregarProducto.Size = new System.Drawing.Size(148, 50);
-            this.btnAgregarProducto.TabIndex = 79;
-            this.btnAgregarProducto.Text = "Agregar";
-            this.btnAgregarProducto.TextColor = System.Drawing.Color.White;
-            this.btnAgregarProducto.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnAgregarProducto.UseVisualStyleBackColor = false;
-            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
             // 
             // label12
             // 
@@ -764,72 +499,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "INFORMACION DEL CLIENTE";
             // 
-            // btnBuscaridCliente
-            // 
-            this.btnBuscaridCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnBuscaridCliente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnBuscaridCliente.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnBuscaridCliente.BorderRadius = 40;
-            this.btnBuscaridCliente.BorderSize = 0;
-            this.btnBuscaridCliente.FlatAppearance.BorderSize = 0;
-            this.btnBuscaridCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBuscaridCliente.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnBuscaridCliente.ForeColor = System.Drawing.Color.White;
-            this.btnBuscaridCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscaridCliente.Image")));
-            this.btnBuscaridCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscaridCliente.Location = new System.Drawing.Point(293, 64);
-            this.btnBuscaridCliente.Name = "btnBuscaridCliente";
-            this.btnBuscaridCliente.Size = new System.Drawing.Size(103, 37);
-            this.btnBuscaridCliente.TabIndex = 94;
-            this.btnBuscaridCliente.Text = "Buscar";
-            this.btnBuscaridCliente.TextColor = System.Drawing.Color.White;
-            this.btnBuscaridCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnBuscaridCliente.UseVisualStyleBackColor = false;
-            this.btnBuscaridCliente.Click += new System.EventHandler(this.btnBuscaridCliente_Click_1);
-            // 
-            // txtResultadoBusquedaCliente
-            // 
-            this.txtResultadoBusquedaCliente.BackColor = System.Drawing.SystemColors.Window;
-            this.txtResultadoBusquedaCliente.BorderColor = System.Drawing.Color.DarkSlateBlue;
-            this.txtResultadoBusquedaCliente.BorderFocusColor = System.Drawing.Color.DarkOrchid;
-            this.txtResultadoBusquedaCliente.BorderRadius = 15;
-            this.txtResultadoBusquedaCliente.BorderSize = 2;
-            this.txtResultadoBusquedaCliente.Enabled = false;
-            this.txtResultadoBusquedaCliente.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtResultadoBusquedaCliente.ForeColor = System.Drawing.Color.Black;
-            this.txtResultadoBusquedaCliente.Location = new System.Drawing.Point(20, 133);
-            this.txtResultadoBusquedaCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.txtResultadoBusquedaCliente.Multiline = false;
-            this.txtResultadoBusquedaCliente.Name = "txtResultadoBusquedaCliente";
-            this.txtResultadoBusquedaCliente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtResultadoBusquedaCliente.PasswordChar = false;
-            this.txtResultadoBusquedaCliente.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtResultadoBusquedaCliente.PlaceholderText = "";
-            this.txtResultadoBusquedaCliente.Size = new System.Drawing.Size(407, 36);
-            this.txtResultadoBusquedaCliente.TabIndex = 89;
-            this.txtResultadoBusquedaCliente.UnderlinedStyle = false;
-            // 
-            // txtDocumentoCliente
-            // 
-            this.txtDocumentoCliente.BackColor = System.Drawing.SystemColors.Window;
-            this.txtDocumentoCliente.BorderColor = System.Drawing.Color.DarkSlateBlue;
-            this.txtDocumentoCliente.BorderFocusColor = System.Drawing.Color.DarkOrchid;
-            this.txtDocumentoCliente.BorderRadius = 15;
-            this.txtDocumentoCliente.BorderSize = 2;
-            this.txtDocumentoCliente.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtDocumentoCliente.ForeColor = System.Drawing.Color.Black;
-            this.txtDocumentoCliente.Location = new System.Drawing.Point(20, 66);
-            this.txtDocumentoCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDocumentoCliente.Multiline = false;
-            this.txtDocumentoCliente.Name = "txtDocumentoCliente";
-            this.txtDocumentoCliente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtDocumentoCliente.PasswordChar = false;
-            this.txtDocumentoCliente.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtDocumentoCliente.PlaceholderText = "";
-            this.txtDocumentoCliente.Size = new System.Drawing.Size(254, 36);
-            this.txtDocumentoCliente.TabIndex = 88;
-            this.txtDocumentoCliente.UnderlinedStyle = false;
-            // 
             // gbImportes
             // 
             this.gbImportes.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
@@ -854,51 +523,6 @@
             this.gbImportes.TabIndex = 79;
             this.gbImportes.TabStop = false;
             this.gbImportes.Text = "IMPORTES";
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnCancelar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnCancelar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnCancelar.BorderRadius = 40;
-            this.btnCancelar.BorderSize = 0;
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
-            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelar.Location = new System.Drawing.Point(47, 652);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(167, 48);
-            this.btnCancelar.TabIndex = 94;
-            this.btnCancelar.Text = "Cancelar         ";
-            this.btnCancelar.TextColor = System.Drawing.Color.White;
-            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnCancelar.UseVisualStyleBackColor = false;
-            // 
-            // btnAgregarPago
-            // 
-            this.btnAgregarPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnAgregarPago.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
-            this.btnAgregarPago.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnAgregarPago.BorderRadius = 40;
-            this.btnAgregarPago.BorderSize = 0;
-            this.btnAgregarPago.FlatAppearance.BorderSize = 0;
-            this.btnAgregarPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregarPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
-            this.btnAgregarPago.ForeColor = System.Drawing.Color.White;
-            this.btnAgregarPago.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarPago.Image")));
-            this.btnAgregarPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnAgregarPago.Location = new System.Drawing.Point(47, 596);
-            this.btnAgregarPago.Name = "btnAgregarPago";
-            this.btnAgregarPago.Size = new System.Drawing.Size(167, 50);
-            this.btnAgregarPago.TabIndex = 94;
-            this.btnAgregarPago.Text = "Procesar Pago";
-            this.btnAgregarPago.TextColor = System.Drawing.Color.White;
-            this.btnAgregarPago.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.btnAgregarPago.UseVisualStyleBackColor = false;
-            this.btnAgregarPago.Click += new System.EventHandler(this.btnAgregarPago_Click);
             // 
             // cboTipoPago
             // 
@@ -1103,6 +727,383 @@
             this.btnSalir.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnCancelar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnCancelar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnCancelar.BorderRadius = 40;
+            this.btnCancelar.BorderSize = 0;
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Image = ((System.Drawing.Image)(resources.GetObject("btnCancelar.Image")));
+            this.btnCancelar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelar.Location = new System.Drawing.Point(47, 652);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(167, 48);
+            this.btnCancelar.TabIndex = 94;
+            this.btnCancelar.Text = "Cancelar         ";
+            this.btnCancelar.TextColor = System.Drawing.Color.White;
+            this.btnCancelar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            // 
+            // btnAgregarPago
+            // 
+            this.btnAgregarPago.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnAgregarPago.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnAgregarPago.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAgregarPago.BorderRadius = 40;
+            this.btnAgregarPago.BorderSize = 0;
+            this.btnAgregarPago.FlatAppearance.BorderSize = 0;
+            this.btnAgregarPago.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarPago.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAgregarPago.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarPago.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarPago.Image")));
+            this.btnAgregarPago.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarPago.Location = new System.Drawing.Point(47, 596);
+            this.btnAgregarPago.Name = "btnAgregarPago";
+            this.btnAgregarPago.Size = new System.Drawing.Size(167, 50);
+            this.btnAgregarPago.TabIndex = 94;
+            this.btnAgregarPago.Text = "Procesar Pago";
+            this.btnAgregarPago.TextColor = System.Drawing.Color.White;
+            this.btnAgregarPago.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnAgregarPago.UseVisualStyleBackColor = false;
+            this.btnAgregarPago.Click += new System.EventHandler(this.btnAgregarPago_Click);
+            // 
+            // btnBuscaridCliente
+            // 
+            this.btnBuscaridCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnBuscaridCliente.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnBuscaridCliente.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnBuscaridCliente.BorderRadius = 40;
+            this.btnBuscaridCliente.BorderSize = 0;
+            this.btnBuscaridCliente.FlatAppearance.BorderSize = 0;
+            this.btnBuscaridCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscaridCliente.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnBuscaridCliente.ForeColor = System.Drawing.Color.White;
+            this.btnBuscaridCliente.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscaridCliente.Image")));
+            this.btnBuscaridCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscaridCliente.Location = new System.Drawing.Point(293, 64);
+            this.btnBuscaridCliente.Name = "btnBuscaridCliente";
+            this.btnBuscaridCliente.Size = new System.Drawing.Size(103, 37);
+            this.btnBuscaridCliente.TabIndex = 94;
+            this.btnBuscaridCliente.Text = "Buscar";
+            this.btnBuscaridCliente.TextColor = System.Drawing.Color.White;
+            this.btnBuscaridCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnBuscaridCliente.UseVisualStyleBackColor = false;
+            this.btnBuscaridCliente.Click += new System.EventHandler(this.btnBuscaridCliente_Click_1);
+            // 
+            // txtResultadoBusquedaCliente
+            // 
+            this.txtResultadoBusquedaCliente.BackColor = System.Drawing.SystemColors.Window;
+            this.txtResultadoBusquedaCliente.BorderColor = System.Drawing.Color.DarkSlateBlue;
+            this.txtResultadoBusquedaCliente.BorderFocusColor = System.Drawing.Color.DarkOrchid;
+            this.txtResultadoBusquedaCliente.BorderRadius = 15;
+            this.txtResultadoBusquedaCliente.BorderSize = 2;
+            this.txtResultadoBusquedaCliente.Enabled = false;
+            this.txtResultadoBusquedaCliente.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtResultadoBusquedaCliente.ForeColor = System.Drawing.Color.Black;
+            this.txtResultadoBusquedaCliente.Location = new System.Drawing.Point(20, 133);
+            this.txtResultadoBusquedaCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.txtResultadoBusquedaCliente.Multiline = false;
+            this.txtResultadoBusquedaCliente.Name = "txtResultadoBusquedaCliente";
+            this.txtResultadoBusquedaCliente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtResultadoBusquedaCliente.PasswordChar = false;
+            this.txtResultadoBusquedaCliente.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtResultadoBusquedaCliente.PlaceholderText = "";
+            this.txtResultadoBusquedaCliente.Size = new System.Drawing.Size(407, 36);
+            this.txtResultadoBusquedaCliente.TabIndex = 89;
+            this.txtResultadoBusquedaCliente.UnderlinedStyle = false;
+            // 
+            // txtDocumentoCliente
+            // 
+            this.txtDocumentoCliente.BackColor = System.Drawing.SystemColors.Window;
+            this.txtDocumentoCliente.BorderColor = System.Drawing.Color.DarkSlateBlue;
+            this.txtDocumentoCliente.BorderFocusColor = System.Drawing.Color.DarkOrchid;
+            this.txtDocumentoCliente.BorderRadius = 15;
+            this.txtDocumentoCliente.BorderSize = 2;
+            this.txtDocumentoCliente.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtDocumentoCliente.ForeColor = System.Drawing.Color.Black;
+            this.txtDocumentoCliente.Location = new System.Drawing.Point(20, 66);
+            this.txtDocumentoCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDocumentoCliente.Multiline = false;
+            this.txtDocumentoCliente.Name = "txtDocumentoCliente";
+            this.txtDocumentoCliente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtDocumentoCliente.PasswordChar = false;
+            this.txtDocumentoCliente.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtDocumentoCliente.PlaceholderText = "";
+            this.txtDocumentoCliente.Size = new System.Drawing.Size(254, 36);
+            this.txtDocumentoCliente.TabIndex = 88;
+            this.txtDocumentoCliente.UnderlinedStyle = false;
+            // 
+            // btnBuscarProducto
+            // 
+            this.btnBuscarProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnBuscarProducto.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnBuscarProducto.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnBuscarProducto.BorderRadius = 40;
+            this.btnBuscarProducto.BorderSize = 0;
+            this.btnBuscarProducto.FlatAppearance.BorderSize = 0;
+            this.btnBuscarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBuscarProducto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnBuscarProducto.ForeColor = System.Drawing.Color.White;
+            this.btnBuscarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProducto.Image")));
+            this.btnBuscarProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnBuscarProducto.Location = new System.Drawing.Point(469, 56);
+            this.btnBuscarProducto.Name = "btnBuscarProducto";
+            this.btnBuscarProducto.Size = new System.Drawing.Size(103, 37);
+            this.btnBuscarProducto.TabIndex = 93;
+            this.btnBuscarProducto.Text = "Buscar";
+            this.btnBuscarProducto.TextColor = System.Drawing.Color.White;
+            this.btnBuscarProducto.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnBuscarProducto.UseVisualStyleBackColor = false;
+            this.btnBuscarProducto.Click += new System.EventHandler(this.btnBuscarProducto_Click);
+            // 
+            // txtPrecioCompra
+            // 
+            this.txtPrecioCompra.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPrecioCompra.BorderColor = System.Drawing.Color.DarkSlateBlue;
+            this.txtPrecioCompra.BorderFocusColor = System.Drawing.Color.DarkOrchid;
+            this.txtPrecioCompra.BorderRadius = 15;
+            this.txtPrecioCompra.BorderSize = 2;
+            this.txtPrecioCompra.Enabled = false;
+            this.txtPrecioCompra.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtPrecioCompra.ForeColor = System.Drawing.Color.Black;
+            this.txtPrecioCompra.Location = new System.Drawing.Point(606, 129);
+            this.txtPrecioCompra.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPrecioCompra.Multiline = false;
+            this.txtPrecioCompra.Name = "txtPrecioCompra";
+            this.txtPrecioCompra.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtPrecioCompra.PasswordChar = false;
+            this.txtPrecioCompra.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtPrecioCompra.PlaceholderText = "";
+            this.txtPrecioCompra.Size = new System.Drawing.Size(169, 36);
+            this.txtPrecioCompra.TabIndex = 92;
+            this.txtPrecioCompra.UnderlinedStyle = false;
+            // 
+            // txtDesProducto
+            // 
+            this.txtDesProducto.BackColor = System.Drawing.SystemColors.Window;
+            this.txtDesProducto.BorderColor = System.Drawing.Color.DarkSlateBlue;
+            this.txtDesProducto.BorderFocusColor = System.Drawing.Color.DarkOrchid;
+            this.txtDesProducto.BorderRadius = 15;
+            this.txtDesProducto.BorderSize = 2;
+            this.txtDesProducto.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtDesProducto.ForeColor = System.Drawing.Color.Black;
+            this.txtDesProducto.Location = new System.Drawing.Point(24, 59);
+            this.txtDesProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDesProducto.Multiline = false;
+            this.txtDesProducto.Name = "txtDesProducto";
+            this.txtDesProducto.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtDesProducto.PasswordChar = false;
+            this.txtDesProducto.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtDesProducto.PlaceholderText = "";
+            this.txtDesProducto.Size = new System.Drawing.Size(436, 36);
+            this.txtDesProducto.TabIndex = 90;
+            this.txtDesProducto.UnderlinedStyle = false;
+            this.txtDesProducto._TextChanged += new System.EventHandler(this.txtDesProducto__TextChanged);
+            // 
+            // txtStock
+            // 
+            this.txtStock.BackColor = System.Drawing.SystemColors.Window;
+            this.txtStock.BorderColor = System.Drawing.Color.DarkSlateBlue;
+            this.txtStock.BorderFocusColor = System.Drawing.Color.DarkOrchid;
+            this.txtStock.BorderRadius = 15;
+            this.txtStock.BorderSize = 2;
+            this.txtStock.Enabled = false;
+            this.txtStock.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtStock.ForeColor = System.Drawing.Color.Black;
+            this.txtStock.Location = new System.Drawing.Point(259, 129);
+            this.txtStock.Margin = new System.Windows.Forms.Padding(4);
+            this.txtStock.Multiline = false;
+            this.txtStock.Name = "txtStock";
+            this.txtStock.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtStock.PasswordChar = false;
+            this.txtStock.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtStock.PlaceholderText = "";
+            this.txtStock.Size = new System.Drawing.Size(112, 36);
+            this.txtStock.TabIndex = 89;
+            this.txtStock.UnderlinedStyle = false;
+            // 
+            // txtPrecioVenta
+            // 
+            this.txtPrecioVenta.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPrecioVenta.BorderColor = System.Drawing.Color.DarkSlateBlue;
+            this.txtPrecioVenta.BorderFocusColor = System.Drawing.Color.DarkOrchid;
+            this.txtPrecioVenta.BorderRadius = 15;
+            this.txtPrecioVenta.BorderSize = 2;
+            this.txtPrecioVenta.Enabled = false;
+            this.txtPrecioVenta.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtPrecioVenta.ForeColor = System.Drawing.Color.Black;
+            this.txtPrecioVenta.Location = new System.Drawing.Point(415, 129);
+            this.txtPrecioVenta.Margin = new System.Windows.Forms.Padding(4);
+            this.txtPrecioVenta.Multiline = false;
+            this.txtPrecioVenta.Name = "txtPrecioVenta";
+            this.txtPrecioVenta.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtPrecioVenta.PasswordChar = false;
+            this.txtPrecioVenta.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtPrecioVenta.PlaceholderText = "";
+            this.txtPrecioVenta.Size = new System.Drawing.Size(157, 36);
+            this.txtPrecioVenta.TabIndex = 88;
+            this.txtPrecioVenta.UnderlinedStyle = false;
+            // 
+            // txtCantidad
+            // 
+            this.txtCantidad.BackColor = System.Drawing.SystemColors.Window;
+            this.txtCantidad.BorderColor = System.Drawing.Color.DarkSlateBlue;
+            this.txtCantidad.BorderFocusColor = System.Drawing.Color.DarkOrchid;
+            this.txtCantidad.BorderRadius = 15;
+            this.txtCantidad.BorderSize = 2;
+            this.txtCantidad.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtCantidad.ForeColor = System.Drawing.Color.Black;
+            this.txtCantidad.Location = new System.Drawing.Point(598, 59);
+            this.txtCantidad.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCantidad.Multiline = false;
+            this.txtCantidad.Name = "txtCantidad";
+            this.txtCantidad.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtCantidad.PasswordChar = false;
+            this.txtCantidad.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtCantidad.PlaceholderText = "";
+            this.txtCantidad.Size = new System.Drawing.Size(197, 36);
+            this.txtCantidad.TabIndex = 87;
+            this.txtCantidad.UnderlinedStyle = false;
+            // 
+            // txtIDProducto
+            // 
+            this.txtIDProducto.BackColor = System.Drawing.SystemColors.Window;
+            this.txtIDProducto.BorderColor = System.Drawing.Color.DarkSlateBlue;
+            this.txtIDProducto.BorderFocusColor = System.Drawing.Color.DarkOrchid;
+            this.txtIDProducto.BorderRadius = 15;
+            this.txtIDProducto.BorderSize = 2;
+            this.txtIDProducto.Enabled = false;
+            this.txtIDProducto.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtIDProducto.ForeColor = System.Drawing.Color.Black;
+            this.txtIDProducto.Location = new System.Drawing.Point(24, 129);
+            this.txtIDProducto.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIDProducto.Multiline = false;
+            this.txtIDProducto.Name = "txtIDProducto";
+            this.txtIDProducto.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtIDProducto.PasswordChar = false;
+            this.txtIDProducto.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtIDProducto.PlaceholderText = "";
+            this.txtIDProducto.Size = new System.Drawing.Size(197, 36);
+            this.txtIDProducto.TabIndex = 86;
+            this.txtIDProducto.UnderlinedStyle = false;
+            // 
+            // btnFinalizar
+            // 
+            this.btnFinalizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnFinalizar.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnFinalizar.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnFinalizar.BorderRadius = 40;
+            this.btnFinalizar.BorderSize = 0;
+            this.btnFinalizar.FlatAppearance.BorderSize = 0;
+            this.btnFinalizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFinalizar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnFinalizar.ForeColor = System.Drawing.Color.White;
+            this.btnFinalizar.Image = ((System.Drawing.Image)(resources.GetObject("btnFinalizar.Image")));
+            this.btnFinalizar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFinalizar.Location = new System.Drawing.Point(832, 117);
+            this.btnFinalizar.Name = "btnFinalizar";
+            this.btnFinalizar.Size = new System.Drawing.Size(148, 48);
+            this.btnFinalizar.TabIndex = 80;
+            this.btnFinalizar.Text = "Eliminar";
+            this.btnFinalizar.TextColor = System.Drawing.Color.White;
+            this.btnFinalizar.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnFinalizar.UseVisualStyleBackColor = false;
+            // 
+            // btnAgregarProducto
+            // 
+            this.btnAgregarProducto.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnAgregarProducto.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnAgregarProducto.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAgregarProducto.BorderRadius = 40;
+            this.btnAgregarProducto.BorderSize = 0;
+            this.btnAgregarProducto.FlatAppearance.BorderSize = 0;
+            this.btnAgregarProducto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarProducto.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAgregarProducto.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarProducto.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarProducto.Image")));
+            this.btnAgregarProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarProducto.Location = new System.Drawing.Point(832, 48);
+            this.btnAgregarProducto.Name = "btnAgregarProducto";
+            this.btnAgregarProducto.Size = new System.Drawing.Size(148, 50);
+            this.btnAgregarProducto.TabIndex = 79;
+            this.btnAgregarProducto.Text = "Agregar";
+            this.btnAgregarProducto.TextColor = System.Drawing.Color.White;
+            this.btnAgregarProducto.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnAgregarProducto.UseVisualStyleBackColor = false;
+            this.btnAgregarProducto.Click += new System.EventHandler(this.btnAgregarProducto_Click);
+            // 
+            // btnAgregarOrdenVenta
+            // 
+            this.btnAgregarOrdenVenta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnAgregarOrdenVenta.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
+            this.btnAgregarOrdenVenta.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnAgregarOrdenVenta.BorderRadius = 40;
+            this.btnAgregarOrdenVenta.BorderSize = 0;
+            this.btnAgregarOrdenVenta.FlatAppearance.BorderSize = 0;
+            this.btnAgregarOrdenVenta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarOrdenVenta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.btnAgregarOrdenVenta.ForeColor = System.Drawing.Color.White;
+            this.btnAgregarOrdenVenta.Image = ((System.Drawing.Image)(resources.GetObject("btnAgregarOrdenVenta.Image")));
+            this.btnAgregarOrdenVenta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnAgregarOrdenVenta.Location = new System.Drawing.Point(450, 120);
+            this.btnAgregarOrdenVenta.Name = "btnAgregarOrdenVenta";
+            this.btnAgregarOrdenVenta.Size = new System.Drawing.Size(148, 50);
+            this.btnAgregarOrdenVenta.TabIndex = 95;
+            this.btnAgregarOrdenVenta.Text = "Agregar";
+            this.btnAgregarOrdenVenta.TextColor = System.Drawing.Color.White;
+            this.btnAgregarOrdenVenta.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btnAgregarOrdenVenta.UseVisualStyleBackColor = false;
+            this.btnAgregarOrdenVenta.Click += new System.EventHandler(this.btnAgregarOrdenVenta_Click);
+            // 
+            // txtNOrdenVenta
+            // 
+            this.txtNOrdenVenta.BackColor = System.Drawing.SystemColors.Window;
+            this.txtNOrdenVenta.BorderColor = System.Drawing.Color.DarkSlateBlue;
+            this.txtNOrdenVenta.BorderFocusColor = System.Drawing.Color.DarkOrchid;
+            this.txtNOrdenVenta.BorderRadius = 15;
+            this.txtNOrdenVenta.BorderSize = 2;
+            this.txtNOrdenVenta.Enabled = false;
+            this.txtNOrdenVenta.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtNOrdenVenta.ForeColor = System.Drawing.Color.Black;
+            this.txtNOrdenVenta.Location = new System.Drawing.Point(215, 63);
+            this.txtNOrdenVenta.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNOrdenVenta.Multiline = false;
+            this.txtNOrdenVenta.Name = "txtNOrdenVenta";
+            this.txtNOrdenVenta.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtNOrdenVenta.PasswordChar = false;
+            this.txtNOrdenVenta.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtNOrdenVenta.PlaceholderText = "";
+            this.txtNOrdenVenta.Size = new System.Drawing.Size(112, 36);
+            this.txtNOrdenVenta.TabIndex = 91;
+            this.txtNOrdenVenta.UnderlinedStyle = false;
+            // 
+            // txtIDOrdenVenta
+            // 
+            this.txtIDOrdenVenta.BackColor = System.Drawing.SystemColors.Window;
+            this.txtIDOrdenVenta.BorderColor = System.Drawing.Color.DarkSlateBlue;
+            this.txtIDOrdenVenta.BorderFocusColor = System.Drawing.Color.DarkOrchid;
+            this.txtIDOrdenVenta.BorderRadius = 15;
+            this.txtIDOrdenVenta.BorderSize = 2;
+            this.txtIDOrdenVenta.Enabled = false;
+            this.txtIDOrdenVenta.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtIDOrdenVenta.ForeColor = System.Drawing.Color.Black;
+            this.txtIDOrdenVenta.Location = new System.Drawing.Point(24, 59);
+            this.txtIDOrdenVenta.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIDOrdenVenta.Multiline = false;
+            this.txtIDOrdenVenta.Name = "txtIDOrdenVenta";
+            this.txtIDOrdenVenta.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtIDOrdenVenta.PasswordChar = false;
+            this.txtIDOrdenVenta.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtIDOrdenVenta.PlaceholderText = "";
+            this.txtIDOrdenVenta.Size = new System.Drawing.Size(112, 36);
+            this.txtIDOrdenVenta.TabIndex = 90;
+            this.txtIDOrdenVenta.UnderlinedStyle = false;
             // 
             // FrmOrdenVenta
             // 

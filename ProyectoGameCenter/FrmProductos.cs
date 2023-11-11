@@ -252,5 +252,9 @@ namespace ProyectoGameCenter
             dgvProductos.Height = height;
         }
 
+        private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

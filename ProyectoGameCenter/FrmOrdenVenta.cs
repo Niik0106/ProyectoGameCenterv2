@@ -931,6 +931,10 @@ namespace ProyectoGameCenter
                 if (txtDesProducto.Text.Equals(""))
                 {
                     ListarDetalleVentas();
+                    txtIDProducto.Text = "";
+                    txtPrecioCompra.Text = "";
+                    txtPrecioVenta.Text = "";
+                    txtStock.Text = "";
                 }
                 else
                 {
@@ -953,10 +957,28 @@ namespace ProyectoGameCenter
                 DataGridViewRow filaActual = dgvDetalleOrdenVenta.Rows[e.RowIndex];
                 txtIDProducto.Text = filaActual.Cells[0].Value.ToString();
                 txtDesProducto.Text = filaActual.Cells[1].Value.ToString();
-                //txtPrecioVenta.Text = filaActual.Cells[5].Value.ToString();
-                //txtPrecioCompra.Text = filaActual.Cells[4].Value.ToString();
-                //txtStock.Text = filaActual.Cells[6].Value.ToString();
-                
+                txtPrecioVenta.Text = Convert.ToString(filaActual.Cells[4].Value);
+                txtPrecioCompra.Text = Convert.ToString(filaActual.Cells[5].Value);
+                txtStock.Text = Convert.ToString(filaActual.Cells[6].Value);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Selecciona un item de la tabla");
+            }
+        }
+
+        private void dgvDetalleOrdenVenta_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataGridViewRow filaActual = dgvDetalleOrdenVenta.Rows[e.RowIndex];
+                txtIDProducto.Text = filaActual.Cells[0].Value.ToString();
+                txtDesProducto.Text = filaActual.Cells[1].Value.ToString();
+                txtPrecioVenta.Text = Convert.ToString(filaActual.Cells[4].Value);
+                txtPrecioCompra.Text = Convert.ToString(filaActual.Cells[5].Value);
+                txtStock.Text = Convert.ToString(filaActual.Cells[6].Value);
+
             }
             catch (Exception ex)
             {

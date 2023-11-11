@@ -43,7 +43,7 @@ namespace ProyectoGameCenter
             txtIDOrdenCompra.Text = "";
             dtpFOrdenCompra.ResetText();
             txtRazonSocial.Text = "";
-            txtIDProveedor.Text = "";
+            txtRucProveedor.Text = "";
             cbxEstadoCompra.SelectedIndex = default;
         }
 
@@ -51,7 +51,7 @@ namespace ProyectoGameCenter
         {
             try
             {
-                if (txtIDProveedor.Text.Equals(""))
+                if (txtRucProveedor.Text.Equals(""))
                 {
                     MessageBox.Show("Debe ingresar la descripcion de un Producto", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -62,7 +62,7 @@ namespace ProyectoGameCenter
                     ordCompra.fechaOrdenCompra = dtpFOrdenCompra.Value;
                     ordCompra.razonSocial = txtRazonSocial.Text.Trim();
                     ordCompra.idEstadoOrdenCompra = Convert.ToInt32(cbxEstadoCompra.SelectedValue);
-                    ordCompra.RUC = txtIDProveedor.Text.Trim();
+                    ordCompra.RUC = txtRucProveedor.Text.Trim();
                     logOrdenCompra.Instancia.InsertarOrdenCompra(ordCompra);
                     gbDetalleOrdenCompra.Enabled = true;
 
@@ -107,7 +107,7 @@ namespace ProyectoGameCenter
             try
             {
                 entProveedor proveedor = new entProveedor();
-                proveedor = logProveedor.Instancia.BuscarIDProveedor(Convert.ToInt32(txtIDProveedor.Text.Trim()));
+                proveedor = logProveedor.Instancia.BuscarIDProveedor(Convert.ToInt32(txtRucProveedor.Text.Trim()));
                 if (proveedor != null)
                 {
                     txtRazonSocial.Text = proveedor.RAZON_SOCIAL_PROV.ToString();
@@ -215,7 +215,7 @@ namespace ProyectoGameCenter
                 txtIDOrdenCompra.Text = filaActual.Cells[0].Value.ToString();
                 txtNumOrdenCompra.Text = filaActual.Cells[1].Value.ToString();
                 dtpFOrdenCompra.Text = filaActual.Cells[2].Value.ToString();
-                txtIDProveedor.Text = filaActual.Cells[3].Value.ToString();
+                txtRucProveedor.Text = filaActual.Cells[3].Value.ToString();
                 cbxEstadoCompra.SelectedValue = Convert.ToInt32(filaActual.Cells[4].Value);
                 dtpFAtendida.Text = filaActual.Cells[5].Value.ToString();
                 entDetalleOrdenCompra DOC = new entDetalleOrdenCompra();

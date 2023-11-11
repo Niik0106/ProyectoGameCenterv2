@@ -125,23 +125,7 @@ namespace ProyectoGameCenter
 
         private void btnAgregarProd_Click(object sender, EventArgs e)
         {
-            try
-            {
-                entDetalleNotaSalida DetalleNotaSalida = new entDetalleNotaSalida();
-                DetalleNotaSalida.Num_NotaSalida = int.Parse(txtNNotaSalida.Text.Trim());
-                DetalleNotaSalida.ID_Producto = int.Parse(txtIDProducto.Text.Trim());
-                DetalleNotaSalida.Descripcion = txtDesProducto.Text.Trim();
-                DetalleNotaSalida.Cantidad = int.Parse(txtCantidad.Text.Trim());
-                Boolean insertado = logDetalleNotaSalida.Instancia.InsertarDetalleNotaSalida(DetalleNotaSalida);
-
-                }
-               
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error.." + ex);
-            }
-            ListarDetalleNotaSalida();
+            
         }
 
         private void txtDesProducto__TextChanged(object sender, EventArgs e)
@@ -168,6 +152,11 @@ namespace ProyectoGameCenter
 
         private void dgvDetalleNotaSalida_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+           
+        }
+
+        private void dgvDetalleNotaSalida_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
             try
             {
                 DataGridViewRow filaActual = dgvDetalleNotaSalida.Rows[e.RowIndex];
@@ -178,6 +167,25 @@ namespace ProyectoGameCenter
             {
                 MessageBox.Show("Selecciona un item de la tabla");
             }
+        }
+
+        private void btnAgregarProducto_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                entDetalleNotaSalida DetalleNotaSalida = new entDetalleNotaSalida();
+                DetalleNotaSalida.Num_NotaSalida = int.Parse(txtNNotaSalida.Text.Trim());
+                DetalleNotaSalida.ID_Producto = int.Parse(txtIDProducto.Text.Trim());
+                DetalleNotaSalida.Descripcion = txtDesProducto.Text.Trim();
+                DetalleNotaSalida.Cantidad = int.Parse(txtCantidad.Text.Trim());
+                Boolean insertado = logDetalleNotaSalida.Instancia.InsertarDetalleNotaSalida(DetalleNotaSalida);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error.." + ex);
+            }
+            ListarDetalleNotaSalida();
         }
     }
 }
