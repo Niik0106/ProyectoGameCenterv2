@@ -122,20 +122,23 @@ namespace AccesoDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("SP_BUSCAR_ORDENVENTA_FECHA", cn);
+                cmd = new SqlCommand("SP_BUSCAR_ORDEN_VENTA_FECHA", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@FechaOrden", fechaVenta.fechaOrden);
+                cmd.Parameters.AddWithValue("@FECHAVENTA", fechaVenta.fechaOrden);
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
                     entOrdenVenta OrdVenta = new entOrdenVenta();
                     OrdVenta.idOrdenVenta = Convert.ToInt32(dr["ID_ORDEN_VENTA"]);
-                    //OrdVenta.numOrdenVenta = Convert.ToInt32(dr["NUM_ORDEN_VENTA"]);
-                    //OrdVenta.fechaOrden = Convert.ToDateTime(dr["FEC_ORDEN"]);
+                    OrdVenta.numOrdenVenta = dr["NUM_ORDEN_VENTA"].ToString();
+                    OrdVenta.fechaOrden = Convert.ToDateTime(dr["FEC_ORDEN"]);
                     OrdVenta.idCliente = Convert.ToInt32(dr["ID_CLIENTE"]);
+                    OrdVenta.num_documento = dr["NUM_DOCUMENTO"].ToString();
                     OrdVenta.estOrdenVenta = Convert.ToInt32(dr["ID_EST_ORDEN_VENTA"]);
-                   
+                    OrdVenta.idTipoComprobante = Convert.ToInt32(dr["ID_TIPO_COMPROBANTE"]);
+                    OrdVenta.des_comprobante = dr["DES_COMPROBANTE"].ToString();
+
                     lista.Add(OrdVenta);
                 }
             }
@@ -144,7 +147,35 @@ namespace AccesoDatos
             return lista;
         }
 
-        
-        
+        public List<entOrdenVenta> BuscarOrdenVenta2(entOrdenVenta fechaVenta)
+        {
+            SqlCommand cmd = null;
+            List<entOrdenVenta> lista = new List<entOrdenVenta>();
+            try
+            {
+                SqlConnection cn = Conexion.Instancia.Conectar();
+                cmd = new SqlCommand("SP_BUSCAR_FECHA_OV", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@FECHAOV", fechaVenta.fechaOrden);
+                cn.Open();
+                SqlDataReader dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    entOrdenVenta OrdVenta = new entOrdenVenta();                 
+                    OrdVenta.numOrdenVenta = dr["NUM_ORDEN_VENTA"].ToString();
+                    OrdVenta.fechaOrden = Convert.ToDateTime(dr["FEC_ORDEN"]);
+                    OrdVenta.num_documento = dr["NUM_DOCUMENTO"].ToString();
+                    OrdVenta.des_comprobante = dr["DES_COMPROBANTE"].ToString();
+
+                    lista.Add(OrdVenta);
+                }
+            }
+            catch (Exception e) { throw e; }
+            finally { cmd.Connection.Close(); }
+            return lista;
+        }
+
+
+
     }
 }

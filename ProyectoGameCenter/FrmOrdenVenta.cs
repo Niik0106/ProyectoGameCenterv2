@@ -38,6 +38,7 @@ namespace ProyectoGameCenter
             LlenarDatosTipoComprobante();
             LlenarDatosMetodoPago();
             LlenarDatosTipoPago();
+            //ListarDetalleVentas();
             clienteLogic = new logCliente();
 
         }
@@ -897,6 +898,65 @@ namespace ProyectoGameCenter
                 btnAgregarProducto.Enabled = true;
                 btnFinalizar.Enabled = true;
                 btnBuscarProducto.Enabled = true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Selecciona un item de la tabla");
+            }
+        }
+
+        private void btnBuscarOV_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                entOrdenVenta ordenVenta = new entOrdenVenta();
+                ordenVenta.fechaOrden = dtpOrdenVenta.Value;
+                dgvOrdenVenta.DataSource = logOrdenVenta.Instancia.BuscaFechaVenta(ordenVenta);
+                if (dgvOrdenVenta.Rows.Count == 0)
+                {
+                    MessageBox.Show("El existen ventas de esta fecha", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ListarVentas();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error..." + ex);
+            }
+        }
+
+        private void txtDesProducto__TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtDesProducto.Text.Equals(""))
+                {
+                    ListarDetalleVentas();
+                }
+                else
+                {
+                    entProducto producto = new entProducto();
+                    producto.DES_PRODUCTO = txtDesProducto.Text;
+                    dgvDetalleOrdenVenta.DataSource = logProducto.Instancia.BuscaDescProducto(producto);
+                }
+
+            }catch (Exception ex)
+            {
+                MessageBox.Show("Error..." + ex);
+            }
+            
+        }
+
+        private void dgvDetalleOrdenVenta_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataGridViewRow filaActual = dgvDetalleOrdenVenta.Rows[e.RowIndex];
+                txtIDProducto.Text = filaActual.Cells[0].Value.ToString();
+                txtDesProducto.Text = filaActual.Cells[1].Value.ToString();
+                txtPrecioVenta.Text = filaActual.Cells[5].Value.ToString();
+                txtPrecioCompra.Text = filaActual.Cells[4].Value.ToString();
+                txtStock.Text = filaActual.Cells[6].Value.ToString();
+                
             }
             catch (Exception ex)
             {

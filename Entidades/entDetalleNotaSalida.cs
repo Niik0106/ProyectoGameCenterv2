@@ -8,8 +8,9 @@ namespace Entidades
 {
     public class entDetalleNotaSalida
     {
-        public int numNotaSalida { get; set; }
-        public int idProducto { get; set; }
-        public int cantidad { get; set; }
+        public int Num_NotaSalida { get; set; }
+        public int ID_Producto { get; set; }
+        public string Descripcion { get; set; }
+        public int Cantidad { get; set; }
     }
 }

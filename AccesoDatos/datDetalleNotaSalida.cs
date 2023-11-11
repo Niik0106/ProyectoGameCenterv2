@@ -33,9 +33,10 @@ namespace AccesoDatos
                 while (dr.Read())
                 {
                     entDetalleNotaSalida detalleNotaSalida = new entDetalleNotaSalida();
-                    detalleNotaSalida.numNotaSalida = Convert.ToInt32(dr["NUM_NOTA_SALIDA"]);
-                    detalleNotaSalida.idProducto = Convert.ToInt32(dr["ID_PRODUCTO"]);
-                    detalleNotaSalida.cantidad = Convert.ToInt32(dr["CANTIDAD"]);
+                    detalleNotaSalida.Num_NotaSalida = Convert.ToInt32(dr["NUM_NOTA_SALIDA"]);
+                    detalleNotaSalida.ID_Producto = Convert.ToInt32(dr["ID_PRODUCTO"]);
+                    detalleNotaSalida.Descripcion = dr["DESCRIPCION_PROD"].ToString();
+                    detalleNotaSalida.Cantidad = Convert.ToInt32(dr["CANTIDAD"]);
                     lista.Add(detalleNotaSalida);
                 }
 
@@ -62,9 +63,10 @@ namespace AccesoDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("SP_INSERTAR_DETALLE_NOTA_SALIDA", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@NUM_NOTA_SALIDA", detalleNotaSalida.numNotaSalida);
-                cmd.Parameters.AddWithValue("@ID_PRODUCTO", detalleNotaSalida.idProducto);
-                cmd.Parameters.AddWithValue("@CANTIDAD", detalleNotaSalida.cantidad);
+                cmd.Parameters.AddWithValue("@NUM_NOTA_SALIDA", detalleNotaSalida.Num_NotaSalida);
+                cmd.Parameters.AddWithValue("@ID_PRODUCTO", detalleNotaSalida.ID_Producto);
+                cmd.Parameters.AddWithValue("@DESCRIPCION", detalleNotaSalida.Descripcion);
+                cmd.Parameters.AddWithValue("@CANTIDAD", detalleNotaSalida.Cantidad);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0)

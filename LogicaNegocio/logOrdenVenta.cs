@@ -39,10 +39,19 @@ namespace LogicaNegocio
             return datOrdenVenta.Instancia.BuscarOrdenVenta(fechaVenta);
         }
 
+        //POR FECHA DE VENTA PARA NOTA DE SALIDA
+        public List<entOrdenVenta> BuscaFechaVenta2(entOrdenVenta fechaVenta)
+        {
+            return datOrdenVenta.Instancia.BuscarOrdenVenta2(fechaVenta);
+        }
+
+
         //POR NUMERO DE VENTA
         public entOrdenVenta BuscarOrdenVentaIDCliente(int numVenta)
         {
             return datOrdenVenta.Instancia.BuscarOrdenVentaIDCliente(numVenta);
         }
+
+
     }
 }
