@@ -134,9 +134,6 @@ namespace ProyectoGameCenter
                 DetalleNotaSalida.Cantidad = int.Parse(txtCantidad.Text.Trim());
                 Boolean insertado = logDetalleNotaSalida.Instancia.InsertarDetalleNotaSalida(DetalleNotaSalida);
 
-                if (insertado)
-                {
-                    MessageBox.Show("El Producto se agregó exitosamente al DETALLE.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);                    
                 }
                
             }
