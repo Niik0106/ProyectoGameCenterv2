@@ -953,9 +953,9 @@ namespace ProyectoGameCenter
                 DataGridViewRow filaActual = dgvDetalleOrdenVenta.Rows[e.RowIndex];
                 txtIDProducto.Text = filaActual.Cells[0].Value.ToString();
                 txtDesProducto.Text = filaActual.Cells[1].Value.ToString();
-                txtPrecioVenta.Text = filaActual.Cells[5].Value.ToString();
-                txtPrecioCompra.Text = filaActual.Cells[4].Value.ToString();
-                txtStock.Text = filaActual.Cells[6].Value.ToString();
+                //txtPrecioVenta.Text = filaActual.Cells[5].Value.ToString();
+                //txtPrecioCompra.Text = filaActual.Cells[4].Value.ToString();
+                //txtStock.Text = filaActual.Cells[6].Value.ToString();
                 
             }
             catch (Exception ex)
