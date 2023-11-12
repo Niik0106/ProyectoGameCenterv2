@@ -60,7 +60,7 @@ namespace ProyectoGameCenter
                     entOrdenCompra ordCompra = new entOrdenCompra();
                     //ordCompra.numeroOrdenCompra = Convert.ToInt32(txtNumOrdenCompra.Text.Trim());
                     ordCompra.fechaOrdenCompra = dtpFOrdenCompra.Value;
-                    ordCompra.razonSocial = txtRazonSocial.Text.Trim();
+                    //ordCompra.razonSocial = txtRazonSocial.Text.Trim();
                     ordCompra.idEstadoOrdenCompra = Convert.ToInt32(cbxEstadoCompra.SelectedValue);
                     ordCompra.RUC = txtRucProveedor.Text.Trim();
                     logOrdenCompra.Instancia.InsertarOrdenCompra(ordCompra);
@@ -217,7 +217,7 @@ namespace ProyectoGameCenter
                 dtpFOrdenCompra.Text = filaActual.Cells[2].Value.ToString();
                 txtRucProveedor.Text = filaActual.Cells[3].Value.ToString();
                 cbxEstadoCompra.SelectedValue = Convert.ToInt32(filaActual.Cells[4].Value);
-                dtpFAtendida.Text = filaActual.Cells[5].Value.ToString();
+                //dtpFAtendida.Text = filaActual.Cells[5].Value.ToString();
                 entDetalleOrdenCompra DOC = new entDetalleOrdenCompra();
                 DOC.numeroOrdenCompra = numOrdenCompra;
                 dgvDetalleOrdenCompra.DataSource = logDetalleOrdenCompra.Instancia.OrdenaDetalleCompra(DOC);

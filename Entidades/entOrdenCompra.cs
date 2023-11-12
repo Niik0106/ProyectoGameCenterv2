@@ -16,6 +16,6 @@ namespace Entidades
         public int idEstadoOrdenCompra { get; set; }
         public string RUC { get; set; }
         public string nombreEstadoOrdenCompra { get; set; }
-        public DateTime fechaAtendida { get; set; }
+       
     }
 }

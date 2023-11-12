@@ -1,25 +1,34 @@
 ﻿using System;
+using Entidades;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using LogicaNegocio;
-using Entidades;
+using System.Data.SqlClient;
+using System.Windows.Markup.Localizer;
+using AccesoDatos;
+using System.Diagnostics.CodeAnalysis;
+using Newtonsoft.Json;
+using System.Windows.Media;
+using System.IO;
+using System.Net;
 
 namespace ProyectoGameCenter
 {
     public partial class FrmProveedor : Form
     {
+        private logDniRuc logDniRuc;
         public FrmProveedor()
         {
             InitializeComponent();
             ListarProveedor();
             gbProveedor.Enabled = false;
+            logDniRuc = new logDniRuc();
         }
 
         public void ListarProveedor()
@@ -37,7 +46,7 @@ namespace ProyectoGameCenter
             txtDepartamento.Text = "";
             txtProvincia.Text = "";
             txtDistrito.Text = "";
-            txtNumeroCuenta.Text = "";
+            //txtNumeroCuenta.Text = "";
             
         }
 
@@ -186,6 +195,31 @@ namespace ProyectoGameCenter
         private void btnBuscarProv_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBuscarRucApi_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtRuc.Text.Length == 11)
+                {
+                    entDatosRuc respuesta = logDniRuc.ObtenerDatosRUC(txtRuc.Text);
+                    txtRazonSocial.Text = respuesta.RazonSocial;
+                    txtDireccion.Text = respuesta.Direccion;
+                    txtProvincia.Text = respuesta.Provincia;
+                    txtDistrito.Text = respuesta.Distrito;
+                    txtDepartamento.Text = respuesta.Departamento;
+                    txtRuc.Text = respuesta.RUC;
+                }
+                else
+                {
+                    MessageBox.Show("El número de RUC debe tener 11 caracteres.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }

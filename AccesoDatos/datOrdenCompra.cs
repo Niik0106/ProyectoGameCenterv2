@@ -38,9 +38,11 @@ namespace AccesoDatos
                     OrdenCompra.idOrdenCompra = Convert.ToInt32(dr["ID_ORDEN_COMPRA"]);
                     OrdenCompra.numeroOrdenCompra = Convert.ToInt32(dr["NUM_ORDEN_COMPRA"]);
                     OrdenCompra.fechaOrdenCompra = Convert.ToDateTime(dr["FEC_ORDEN_COMPRA"]);
-                    OrdenCompra.RUC = dr["RUC"].ToString();
+                    OrdenCompra.RUC = dr["NUM_DOC"].ToString();
+                    OrdenCompra.idProveedor = Convert.ToInt32(dr["ID_PROVEEDOR"]);
                     OrdenCompra.razonSocial = dr["RAZON_SOCIAL"].ToString();
                     OrdenCompra.idEstadoOrdenCompra = Convert.ToInt32(dr["ID_EST_ORDEN_COMPRA"]);
+                    OrdenCompra.nombreEstadoOrdenCompra = dr["DES_ESTADO_OC"].ToString();
                     lista.Add(OrdenCompra);
                 }
             }
@@ -59,11 +61,9 @@ namespace AccesoDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("SP_INSERTAR_ORDEN_COMPRA", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@NUM_ORDEN_COMPRA", OrdenCompra.numeroOrdenCompra);
                 cmd.Parameters.AddWithValue("@FEC_ORDEN_COMPRA", OrdenCompra.fechaOrdenCompra);
-                cmd.Parameters.AddWithValue("@RAZON_SOCIAL", OrdenCompra.razonSocial);
                 cmd.Parameters.AddWithValue("@ID_EST_ORDEN_COMPRA", OrdenCompra.idEstadoOrdenCompra);
-                cmd.Parameters.AddWithValue("@RUC", OrdenCompra.RUC);
+                cmd.Parameters.AddWithValue("@NUM_DOC", OrdenCompra.RUC);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0) { inserto = true; }
@@ -112,7 +112,6 @@ namespace AccesoDatos
                     OrdC.fechaOrdenCompra = Convert.ToDateTime(dr["FEC_ORDEN_COMPRA"]);
                     //OrdC.idProveedor = Convert.ToInt32(dr["ID_PROVEEDOR"]);
                     OrdC.idEstadoOrdenCompra = Convert.ToInt32(dr["ID_EST_ORDEN_COMPRA"]);
-                    OrdC.fechaAtendida = Convert.ToDateTime(dr["FEC_ATENDIDA"]);
                     lista.Add(OrdC);
                 }
             }
