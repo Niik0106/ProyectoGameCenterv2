@@ -32,9 +32,12 @@ namespace AccesoDatos
                 while (dr.Read())
                 {
                     entDetalleOrdenCompra detalleOrdenCompra = new entDetalleOrdenCompra();
-                    detalleOrdenCompra.numeroOrdenCompra = Convert.ToInt32(dr["NUM_ORDEN_COMPRA"]);
-                    detalleOrdenCompra.idProducto = Convert.ToInt32(dr["ID_PRODUCTO"]);
-                    detalleOrdenCompra.cantidadProducto = Convert.ToInt32(dr["CANTIDAD"]);
+                    detalleOrdenCompra.NumOrdenCompra = Convert.ToInt32(dr["NUM_ORDEN_COMPRA"]);
+                    detalleOrdenCompra.IDProducto = Convert.ToInt32(dr["ID_PRODUCTO"]);
+                    detalleOrdenCompra.Descripcion = dr["DESCRIPCION_PROD"].ToString();
+                    detalleOrdenCompra.cantidad = Convert.ToInt32(dr["CANTIDAD"]);
+                    detalleOrdenCompra.PrecioCompra = Convert.ToDecimal(dr["PRECIO_COMPRA"]);
+                    detalleOrdenCompra.Total = Convert.ToDecimal(dr["TOTAL"]);
                     lista.Add(detalleOrdenCompra);
                 }
 
@@ -60,9 +63,12 @@ namespace AccesoDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("SP_INSERTAR_DETALLE_ORDEN_COMPRA", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@NUM_ORDEN_COMPRA", detalleOrdenCompra.numeroOrdenCompra);
-                cmd.Parameters.AddWithValue("@ID_PRODUCTO", detalleOrdenCompra.idProducto);
-                cmd.Parameters.AddWithValue("@CANTIDAD", detalleOrdenCompra.cantidadProducto);
+                cmd.Parameters.AddWithValue("@NUM_ORDEN_COMPRA", detalleOrdenCompra.NumOrdenCompra);
+                cmd.Parameters.AddWithValue("@ID_PRODUCTO", detalleOrdenCompra.IDProducto);
+                cmd.Parameters.AddWithValue("@DESCRIPCION", detalleOrdenCompra.Descripcion);
+                cmd.Parameters.AddWithValue("@CANTIDAD", detalleOrdenCompra.cantidad);
+                cmd.Parameters.AddWithValue("@PRECIO_COMPRA", detalleOrdenCompra.PrecioCompra);
+                cmd.Parameters.AddWithValue("@TOTAL", detalleOrdenCompra.Total);
                 // Parámetro de salida @resultado
                 SqlParameter resultadoParam = new SqlParameter("@RESULTADO", SqlDbType.Bit);
                 resultadoParam.Direction = ParameterDirection.Output;
@@ -101,15 +107,18 @@ namespace AccesoDatos
                 SqlConnection cn = Conexion.Instancia.Conectar();
                 cmd = new SqlCommand("SP_OBTENER_DETALLES_ORDEN_COMPRA", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@NumOrdenCompra", numOrd.numeroOrdenCompra);
+                cmd.Parameters.AddWithValue("@NumOrdenCompra", numOrd.NumOrdenCompra);
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
                     entDetalleOrdenCompra DetalleOC = new entDetalleOrdenCompra();
-                    DetalleOC.numeroOrdenCompra = Convert.ToInt32(dr["NUM_ORDEN_COMPRA"]);
-                    DetalleOC.idProducto = Convert.ToInt32(dr["ID_PRODUCTO"]);
-                    DetalleOC.cantidadProducto = Convert.ToInt32(dr["CANTIDAD"]);
+                    DetalleOC.NumOrdenCompra = Convert.ToInt32(dr["NUM_ORDEN_COMPRA"]);
+                    DetalleOC.IDProducto = Convert.ToInt32(dr["ID_PRODUCTO"]);
+                    DetalleOC.Descripcion = dr["DESCRIPCION_PROD"].ToString();
+                    DetalleOC.cantidad = Convert.ToInt32(dr["CANTIDAD"]);
+                    DetalleOC.PrecioCompra = Convert.ToDecimal(dr["PRECIO_COMPRA"]);
+                    DetalleOC.Total = Convert.ToDecimal(dr["TOTAL"]);
                     lista.Add(DetalleOC);
                 }
             }

@@ -110,8 +110,11 @@ namespace AccesoDatos
                     OrdC.idOrdenCompra = Convert.ToInt32(dr["ID_ORDEN_COMPRA"]);
                     OrdC.numeroOrdenCompra = Convert.ToInt32(dr["NUM_ORDEN_COMPRA"]);
                     OrdC.fechaOrdenCompra = Convert.ToDateTime(dr["FEC_ORDEN_COMPRA"]);
-                    //OrdC.idProveedor = Convert.ToInt32(dr["ID_PROVEEDOR"]);
+                    OrdC.RUC = dr["NUM_DOC"].ToString();
+                    OrdC.idProveedor = Convert.ToInt32(dr["ID_PROVEEDOR"]);
+                    OrdC.razonSocial = dr["RAZON_SOCIAL"].ToString();
                     OrdC.idEstadoOrdenCompra = Convert.ToInt32(dr["ID_EST_ORDEN_COMPRA"]);
+                    OrdC.nombreEstadoOrdenCompra = dr["DES_ESTADO_OC"].ToString();
                     lista.Add(OrdC);
                 }
             }

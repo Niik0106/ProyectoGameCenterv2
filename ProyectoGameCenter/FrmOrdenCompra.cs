@@ -1,4 +1,5 @@
-﻿using Entidades;
+﻿using AccesoDatos;
+using Entidades;
 using LogicaNegocio;
 using System;
 using System.Collections.Generic;
@@ -76,6 +77,7 @@ namespace ProyectoGameCenter
             }
             LimpiarVariables();
             gboOrdenCompra.Enabled = false;
+            gbDetalleOrdenCompra.Enabled= true;
             ListadoOrdenesCompra();
         }
 
@@ -132,9 +134,13 @@ namespace ProyectoGameCenter
             try
             {
                 entDetalleOrdenCompra detOrdenCompra = new entDetalleOrdenCompra();
-                detOrdenCompra.numeroOrdenCompra = Convert.ToInt32(txtNumOrdenCompra.Text.Trim());
-                detOrdenCompra.idProducto = Convert.ToInt32(txtIDProducto.Text.Trim());
-                detOrdenCompra.cantidadProducto = Convert.ToInt32(txtCantidad.Text.Trim());
+                detOrdenCompra.NumOrdenCompra = Convert.ToInt32(txtNumOrdenCompra.Text.Trim());
+                detOrdenCompra.IDProducto = Convert.ToInt32(txtIDProducto.Text.Trim());
+                detOrdenCompra.Descripcion = txtDesProducto.Text.Trim();
+                detOrdenCompra.cantidad = Convert.ToInt32(txtCantidad.Text.Trim());
+                detOrdenCompra.PrecioCompra = decimal.Parse(txtPrecioCompra.Text.Trim());
+                detOrdenCompra.Total = int.Parse(txtCantidad.Text) * decimal.Parse(txtPrecioCompra.Text);
+
                 // Llamar a la función InsertarCliente
                 Boolean insertado = logDetalleOrdenCompra.Instancia.InsertarDetalleOrdenCompra(detOrdenCompra);
 
@@ -172,7 +178,7 @@ namespace ProyectoGameCenter
                 dgvOrdenCompra.DataSource = logOrdenCompra.Instancia.BuscaFechaCompra(OrdC);
                 if (dgvOrdenCompra.Rows.Count == 0)
                 {
-                    MessageBox.Show("El existen ventas de esta fecha", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("NO existen ventas de esta fecha", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ListadoOrdenesCompra();
                 }
             }
@@ -215,17 +221,18 @@ namespace ProyectoGameCenter
                 txtIDOrdenCompra.Text = filaActual.Cells[0].Value.ToString();
                 txtNumOrdenCompra.Text = filaActual.Cells[1].Value.ToString();
                 dtpFOrdenCompra.Text = filaActual.Cells[2].Value.ToString();
-                txtRucProveedor.Text = filaActual.Cells[3].Value.ToString();
-                cbxEstadoCompra.SelectedValue = Convert.ToInt32(filaActual.Cells[4].Value);
-                //dtpFAtendida.Text = filaActual.Cells[5].Value.ToString();
+                txtRucProveedor.Text = filaActual.Cells[6].Value.ToString();
+                txtRazonSocial.Text = filaActual.Cells[4].Value.ToString();
+                cbxEstadoCompra.SelectedValue = Convert.ToInt32(filaActual.Cells[5].Value);
                 entDetalleOrdenCompra DOC = new entDetalleOrdenCompra();
-                DOC.numeroOrdenCompra = numOrdenCompra;
+                DOC.NumOrdenCompra = numOrdenCompra;
                 dgvDetalleOrdenCompra.DataSource = logDetalleOrdenCompra.Instancia.OrdenaDetalleCompra(DOC);
             }
-            catch (Exception ex)
+            catch (Exception )
             {
                 MessageBox.Show("Selecciona un item de la tabla");
             }
+                                   
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -245,24 +252,54 @@ namespace ProyectoGameCenter
 
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void gbDetalleOrdenCompra_Enter(object sender, EventArgs e)
         {
 
         }
 
-        private void dgvOrdenCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+       
 
+        private void dgvDetalleOrdenCompra_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                DataGridViewRow filaActual = dgvDetalleOrdenCompra.Rows[e.RowIndex];
+                txtIDProducto.Text = filaActual.Cells[0].Value.ToString();
+                txtDesProducto.Text = filaActual.Cells[1].Value.ToString();
+                txtPrecioCompra.Text = Convert.ToString(filaActual.Cells[5].Value);
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Selecciona un item de la tabla");
+            }
+        }
+
+        private void txtDesProducto__TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtDesProducto.Text.Equals(""))
+                {
+                    ListadoDetalleOrdenesCompra();
+                    txtIDProducto.Text = "";
+                    txtPrecioCompra.Text = "";
+                    txtCantidad.Text = "";
+
+                }
+                else
+                {
+                    entProducto producto = new entProducto();
+                    producto.DES_PRODUCTO = txtDesProducto.Text;
+                    dgvDetalleOrdenCompra.DataSource = logProducto.Instancia.BuscaDescProducto(producto);
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error..." + ex);
+            }
         }
     }
 }
