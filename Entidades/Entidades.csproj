@@ -63,10 +63,12 @@
     <Compile Include="entEstadoPago.cs" />
     <Compile Include="entMarca.cs" />
     <Compile Include="entMetodoPago.cs" />
+    <Compile Include="entNotaEntrada.cs" />
     <Compile Include="entNotaSalida.cs" />
     <Compile Include="entOrdenCompra.cs" />
     <Compile Include="entOrdenVenta.cs" />
     <Compile Include="entPago.cs" />
+    <Compile Include="entPagoCompra.cs" />
     <Compile Include="entProducto.cs" />
     <Compile Include="entProveedor.cs" />
     <Compile Include="entTipoComprobante.cs" />

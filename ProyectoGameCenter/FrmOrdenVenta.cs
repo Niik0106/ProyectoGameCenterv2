@@ -231,35 +231,7 @@ namespace ProyectoGameCenter
             LimpiarVariables();
         }
 
-        private void dgvOrdenVenta_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                DataGridViewRow filaActual = dgvOrdenVenta.Rows[e.RowIndex];
-                string numOrdenVenta = (string)dgvOrdenVenta.Rows[e.RowIndex].Cells[1].Value;
-                txtIDOrdenVenta.Text = filaActual.Cells[0].Value.ToString();
-                txtNOrdenVenta.Text = filaActual.Cells[1].Value.ToString();
-                dtpFechaOrden.Text = filaActual.Cells[2].Value.ToString();
-                txtDocumentoCliente.Text = filaActual.Cells[5].Value.ToString();
-                cboEstado.SelectedValue = Convert.ToInt32(filaActual.Cells[4].Value);
-                cboTipoComprobante.SelectedValue = Convert.ToInt32(filaActual.Cells[6].Value);
-
-
-                entDetalleOrdenVenta DOV = new entDetalleOrdenVenta();
-                DOV.NUM_ORDEN_VENTA = numOrdenVenta;
-                dgvDetalleOrdenVenta.DataSource = logDetalleOrdenVenta.Instancia.OrdenaDetalleVenta(DOV);
-                gbDetalleOrdenVenta.Enabled = true;
-                txtIDProducto.Enabled = false;
-                txtCantidad.Enabled = true;
-                btnAgregarProducto.Enabled = true;
-                btnFinalizar.Enabled = true;
-                btnBuscarProducto.Enabled = true;
-            }
-            catch (Exception ex)
-            {
-
-            }
-        }
+        
 
         private void btnSalir_Click(object sender, EventArgs e)
         {
@@ -851,6 +823,25 @@ namespace ProyectoGameCenter
                 cboEstado.SelectedValue = Convert.ToInt32(filaActual.Cells[4].Value);
                 cboTipoComprobante.SelectedValue = Convert.ToInt32(filaActual.Cells[6].Value);
 
+                entDetalleOrdenVenta DOV = new entDetalleOrdenVenta();
+                DOV.NUM_ORDEN_VENTA = numOrdenVenta;
+                dgvDetalleOrdenVenta.DataSource = logDetalleOrdenVenta.Instancia.OrdenaDetalleVenta(DOV);
+                entPago Venta = new entPago();
+                Venta = logPago.Instancia.ObtenerDetallePago(txtNOrdenVenta.Text.ToString());
+                if (Venta != null)
+                {
+                    txtTotal.Text = Venta.TOTAL.ToString();
+                    txtSubTotal.Text = Venta.SUBTOTAL.ToString();
+                    txtIgv.Text = Venta.IGV.ToString();
+                    cboTipoPago.SelectedValue = Convert.ToInt32(Venta.ID_TIPO_PAGO.ToString());
+                    cboMetodoPago.SelectedValue = Convert.ToInt32(Venta.ID_METODO_PAGO.ToString());
+
+                }
+                else
+                {
+                    MessageBox.Show("Monto TOTAL no existe", "Click en Nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
                 if (txtDocumentoCliente.Text.Length == 8)
                 {
                     entClienteNatural cliente = new entClienteNatural();
@@ -887,11 +878,8 @@ namespace ProyectoGameCenter
                         txtResultadoBusquedaCliente.Text = string.Empty;
                         MessageBox.Show("No se encontraron resultados para el RUC ingresado.");
                     }
-                }
+                }               
 
-                entDetalleOrdenVenta DOV = new entDetalleOrdenVenta();
-                DOV.NUM_ORDEN_VENTA = numOrdenVenta;
-                dgvDetalleOrdenVenta.DataSource = logDetalleOrdenVenta.Instancia.OrdenaDetalleVenta(DOV);
                 gbDetalleOrdenVenta.Enabled = true;
                 txtIDProducto.Enabled = false;
                 txtCantidad.Enabled = true;
@@ -899,9 +887,9 @@ namespace ProyectoGameCenter
                 btnFinalizar.Enabled = true;
                 btnBuscarProducto.Enabled = true;
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                MessageBox.Show("Selecciona un item de la tabla");
+              
             }
         }
 

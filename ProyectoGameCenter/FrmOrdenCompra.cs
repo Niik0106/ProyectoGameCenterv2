@@ -14,7 +14,9 @@ using System.Windows.Forms;
 namespace ProyectoGameCenter
 {
     public partial class FrmOrdenCompra : Form
+
     {
+        private decimal total = 0;
         public FrmOrdenCompra()
         {
             InitializeComponent();
@@ -46,6 +48,23 @@ namespace ProyectoGameCenter
             txtRazonSocial.Text = "";
             txtRucProveedor.Text = "";
             cbxEstadoCompra.SelectedIndex = default;
+        }
+
+        public void LimpiarVariablesDetalleCompra()
+        {
+            txtDesProducto.Text = "";
+            txtIDProducto.Text = "";
+            txtCantidad.Text = "";
+            txtPrecioCompra.Text = "";
+            txtTotalCompra.Text = "";
+        }
+
+        public void LimpiarVariablesDetalle()
+        {
+            txtDesProducto.Text = "";
+            txtIDProducto.Text = "";
+            txtCantidad.Text = "";
+            txtPrecioCompra.Text = "";
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -147,6 +166,15 @@ namespace ProyectoGameCenter
                 if (insertado)
                 {
                     MessageBox.Show("El Producto se agregó exitosamente al DETALLE.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    total = total + (int.Parse(txtCantidad.Text) * decimal.Parse(txtPrecioCompra.Text));                    
+                    txtTotalCompra.Text = total.ToString();
+                    detOrdenCompra.NumOrdenCompra = Convert.ToInt32(txtNumOrdenCompra.Text.Trim());
+                    dgvDetalleOrdenCompra.DataSource = logDetalleOrdenCompra.Instancia.OrdenaDetalleCompra(detOrdenCompra);
+                    if (dgvDetalleOrdenCompra.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Hola ", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    LimpiarVariablesDetalle();
                     ListadoDetalleOrdenesCompra();
                 }
                 else
@@ -162,12 +190,7 @@ namespace ProyectoGameCenter
             ListadoDetalleOrdenesCompra();
         }
 
-        private void btnEliminarProd_Click(object sender, EventArgs e)
-        {
-            LimpiarVariables();
-            gboOrdenCompra.Enabled = false;
-            gbDetalleOrdenCompra.Enabled = false;
-        }
+
 
         private void btnBuscarOC_Click(object sender, EventArgs e)
         {
@@ -227,6 +250,17 @@ namespace ProyectoGameCenter
                 entDetalleOrdenCompra DOC = new entDetalleOrdenCompra();
                 DOC.NumOrdenCompra = numOrdenCompra;
                 dgvDetalleOrdenCompra.DataSource = logDetalleOrdenCompra.Instancia.OrdenaDetalleCompra(DOC);
+                entPagoCompra compra = new entPagoCompra();
+                compra = logPagoCompra.Instancia.ObtenerDetallePago(int.Parse(txtNumOrdenCompra.Text.ToString()));
+                if (compra != null)
+                {
+                    txtTotalCompra.Text = compra.TOTAL.ToString();
+
+                }
+                else
+                {
+                    MessageBox.Show("Monto TOTAL no existe", "Click en Nuevo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
             catch (Exception )
             {
@@ -300,6 +334,38 @@ namespace ProyectoGameCenter
             {
                 MessageBox.Show("Error..." + ex);
             }
+        }
+
+        private void btnBuscarProducto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnFinalizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtTotalCompra.Text.Equals(""))
+                {
+                    MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    entPagoCompra c = new entPagoCompra();
+                    c.NUM_ORDEN_COMPRA = Convert.ToInt32(txtNumOrdenCompra.Text.Trim());
+                    c.TOTAL = decimal.Parse(txtTotalCompra.Text.Trim());
+                    logPagoCompra.Instancia.InsertarPago(c);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error.." + ex);
+            }
+            LimpiarVariables();
+            LimpiarVariablesDetalleCompra();
+            gbDetalleOrdenCompra.Enabled = false;
+            gboOrdenCompra.Enabled = false;
+            ListadoOrdenesCompra();
         }
     }
 }

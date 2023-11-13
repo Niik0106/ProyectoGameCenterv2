@@ -66,10 +66,12 @@
     <Compile Include="datEstadoPago.cs" />
     <Compile Include="datMarca.cs" />
     <Compile Include="datMetodoPago.cs" />
+    <Compile Include="datNotaEntrada.cs" />
     <Compile Include="datNotaSalida.cs" />
     <Compile Include="datOrdenCompra.cs" />
     <Compile Include="datOrdenVenta.cs" />
     <Compile Include="datPago.cs" />
+    <Compile Include="datPagoCompra.cs" />
     <Compile Include="datProducto.cs" />
     <Compile Include="datProveedor.cs" />
     <Compile Include="datTipoComprobante.cs" />

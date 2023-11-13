@@ -672,6 +672,7 @@
             this.btnBuscarNS.TextColor = System.Drawing.Color.White;
             this.btnBuscarNS.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnBuscarNS.UseVisualStyleBackColor = false;
+            this.btnBuscarNS.Click += new System.EventHandler(this.btnBuscarNS_Click);
             // 
             // btnSalir
             // 
@@ -718,6 +719,7 @@
             this.btnAnular.TextColor = System.Drawing.Color.White;
             this.btnAnular.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.btnAnular.UseVisualStyleBackColor = false;
+            this.btnAnular.Click += new System.EventHandler(this.btnAnular_Click);
             // 
             // btnNuevo
             // 

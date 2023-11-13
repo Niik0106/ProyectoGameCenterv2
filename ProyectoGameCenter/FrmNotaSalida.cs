@@ -44,6 +44,16 @@ namespace ProyectoGameCenter
             dgvNotaSalida.DefaultCellStyle.Font = new Font("Arial", 12);
         }
 
+        public void LimpiarVariables()
+        {
+            txtIDNotaSalida.Text = "";
+            dtpFechaNotaSalida.ResetText();
+            txtNNotaSalida.Text = "";
+            txtNumOrden.Text = "";
+            dtpFechaOrden.ResetText();
+            cbxEstado.Checked = default;
+        }
+
         private void dgvOrdenVenta_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -64,7 +74,7 @@ namespace ProyectoGameCenter
             {
                 entOrdenVenta ordenVenta = new entOrdenVenta();
                 ordenVenta.fechaOrden = dtpFechaOrden.Value;
-                dgvOrdenVenta.DataSource = logOrdenVenta.Instancia.BuscaFechaVenta2(ordenVenta);
+                dgvOrdenVenta.DataSource = logOrdenVenta.Instancia.BuscaFechaVenta(ordenVenta);
                 if (dgvOrdenVenta.Rows.Count == 0)
                 {
                     MessageBox.Show("No existen ventas de esta fecha", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -186,6 +196,52 @@ namespace ProyectoGameCenter
                 MessageBox.Show("Error.." + ex);
             }
             ListarDetalleNotaSalida();
+        }
+
+        private void btnAnular_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (txtIDNotaSalida.Text.Equals("") | txtNNotaSalida.Text.Equals("") | txtNumOrden.Text.Equals(""))
+                {
+                    MessageBox.Show("Deben estar llenos los campos ID Nota Entrada, Numero Nota Entrada y Numero Orden Compra", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
+                    entNotaSalida notasalida = new entNotaSalida();
+                    notasalida.idNotaSalida = Convert.ToInt32(txtIDNotaSalida.Text);
+                    logNotaSalida.Instancia.DeshabilitarNotaSalida(notasalida.idNotaSalida);
+                    MessageBox.Show("Nota de Salida inhabilitado correctamente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ListarNotaSalida();
+                    LimpiarVariables();
+                    gbNotaSalida.Enabled = false;
+                    gbDetalleNotaSalida.Enabled=false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error..." + ex);
+            }
+        }
+
+        private void btnBuscarNS_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                entNotaSalida NotaSalida = new entNotaSalida();
+                NotaSalida.fechaEmision = dtpBuscarFecha.Value;
+                dgvNotaSalida.DataSource = logNotaSalida.Instancia.BuscaFecha(NotaSalida);
+                if (dgvNotaSalida.Rows.Count == 0)
+                {
+                    MessageBox.Show("NO existen Notas de Salida de esta fecha", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ListarNotaSalida();
+                    LimpiarVariables();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error..." + ex);
+            }
         }
     }
 }

@@ -7,38 +7,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace AccesoDatos
 {
-    public class datNotaSalida
+    public class datNotaEntrada
     {
+
         //Singleton
-        private static readonly datNotaSalida _instancia = new datNotaSalida();
-        public static datNotaSalida Instancia
+        private static readonly datNotaEntrada _instancia = new datNotaEntrada();
+        public static datNotaEntrada Instancia
         {
-            get { return datNotaSalida._instancia; }
+            get { return datNotaEntrada._instancia; }
         }
 
         //Listar Nota de Salida
-        public List<entNotaSalida> ListarNotaSalida()
+        public List<entNotaEntrada> ListarNotaEntrada()
         {
             SqlCommand cmd = null;
-            List<entNotaSalida> lista = new List<entNotaSalida>();
+            List<entNotaEntrada> lista = new List<entNotaEntrada>();
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("SP_LISTAR_NOTA_SALIDA", cn);
+                cmd = new SqlCommand("SP_LISTAR_NOTA_ENTRADA", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    entNotaSalida notaSalida = new entNotaSalida();
-                    notaSalida.idNotaSalida = Convert.ToInt32(dr["ID_NOTA_SALIDA"]);
-                    notaSalida.numNotaSalida = Convert.ToInt32(dr["NUM_NOTA_SALIDA"]);
-                    notaSalida.fechaEmision = Convert.ToDateTime(dr["FEC_EMISION"]);
-                    notaSalida.numOrdenVenta = dr["NUM_ORDEN_VENTA"].ToString();
-                    notaSalida.estado = Convert.ToBoolean(dr["ESTADO_NOTA_SALIDA"]);
-                    lista.Add(notaSalida);
+                    entNotaEntrada notaEntrada = new entNotaEntrada();
+                    notaEntrada.idNotaEntrada = Convert.ToInt32(dr["ID_NOTA_ENTRADA"]);
+                    notaEntrada.numNotaEntrada = Convert.ToInt32(dr["NUM_NOTA_ENTRADA"]);
+                    notaEntrada.fechaEmision = Convert.ToDateTime(dr["FECHA"]);
+                    notaEntrada.numOrdenCompra = Convert.ToInt32(dr["NUM_ORDEN_COMPRA"]);
+                    notaEntrada.estado = Convert.ToBoolean(dr["ESTADO_NOTA_ENTRADA"]);
+                    lista.Add(notaEntrada);
                 }
             }
             catch (Exception e) { throw e; }
@@ -47,18 +49,18 @@ namespace AccesoDatos
         }
 
         //Insertar Nota de Salida
-        public Boolean InsertarNotaSalida(entNotaSalida notaSalida)
+        public Boolean InsertarNotaEntrada(entNotaEntrada notaEntrada)
         {
             SqlCommand cmd = null;
             Boolean inserta = false;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("SP_INSERTAR_NOTA_SALIDA", cn);
-                cmd.CommandType = CommandType.StoredProcedure;          
-                cmd.Parameters.AddWithValue("@FEC_EMISION", notaSalida.fechaEmision);
-                cmd.Parameters.AddWithValue("@NUM_ORDEN_VENTA", notaSalida.numOrdenVenta);
-                cmd.Parameters.AddWithValue("@ESTADO_NOTA_SALIDA", notaSalida.estado);
+                cmd = new SqlCommand("SP_INSERTAR_NOTA_ENTRADA", cn);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@FECHA", notaEntrada.fechaEmision);
+                cmd.Parameters.AddWithValue("@NUM_ORDEN_COMPRA", notaEntrada.numOrdenCompra);
+                cmd.Parameters.AddWithValue("@ESTADO_NOTA_ENTRADA", notaEntrada.estado);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0) { inserta = true; }
@@ -69,16 +71,16 @@ namespace AccesoDatos
         }
 
         //Deshabilitar Nota de Salida
-        public Boolean DeshabilitarNotaSalida(int idNotaSalida)
+        public Boolean DeshabilitarNotaEntrada(int idNotaEntrada)
         {
             SqlCommand cmd = null;
             Boolean deshabilita = false;
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("SP_ANULAR_NOTA_SALIDA", cn);
+                cmd = new SqlCommand("SP_ANULAR_NOTA_ENTRADA", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@ID_NOTA_SALIDA", idNotaSalida);
+                cmd.Parameters.AddWithValue("@ID_NOTA_ENTRADA", idNotaEntrada);
                 cn.Open();
                 int i = cmd.ExecuteNonQuery();
                 if (i > 0) { deshabilita = true; }
@@ -88,27 +90,28 @@ namespace AccesoDatos
             return deshabilita;
         }
 
-        public List<entNotaSalida> BuscarNotaSalida(entNotaSalida fecha)
+
+        public List<entNotaEntrada> BuscarNotaEntrada(entNotaEntrada fecha)
         {
             SqlCommand cmd = null;
-            List<entNotaSalida> lista = new List<entNotaSalida>();
+            List<entNotaEntrada> lista = new List<entNotaEntrada>();
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("SP_BUSCAR_NOTA_SALIDA_FECHA", cn);
+                cmd = new SqlCommand("SP_BUSCAR_NOTA_ENTRADA_FECHA", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@FECHA", fecha.fechaEmision);
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
                 while (dr.Read())
                 {
-                    entNotaSalida Salida = new entNotaSalida();
-                    Salida.idNotaSalida = Convert.ToInt32(dr["ID_NOTA_SALIDA"]);
-                    Salida.numNotaSalida = Convert.ToInt32(dr["NUM_NOTA_SALIDA"]);
-                    Salida.fechaEmision = Convert.ToDateTime(dr["FEC_EMISION"]);
-                    Salida.numOrdenVenta = (dr["NUM_ORDEN_VENTA"].ToString());
-                    Salida.estado = Convert.ToBoolean(dr["ESTADO_NOTA_SALIDA"]);
-                    lista.Add(Salida);
+                    entNotaEntrada Entrada = new entNotaEntrada();
+                    Entrada.idNotaEntrada = Convert.ToInt32(dr["ID_NOTA_ENTRADA"]);
+                    Entrada.numNotaEntrada = Convert.ToInt32(dr["NUM_NOTA_ENTRADA"]);
+                    Entrada.fechaEmision = Convert.ToDateTime(dr["FECHA"]);
+                    Entrada.numOrdenCompra = Convert.ToInt32(dr["NUM_ORDEN_COMPRA"]);
+                    Entrada.estado = Convert.ToBoolean(dr["ESTADO_NOTA_ENTRADA"]);
+                    lista.Add(Entrada);
                 }
             }
             catch (Exception e) { throw e; }

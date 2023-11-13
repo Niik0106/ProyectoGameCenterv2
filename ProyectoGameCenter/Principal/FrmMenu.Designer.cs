@@ -414,6 +414,7 @@
             this.btnNotaEntrada.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNotaEntrada.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNotaEntrada.UseVisualStyleBackColor = true;
+            this.btnNotaEntrada.Click += new System.EventHandler(this.btnNotaEntrada_Click);
             // 
             // btnOrdenCompra
             // 

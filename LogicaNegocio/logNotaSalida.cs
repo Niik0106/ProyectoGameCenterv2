@@ -34,5 +34,9 @@ namespace LogicaNegocio
         {
             return datNotaSalida.Instancia.DeshabilitarNotaSalida(notaSalida);
         }
+        public List<entNotaSalida> BuscaFecha(entNotaSalida fecha)
+        {
+            return datNotaSalida.Instancia.BuscarNotaSalida(fecha);
+        }
     }
 }
