@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Configuration.ConfigurationManager;
 
 namespace AccesoDatos
 {
@@ -20,7 +21,7 @@ namespace AccesoDatos
         {
 
             SqlConnection cn = new SqlConnection();
-            cn.ConnectionString = "Data Source=LAPTOP-BFK427HA\\SQL; Initial Catalog = MOANSO_GAMECENTER; Integrated Security=true";
+            cn.ConnectionString = ConnectionStrings["MyConnectionString"].ConnectionString;
 
             return cn;
         }
