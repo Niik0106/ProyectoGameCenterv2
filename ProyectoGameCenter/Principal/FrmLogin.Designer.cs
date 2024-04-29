@@ -37,6 +37,11 @@
             this.txtContrasenia = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.lblLogin = new System.Windows.Forms.Label();
+            this.link = new System.Windows.Forms.LinkLabel();
+            this.label3 = new System.Windows.Forms.Label();
+            this.labelTimer = new System.Windows.Forms.Label();
+            this.txtCaptcha = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.btnIniciarSesion = new ProyectoGameCenter.Botones.Boton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
@@ -80,7 +85,7 @@
             // 
             this.label1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.label1.Location = new System.Drawing.Point(581, 150);
+            this.label1.Location = new System.Drawing.Point(579, 95);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 25);
             this.label1.TabIndex = 4;
@@ -89,7 +94,7 @@
             // txtUsuario
             // 
             this.txtUsuario.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtUsuario.Location = new System.Drawing.Point(585, 178);
+            this.txtUsuario.Location = new System.Drawing.Point(583, 123);
             this.txtUsuario.Multiline = true;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(205, 30);
@@ -99,7 +104,7 @@
             // 
             this.txtContrasenia.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtContrasenia.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.txtContrasenia.Location = new System.Drawing.Point(585, 244);
+            this.txtContrasenia.Location = new System.Drawing.Point(583, 189);
             this.txtContrasenia.Margin = new System.Windows.Forms.Padding(0);
             this.txtContrasenia.Multiline = true;
             this.txtContrasenia.Name = "txtContrasenia";
@@ -112,7 +117,7 @@
             // 
             this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.label2.Location = new System.Drawing.Point(581, 216);
+            this.label2.Location = new System.Drawing.Point(579, 161);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(114, 25);
             this.label2.TabIndex = 6;
@@ -129,6 +134,56 @@
             this.lblLogin.TabIndex = 9;
             this.lblLogin.Text = "LOGIN";
             // 
+            // link
+            // 
+            this.link.AutoSize = true;
+            this.link.Location = new System.Drawing.Point(612, 410);
+            this.link.Name = "link";
+            this.link.Size = new System.Drawing.Size(132, 13);
+            this.link.TabIndex = 11;
+            this.link.TabStop = true;
+            this.link.Text = "Declaratoria de Privacidad";
+            this.link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.link_LinkClicked);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.label3.Location = new System.Drawing.Point(542, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(138, 15);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "TIEMPO RESTANTE:";
+            // 
+            // labelTimer
+            // 
+            this.labelTimer.AutoSize = true;
+            this.labelTimer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTimer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.labelTimer.Location = new System.Drawing.Point(686, 31);
+            this.labelTimer.Name = "labelTimer";
+            this.labelTimer.Size = new System.Drawing.Size(0, 15);
+            this.labelTimer.TabIndex = 13;
+            // 
+            // txtCaptcha
+            // 
+            this.txtCaptcha.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCaptcha.Location = new System.Drawing.Point(582, 259);
+            this.txtCaptcha.Multiline = true;
+            this.txtCaptcha.Name = "txtCaptcha";
+            this.txtCaptcha.Size = new System.Drawing.Size(205, 30);
+            this.txtCaptcha.TabIndex = 15;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.label4.Location = new System.Drawing.Point(578, 231);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(209, 25);
+            this.label4.TabIndex = 14;
+            // 
             // btnIniciarSesion
             // 
             this.btnIniciarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
@@ -140,7 +195,7 @@
             this.btnIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnIniciarSesion.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold);
             this.btnIniciarSesion.ForeColor = System.Drawing.Color.White;
-            this.btnIniciarSesion.Location = new System.Drawing.Point(572, 301);
+            this.btnIniciarSesion.Location = new System.Drawing.Point(573, 323);
             this.btnIniciarSesion.Name = "btnIniciarSesion";
             this.btnIniciarSesion.Size = new System.Drawing.Size(228, 57);
             this.btnIniciarSesion.TabIndex = 10;
@@ -155,6 +210,11 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(850, 450);
+            this.Controls.Add(this.txtCaptcha);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.labelTimer);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.link);
             this.Controls.Add(this.btnIniciarSesion);
             this.Controls.Add(this.lblLogin);
             this.Controls.Add(this.txtContrasenia);
@@ -167,6 +227,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.FrmLogin_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
@@ -186,5 +247,10 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblLogin;
         private Botones.Boton btnIniciarSesion;
+        private System.Windows.Forms.LinkLabel link;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelTimer;
+        private System.Windows.Forms.TextBox txtCaptcha;
+        private System.Windows.Forms.Label label4;
     }
 }

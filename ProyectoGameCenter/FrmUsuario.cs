@@ -60,6 +60,28 @@ namespace ProyectoGameCenter
             cboEstadoUsuario.Checked = false;
         }
 
+        private bool ValidarContrasenia(string contrasenia)
+        {
+            // Número mínimo de caracteres = 8
+            if (contrasenia.Length < 8)
+                return false;
+
+            // Debe contener al menos una letra mayúscula
+            if (!contrasenia.Any(char.IsUpper))
+                return false;
+
+            // Debe contener al menos un número
+            if (!contrasenia.Any(char.IsDigit))
+                return false;
+
+            // Debe contener al menos un carácter especial
+            if (!contrasenia.Any(ch => !char.IsLetterOrDigit(ch)))
+                return false;
+
+            return true;
+        }
+
+
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             try
@@ -68,6 +90,14 @@ namespace ProyectoGameCenter
                     txtContrasenia.Text.Equals(""))
                 {
                     MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (!ValidarContrasenia(txtContrasenia.Text.Trim()))
+                {
+                    MessageBox.Show("La contraseña no cumple con los requisitos" +
+                        " Número mínimo de caracteres = 8" +
+                        ", Debe contener al menos una letra MAYÚSCULA (comienza con, termina con)" +
+                        ", Debe contener al menos un número (comienza con, termina con)" +
+                        ", Debe contener al menos un carácter especial (comienza con, termina con)", "Recuerda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
@@ -93,6 +123,12 @@ namespace ProyectoGameCenter
         {
             try
             {
+                if (!ValidarContrasenia(txtContrasenia.Text.Trim()))
+                {
+                    MessageBox.Show("La contraseña no cumple con los requisitos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else
+                {
                     entUsuarios c = new entUsuarios();
                     c.Nombres = txtNombreUsuario.Text.Trim();
                     c.Usuario = txtUsuario.Text.Trim();
@@ -101,6 +137,7 @@ namespace ProyectoGameCenter
                     c.IdRol = Convert.ToInt32(cboRol.SelectedValue);
                     c.estado = cboEstadoUsuario.Checked;
                     logUsuarios.Instancia.EditaUsuarios(c);
+                }
             }
             catch (Exception ex)
             {
