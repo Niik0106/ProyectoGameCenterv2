@@ -169,6 +169,11 @@
     <Compile Include="Principal\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Principal\FrmLogin1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FrmLogin.resx</DependentUpon>
+    </Compile>
     <Compile Include="Principal\FrmMenu.cs">
       <SubType>Form</SubType>
     </Compile>
