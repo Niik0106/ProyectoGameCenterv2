@@ -126,7 +126,8 @@ namespace ProyectoGameCenter.Principal
                     lblDisclaimer.Visible = true; label2.Visible = true;
                     label3.Visible = true; txtContrasenia.Visible = true;
                     txtConfirmar.Visible = true; btnRestablecer.Visible = true;
-                    picAbierto1.Visible = true; picAbierto2.Visible = true; 
+                    picAbierto1.Visible = true; picAbierto2.Visible = true;
+                    progressBar1.Visible = true; lblNivel.Visible = true;
                     lblDisclaimer.Text = "Requisitos de contraseña:\n" +
                                     "- Mínimo 8 caracteres de longitud\n" +
                                     "- Al menos una letra MAYÚSCULA\n" +
