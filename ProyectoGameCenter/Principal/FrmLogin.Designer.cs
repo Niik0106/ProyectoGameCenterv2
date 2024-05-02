@@ -42,10 +42,10 @@
             this.labelTimer = new System.Windows.Forms.Label();
             this.txtCaptcha = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.btnIniciarSesion = new ProyectoGameCenter.Botones.Boton();
             this.linkRestablecer = new System.Windows.Forms.LinkLabel();
             this.picCerrado1 = new System.Windows.Forms.PictureBox();
             this.picAbierto1 = new System.Windows.Forms.PictureBox();
+            this.btnIniciarSesion = new ProyectoGameCenter.Botones.Boton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -117,6 +117,7 @@
             this.txtContrasenia.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.txtContrasenia.Size = new System.Drawing.Size(205, 30);
             this.txtContrasenia.TabIndex = 7;
+            this.txtContrasenia.TextChanged += new System.EventHandler(this.txtContrasenia_TextChanged);
             // 
             // label2
             // 
@@ -189,26 +190,6 @@
             this.label4.Size = new System.Drawing.Size(209, 25);
             this.label4.TabIndex = 14;
             // 
-            // btnIniciarSesion
-            // 
-            this.btnIniciarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnIniciarSesion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
-            this.btnIniciarSesion.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.btnIniciarSesion.BorderRadius = 40;
-            this.btnIniciarSesion.BorderSize = 0;
-            this.btnIniciarSesion.FlatAppearance.BorderSize = 0;
-            this.btnIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIniciarSesion.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold);
-            this.btnIniciarSesion.ForeColor = System.Drawing.Color.White;
-            this.btnIniciarSesion.Location = new System.Drawing.Point(573, 323);
-            this.btnIniciarSesion.Name = "btnIniciarSesion";
-            this.btnIniciarSesion.Size = new System.Drawing.Size(228, 57);
-            this.btnIniciarSesion.TabIndex = 10;
-            this.btnIniciarSesion.Text = "INICIAR SESION";
-            this.btnIniciarSesion.TextColor = System.Drawing.Color.White;
-            this.btnIniciarSesion.UseVisualStyleBackColor = false;
-            this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
-            // 
             // linkRestablecer
             // 
             this.linkRestablecer.AutoSize = true;
@@ -242,6 +223,26 @@
             this.picAbierto1.TabIndex = 28;
             this.picAbierto1.TabStop = false;
             this.picAbierto1.Click += new System.EventHandler(this.picAbierto1_Click);
+            // 
+            // btnIniciarSesion
+            // 
+            this.btnIniciarSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnIniciarSesion.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
+            this.btnIniciarSesion.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.btnIniciarSesion.BorderRadius = 40;
+            this.btnIniciarSesion.BorderSize = 0;
+            this.btnIniciarSesion.FlatAppearance.BorderSize = 0;
+            this.btnIniciarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnIniciarSesion.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold);
+            this.btnIniciarSesion.ForeColor = System.Drawing.Color.White;
+            this.btnIniciarSesion.Location = new System.Drawing.Point(573, 323);
+            this.btnIniciarSesion.Name = "btnIniciarSesion";
+            this.btnIniciarSesion.Size = new System.Drawing.Size(228, 57);
+            this.btnIniciarSesion.TabIndex = 10;
+            this.btnIniciarSesion.Text = "INICIAR SESION";
+            this.btnIniciarSesion.TextColor = System.Drawing.Color.White;
+            this.btnIniciarSesion.UseVisualStyleBackColor = false;
+            this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
             // 
             // FrmLogin
             // 

@@ -126,6 +126,40 @@ namespace AccesoDatos
                 }
             }
         }
+        public enum NivelSeguridad
+        {
+            Debil,
+            Moderado,
+            Fuerte,
+            MuyFuerte
+        }
+        public static NivelSeguridad EvaluarContraseña(string contraseña)
+        {
+            // Evaluar la contraseña según ciertos criterios
+            bool tieneMayusculas = contraseña.Any(char.IsUpper);
+            bool tieneMinusculas = contraseña.Any(char.IsLower);
+            bool tieneNumeros = contraseña.Any(char.IsDigit);
+            bool tieneEspeciales = contraseña.Any(c => !char.IsLetterOrDigit(c));
+
+            // Asignar niveles de seguridad basados en los criterios evaluados
+            if (contraseña.Length < 8)
+            {
+                return NivelSeguridad.Debil;
+            }
+            else if (tieneMayusculas && tieneMinusculas && tieneNumeros && tieneEspeciales)
+            {
+                return NivelSeguridad.MuyFuerte;
+            }
+            else if ((tieneMayusculas && tieneMinusculas && tieneNumeros) || (tieneMayusculas && tieneMinusculas && tieneEspeciales) || (tieneMinusculas && tieneNumeros && tieneEspeciales))
+            {
+                return NivelSeguridad.Fuerte;
+            }
+            else
+            {
+                return NivelSeguridad.Moderado;
+            }
+        }
+
     }
 
 }

@@ -32,29 +32,31 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtCorreo = new System.Windows.Forms.TextBox();
             this.pnlCorreo = new System.Windows.Forms.Panel();
-            this.btnMinimizar = new System.Windows.Forms.PictureBox();
-            this.btnCerrar = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.txtContrasenia = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.picCerrado2 = new System.Windows.Forms.PictureBox();
+            this.picCerrado1 = new System.Windows.Forms.PictureBox();
+            this.picAbierto2 = new System.Windows.Forms.PictureBox();
+            this.picAbierto1 = new System.Windows.Forms.PictureBox();
+            this.lblDisclaimer = new System.Windows.Forms.Label();
             this.txtConfirmar = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.lblDisclaimer = new System.Windows.Forms.Label();
-            this.picAbierto1 = new System.Windows.Forms.PictureBox();
-            this.picAbierto2 = new System.Windows.Forms.PictureBox();
-            this.picCerrado1 = new System.Windows.Forms.PictureBox();
-            this.picCerrado2 = new System.Windows.Forms.PictureBox();
+            this.txtContrasenia = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnRestablecer = new ProyectoGameCenter.Botones.Boton();
             this.btnCodigo = new ProyectoGameCenter.Botones.Boton();
+            this.btnMinimizar = new System.Windows.Forms.PictureBox();
+            this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnEnviar = new ProyectoGameCenter.Botones.Boton();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.lblNivel = new System.Windows.Forms.Label();
             this.pnlCorreo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCerrado2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCerrado1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAbierto2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAbierto1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picAbierto1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picAbierto2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picCerrado1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picCerrado2)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -80,6 +82,8 @@
             // pnlCorreo
             // 
             this.pnlCorreo.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.pnlCorreo.Controls.Add(this.progressBar1);
+            this.pnlCorreo.Controls.Add(this.lblNivel);
             this.pnlCorreo.Controls.Add(this.picCerrado2);
             this.pnlCorreo.Controls.Add(this.picCerrado1);
             this.pnlCorreo.Controls.Add(this.picAbierto2);
@@ -102,61 +106,66 @@
             this.pnlCorreo.Size = new System.Drawing.Size(351, 450);
             this.pnlCorreo.TabIndex = 15;
             // 
-            // btnMinimizar
+            // picCerrado2
             // 
-            this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
-            this.btnMinimizar.Location = new System.Drawing.Point(299, 6);
-            this.btnMinimizar.Name = "btnMinimizar";
-            this.btnMinimizar.Size = new System.Drawing.Size(21, 19);
-            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnMinimizar.TabIndex = 16;
-            this.btnMinimizar.TabStop = false;
-            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            this.picCerrado2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picCerrado2.Image = ((System.Drawing.Image)(resources.GetObject("picCerrado2.Image")));
+            this.picCerrado2.Location = new System.Drawing.Point(299, 233);
+            this.picCerrado2.Name = "picCerrado2";
+            this.picCerrado2.Size = new System.Drawing.Size(32, 32);
+            this.picCerrado2.TabIndex = 27;
+            this.picCerrado2.TabStop = false;
+            this.picCerrado2.Visible = false;
+            this.picCerrado2.Click += new System.EventHandler(this.picCerrado2_Click);
             // 
-            // btnCerrar
+            // picCerrado1
             // 
-            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
-            this.btnCerrar.Location = new System.Drawing.Point(326, 5);
-            this.btnCerrar.Name = "btnCerrar";
-            this.btnCerrar.Size = new System.Drawing.Size(19, 20);
-            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnCerrar.TabIndex = 15;
-            this.btnCerrar.TabStop = false;
-            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            this.picCerrado1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picCerrado1.Image = ((System.Drawing.Image)(resources.GetObject("picCerrado1.Image")));
+            this.picCerrado1.Location = new System.Drawing.Point(299, 154);
+            this.picCerrado1.Name = "picCerrado1";
+            this.picCerrado1.Size = new System.Drawing.Size(32, 32);
+            this.picCerrado1.TabIndex = 26;
+            this.picCerrado1.TabStop = false;
+            this.picCerrado1.Visible = false;
+            this.picCerrado1.Click += new System.EventHandler(this.picCerrado1_Click);
             // 
-            // pictureBox1
+            // picAbierto2
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(501, 450);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.pictureBox1.TabIndex = 16;
-            this.pictureBox1.TabStop = false;
+            this.picAbierto2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picAbierto2.Image = ((System.Drawing.Image)(resources.GetObject("picAbierto2.Image")));
+            this.picAbierto2.Location = new System.Drawing.Point(299, 233);
+            this.picAbierto2.Name = "picAbierto2";
+            this.picAbierto2.Size = new System.Drawing.Size(32, 32);
+            this.picAbierto2.TabIndex = 25;
+            this.picAbierto2.TabStop = false;
+            this.picAbierto2.Visible = false;
+            this.picAbierto2.Click += new System.EventHandler(this.picAbierto2_Click);
             // 
-            // txtContrasenia
+            // picAbierto1
             // 
-            this.txtContrasenia.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtContrasenia.Location = new System.Drawing.Point(30, 156);
-            this.txtContrasenia.Multiline = true;
-            this.txtContrasenia.Name = "txtContrasenia";
-            this.txtContrasenia.PasswordChar = '*';
-            this.txtContrasenia.Size = new System.Drawing.Size(255, 30);
-            this.txtContrasenia.TabIndex = 20;
-            this.txtContrasenia.Visible = false;
+            this.picAbierto1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picAbierto1.Image = ((System.Drawing.Image)(resources.GetObject("picAbierto1.Image")));
+            this.picAbierto1.Location = new System.Drawing.Point(299, 156);
+            this.picAbierto1.Name = "picAbierto1";
+            this.picAbierto1.Size = new System.Drawing.Size(32, 32);
+            this.picAbierto1.TabIndex = 24;
+            this.picAbierto1.TabStop = false;
+            this.picAbierto1.Visible = false;
+            this.picAbierto1.Click += new System.EventHandler(this.picAbierto1_Click);
             // 
-            // label2
+            // lblDisclaimer
             // 
-            this.label2.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.label2.Location = new System.Drawing.Point(27, 128);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(176, 25);
-            this.label2.TabIndex = 19;
-            this.label2.Text = "NUEVA CONTRASEÑA";
-            this.label2.Visible = false;
+            this.lblDisclaimer.AutoSize = true;
+            this.lblDisclaimer.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.lblDisclaimer.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDisclaimer.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.lblDisclaimer.Location = new System.Drawing.Point(28, 35);
+            this.lblDisclaimer.Name = "lblDisclaimer";
+            this.lblDisclaimer.Size = new System.Drawing.Size(76, 16);
+            this.lblDisclaimer.TabIndex = 23;
+            this.lblDisclaimer.Text = "DISCLAIMER";
+            this.lblDisclaimer.Visible = false;
             // 
             // txtConfirmar
             // 
@@ -181,66 +190,29 @@
             this.label3.Text = "CONFIRMAR CONTRASEÑA";
             this.label3.Visible = false;
             // 
-            // lblDisclaimer
+            // txtContrasenia
             // 
-            this.lblDisclaimer.AutoSize = true;
-            this.lblDisclaimer.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.lblDisclaimer.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDisclaimer.ForeColor = System.Drawing.Color.DarkMagenta;
-            this.lblDisclaimer.Location = new System.Drawing.Point(28, 35);
-            this.lblDisclaimer.Name = "lblDisclaimer";
-            this.lblDisclaimer.Size = new System.Drawing.Size(76, 16);
-            this.lblDisclaimer.TabIndex = 23;
-            this.lblDisclaimer.Text = "DISCLAIMER";
-            this.lblDisclaimer.Visible = false;
+            this.txtContrasenia.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContrasenia.Location = new System.Drawing.Point(30, 156);
+            this.txtContrasenia.Multiline = true;
+            this.txtContrasenia.Name = "txtContrasenia";
+            this.txtContrasenia.PasswordChar = '*';
+            this.txtContrasenia.Size = new System.Drawing.Size(255, 30);
+            this.txtContrasenia.TabIndex = 20;
+            this.txtContrasenia.Visible = false;
+            this.txtContrasenia.TextChanged += new System.EventHandler(this.txtContrasenia_TextChanged);
             // 
-            // picAbierto1
+            // label2
             // 
-            this.picAbierto1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picAbierto1.Image = ((System.Drawing.Image)(resources.GetObject("picAbierto1.Image")));
-            this.picAbierto1.Location = new System.Drawing.Point(299, 156);
-            this.picAbierto1.Name = "picAbierto1";
-            this.picAbierto1.Size = new System.Drawing.Size(32, 32);
-            this.picAbierto1.TabIndex = 24;
-            this.picAbierto1.TabStop = false;
-            this.picAbierto1.Visible = false;
-            this.picAbierto1.Click += new System.EventHandler(this.picAbierto1_Click);
-            // 
-            // picAbierto2
-            // 
-            this.picAbierto2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picAbierto2.Image = ((System.Drawing.Image)(resources.GetObject("picAbierto2.Image")));
-            this.picAbierto2.Location = new System.Drawing.Point(299, 233);
-            this.picAbierto2.Name = "picAbierto2";
-            this.picAbierto2.Size = new System.Drawing.Size(32, 32);
-            this.picAbierto2.TabIndex = 25;
-            this.picAbierto2.TabStop = false;
-            this.picAbierto2.Visible = false;
-            this.picAbierto2.Click += new System.EventHandler(this.picAbierto2_Click);
-            // 
-            // picCerrado1
-            // 
-            this.picCerrado1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picCerrado1.Image = ((System.Drawing.Image)(resources.GetObject("picCerrado1.Image")));
-            this.picCerrado1.Location = new System.Drawing.Point(299, 154);
-            this.picCerrado1.Name = "picCerrado1";
-            this.picCerrado1.Size = new System.Drawing.Size(32, 32);
-            this.picCerrado1.TabIndex = 26;
-            this.picCerrado1.TabStop = false;
-            this.picCerrado1.Visible = false;
-            this.picCerrado1.Click += new System.EventHandler(this.picCerrado1_Click);
-            // 
-            // picCerrado2
-            // 
-            this.picCerrado2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.picCerrado2.Image = ((System.Drawing.Image)(resources.GetObject("picCerrado2.Image")));
-            this.picCerrado2.Location = new System.Drawing.Point(299, 233);
-            this.picCerrado2.Name = "picCerrado2";
-            this.picCerrado2.Size = new System.Drawing.Size(32, 32);
-            this.picCerrado2.TabIndex = 27;
-            this.picCerrado2.TabStop = false;
-            this.picCerrado2.Visible = false;
-            this.picCerrado2.Click += new System.EventHandler(this.picCerrado2_Click);
+            this.label2.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.DarkMagenta;
+            this.label2.Location = new System.Drawing.Point(27, 128);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(176, 25);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "NUEVA CONTRASEÑA";
+            this.label2.Visible = false;
             // 
             // btnRestablecer
             // 
@@ -253,7 +225,7 @@
             this.btnRestablecer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRestablecer.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold);
             this.btnRestablecer.ForeColor = System.Drawing.Color.White;
-            this.btnRestablecer.Location = new System.Drawing.Point(57, 294);
+            this.btnRestablecer.Location = new System.Drawing.Point(57, 311);
             this.btnRestablecer.Name = "btnRestablecer";
             this.btnRestablecer.Size = new System.Drawing.Size(228, 57);
             this.btnRestablecer.TabIndex = 18;
@@ -284,6 +256,28 @@
             this.btnCodigo.Visible = false;
             this.btnCodigo.Click += new System.EventHandler(this.btnCodigo_Click);
             // 
+            // btnMinimizar
+            // 
+            this.btnMinimizar.Image = ((System.Drawing.Image)(resources.GetObject("btnMinimizar.Image")));
+            this.btnMinimizar.Location = new System.Drawing.Point(299, 6);
+            this.btnMinimizar.Name = "btnMinimizar";
+            this.btnMinimizar.Size = new System.Drawing.Size(21, 19);
+            this.btnMinimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnMinimizar.TabIndex = 16;
+            this.btnMinimizar.TabStop = false;
+            this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
+            // 
+            // btnCerrar
+            // 
+            this.btnCerrar.Image = ((System.Drawing.Image)(resources.GetObject("btnCerrar.Image")));
+            this.btnCerrar.Location = new System.Drawing.Point(326, 5);
+            this.btnCerrar.Name = "btnCerrar";
+            this.btnCerrar.Size = new System.Drawing.Size(19, 20);
+            this.btnCerrar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.btnCerrar.TabIndex = 15;
+            this.btnCerrar.TabStop = false;
+            this.btnCerrar.Click += new System.EventHandler(this.btnCerrar_Click);
+            // 
             // btnEnviar
             // 
             this.btnEnviar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(153)))), ((int)(((byte)(48)))), ((int)(((byte)(226)))));
@@ -304,6 +298,36 @@
             this.btnEnviar.UseVisualStyleBackColor = false;
             this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(501, 450);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 16;
+            this.pictureBox1.TabStop = false;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.progressBar1.Location = new System.Drawing.Point(31, 269);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(253, 10);
+            this.progressBar1.TabIndex = 76;
+            this.progressBar1.Visible = false;
+            // 
+            // lblNivel
+            // 
+            this.lblNivel.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNivel.ForeColor = System.Drawing.Color.White;
+            this.lblNivel.Location = new System.Drawing.Point(33, 283);
+            this.lblNivel.Name = "lblNivel";
+            this.lblNivel.Size = new System.Drawing.Size(116, 15);
+            this.lblNivel.TabIndex = 75;
+            this.lblNivel.Visible = false;
+            // 
             // FrmRestablecerContrasenia
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -316,13 +340,13 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.pnlCorreo.ResumeLayout(false);
             this.pnlCorreo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picCerrado2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCerrado1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAbierto2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAbierto1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picAbierto1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picAbierto2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picCerrado1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picCerrado2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -347,5 +371,7 @@
         private System.Windows.Forms.PictureBox picCerrado2;
         private System.Windows.Forms.PictureBox picCerrado1;
         private System.Windows.Forms.PictureBox picAbierto2;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label lblNivel;
     }
 }

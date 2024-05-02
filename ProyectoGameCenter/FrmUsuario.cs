@@ -3,12 +3,16 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AccesoDatos;
 using Entidades;
 using LogicaNegocio;
+using static AccesoDatos.CD_Usuario;
 
 namespace ProyectoGameCenter
 {
@@ -58,27 +62,15 @@ namespace ProyectoGameCenter
             txtContrasenia.Clear();
             txtBuscarUsuario.Clear();
             cboEstadoUsuario.Checked = false;
+            lblNivel.Text = string.Empty;
+            progressBar1.Value = 0;
         }
 
-        private bool ValidarContrasenia(string contrasenia)
+        private bool ValidarContraseña(string contraseña)
         {
-            // Número mínimo de caracteres = 8
-            if (contrasenia.Length < 8)
-                return false;
-
-            // Debe contener al menos una letra mayúscula
-            if (!contrasenia.Any(char.IsUpper))
-                return false;
-
-            // Debe contener al menos un número
-            if (!contrasenia.Any(char.IsDigit))
-                return false;
-
-            // Debe contener al menos un carácter especial
-            if (!contrasenia.Any(ch => !char.IsLetterOrDigit(ch)))
-                return false;
-
-            return true;
+            // Requisitos de contraseña: mínimo 8 caracteres, al menos una mayúscula, al menos un número, al menos un carácter especial
+            Regex regex = new Regex(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[^a-zA-Z0-9]).{8,}$");
+            return regex.IsMatch(contraseña);
         }
 
 
@@ -91,13 +83,10 @@ namespace ProyectoGameCenter
                 {
                     MessageBox.Show("Debe llenar los campos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
-                else if (!ValidarContrasenia(txtContrasenia.Text.Trim()))
+                else if (!ValidarContraseña(txtContrasenia.Text))
                 {
-                    MessageBox.Show("La contraseña no cumple con los requisitos" +
-                        " Número mínimo de caracteres = 8" +
-                        ", Debe contener al menos una letra MAYÚSCULA (comienza con, termina con)" +
-                        ", Debe contener al menos un número (comienza con, termina con)" +
-                        ", Debe contener al menos un carácter especial (comienza con, termina con)", "Recuerda", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("La contraseña no cumple con los requisitos mínimos de seguridad.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
                 else
                 {
@@ -123,7 +112,7 @@ namespace ProyectoGameCenter
         {
             try
             {
-                if (!ValidarContrasenia(txtContrasenia.Text.Trim()))
+                if (!ValidarContraseña(txtContrasenia.Text.Trim()))
                 {
                     MessageBox.Show("La contraseña no cumple con los requisitos", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
@@ -242,6 +231,51 @@ namespace ProyectoGameCenter
         private void btnSalir_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void txtContrasenia__TextChanged(object sender, EventArgs e)
+        {
+            NivelSeguridad nivel = CD_Usuario.EvaluarContraseña(txtContrasenia.Text);
+            switch (nivel)
+            {
+                case NivelSeguridad.Debil:
+                    progressBar1.Value = 25;
+                    lblNivel.Text = "Débil";
+                    break;
+                case NivelSeguridad.Moderado:
+                    progressBar1.Value = 50;
+                    lblNivel.Text = "Moderado";
+                    break;
+                case NivelSeguridad.Fuerte:
+                    progressBar1.Value = 75;
+                    lblNivel.Text = "Fuerte";
+                    break;
+                case NivelSeguridad.MuyFuerte:
+                    progressBar1.Value = 100;
+                    lblNivel.Text = "Muy Fuerte";
+                    break;
+            }
+        }
+
+        private void FrmUsuario_Load(object sender, EventArgs e)
+        {
+            ToolTip toolTip = new ToolTip();
+            toolTip.ToolTipIcon = ToolTipIcon.Info;
+            toolTip.ToolTipTitle = "Información";
+
+            txtContrasenia.Enter += (s, ev) =>
+            {
+                toolTip.Show("Requisitos de contraseña:\n" +
+                                    "- Mínimo 8 caracteres de longitud\n" +
+                                    "- Al menos una letra MAYÚSCULA\n" +
+                                    "- Al menos un número\n" +
+                                    "- Al menos un carácter especial", txtContrasenia, txtContrasenia.Width, 0, 2000);
+            };
+
+            txtContrasenia.Leave += (s, ev) =>
+            {
+                toolTip.Hide(txtContrasenia);
+            };
         }
     }
 }

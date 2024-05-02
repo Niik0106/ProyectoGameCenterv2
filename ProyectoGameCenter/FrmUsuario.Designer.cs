@@ -41,6 +41,8 @@
             this.dgvUsuarios = new System.Windows.Forms.DataGridView();
             this.label5 = new System.Windows.Forms.Label();
             this.gbUsuarios = new System.Windows.Forms.GroupBox();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.lblNivel = new System.Windows.Forms.Label();
             this.txtContrasenia = new ProyectoGameCenter.NiikTextBox();
             this.txtUsuario = new ProyectoGameCenter.NiikTextBox();
             this.txtNombreUsuario = new ProyectoGameCenter.NiikTextBox();
@@ -254,6 +256,8 @@
             this.gbUsuarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.gbUsuarios.Controls.Add(this.progressBar1);
+            this.gbUsuarios.Controls.Add(this.lblNivel);
             this.gbUsuarios.Controls.Add(this.txtContrasenia);
             this.gbUsuarios.Controls.Add(this.txtUsuario);
             this.gbUsuarios.Controls.Add(this.txtNombreUsuario);
@@ -278,6 +282,23 @@
             this.gbUsuarios.TabStop = false;
             this.gbUsuarios.Text = "DATOS DEL USUARIO";
             // 
+            // progressBar1
+            // 
+            this.progressBar1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.progressBar1.Location = new System.Drawing.Point(349, 207);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(244, 10);
+            this.progressBar1.TabIndex = 74;
+            // 
+            // lblNivel
+            // 
+            this.lblNivel.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNivel.ForeColor = System.Drawing.Color.White;
+            this.lblNivel.Location = new System.Drawing.Point(351, 221);
+            this.lblNivel.Name = "lblNivel";
+            this.lblNivel.Size = new System.Drawing.Size(116, 15);
+            this.lblNivel.TabIndex = 73;
+            // 
             // txtContrasenia
             // 
             this.txtContrasenia.BackColor = System.Drawing.SystemColors.Window;
@@ -298,6 +319,7 @@
             this.txtContrasenia.Size = new System.Drawing.Size(250, 36);
             this.txtContrasenia.TabIndex = 72;
             this.txtContrasenia.UnderlinedStyle = false;
+            this.txtContrasenia._TextChanged += new System.EventHandler(this.txtContrasenia__TextChanged);
             // 
             // txtUsuario
             // 
@@ -527,6 +549,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FrmUsuario";
             this.Text = "Usuario";
+            this.Load += new System.EventHandler(this.FrmUsuario_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvUsuarios)).EndInit();
             this.gbUsuarios.ResumeLayout(false);
             this.gbUsuarios.PerformLayout();
@@ -560,5 +583,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox cboRol;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblNivel;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }

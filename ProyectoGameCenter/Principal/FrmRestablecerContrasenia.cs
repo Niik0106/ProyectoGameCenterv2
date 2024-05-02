@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Mail;
 using System.Text.RegularExpressions;
+using static AccesoDatos.CD_Usuario;
 
 namespace ProyectoGameCenter.Principal
 {
@@ -208,6 +209,30 @@ namespace ProyectoGameCenter.Principal
             txtConfirmar.PasswordChar = '\0';
             picAbierto2.Visible = false;
             picCerrado2.Visible = true;
+        }
+
+        private void txtContrasenia_TextChanged(object sender, EventArgs e)
+        {
+            NivelSeguridad nivel = CD_Usuario.EvaluarContraseña(txtContrasenia.Text);
+            switch (nivel)
+            {
+                case NivelSeguridad.Debil:
+                    progressBar1.Value = 25;
+                    lblNivel.Text = "Débil";
+                    break;
+                case NivelSeguridad.Moderado:
+                    progressBar1.Value = 50;
+                    lblNivel.Text = "Moderado";
+                    break;
+                case NivelSeguridad.Fuerte:
+                    progressBar1.Value = 75;
+                    lblNivel.Text = "Fuerte";
+                    break;
+                case NivelSeguridad.MuyFuerte:
+                    progressBar1.Value = 100;
+                    lblNivel.Text = "Muy Fuerte";
+                    break;
+            }
         }
     }
 }

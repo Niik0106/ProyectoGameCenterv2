@@ -13,6 +13,7 @@ using System.Windows.Forms;
 
 using AccesoDatos;
 using Entidades;
+using static AccesoDatos.CD_Usuario;
 
 namespace ProyectoGameCenter.Principal
 {
@@ -34,6 +35,7 @@ namespace ProyectoGameCenter.Principal
             timer.Interval = 1000; 
             timer.Tick += Timer_Tick;   
             timer.Start();
+
         }
 
         private void FrmLogin_Load(object sender, EventArgs e)
@@ -167,5 +169,11 @@ namespace ProyectoGameCenter.Principal
             picAbierto1.Visible = true;
             picCerrado1.Visible = false;
         }
+
+        private void txtContrasenia_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
     }
 }
