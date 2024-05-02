@@ -73,5 +73,59 @@ namespace AccesoDatos
 
             return idUsuario;
         }
+
+        public static string ObtenerCorreoPorUsuario(string usuarioCorreo)
+        {
+            string correoElectronico = null;
+            using (SqlConnection cn = new SqlConnection(Conexion.cn))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ObtenerCorreoPorUsuario", cn); 
+                    cmd.Parameters.AddWithValue("UsuarioCorreo", usuarioCorreo);
+                    cmd.Parameters.Add("CorreoElectronico", SqlDbType.VarChar, 100).Direction = ParameterDirection.Output;
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    cn.Open();
+                    cmd.ExecuteNonQuery();
+
+                    correoElectronico = Convert.ToString(cmd.Parameters["CorreoElectronico"].Value);
+                }
+                catch (Exception)
+                {
+                    
+                }
+            }
+
+            return correoElectronico;
+        }
+
+        public static bool ActualizarContraseña(string correoUsuario, string nuevaContraseña)
+        {
+            using (SqlConnection cn = new SqlConnection(Conexion.cn))
+            {
+                try
+                {
+                    SqlCommand cmd = new SqlCommand("usp_ActualizarContraseña", cn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    // Parámetros del procedimiento almacenado
+                    cmd.Parameters.AddWithValue("@CorreoUsuario", correoUsuario);
+                    cmd.Parameters.AddWithValue("@NuevaContraseña", nuevaContraseña);
+
+                    cn.Open();
+                    int filasAfectadas = (int)cmd.ExecuteScalar();
+
+                    return filasAfectadas == 1;
+                }
+                catch (Exception ex)
+                {
+                    // Manejo de errores, puedes personalizar según tus necesidades
+                    Console.WriteLine("Error al actualizar la contraseña: " + ex.Message);
+                    return false;
+                }
+            }
+        }
     }
+
 }

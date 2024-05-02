@@ -21,7 +21,7 @@ namespace ProyectoGameCenter.Principal
         private SqlConnection sqlConnection;
         int intentosFallidos = 0;
         int maximoIntentos = 5;
-        int tiempoRestante = 60; 
+        int tiempoRestante = 600; 
         Timer timer;
 
         public FrmLogin()
@@ -38,25 +38,30 @@ namespace ProyectoGameCenter.Principal
 
         private void FrmLogin_Load(object sender, EventArgs e)
         {
+            string captcha = GenerarCaptcha(6, 8);
+            label4.Text = captcha;
+        }
+
+        public static string GenerarCaptcha(int longitudMinima, int longitudMaxima)
+        {
             Random rand = new Random();
-            int num = rand.Next(6, 8);
-            string captcha = "";
+            int longitud = rand.Next(longitudMinima, longitudMaxima + 1); // Determinar la longitud aleatoria del captcha
+            StringBuilder captcha = new StringBuilder(); // Utilizar un StringBuilder para mejorar el rendimiento en la construcción de cadenas
             int total = 0;
+
             do
             {
-                int chr = rand.Next(48, 123);
+                int chr = rand.Next(48, 123); // Obtener un carácter ASCII aleatorio entre 48 y 122
                 if ((chr >= 48 && chr <= 57) || (chr >= 65 && chr <= 90) || (chr >= 97 && chr <= 122))
                 {
-                    captcha += (char)chr;
+                    captcha.Append((char)chr); // Agregar el carácter al captcha
                     total++;
-                    if (total == num)
+                    if (total == longitud)
                         break;
-                    {
-
-                    }
                 }
             } while (true);
-            label4.Text = captcha;
+
+            return captcha.ToString(); // Devolver el captcha como una cadena
         }
 
 
@@ -86,13 +91,8 @@ namespace ProyectoGameCenter.Principal
             }
         }
 
-
-
-
-
         private void btnIniciarSesion_Click(object sender, EventArgs e)
         {
-        
 
             int idUsuario_Esperado = CD_Usuario.loguear(txtUsuario.Text, txtContrasenia.Text);
 
@@ -119,6 +119,8 @@ namespace ProyectoGameCenter.Principal
                     if (label4.Text != txtCaptcha.Text)
                     {
                         MessageBox.Show("CAPTCHA incorrecto, intente nuevamente");
+                        string captcha = GenerarCaptcha(6, 8);
+                        label4.Text = captcha;
                     }
                     
                     int intentosRestantes = maximoIntentos - intentosFallidos;
@@ -134,7 +136,7 @@ namespace ProyectoGameCenter.Principal
 
         private void link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            string filePath = @"D:\CICLO 8\CALIDAD Y PRUEBAS\DECLARACIÓN DE PRIVACIDAD.pdf";
+            string filePath = @"C:\Users\rocke\OneDrive\Documentos\DECLARACIÓN DE PRIVACIDAD.pdf";
 
             try
             {
@@ -146,6 +148,24 @@ namespace ProyectoGameCenter.Principal
             }
         }
 
+        private void linkRestablecer_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmRestablecerContrasenia restContra = new FrmRestablecerContrasenia();
+            restContra.Show();
+        }
 
+        private void picAbierto1_Click(object sender, EventArgs e)
+        {
+            txtContrasenia.PasswordChar = '\0';
+            picAbierto1.Visible = false;
+            picCerrado1.Visible = true;
+        }
+
+        private void picCerrado1_Click(object sender, EventArgs e)
+        {
+            txtContrasenia.PasswordChar = '*';
+            picAbierto1.Visible = true;
+            picCerrado1.Visible = false;
+        }
     }
 }

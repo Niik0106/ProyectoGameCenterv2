@@ -43,9 +43,14 @@
             this.txtCaptcha = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnIniciarSesion = new ProyectoGameCenter.Botones.Boton();
+            this.linkRestablecer = new System.Windows.Forms.LinkLabel();
+            this.picCerrado1 = new System.Windows.Forms.PictureBox();
+            this.picAbierto1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCerrado1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAbierto1)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -137,7 +142,7 @@
             // link
             // 
             this.link.AutoSize = true;
-            this.link.Location = new System.Drawing.Point(612, 410);
+            this.link.Location = new System.Drawing.Point(519, 410);
             this.link.Name = "link";
             this.link.Size = new System.Drawing.Size(132, 13);
             this.link.TabIndex = 11;
@@ -204,12 +209,49 @@
             this.btnIniciarSesion.UseVisualStyleBackColor = false;
             this.btnIniciarSesion.Click += new System.EventHandler(this.btnIniciarSesion_Click);
             // 
+            // linkRestablecer
+            // 
+            this.linkRestablecer.AutoSize = true;
+            this.linkRestablecer.Location = new System.Drawing.Point(698, 410);
+            this.linkRestablecer.Name = "linkRestablecer";
+            this.linkRestablecer.Size = new System.Drawing.Size(125, 13);
+            this.linkRestablecer.TabIndex = 16;
+            this.linkRestablecer.TabStop = true;
+            this.linkRestablecer.Text = "Olvidaste tu contraseña?";
+            this.linkRestablecer.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkRestablecer_LinkClicked);
+            // 
+            // picCerrado1
+            // 
+            this.picCerrado1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picCerrado1.Image = ((System.Drawing.Image)(resources.GetObject("picCerrado1.Image")));
+            this.picCerrado1.Location = new System.Drawing.Point(798, 189);
+            this.picCerrado1.Name = "picCerrado1";
+            this.picCerrado1.Size = new System.Drawing.Size(32, 32);
+            this.picCerrado1.TabIndex = 27;
+            this.picCerrado1.TabStop = false;
+            this.picCerrado1.Visible = false;
+            this.picCerrado1.Click += new System.EventHandler(this.picCerrado1_Click);
+            // 
+            // picAbierto1
+            // 
+            this.picAbierto1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.picAbierto1.Image = ((System.Drawing.Image)(resources.GetObject("picAbierto1.Image")));
+            this.picAbierto1.Location = new System.Drawing.Point(798, 189);
+            this.picAbierto1.Name = "picAbierto1";
+            this.picAbierto1.Size = new System.Drawing.Size(32, 32);
+            this.picAbierto1.TabIndex = 28;
+            this.picAbierto1.TabStop = false;
+            this.picAbierto1.Click += new System.EventHandler(this.picAbierto1_Click);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(850, 450);
+            this.Controls.Add(this.picAbierto1);
+            this.Controls.Add(this.picCerrado1);
+            this.Controls.Add(this.linkRestablecer);
             this.Controls.Add(this.txtCaptcha);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.labelTimer);
@@ -231,6 +273,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picCerrado1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAbierto1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,5 +296,8 @@
         private System.Windows.Forms.Label labelTimer;
         private System.Windows.Forms.TextBox txtCaptcha;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.LinkLabel linkRestablecer;
+        private System.Windows.Forms.PictureBox picCerrado1;
+        private System.Windows.Forms.PictureBox picAbierto1;
     }
 }
