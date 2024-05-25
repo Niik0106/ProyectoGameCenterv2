@@ -10,11 +10,13 @@ namespace Entidades
     {
         public int ID_PRODUCTO { get; set; }
         public string DES_PRODUCTO { get; set; }
+        public string DES_CATEGORIA { get; set; }
+        public string DES_MARCA { get; set; }
+        public decimal PRECIO_COMPRA { get; set; }
+        public decimal PRECIO_VENTA { get; set; }
+        public int STOCK { get; set; }
         public int ID_CATEGORIA { get; set; }
         public int ID_MARCA { get; set; }
-        public decimal PRECIO_VENTA { get; set; }
-        public decimal PRECIO_COMPRA { get; set; }
-        public int STOCK { get; set; }
         public Boolean ESTADO_PRODUCTO { get; set; }
     }
 }

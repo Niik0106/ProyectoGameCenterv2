@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entidades;
 using LogicaNegocio;
+using ClosedXML;
+using ClosedXML.Excel;
 
 namespace ProyectoGameCenter
 {
@@ -36,6 +38,50 @@ namespace ProyectoGameCenter
             // Agregar el RoundedTextBox al formulario
             this.Controls.Add(roundedTextBox1);
 
+        }
+
+        private void ExportarDatosAExcel()
+        {
+            // Crear un DataTable y agregar las columnas necesarias
+            DataTable dt = new DataTable();
+            dt.Columns.Add("DES_PRODUCTO");
+            dt.Columns.Add("DES_CATEGORIA");
+            dt.Columns.Add("DES_MARCA");
+            dt.Columns.Add("PRECIO_COMPRA");
+            dt.Columns.Add("PRECIO_VENTA");
+            dt.Columns.Add("STOCK");
+
+            // Llenar el DataTable con los datos del DataGridView
+            foreach (DataGridViewRow row in dgvProductos.Rows)
+            {
+                if (row.IsNewRow) continue;
+                dt.Rows.Add(
+                    row.Cells["DES_PRODUCTO"].Value,
+                    row.Cells["DES_CATEGORIA"].Value,
+                    row.Cells["DES_MARCA"].Value,
+                    row.Cells["PRECIO_COMPRA"].Value,
+                    row.Cells["PRECIO_VENTA"].Value,
+                    row.Cells["STOCK"].Value
+                );
+            }
+
+            // Crear un nuevo archivo Excel y agregar los datos del DataTable
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(dt, "Productos");
+
+                // Guardar el archivo Excel en una ubicación específica
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Excel Files|*.xlsx";
+                saveFileDialog.Title = "Guardar archivo Excel";
+                saveFileDialog.FileName = "Productos.xlsx";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    wb.SaveAs(saveFileDialog.FileName);
+                    MessageBox.Show("Datos exportados exitosamente.", "Exportar a Excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
 
         public void ListarProductos()
@@ -210,12 +256,12 @@ namespace ProyectoGameCenter
                 DataGridViewRow filaActual = dgvProductos.Rows[e.RowIndex];
                 txtIDProducto.Text = filaActual.Cells[0].Value.ToString();
                 txtDescripcionProducto.Text = filaActual.Cells[1].Value.ToString();
-                cboCategoria.SelectedValue = Convert.ToInt32(filaActual.Cells[2].Value);
-                cboMarca.SelectedValue = Convert.ToInt32(filaActual.Cells[3].Value);
-                txtPrecioVenta.Text = filaActual.Cells[4].Value.ToString();
-                txtPrecioCompra.Text = filaActual.Cells[5].Value.ToString();
+                cboCategoria.SelectedValue = Convert.ToInt32(filaActual.Cells[7].Value);
+                cboMarca.SelectedValue = Convert.ToInt32(filaActual.Cells[8].Value);
+                txtPrecioVenta.Text = filaActual.Cells[5].Value.ToString();
+                txtPrecioCompra.Text = filaActual.Cells[4].Value.ToString();
                 txtStock.Text = filaActual.Cells[6].Value.ToString();
-                cbxEstadoProd.Checked = Convert.ToBoolean(filaActual.Cells[7].Value);
+                cbxEstadoProd.Checked = Convert.ToBoolean(filaActual.Cells[9].Value);
             }catch (Exception ex)
             {
                 MessageBox.Show("Selecciona un item de la tabla");
@@ -255,6 +301,11 @@ namespace ProyectoGameCenter
         private void dgvProductos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void ExportarExcel_Click(object sender, EventArgs e)
+        {
+            ExportarDatosAExcel();
         }
     }
 }

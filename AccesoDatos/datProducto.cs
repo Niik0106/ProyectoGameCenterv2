@@ -61,7 +61,7 @@ namespace AccesoDatos
             try
             {
                 SqlConnection cn = Conexion.Instancia.Conectar();
-                cmd = new SqlCommand("spListarProducto", cn);
+                cmd = new SqlCommand("spObtenerProductos", cn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cn.Open();
                 SqlDataReader dr = cmd.ExecuteReader();
@@ -70,11 +70,13 @@ namespace AccesoDatos
                     entProducto Prod = new entProducto();
                     Prod.ID_PRODUCTO = Convert.ToInt32(dr["ID_PRODUCTO"]);
                     Prod.DES_PRODUCTO = dr["DES_PRODUCTO"].ToString();
+                    Prod.DES_CATEGORIA = dr["DES_CATEGORIA"].ToString();
+                    Prod.DES_MARCA = dr["DES_MARCA"].ToString();
+                    Prod.PRECIO_COMPRA = Convert.ToDecimal(dr["PRECIO_COMPRA"]);
+                    Prod.PRECIO_VENTA = Convert.ToDecimal(dr["PRECIO_VENTA"]);
+                    Prod.STOCK = Convert.ToInt32(dr["STOCK"]);
                     Prod.ID_CATEGORIA = Convert.ToInt32(dr["ID_CATEGORIA"]);
                     Prod.ID_MARCA = Convert.ToInt32(dr["ID_MARCA"]);
-                    Prod.PRECIO_VENTA = Convert.ToDecimal(dr["PRECIO_VENTA"]);
-                    Prod.PRECIO_COMPRA = Convert.ToDecimal(dr["PRECIO_COMPRA"]);
-                    Prod.STOCK = Convert.ToInt32(dr["STOCK"]);
                     Prod.ESTADO_PRODUCTO = Convert.ToBoolean(dr["ESTADO_PRODUCTO"]);
                     lista.Add(Prod);
                 }
