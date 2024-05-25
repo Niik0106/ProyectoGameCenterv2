@@ -11,6 +11,8 @@ using Entidades;
 using LogicaNegocio;
 using ClosedXML;
 using ClosedXML.Excel;
+using System.Data.SqlClient;
+using AccesoDatos;
 
 namespace ProyectoGameCenter
 {
@@ -84,6 +86,110 @@ namespace ProyectoGameCenter
             }
         }
 
+        private void ImportarDatosDesdeExcel()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel Files|*.xlsx";
+            openFileDialog.Title = "Seleccionar archivo Excel";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                using (var workbook = new XLWorkbook(filePath))
+                {
+                    var worksheet = workbook.Worksheet(1);
+                    var rows = worksheet.RowsUsed();
+
+                    using (SqlConnection connection = Conexion.Instancia.Conectar())
+                    {
+                        connection.Open();
+
+                        foreach (var row in rows)
+                        {
+                            string desProducto = row.Cell(1).GetValue<string>();
+                            string desCategoria = row.Cell(2).GetValue<string>();
+                            string desMarca = row.Cell(3).GetValue<string>();
+                            decimal precioCompra = row.Cell(4).GetValue<decimal>();
+                            decimal precioVenta = row.Cell(5).GetValue<decimal>();
+                            int stock = row.Cell(6).GetValue<int>();
+
+                            // Verificar y agregar la categoría si no existe
+                            int idCategoria = ObtenerOCrearCategoria(connection, desCategoria);
+
+                            // Verificar y agregar la marca si no existe
+                            int idMarca = ObtenerOCrearMarca(connection, desMarca);
+
+                            // Insertar el producto
+                            string queryProducto = @"
+                                INSERT INTO PRODUCTO (DES_PRODUCTO, ID_CATEGORIA, ID_MARCA, PRECIO_COMPRA, PRECIO_VENTA, STOCK, ESTADO_PRODUCTO)
+                                VALUES (@DES_PRODUCTO, @ID_CATEGORIA, @ID_MARCA, @PRECIO_COMPRA, @PRECIO_VENTA, @STOCK, 1)";
+
+                            using (SqlCommand cmdProducto = new SqlCommand(queryProducto, connection))
+                            {
+                                cmdProducto.Parameters.AddWithValue("@DES_PRODUCTO", desProducto);
+                                cmdProducto.Parameters.AddWithValue("@ID_CATEGORIA", idCategoria);
+                                cmdProducto.Parameters.AddWithValue("@ID_MARCA", idMarca);
+                                cmdProducto.Parameters.AddWithValue("@PRECIO_COMPRA", precioCompra);
+                                cmdProducto.Parameters.AddWithValue("@PRECIO_VENTA", precioVenta);
+                                cmdProducto.Parameters.AddWithValue("@STOCK", stock);
+
+                                cmdProducto.ExecuteNonQuery();
+                            }
+                        }
+
+                        connection.Close();
+                    }
+
+                    MessageBox.Show("Datos importados exitosamente.", "Importar desde Excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private int ObtenerOCrearCategoria(SqlConnection connection, string desCategoria)
+        {
+            string queryCategoria = "SELECT ID_CATEGORIA FROM CATEGORIA WHERE DES_CATEGORIA = @DES_CATEGORIA";
+            using (SqlCommand cmd = new SqlCommand(queryCategoria, connection))
+            {
+                cmd.Parameters.AddWithValue("@DES_CATEGORIA", desCategoria);
+                object result = cmd.ExecuteScalar();
+                if (result != null)
+                {
+                    return Convert.ToInt32(result);
+                }
+                else
+                {
+                    string insertCategoria = "INSERT INTO CATEGORIA (DES_CATEGORIA, ESTADO_CATEGORIA) OUTPUT INSERTED.ID_CATEGORIA VALUES (@DES_CATEGORIA, 1)";
+                    using (SqlCommand cmdInsert = new SqlCommand(insertCategoria, connection))
+                    {
+                        cmdInsert.Parameters.AddWithValue("@DES_CATEGORIA", desCategoria);
+                        return (int)cmdInsert.ExecuteScalar();
+                    }
+                }
+            }
+        }
+
+        private int ObtenerOCrearMarca(SqlConnection connection, string desMarca)
+        {
+            string queryMarca = "SELECT ID_MARCA FROM MARCA WHERE DES_MARCA = @DES_MARCA";
+            using (SqlCommand cmd = new SqlCommand(queryMarca, connection))
+            {
+                cmd.Parameters.AddWithValue("@DES_MARCA", desMarca);
+                object result = cmd.ExecuteScalar();
+                if (result != null)
+                {
+                    return Convert.ToInt32(result);
+                }
+                else
+                {
+                    string insertMarca = "INSERT INTO MARCA (DES_MARCA, ESTADO_MARCA) OUTPUT INSERTED.ID_MARCA VALUES (@DES_MARCA, 1)";
+                    using (SqlCommand cmdInsert = new SqlCommand(insertMarca, connection))
+                    {
+                        cmdInsert.Parameters.AddWithValue("@DES_MARCA", desMarca);
+                        return (int)cmdInsert.ExecuteScalar();
+                    }
+                }
+            }
+        }
         public void ListarProductos()
         {
             dgvProductos.DataSource = logProducto.Instancia.ListaProducto();
@@ -306,6 +412,11 @@ namespace ProyectoGameCenter
         private void ExportarExcel_Click(object sender, EventArgs e)
         {
             ExportarDatosAExcel();
+        }
+
+        private void ImportarExcel_Click(object sender, EventArgs e)
+        {
+            ImportarDatosDesdeExcel();
         }
     }
 }
