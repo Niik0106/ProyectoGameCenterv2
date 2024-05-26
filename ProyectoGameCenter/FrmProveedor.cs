@@ -231,6 +231,7 @@ namespace ProyectoGameCenter
         private void ImportarExcel_Click(object sender, EventArgs e)
         {
             ImportarDatosDesdeExcel();
+            ListarProveedor();
         }
 
         private void ExportarDatosAExcel()

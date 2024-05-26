@@ -1,9 +1,12 @@
-﻿using Entidades;
+﻿using AccesoDatos;
+using ClosedXML.Excel;
+using Entidades;
 using LogicaNegocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -298,6 +301,119 @@ namespace ProyectoGameCenter
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void ExportarExcel_Click(object sender, EventArgs e)
+        {
+            ExportarDatosAExcel();
+        }
+
+        private void ExportarDatosAExcel()
+        {
+            // Crear un DataTable y agregar las columnas necesarias
+            DataTable dt = new DataTable();
+            dt.Columns.Add("DNI");
+            dt.Columns.Add("NOMBRES");
+            dt.Columns.Add("APELLIDO PATERNO");
+            dt.Columns.Add("APELLIDOS MATERNO");
+            dt.Columns.Add("TELEFONO");
+
+            // Llenar el DataTable con los datos del DataGridView
+            foreach (DataGridViewRow row in dgvClienteNatural.Rows)
+            {
+                if (row.IsNewRow) continue;
+                dt.Rows.Add(
+                    row.Cells["DNI"].Value,
+                    row.Cells["NOMBRE_CLI"].Value,
+                    row.Cells["APELLIDO_PATERNO"].Value,
+                    row.Cells["APELLIDO_MATERNO"].Value,
+                    row.Cells["TEL_CLIENTE"].Value
+                );
+            }
+
+            // Crear un nuevo archivo Excel y agregar los datos del DataTable
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(dt, "ClientesNaturales");
+
+                // Guardar el archivo Excel en una ubicación específica
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Excel Files|*.xlsx";
+                saveFileDialog.Title = "Guardar archivo Excel";
+                saveFileDialog.FileName = "ClientesNaturales.xlsx";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    wb.SaveAs(saveFileDialog.FileName);
+                    MessageBox.Show("Datos exportados exitosamente.", "Exportar a Excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void ImportarExcel_Click(object sender, EventArgs e)
+        {
+            ImportarDatosDesdeExcel();
+            ListarClientesNaturales();
+        }
+
+        private void ImportarDatosDesdeExcel()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel Files|*.xlsx";
+            openFileDialog.Title = "Seleccionar archivo Excel";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                using (var workbook = new XLWorkbook(filePath))
+                {
+                    var worksheet = workbook.Worksheet(1);
+                    var rows = worksheet.RowsUsed();
+
+                    using (SqlConnection connection = Conexion.Instancia.Conectar())
+                    {
+                        connection.Open();
+
+                        foreach (var row in rows)
+                        {
+                            string dniCliente = row.Cell(1).GetValue<string>();
+                            string nombreCliente = row.Cell(2).GetValue<string>();
+                            string apellidoPaterno = row.Cell(3).GetValue<string>();
+                            string apellidoMaterno = row.Cell(4).GetValue<string>();
+                            string telefono = row.Cell(5).GetValue<string>();
+
+                            // Insertar el producto
+                            string queryClienteNatural = @"
+                                -- Insertar datos en la tabla CLIENTE
+                                INSERT INTO CLIENTE (ESTADO_CLIENTE, TEL_CLIENTE)
+                                VALUES (1, @TEL_CLIENTE);
+
+                                -- Obtener el último ID_CLIENTE insertado
+                                DECLARE @ID_CLIENTE INT;
+                                SET @ID_CLIENTE = SCOPE_IDENTITY();
+
+                                -- Insertar datos en la tabla CLIENTE_NATURAL
+                                INSERT INTO CLIENTE_NATURAL (ID_CLIENTE, DNI, NOMBRE_CLI, APELLIDO_PATERNO, APELLIDO_MATERNO)
+                                VALUES (@ID_CLIENTE, @DNI, @NOMBRE_CLI, @APELLIDO_PATERNO,@APELLIDO_MATERNO)";
+
+                            using (SqlCommand cmdProducto = new SqlCommand(queryClienteNatural, connection))
+                            {
+                                cmdProducto.Parameters.AddWithValue("@DNI", dniCliente);
+                                cmdProducto.Parameters.AddWithValue("@NOMBRE_CLI", nombreCliente);
+                                cmdProducto.Parameters.AddWithValue("@APELLIDO_PATERNO", apellidoPaterno);
+                                cmdProducto.Parameters.AddWithValue("@APELLIDO_MATERNO", apellidoMaterno);
+                                cmdProducto.Parameters.AddWithValue("@TEL_CLIENTE", telefono);
+
+                                cmdProducto.ExecuteNonQuery();
+                            }
+                        }
+
+                        connection.Close();
+                    }
+
+                    MessageBox.Show("Datos importados exitosamente.", "Importar desde Excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }

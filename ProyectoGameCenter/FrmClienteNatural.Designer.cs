@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmClienteNatural));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.PanelContenedorCN = new System.Windows.Forms.Panel();
+            this.txtBuscarDNI = new ProyectoGameCenter.NiikTextBox();
+            this.dgvClienteNatural = new System.Windows.Forms.DataGridView();
             this.btnBuscarClienteReniec = new ProyectoGameCenter.Botones.Boton();
             this.btnEditar = new ProyectoGameCenter.Botones.Boton();
             this.btnInhabilitarCliNat = new ProyectoGameCenter.Botones.Boton();
@@ -41,6 +43,12 @@
             this.btnNuevo = new ProyectoGameCenter.Botones.Boton();
             this.label11 = new System.Windows.Forms.Label();
             this.gbClientesNatural = new System.Windows.Forms.GroupBox();
+            this.txtTelefono = new ProyectoGameCenter.NiikTextBox();
+            this.txtApellidoMaterno = new ProyectoGameCenter.NiikTextBox();
+            this.txtNombres = new ProyectoGameCenter.NiikTextBox();
+            this.txtApellidoPaterno = new ProyectoGameCenter.NiikTextBox();
+            this.txtDNI = new ProyectoGameCenter.NiikTextBox();
+            this.txtIDCliente = new ProyectoGameCenter.NiikTextBox();
             this.btnCancelar = new ProyectoGameCenter.Botones.Boton();
             this.btnAgregar = new ProyectoGameCenter.Botones.Boton();
             this.label6 = new System.Windows.Forms.Label();
@@ -51,22 +59,18 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dgvClienteNatural = new System.Windows.Forms.DataGridView();
-            this.txtIDCliente = new ProyectoGameCenter.NiikTextBox();
-            this.txtDNI = new ProyectoGameCenter.NiikTextBox();
-            this.txtApellidoPaterno = new ProyectoGameCenter.NiikTextBox();
-            this.txtNombres = new ProyectoGameCenter.NiikTextBox();
-            this.txtApellidoMaterno = new ProyectoGameCenter.NiikTextBox();
-            this.txtTelefono = new ProyectoGameCenter.NiikTextBox();
-            this.txtBuscarDNI = new ProyectoGameCenter.NiikTextBox();
+            this.ImportarExcel = new ProyectoGameCenter.Botones.Boton();
+            this.ExportarExcel = new ProyectoGameCenter.Botones.Boton();
             this.PanelContenedorCN.SuspendLayout();
-            this.gbClientesNatural.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClienteNatural)).BeginInit();
+            this.gbClientesNatural.SuspendLayout();
             this.SuspendLayout();
             // 
             // PanelContenedorCN
             // 
             this.PanelContenedorCN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.PanelContenedorCN.Controls.Add(this.ImportarExcel);
+            this.PanelContenedorCN.Controls.Add(this.ExportarExcel);
             this.PanelContenedorCN.Controls.Add(this.txtBuscarDNI);
             this.PanelContenedorCN.Controls.Add(this.dgvClienteNatural);
             this.PanelContenedorCN.Controls.Add(this.btnBuscarClienteReniec);
@@ -83,6 +87,70 @@
             this.PanelContenedorCN.Size = new System.Drawing.Size(1524, 874);
             this.PanelContenedorCN.TabIndex = 2;
             // 
+            // txtBuscarDNI
+            // 
+            this.txtBuscarDNI.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBuscarDNI.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtBuscarDNI.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtBuscarDNI.BorderRadius = 15;
+            this.txtBuscarDNI.BorderSize = 2;
+            this.txtBuscarDNI.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtBuscarDNI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtBuscarDNI.Location = new System.Drawing.Point(258, 332);
+            this.txtBuscarDNI.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBuscarDNI.Multiline = false;
+            this.txtBuscarDNI.Name = "txtBuscarDNI";
+            this.txtBuscarDNI.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtBuscarDNI.PasswordChar = false;
+            this.txtBuscarDNI.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtBuscarDNI.PlaceholderText = "";
+            this.txtBuscarDNI.Size = new System.Drawing.Size(250, 36);
+            this.txtBuscarDNI.TabIndex = 83;
+            this.txtBuscarDNI.UnderlinedStyle = false;
+            // 
+            // dgvClienteNatural
+            // 
+            this.dgvClienteNatural.AllowUserToAddRows = false;
+            this.dgvClienteNatural.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvClienteNatural.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            this.dgvClienteNatural.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dgvClienteNatural.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.DarkSlateBlue;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.DarkSlateBlue;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvClienteNatural.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvClienteNatural.ColumnHeadersHeight = 40;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvClienteNatural.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvClienteNatural.EnableHeadersVisualStyles = false;
+            this.dgvClienteNatural.Location = new System.Drawing.Point(103, 384);
+            this.dgvClienteNatural.Name = "dgvClienteNatural";
+            this.dgvClienteNatural.ReadOnly = true;
+            this.dgvClienteNatural.RowHeadersVisible = false;
+            this.dgvClienteNatural.RowHeadersWidth = 20;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.SlateBlue;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.dgvClienteNatural.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvClienteNatural.RowTemplate.Height = 50;
+            this.dgvClienteNatural.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvClienteNatural.Size = new System.Drawing.Size(1332, 367);
+            this.dgvClienteNatural.TabIndex = 82;
+            this.dgvClienteNatural.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClienteNatural_CellClick);
+            // 
             // btnBuscarClienteReniec
             // 
             this.btnBuscarClienteReniec.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(77)))), ((int)(((byte)(221)))));
@@ -96,7 +164,7 @@
             this.btnBuscarClienteReniec.ForeColor = System.Drawing.Color.White;
             this.btnBuscarClienteReniec.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarClienteReniec.Image")));
             this.btnBuscarClienteReniec.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarClienteReniec.Location = new System.Drawing.Point(356, 797);
+            this.btnBuscarClienteReniec.Location = new System.Drawing.Point(669, 332);
             this.btnBuscarClienteReniec.Name = "btnBuscarClienteReniec";
             this.btnBuscarClienteReniec.Size = new System.Drawing.Size(98, 30);
             this.btnBuscarClienteReniec.TabIndex = 75;
@@ -165,7 +233,7 @@
             this.btnBuscarCliNat.ForeColor = System.Drawing.Color.White;
             this.btnBuscarCliNat.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarCliNat.Image")));
             this.btnBuscarCliNat.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarCliNat.Location = new System.Drawing.Point(743, 785);
+            this.btnBuscarCliNat.Location = new System.Drawing.Point(515, 326);
             this.btnBuscarCliNat.Name = "btnBuscarCliNat";
             this.btnBuscarCliNat.Size = new System.Drawing.Size(148, 50);
             this.btnBuscarCliNat.TabIndex = 72;
@@ -226,7 +294,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.White;
-            this.label11.Location = new System.Drawing.Point(470, 770);
+            this.label11.Location = new System.Drawing.Point(125, 339);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(126, 23);
             this.label11.TabIndex = 62;
@@ -260,6 +328,132 @@
             this.gbClientesNatural.TabIndex = 31;
             this.gbClientesNatural.TabStop = false;
             this.gbClientesNatural.Text = "DATOS DEL CLIENTE";
+            // 
+            // txtTelefono
+            // 
+            this.txtTelefono.BackColor = System.Drawing.SystemColors.Window;
+            this.txtTelefono.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtTelefono.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtTelefono.BorderRadius = 15;
+            this.txtTelefono.BorderSize = 2;
+            this.txtTelefono.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtTelefono.Location = new System.Drawing.Point(61, 208);
+            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTelefono.Multiline = false;
+            this.txtTelefono.Name = "txtTelefono";
+            this.txtTelefono.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtTelefono.PasswordChar = false;
+            this.txtTelefono.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtTelefono.PlaceholderText = "";
+            this.txtTelefono.Size = new System.Drawing.Size(250, 36);
+            this.txtTelefono.TabIndex = 78;
+            this.txtTelefono.UnderlinedStyle = false;
+            // 
+            // txtApellidoMaterno
+            // 
+            this.txtApellidoMaterno.BackColor = System.Drawing.SystemColors.Window;
+            this.txtApellidoMaterno.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtApellidoMaterno.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtApellidoMaterno.BorderRadius = 15;
+            this.txtApellidoMaterno.BorderSize = 2;
+            this.txtApellidoMaterno.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtApellidoMaterno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtApellidoMaterno.Location = new System.Drawing.Point(741, 135);
+            this.txtApellidoMaterno.Margin = new System.Windows.Forms.Padding(4);
+            this.txtApellidoMaterno.Multiline = false;
+            this.txtApellidoMaterno.Name = "txtApellidoMaterno";
+            this.txtApellidoMaterno.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtApellidoMaterno.PasswordChar = false;
+            this.txtApellidoMaterno.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtApellidoMaterno.PlaceholderText = "";
+            this.txtApellidoMaterno.Size = new System.Drawing.Size(250, 36);
+            this.txtApellidoMaterno.TabIndex = 77;
+            this.txtApellidoMaterno.UnderlinedStyle = false;
+            // 
+            // txtNombres
+            // 
+            this.txtNombres.BackColor = System.Drawing.SystemColors.Window;
+            this.txtNombres.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtNombres.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtNombres.BorderRadius = 15;
+            this.txtNombres.BorderSize = 2;
+            this.txtNombres.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtNombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtNombres.Location = new System.Drawing.Point(61, 134);
+            this.txtNombres.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombres.Multiline = false;
+            this.txtNombres.Name = "txtNombres";
+            this.txtNombres.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtNombres.PasswordChar = false;
+            this.txtNombres.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtNombres.PlaceholderText = "";
+            this.txtNombres.Size = new System.Drawing.Size(321, 36);
+            this.txtNombres.TabIndex = 76;
+            this.txtNombres.UnderlinedStyle = false;
+            // 
+            // txtApellidoPaterno
+            // 
+            this.txtApellidoPaterno.BackColor = System.Drawing.SystemColors.Window;
+            this.txtApellidoPaterno.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtApellidoPaterno.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtApellidoPaterno.BorderRadius = 15;
+            this.txtApellidoPaterno.BorderSize = 2;
+            this.txtApellidoPaterno.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtApellidoPaterno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtApellidoPaterno.Location = new System.Drawing.Point(445, 134);
+            this.txtApellidoPaterno.Margin = new System.Windows.Forms.Padding(4);
+            this.txtApellidoPaterno.Multiline = false;
+            this.txtApellidoPaterno.Name = "txtApellidoPaterno";
+            this.txtApellidoPaterno.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtApellidoPaterno.PasswordChar = false;
+            this.txtApellidoPaterno.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtApellidoPaterno.PlaceholderText = "";
+            this.txtApellidoPaterno.Size = new System.Drawing.Size(250, 36);
+            this.txtApellidoPaterno.TabIndex = 75;
+            this.txtApellidoPaterno.UnderlinedStyle = false;
+            // 
+            // txtDNI
+            // 
+            this.txtDNI.BackColor = System.Drawing.SystemColors.Window;
+            this.txtDNI.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtDNI.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtDNI.BorderRadius = 15;
+            this.txtDNI.BorderSize = 2;
+            this.txtDNI.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtDNI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtDNI.Location = new System.Drawing.Point(358, 66);
+            this.txtDNI.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDNI.Multiline = false;
+            this.txtDNI.Name = "txtDNI";
+            this.txtDNI.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtDNI.PasswordChar = false;
+            this.txtDNI.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtDNI.PlaceholderText = "";
+            this.txtDNI.Size = new System.Drawing.Size(250, 36);
+            this.txtDNI.TabIndex = 74;
+            this.txtDNI.UnderlinedStyle = false;
+            // 
+            // txtIDCliente
+            // 
+            this.txtIDCliente.BackColor = System.Drawing.SystemColors.Window;
+            this.txtIDCliente.BorderColor = System.Drawing.Color.MediumSlateBlue;
+            this.txtIDCliente.BorderFocusColor = System.Drawing.Color.HotPink;
+            this.txtIDCliente.BorderRadius = 15;
+            this.txtIDCliente.BorderSize = 2;
+            this.txtIDCliente.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.txtIDCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.txtIDCliente.Location = new System.Drawing.Point(61, 66);
+            this.txtIDCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.txtIDCliente.Multiline = false;
+            this.txtIDCliente.Name = "txtIDCliente";
+            this.txtIDCliente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.txtIDCliente.PasswordChar = false;
+            this.txtIDCliente.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.txtIDCliente.PlaceholderText = "";
+            this.txtIDCliente.Size = new System.Drawing.Size(250, 36);
+            this.txtIDCliente.TabIndex = 73;
+            this.txtIDCliente.UnderlinedStyle = false;
             // 
             // btnCancelar
             // 
@@ -409,195 +603,51 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Telefono:";
             // 
-            // dgvClienteNatural
+            // ImportarExcel
             // 
-            this.dgvClienteNatural.AllowUserToAddRows = false;
-            this.dgvClienteNatural.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.dgvClienteNatural.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            this.dgvClienteNatural.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
-            this.dgvClienteNatural.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.DarkSlateBlue;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkSlateBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvClienteNatural.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvClienteNatural.ColumnHeadersHeight = 40;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvClienteNatural.DefaultCellStyle = dataGridViewCellStyle5;
-            this.dgvClienteNatural.EnableHeadersVisualStyles = false;
-            this.dgvClienteNatural.Location = new System.Drawing.Point(103, 340);
-            this.dgvClienteNatural.Name = "dgvClienteNatural";
-            this.dgvClienteNatural.ReadOnly = true;
-            this.dgvClienteNatural.RowHeadersVisible = false;
-            this.dgvClienteNatural.RowHeadersWidth = 20;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(30)))), ((int)(((byte)(68)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.SlateBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dgvClienteNatural.RowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvClienteNatural.RowTemplate.Height = 50;
-            this.dgvClienteNatural.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvClienteNatural.Size = new System.Drawing.Size(1332, 380);
-            this.dgvClienteNatural.TabIndex = 82;
-            this.dgvClienteNatural.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClienteNatural_CellClick);
+            this.ImportarExcel.BackColor = System.Drawing.Color.White;
+            this.ImportarExcel.BackgroundColor = System.Drawing.Color.White;
+            this.ImportarExcel.BorderColor = System.Drawing.Color.SeaGreen;
+            this.ImportarExcel.BorderRadius = 40;
+            this.ImportarExcel.BorderSize = 3;
+            this.ImportarExcel.FlatAppearance.BorderSize = 0;
+            this.ImportarExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ImportarExcel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.ImportarExcel.ForeColor = System.Drawing.Color.SeaGreen;
+            this.ImportarExcel.Image = ((System.Drawing.Image)(resources.GetObject("ImportarExcel.Image")));
+            this.ImportarExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ImportarExcel.Location = new System.Drawing.Point(465, 783);
+            this.ImportarExcel.Name = "ImportarExcel";
+            this.ImportarExcel.Size = new System.Drawing.Size(148, 50);
+            this.ImportarExcel.TabIndex = 85;
+            this.ImportarExcel.Text = "Importar";
+            this.ImportarExcel.TextColor = System.Drawing.Color.SeaGreen;
+            this.ImportarExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.ImportarExcel.UseVisualStyleBackColor = false;
+            this.ImportarExcel.Click += new System.EventHandler(this.ImportarExcel_Click);
             // 
-            // txtIDCliente
+            // ExportarExcel
             // 
-            this.txtIDCliente.BackColor = System.Drawing.SystemColors.Window;
-            this.txtIDCliente.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtIDCliente.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtIDCliente.BorderRadius = 15;
-            this.txtIDCliente.BorderSize = 2;
-            this.txtIDCliente.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtIDCliente.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtIDCliente.Location = new System.Drawing.Point(61, 66);
-            this.txtIDCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.txtIDCliente.Multiline = false;
-            this.txtIDCliente.Name = "txtIDCliente";
-            this.txtIDCliente.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtIDCliente.PasswordChar = false;
-            this.txtIDCliente.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtIDCliente.PlaceholderText = "";
-            this.txtIDCliente.Size = new System.Drawing.Size(250, 36);
-            this.txtIDCliente.TabIndex = 73;
-            this.txtIDCliente.UnderlinedStyle = false;
-            // 
-            // txtDNI
-            // 
-            this.txtDNI.BackColor = System.Drawing.SystemColors.Window;
-            this.txtDNI.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtDNI.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtDNI.BorderRadius = 15;
-            this.txtDNI.BorderSize = 2;
-            this.txtDNI.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtDNI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtDNI.Location = new System.Drawing.Point(358, 66);
-            this.txtDNI.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDNI.Multiline = false;
-            this.txtDNI.Name = "txtDNI";
-            this.txtDNI.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtDNI.PasswordChar = false;
-            this.txtDNI.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtDNI.PlaceholderText = "";
-            this.txtDNI.Size = new System.Drawing.Size(250, 36);
-            this.txtDNI.TabIndex = 74;
-            this.txtDNI.UnderlinedStyle = false;
-            // 
-            // txtApellidoPaterno
-            // 
-            this.txtApellidoPaterno.BackColor = System.Drawing.SystemColors.Window;
-            this.txtApellidoPaterno.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtApellidoPaterno.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtApellidoPaterno.BorderRadius = 15;
-            this.txtApellidoPaterno.BorderSize = 2;
-            this.txtApellidoPaterno.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtApellidoPaterno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtApellidoPaterno.Location = new System.Drawing.Point(445, 134);
-            this.txtApellidoPaterno.Margin = new System.Windows.Forms.Padding(4);
-            this.txtApellidoPaterno.Multiline = false;
-            this.txtApellidoPaterno.Name = "txtApellidoPaterno";
-            this.txtApellidoPaterno.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtApellidoPaterno.PasswordChar = false;
-            this.txtApellidoPaterno.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtApellidoPaterno.PlaceholderText = "";
-            this.txtApellidoPaterno.Size = new System.Drawing.Size(250, 36);
-            this.txtApellidoPaterno.TabIndex = 75;
-            this.txtApellidoPaterno.UnderlinedStyle = false;
-            // 
-            // txtNombres
-            // 
-            this.txtNombres.BackColor = System.Drawing.SystemColors.Window;
-            this.txtNombres.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtNombres.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtNombres.BorderRadius = 15;
-            this.txtNombres.BorderSize = 2;
-            this.txtNombres.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtNombres.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtNombres.Location = new System.Drawing.Point(61, 134);
-            this.txtNombres.Margin = new System.Windows.Forms.Padding(4);
-            this.txtNombres.Multiline = false;
-            this.txtNombres.Name = "txtNombres";
-            this.txtNombres.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtNombres.PasswordChar = false;
-            this.txtNombres.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtNombres.PlaceholderText = "";
-            this.txtNombres.Size = new System.Drawing.Size(321, 36);
-            this.txtNombres.TabIndex = 76;
-            this.txtNombres.UnderlinedStyle = false;
-            // 
-            // txtApellidoMaterno
-            // 
-            this.txtApellidoMaterno.BackColor = System.Drawing.SystemColors.Window;
-            this.txtApellidoMaterno.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtApellidoMaterno.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtApellidoMaterno.BorderRadius = 15;
-            this.txtApellidoMaterno.BorderSize = 2;
-            this.txtApellidoMaterno.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtApellidoMaterno.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtApellidoMaterno.Location = new System.Drawing.Point(741, 135);
-            this.txtApellidoMaterno.Margin = new System.Windows.Forms.Padding(4);
-            this.txtApellidoMaterno.Multiline = false;
-            this.txtApellidoMaterno.Name = "txtApellidoMaterno";
-            this.txtApellidoMaterno.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtApellidoMaterno.PasswordChar = false;
-            this.txtApellidoMaterno.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtApellidoMaterno.PlaceholderText = "";
-            this.txtApellidoMaterno.Size = new System.Drawing.Size(250, 36);
-            this.txtApellidoMaterno.TabIndex = 77;
-            this.txtApellidoMaterno.UnderlinedStyle = false;
-            // 
-            // txtTelefono
-            // 
-            this.txtTelefono.BackColor = System.Drawing.SystemColors.Window;
-            this.txtTelefono.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtTelefono.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtTelefono.BorderRadius = 15;
-            this.txtTelefono.BorderSize = 2;
-            this.txtTelefono.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtTelefono.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtTelefono.Location = new System.Drawing.Point(61, 208);
-            this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTelefono.Multiline = false;
-            this.txtTelefono.Name = "txtTelefono";
-            this.txtTelefono.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtTelefono.PasswordChar = false;
-            this.txtTelefono.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtTelefono.PlaceholderText = "";
-            this.txtTelefono.Size = new System.Drawing.Size(250, 36);
-            this.txtTelefono.TabIndex = 78;
-            this.txtTelefono.UnderlinedStyle = false;
-            // 
-            // txtBuscarDNI
-            // 
-            this.txtBuscarDNI.BackColor = System.Drawing.SystemColors.Window;
-            this.txtBuscarDNI.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.txtBuscarDNI.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.txtBuscarDNI.BorderRadius = 15;
-            this.txtBuscarDNI.BorderSize = 2;
-            this.txtBuscarDNI.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.txtBuscarDNI.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtBuscarDNI.Location = new System.Drawing.Point(475, 797);
-            this.txtBuscarDNI.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBuscarDNI.Multiline = false;
-            this.txtBuscarDNI.Name = "txtBuscarDNI";
-            this.txtBuscarDNI.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
-            this.txtBuscarDNI.PasswordChar = false;
-            this.txtBuscarDNI.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.txtBuscarDNI.PlaceholderText = "";
-            this.txtBuscarDNI.Size = new System.Drawing.Size(250, 36);
-            this.txtBuscarDNI.TabIndex = 83;
-            this.txtBuscarDNI.UnderlinedStyle = false;
+            this.ExportarExcel.BackColor = System.Drawing.Color.White;
+            this.ExportarExcel.BackgroundColor = System.Drawing.Color.White;
+            this.ExportarExcel.BorderColor = System.Drawing.Color.SeaGreen;
+            this.ExportarExcel.BorderRadius = 40;
+            this.ExportarExcel.BorderSize = 3;
+            this.ExportarExcel.FlatAppearance.BorderSize = 0;
+            this.ExportarExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExportarExcel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.ExportarExcel.ForeColor = System.Drawing.Color.SeaGreen;
+            this.ExportarExcel.Image = ((System.Drawing.Image)(resources.GetObject("ExportarExcel.Image")));
+            this.ExportarExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ExportarExcel.Location = new System.Drawing.Point(619, 783);
+            this.ExportarExcel.Name = "ExportarExcel";
+            this.ExportarExcel.Size = new System.Drawing.Size(148, 50);
+            this.ExportarExcel.TabIndex = 84;
+            this.ExportarExcel.Text = "Exportar";
+            this.ExportarExcel.TextColor = System.Drawing.Color.SeaGreen;
+            this.ExportarExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.ExportarExcel.UseVisualStyleBackColor = false;
+            this.ExportarExcel.Click += new System.EventHandler(this.ExportarExcel_Click);
             // 
             // FrmClienteNatural
             // 
@@ -610,9 +660,9 @@
             this.Text = "FrmCliente";
             this.PanelContenedorCN.ResumeLayout(false);
             this.PanelContenedorCN.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvClienteNatural)).EndInit();
             this.gbClientesNatural.ResumeLayout(false);
             this.gbClientesNatural.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvClienteNatural)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -645,5 +695,7 @@
         private NiikTextBox txtApellidoPaterno;
         private NiikTextBox txtDNI;
         private NiikTextBox txtIDCliente;
+        private Botones.Boton ImportarExcel;
+        private Botones.Boton ExportarExcel;
     }
 }
