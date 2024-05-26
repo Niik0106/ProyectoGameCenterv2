@@ -65,6 +65,8 @@
             this.txtRazonSocial = new ProyectoGameCenter.NiikTextBox();
             this.txtRuc = new ProyectoGameCenter.NiikTextBox();
             this.txtIDProveedor = new ProyectoGameCenter.NiikTextBox();
+            this.ImportarExcel = new ProyectoGameCenter.Botones.Boton();
+            this.ExportarExcel = new ProyectoGameCenter.Botones.Boton();
             this.PanelContenedorCN.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvProveedores)).BeginInit();
             this.gbProveedor.SuspendLayout();
@@ -106,6 +108,8 @@
             // PanelContenedorCN
             // 
             this.PanelContenedorCN.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(33)))), ((int)(((byte)(74)))));
+            this.PanelContenedorCN.Controls.Add(this.ImportarExcel);
+            this.PanelContenedorCN.Controls.Add(this.ExportarExcel);
             this.PanelContenedorCN.Controls.Add(this.dgvProveedores);
             this.PanelContenedorCN.Controls.Add(this.txtBuscarRUC);
             this.PanelContenedorCN.Controls.Add(this.btnEditar);
@@ -175,7 +179,7 @@
             this.txtBuscarRUC.BorderSize = 2;
             this.txtBuscarRUC.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.txtBuscarRUC.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.txtBuscarRUC.Location = new System.Drawing.Point(461, 810);
+            this.txtBuscarRUC.Location = new System.Drawing.Point(180, 285);
             this.txtBuscarRUC.Margin = new System.Windows.Forms.Padding(4);
             this.txtBuscarRUC.Multiline = false;
             this.txtBuscarRUC.Name = "txtBuscarRUC";
@@ -249,7 +253,7 @@
             this.btnBuscarProv.ForeColor = System.Drawing.Color.White;
             this.btnBuscarProv.Image = ((System.Drawing.Image)(resources.GetObject("btnBuscarProv.Image")));
             this.btnBuscarProv.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnBuscarProv.Location = new System.Drawing.Point(729, 798);
+            this.btnBuscarProv.Location = new System.Drawing.Point(437, 278);
             this.btnBuscarProv.Name = "btnBuscarProv";
             this.btnBuscarProv.Size = new System.Drawing.Size(148, 50);
             this.btnBuscarProv.TabIndex = 108;
@@ -313,7 +317,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(456, 783);
+            this.label1.Location = new System.Drawing.Point(40, 291);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(133, 23);
             this.label1.TabIndex = 105;
@@ -714,6 +718,52 @@
             this.txtIDProveedor.TabIndex = 91;
             this.txtIDProveedor.UnderlinedStyle = false;
             // 
+            // ImportarExcel
+            // 
+            this.ImportarExcel.BackColor = System.Drawing.Color.White;
+            this.ImportarExcel.BackgroundColor = System.Drawing.Color.White;
+            this.ImportarExcel.BorderColor = System.Drawing.Color.SeaGreen;
+            this.ImportarExcel.BorderRadius = 40;
+            this.ImportarExcel.BorderSize = 3;
+            this.ImportarExcel.FlatAppearance.BorderSize = 0;
+            this.ImportarExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ImportarExcel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.ImportarExcel.ForeColor = System.Drawing.Color.SeaGreen;
+            this.ImportarExcel.Image = ((System.Drawing.Image)(resources.GetObject("ImportarExcel.Image")));
+            this.ImportarExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ImportarExcel.Location = new System.Drawing.Point(444, 796);
+            this.ImportarExcel.Name = "ImportarExcel";
+            this.ImportarExcel.Size = new System.Drawing.Size(148, 50);
+            this.ImportarExcel.TabIndex = 115;
+            this.ImportarExcel.Text = "Importar";
+            this.ImportarExcel.TextColor = System.Drawing.Color.SeaGreen;
+            this.ImportarExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.ImportarExcel.UseVisualStyleBackColor = false;
+            this.ImportarExcel.Click += new System.EventHandler(this.ImportarExcel_Click);
+            // 
+            // ExportarExcel
+            // 
+            this.ExportarExcel.BackColor = System.Drawing.Color.White;
+            this.ExportarExcel.BackgroundColor = System.Drawing.Color.White;
+            this.ExportarExcel.BorderColor = System.Drawing.Color.SeaGreen;
+            this.ExportarExcel.BorderRadius = 40;
+            this.ExportarExcel.BorderSize = 3;
+            this.ExportarExcel.FlatAppearance.BorderSize = 0;
+            this.ExportarExcel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ExportarExcel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold);
+            this.ExportarExcel.ForeColor = System.Drawing.Color.SeaGreen;
+            this.ExportarExcel.Image = ((System.Drawing.Image)(resources.GetObject("ExportarExcel.Image")));
+            this.ExportarExcel.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.ExportarExcel.Location = new System.Drawing.Point(598, 796);
+            this.ExportarExcel.Name = "ExportarExcel";
+            this.ExportarExcel.Size = new System.Drawing.Size(148, 50);
+            this.ExportarExcel.TabIndex = 114;
+            this.ExportarExcel.Text = "Exportar";
+            this.ExportarExcel.TextColor = System.Drawing.Color.SeaGreen;
+            this.ExportarExcel.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.ExportarExcel.UseVisualStyleBackColor = false;
+            this.ExportarExcel.Click += new System.EventHandler(this.ExportarExcel_Click);
+            // 
             // FrmProveedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -767,5 +817,7 @@
         private Botones.Boton btnNuevo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView dgvProveedores;
+        private Botones.Boton ImportarExcel;
+        private Botones.Boton ExportarExcel;
     }
 }

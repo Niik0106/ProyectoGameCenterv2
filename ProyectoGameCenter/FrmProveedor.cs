@@ -17,6 +17,7 @@ using Newtonsoft.Json;
 using System.Windows.Media;
 using System.IO;
 using System.Net;
+using ClosedXML.Excel;
 
 namespace ProyectoGameCenter
 {
@@ -219,6 +220,109 @@ namespace ProyectoGameCenter
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void ExportarExcel_Click(object sender, EventArgs e)
+        {
+            ExportarDatosAExcel();
+        }
+
+        private void ImportarExcel_Click(object sender, EventArgs e)
+        {
+            ImportarDatosDesdeExcel();
+        }
+
+        private void ExportarDatosAExcel()
+        {
+            // Crear un DataTable y agregar las columnas necesarias
+            DataTable dt = new DataTable();
+            dt.Columns.Add("RUC");
+            dt.Columns.Add("RAZON SOCIAL");
+            dt.Columns.Add("TELEFONO");
+            dt.Columns.Add("CODIGO UBIGEO");
+            dt.Columns.Add("DIRECCION");
+
+            // Llenar el DataTable con los datos del DataGridView
+            foreach (DataGridViewRow row in dgvProveedores.Rows)
+            {
+                if (row.IsNewRow) continue;
+                dt.Rows.Add(
+                    row.Cells["RUC_PROV"].Value,
+                    row.Cells["RAZON_SOCIAL_PROV"].Value,
+                    row.Cells["TEL_PROVEEDOR"].Value,
+                    row.Cells["COD_UBIGEO"].Value,
+                    row.Cells["DIR_PROVEEDOR"].Value
+                );
+            }
+
+            // Crear un nuevo archivo Excel y agregar los datos del DataTable
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(dt, "Proveedores");
+
+                // Guardar el archivo Excel en una ubicación específica
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Excel Files|*.xlsx";
+                saveFileDialog.Title = "Guardar archivo Excel";
+                saveFileDialog.FileName = "Proveedores.xlsx";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    wb.SaveAs(saveFileDialog.FileName);
+                    MessageBox.Show("Datos exportados exitosamente.", "Exportar a Excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void ImportarDatosDesdeExcel()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel Files|*.xlsx";
+            openFileDialog.Title = "Seleccionar archivo Excel";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                using (var workbook = new XLWorkbook(filePath))
+                {
+                    var worksheet = workbook.Worksheet(1);
+                    var rows = worksheet.RowsUsed();
+
+                    using (SqlConnection connection = Conexion.Instancia.Conectar())
+                    {
+                        connection.Open();
+
+                        foreach (var row in rows)
+                        {
+                            string rucProveedor = row.Cell(1).GetValue<string>();
+                            string razonSocial = row.Cell(2).GetValue<string>();
+                            string telefonoProveedor = row.Cell(3).GetValue<string>();
+                            string codUbigeo = row.Cell(4).GetValue<string>();
+                            string direccionProveedor = row.Cell(5).GetValue<string>();
+
+                            // Insertar el producto
+                            string queryProducto = @"
+                                INSERT INTO PROVEEDOR (RUC_PROV, RAZON_SOCIAL_PROV, TEL_PROVEEDOR, COD_UBIGEO, DIR_PROVEEDOR, ESTADO_PROVEEDOR)
+                                VALUES (@RUC_PROV, @RAZON_SOCIAL_PROV, @TEL_PROVEEDOR, @COD_UBIGEO, @DIR_PROVEEDOR, 1)";
+
+                            using (SqlCommand cmdProducto = new SqlCommand(queryProducto, connection))
+                            {
+                                cmdProducto.Parameters.AddWithValue("@RUC_PROV", rucProveedor);
+                                cmdProducto.Parameters.AddWithValue("@RAZON_SOCIAL_PROV", razonSocial);
+                                cmdProducto.Parameters.AddWithValue("@TEL_PROVEEDOR", telefonoProveedor);
+                                cmdProducto.Parameters.AddWithValue("@COD_UBIGEO", codUbigeo);
+                                cmdProducto.Parameters.AddWithValue("@DIR_PROVEEDOR", direccionProveedor);
+
+                                cmdProducto.ExecuteNonQuery();
+                            }
+                        }
+
+                        connection.Close();
+                    }
+
+                    MessageBox.Show("Datos importados exitosamente.", "Importar desde Excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
     }
