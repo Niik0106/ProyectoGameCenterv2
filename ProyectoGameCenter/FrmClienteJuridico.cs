@@ -1,9 +1,12 @@
-﻿using Entidades;
+﻿using AccesoDatos;
+using ClosedXML.Excel;
+using Entidades;
 using LogicaNegocio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -255,6 +258,127 @@ namespace ProyectoGameCenter
         private void label5_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void ExportarExcel_Click(object sender, EventArgs e)
+        {
+            ExportarDatosAExcel();
+        }
+
+        private void ImportarExcel_Click(object sender, EventArgs e)
+        {
+            ImportarDatosDesdeExcel();
+            ListarClienteJuridico();
+        }
+
+        private void ExportarDatosAExcel()
+        {
+            // Crear un DataTable y agregar las columnas necesarias
+            DataTable dt = new DataTable();
+            dt.Columns.Add("RUC");
+            dt.Columns.Add("RAZON SOCIAL");
+            dt.Columns.Add("DIRECCION");
+            dt.Columns.Add("DEPARTAMENTO");
+            dt.Columns.Add("PROVINCIA");
+            dt.Columns.Add("DISTRITO");
+            dt.Columns.Add("TELEFONO");
+
+            // Llenar el DataTable con los datos del DataGridView
+            foreach (DataGridViewRow row in dgvClienteJuridico.Rows)
+            {
+                if (row.IsNewRow) continue;
+                dt.Rows.Add(
+                    row.Cells["RUC_CLIENTE"].Value,
+                    row.Cells["RAZON_SOCIAL"].Value,
+                    row.Cells["DIRECCION"].Value,
+                    row.Cells["DEPARTAMENTO"].Value,
+                    row.Cells["PROVINCIA"].Value,
+                    row.Cells["DISTRITO"].Value,
+                    row.Cells["TEL_CLIENTE"].Value
+                );
+            }
+
+            // Crear un nuevo archivo Excel y agregar los datos del DataTable
+            using (XLWorkbook wb = new XLWorkbook())
+            {
+                wb.Worksheets.Add(dt, "ClientesJuridicos");
+
+                // Guardar el archivo Excel en una ubicación específica
+                SaveFileDialog saveFileDialog = new SaveFileDialog();
+                saveFileDialog.Filter = "Excel Files|*.xlsx";
+                saveFileDialog.Title = "Guardar archivo Excel";
+                saveFileDialog.FileName = "ClientesJuridicos.xlsx";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    wb.SaveAs(saveFileDialog.FileName);
+                    MessageBox.Show("Datos exportados exitosamente.", "Exportar a Excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+        }
+
+        private void ImportarDatosDesdeExcel()
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Excel Files|*.xlsx";
+            openFileDialog.Title = "Seleccionar archivo Excel";
+
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+                using (var workbook = new XLWorkbook(filePath))
+                {
+                    var worksheet = workbook.Worksheet(1);
+                    var rows = worksheet.RowsUsed();
+
+                    using (SqlConnection connection = Conexion.Instancia.Conectar())
+                    {
+                        connection.Open();
+
+                        foreach (var row in rows)
+                        {
+                            string rucCliente = row.Cell(1).GetValue<string>();
+                            string razonSocial = row.Cell(2).GetValue<string>();
+                            string direccion = row.Cell(3).GetValue<string>();
+                            string departamento = row.Cell(4).GetValue<string>();
+                            string provincia = row.Cell(5).GetValue<string>();
+                            string distrito = row.Cell(6).GetValue<string>();
+                            string telefono = row.Cell(7).GetValue<string>();
+
+                            // Insertar el producto
+                            string queryClienteNatural = @"
+                                -- Insertar datos en la tabla CLIENTE
+                                INSERT INTO CLIENTE (ESTADO_CLIENTE, TEL_CLIENTE)
+                                VALUES (1, @TEL_CLIENTE);
+
+                                -- Obtener el último ID_CLIENTE insertado
+                                DECLARE @ID_CLIENTE INT;
+                                SET @ID_CLIENTE = SCOPE_IDENTITY();
+
+                                -- Insertar datos en la tabla CLIENTE_NATURAL
+                                INSERT INTO CLIENTE_JURIDICO (ID_CLIENTE, RUC_CLIENTE, RAZON_SOCIAL, DIRECCION, DEPARTAMENTO,PROVINCIA,DISTRITO)
+                                VALUES (@ID_CLIENTE, @RUC, @RAZON_SOCIAL,@DIRECCION,@DEPARTAMENTO,@PROVINCIA,@DISTRITO);";
+
+                            using (SqlCommand cmdProducto = new SqlCommand(queryClienteNatural, connection))
+                            {
+                                cmdProducto.Parameters.AddWithValue("@RUC", rucCliente);
+                                cmdProducto.Parameters.AddWithValue("@RAZON_SOCIAL", razonSocial);
+                                cmdProducto.Parameters.AddWithValue("@DIRECCION", direccion);
+                                cmdProducto.Parameters.AddWithValue("@DEPARTAMENTO", departamento);
+                                cmdProducto.Parameters.AddWithValue("@PROVINCIA", provincia);
+                                cmdProducto.Parameters.AddWithValue("@DISTRITO", distrito);
+                                cmdProducto.Parameters.AddWithValue("@TEL_CLIENTE", telefono);
+
+                                cmdProducto.ExecuteNonQuery();
+                            }
+                        }
+
+                        connection.Close();
+                    }
+
+                    MessageBox.Show("Datos importados exitosamente.", "Importar desde Excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
         }
     }
     }

@@ -303,11 +303,11 @@ namespace ProyectoGameCenter
                             string direccionProveedor = row.Cell(5).GetValue<string>();
 
                             // Insertar el producto
-                            string queryProducto = @"
+                            string queryProveedor = @"
                                 INSERT INTO PROVEEDOR (RUC_PROV, RAZON_SOCIAL_PROV, TEL_PROVEEDOR, COD_UBIGEO, DIR_PROVEEDOR, ESTADO_PROVEEDOR)
                                 VALUES (@RUC_PROV, @RAZON_SOCIAL_PROV, @TEL_PROVEEDOR, @COD_UBIGEO, @DIR_PROVEEDOR, 1)";
 
-                            using (SqlCommand cmdProducto = new SqlCommand(queryProducto, connection))
+                            using (SqlCommand cmdProducto = new SqlCommand(queryProveedor, connection))
                             {
                                 cmdProducto.Parameters.AddWithValue("@RUC_PROV", rucProveedor);
                                 cmdProducto.Parameters.AddWithValue("@RAZON_SOCIAL_PROV", razonSocial);
